@@ -1041,7 +1041,6 @@
   border-radius: 100px;
   border: 1px solid;
   border-color: #000000;
-  background-image: url(./img/frame-8-1.png);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1483,6 +1482,7 @@
 
 .product-buying .text-wrapper-22 {
   position: relative;
+  left: 0px;
   align-self: stretch;
   margin-top: -1px;
   font-family: var(--body-small-400-font-family);
@@ -1599,21 +1599,19 @@
 
 .product-buying .button-7 {
   display: flex;
-  width: 316px;
-  height: 37px;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 0px 32px;
-  position: absolute;
-  top: 288px;
-  left: 37px;
-  background-color: #429bd5;
-  border-radius: 3px;
-  border: 2px solid;
-  border-color: #144e74;
-  all: unset;
-  box-sizing: border-box;
+width: 316.134px;
+height: 37.419px;
+padding: 0px 32px;
+justify-content: center;
+align-items: center;
+gap: 12px;
+flex-shrink: 0;
+border-radius: 3px;
+border: 2px solid #144E74;
+background: #429BD6;
+position: absolute;
+top : 300px;
+left : 40px;
 }
 
 .product-buying .label-5 {
@@ -1774,8 +1772,8 @@
   gap: 12px;
   padding: 0px 32px;
   position: absolute;
-  top: 637px;
-  left: 580px;
+  top :0px;
+  left : 0px;
   background-color: #044876;
   border-radius: 3px;
   border: 2px solid;
@@ -1833,15 +1831,15 @@
 
 .product-buying .button-11 {
   display: flex;
-  width: 204px;
-  height: 49px;
+  width: 180px;
+  height: 40px;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding: 0px 32px;
   position: absolute;
-  top: 36px;
-  left: 53px;
+  top: 25px;
+  left: 65px;
   border-radius: 3px;
   border: 2px solid;
   border-color: #144e74;
@@ -2050,6 +2048,128 @@ position: absolute;
 .product-buying .MuaNgayTx{
   color: #1B6392;
 
+font-family: Public Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; 
+letter-spacing: 0.192px;
+text-transform: uppercase;
+}
+
+.product-buying .FillIn{
+  display: flex;
+  position: fixed;
+  left : 180px;
+  width: 1100px;
+  height: 700px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--gray-100, #E4E7E9);
+  background: var(--gray-00, #FFF);
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
+}
+
+.product-buying .textMuaHang{
+  width: 360px;
+  color: var(--gray-900, #191C1F);
+  text-align: center;
+  font-family: Public Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.product-buying .ImgMuaHang{
+  width: 98.591px;
+  height: 97.155px;
+  flex-shrink: 0;
+  border: 1px solid #000;
+  position: absolute;
+  left : 116px;
+  top : 81px;
+}
+
+.product-buying .PanelTenSL{
+  width: 308.633px;
+height: 97.155px;
+flex-shrink: 0;
+position: absolute;
+  left : 250px;
+  top : 81px;
+}
+
+.product-buying .TenMua{
+  color: #044876;
+font-family: Public Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px;
+left : 0px; 
+position: absolute;
+}
+
+.product-buying .soluongMua{
+  color: #191C1F;
+  font-family: Public Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  left :0;
+  top : 30px;
+  position: absolute;
+}
+
+.product-buying .FillInfoTxtBox{
+  display: flex;
+  height: 30px;
+  width: 422px;
+  padding: 12px 20px 12px 5px;
+  border: 2px solid var(--gray-100, #E4E7E9);
+  border-radius: 4px;
+  position: absolute;
+}
+.product-buying .SelectBox{
+  display: flex;
+  width: 422px;
+  height: 30px;
+  padding: 5px 20px 12px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  position: absolute;
+}
+.product-buying .FillInfoTitle{
+  align-self: stretch;
+  color: var(--gray-900, #191C1F);
+  font-family: Public Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: absolute; 
+}
+
+.product-buying .ControlBt{
+  display: flex;
+  position: absolute;
+  width: 162.89px;
+  height: 59.138px;
+  padding: 0px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: #FFF;
+  border: 2px solid #144E74;
+  border-radius: 3px;
 font-family: Public Sans;
 font-size: 16px;
 font-style: normal;
