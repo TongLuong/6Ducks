@@ -2058,7 +2058,6 @@ text-transform: uppercase;
 }
 
 .product-buying .FillIn{
-  display: flex;
   position: fixed;
   left : 180px;
   width: 1100px;
@@ -2177,4 +2176,23 @@ font-weight: 700;
 line-height: 56px; 
 letter-spacing: 0.192px;
 text-transform: uppercase;
+}
+
+
+
+
+.product-buying .SuccessNoti{
+  position: fixed;
+  left : 500px;
+  width: 430px;
+  height: 200px;
+  padding: 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--gray-100, #096fb3);
+  background: var(--gray-00, #0850d6);
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
 }

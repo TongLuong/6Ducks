@@ -207,7 +207,7 @@
             </div>
             <div
               class = "MuaNgayBt">
-              <div class = "MuaNgayTx">MUA NGAY</div>
+              <div class = "MuaNgayTx" onclick="Buy()">MUA NGAY</div>
             </div>
             
             <div class="rating-3">
@@ -228,7 +228,7 @@
             <div class="frame-14"></div>
           </div>
         </div>
-        <div class = "FillIn" id = "fill" style ="display: flex;">
+        <div class = "FillIn" id = "fill" style ="display: none;">
           <div class="group-6">
             <div class="overlap-11">
               
@@ -321,14 +321,14 @@
             background: #000;
             position:absolute; top : 50px; left : 550px;"></div>
             <form id="check">
-              <input type="checkbox"
+              <input type="checkbox" onclick="checkCOD()" checked = true
                id="COD"
                name="COD" 
                value="COD"
                style="position: absolute;top : 50px; left : 100px">
                <label for="COD"style="position: absolute;top : 50px; left : 120px">Thanh toán khi nhận hàng</label>
 
-               <input type="checkbox"
+               <input type="checkbox" onclick="checkBank()"
                id="Bank"
                name="Bank" 
                value="Bank"
@@ -352,12 +352,19 @@
           <div id="control">
             <button onclick="cancel()" class = "ControlBt" style="top: 620px;left:10px;
             background: #F55B5B;">HỦY</button>
-            <button class = "ControlBt" style="top: 620px;left:350px;
+            <button onclick ="back()" class= "ControlBt" style="top: 620px;left:350px;
             background: #044876;">QUAY LẠI</button>
-            <button class = "ControlBt" style="top: 620px;left:570px;
+            <button onclick ="next()"class = "ControlBt" style="top: 620px;left:570px;
             background: #044876;">TIẾP TỤC</button>
           </div>
-        </div>
+          <div id = "noti" style="display: none;">
+            <div class="SuccessNoti">
+              <p class = "textMuaHang">ĐẶT HÀNG THÀNH CÔNG</p>
+              <button onclick="cancel()" class = "ControlBt" style="top: 100px;left:125px;
+            background: #044876;">XONG</button>
+            </div>
+          </div>
+        
       </div>
     </div>
     
@@ -365,7 +372,48 @@
 </html>
 <script>
   function cancel() {
-    document.getElementById("fill").style.display = none;
+    document.getElementById("fill").style.display = "none";
+  }
+  function next(){
+    if(document.getElementById("start").style.display == "flex"){
+      document.getElementById("start").style.display = "none";
+      document.getElementById("choose_Payment").style.display = "flex";
+    }
+    else document.getElementById("noti").style.display = "flex";;
+  }
+  function back(){
+    if(document.getElementById("choose_Payment").style.display == "flex"){
+      document.getElementById("start").style.display = "flex";
+      document.getElementById("choose_Payment").style.display = "none";
+    }
+    else;
+  }
+
+  function Buy(){
+    if(document.getElementById("fill").style.display == "none")
+    document.getElementById("fill").style.display = "flex";
+    document.getElementById("start").style.display = "flex";
+    document.getElementById("choose_Payment").style.display = "none";
+    document.getElementById("noti").style.display = "none";
+  }
+
+  function checkCOD(){
+    if(document.getElementById("COD").checked == true){
+
+      document.getElementById("Bank").checked = false;
+    }else{
+      document.getElementById("Bank").checked = true;
+
+    }
+  }
+  function checkBank(){
+    if(document.getElementById("Bank").checked == true){
+
+      document.getElementById("COD").checked = false;
+    }else{
+      document.getElementById("COD").checked = true;
+
+    }
   }
 </script>
 
