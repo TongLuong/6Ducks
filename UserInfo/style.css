@@ -22,56 +22,56 @@
 }
 
 .user-information .image {
-  position: absolute;
   width: 52px;
   height: 22px;
   top: 11px;
   left: 13px;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .img {
-  position: absolute;
   width: 52px;
   height: 22px;
   top: 11px;
   left: 92px;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .image-2 {
-  position: absolute;
   width: 68px;
   height: 16px;
   top: 14px;
   left: 189px;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .image-3 {
-  position: absolute;
   width: 68px;
   height: 16px;
   top: 14px;
   left: 307px;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .image-4 {
-  position: absolute;
   width: 68px;
   height: 16px;
   top: 14px;
   left: 409px;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .image-5 {
-  position: absolute;
   width: 68px;
   height: 16px;
   top: 14px;
   left: 511px;
+  position: absolute;
   object-fit: cover;
 }
 
@@ -210,11 +210,11 @@
 }
 
 .user-information .image-6 {
-  position: absolute;
   width: 93px;
   height: 85px;
   top: 0;
   left: 0;
+  position: absolute;
   object-fit: cover;
 }
 
@@ -794,8 +794,8 @@
   padding: 0px 0px 0px 24px;
   position: relative;
   flex: 0 0 auto;
-  all: unset;
   box-sizing: border-box;
+  
 }
 
 .user-information .label-wrapper {
@@ -809,8 +809,8 @@
   border-radius: 2px;
   border: 2px solid;
   border-color: var(--secondary-100);
-  all: unset;
   box-sizing: border-box;
+  margin: 0px 50px;
 }
 
 .user-information .label {
@@ -846,9 +846,9 @@
 
 .user-information .mid-nav {
   position: absolute;
-  width: 1280px;
+  width: 100%;
   height: 50px;
-  top: 126px;
+  top: 48px;
   left: 0;
   background-color: #1b6392;
 }
@@ -880,13 +880,15 @@
   letter-spacing: var(--body-small-400-letter-spacing);
   line-height: var(--body-small-400-line-height);
   font-style: var(--body-small-400-font-style);
+  border: none;
+  outline: none;
 }
 
 .user-information .magnifying-glass {
   position: relative;
   width: 20px;
   height: 20px;
-  margin-bottom: -11px;
+  margin-bottom: -4px;
   margin-right: -4px;
 }
 
@@ -897,13 +899,6 @@
   position: absolute;
   top: 10px;
   left: 973px;
-}
-
-.user-information .image-8 {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
 }
 
 .user-information .notification {
@@ -920,7 +915,7 @@
   left: 126px;
 }
 
-.user-information .image-9 {
+.user-information .image-8 {
   position: absolute;
   width: 38px;
   height: 35px;
@@ -959,9 +954,9 @@
 
 .user-information .top-nav {
   position: absolute;
-  width: 1280px;
+  width: 100%;
   height: 47px;
-  top: 78px;
+
   left: 0;
   background-color: #1b6392;
 }
@@ -1010,19 +1005,19 @@
   font-style: var(--body-small-400-font-style);
 }
 
-.user-information .image-10 {
-  position: absolute;
+.user-information .image-9 {
   width: 1280px;
   height: 78px;
   top: 0;
   left: 0;
+  position: absolute;
   object-fit: cover;
 }
 
 .user-information .text-wrapper-12 {
+  top: 58px;
+  left: 992px;
   position: absolute;
-  top: 141px;
-  left: 1041px;
   font-family: var(--body-small-600-font-family);
   font-weight: var(--body-small-600-font-weight);
   color: var(--secondary-500);
@@ -1031,4 +1026,28 @@
   line-height: var(--body-small-600-line-height);
   white-space: nowrap;
   font-style: var(--body-small-600-font-style);
+  background-color: #1b6392;
+  text-align: center;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+}
+
+.user-information .text-wrapper-13 {
+  top: 58px;
+  left: 1048px;
+  position: absolute;
+  font-family: var(--body-small-600-font-family);
+  font-weight: var(--body-small-600-font-weight);
+  color: var(--secondary-500);
+  font-size: var(--body-small-600-font-size);
+  letter-spacing: var(--body-small-600-letter-spacing);
+  line-height: var(--body-small-600-line-height);
+  white-space: nowrap;
+  font-style: var(--body-small-600-font-style);
+  background-color: #1b6392;
+  text-align: center;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
 }
