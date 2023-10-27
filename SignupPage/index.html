@@ -47,7 +47,9 @@
             <div class="log-in"><div class="sign-in-to-your">Đăng kí</div></div>
           </div>
           <div class="check-box">
-            <div class="from-elements"><img class="duotone-check" src="img/duotone-check.svg" /></div>
+            <div>
+              <input class = "from-elements" type = "checkbox">
+            </div>
             <p class="b-n-ng-v-i-i-u-kho-n">
               <span class="span">Bạn đồng ý với </span>
               <span class="text-wrapper-5">Điều khoản dịch vụ</span>
@@ -58,44 +60,54 @@
           <div class="from">
             <div class="order-ID">
               <div class="text-wrapper-7">Tên đăng nhập</div>
-              <div class="input-field"></div>
+              <div class="input-field"><input class = "input-field" type="text"></div>
             </div>
             <div class="order-ID">
               <div class="text-wrapper-7">Gmail/SĐT</div>
-              <div class="input-field"></div>
+              <div class="input-field"><input class = "input-field" type="text"></div>
             </div>
             <div class="order-ID">
               <div class="text-wrapper-7">Mật khẩu</div>
               <div class="input-field">
                 <div class="password">8 kí tự</div>
+                <input class = "input-field" type="text" placeholder="8 kí tự">
                 <img class="regular-eye" src="img/regular-eye-4.svg" />
               </div>
             </div>
             <div class="order-ID">
               <div class="text-wrapper-7">Nhập lại mật khẩu</div>
-              <div class="input-field"><img class="regular-eye" src="img/regular-eye-4.svg" /></div>
+              <div class="input-field"><input class = "input-field" type="text">
+                <img class="regular-eye" src="img/regular-eye-4.svg" />
+              </div>
             </div>
           </div>
           <div class="from-2">
             <div class="order-ID">
               <div class="text-wrapper-7">Loại tài khoản</div>
-              <div class="group"><img class="regular-caretdown" src="img/regular-caretdown.svg" /></div>
+              <div class="group"><input class = "input-field" type="text">
+                <img class="regular-caretdown" src="img/regular-caretdown.svg" />
+              </div>
             </div>
             <div class="order-ID">
               <div class="text-wrapper-7">Địa chỉ</div>
-              <div class="input-field"></div>
+              <div class="input-field"><input class = "input-field" type="text">
+              </div>
             </div>
             <div class="order-ID-2">
               <div class="text-wrapper-7">Code xác minh</div>
-              <div class="input-field"></div>
+              <div class="input-field"><input class = "input-field" type="text">
+              </div>
             </div>
           </div>
-          <button class="button"><div class="label">ĐĂNG KÍ</div></button>
+          <button class="button" type = "button" 
+            onclick="PopupForm()">
+            <div class="label">ĐĂNG KÍ</div>
+          </button>
         </div>
         <div class="navigation">
           <div class="mid-nav">
             <div class="searchbar">
-              <div class="text-wrapper-8">Tìm truyện</div>
+              <input class = "text-wrapper-10" type = "text" placeholder="Tìm truyện">
               <img class="magnifying-glass" src="img/magnifyingglass.svg" />
             </div>
             <div class="icons">
@@ -120,7 +132,32 @@
           </div>
           <img class="image-8" src="img/image-2.png" />
         </div>
+        <div class="popup" id = "notification">
+          <div class="overlap-group">
+            <div class="login">
+              <img class="line" src="img/line-29-2.svg" />
+              <div class="tab">
+                <div class="sign-in-wrapper"><div class="sign-in">Đăng kí thành công!</div></div>
+              </div>
+            </div>
+            <div class="text-wrapper">
+              <div>
+                Bạn đã đăng kí thành công tài khoản của <br> SixDucks!
+                Giờ bạn có thể đăng nhập và bắt <br> 
+                đầu giao dịch đầu tiên của mình!
+              </div>
+            </div>
+            <button class="button"><div class="label">ĐI ĐẾN ĐĂNG NHẬP</div></button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+  function PopupForm()
+  {
+    document.getElementById("notification").style.display = "block";
+  }
+</script>
