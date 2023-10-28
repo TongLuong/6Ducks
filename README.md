@@ -1,1 +1,2 @@
 # 6Ducks
+Chat section
