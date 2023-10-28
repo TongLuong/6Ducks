@@ -398,7 +398,6 @@
   flex: 0 0 auto;
   background-color: var(--primary-500);
   border-radius: 2px;
-  all: unset;
   box-sizing: border-box;
 }
 
@@ -446,7 +445,7 @@
   position: absolute;
   width: 360px;
   height: 1px;
-  top: 10px;
+  top: 8px;
   left: 0;
   object-fit: cover;
 }
@@ -462,6 +461,8 @@
   top: 0;
   left: 108px;
   background-color: var(--gray-00);
+  font-weight: 400;
+  font-family: "Public Sans-Regular", Helvetica;
 }
 
 .loginpage-without .p {
@@ -493,7 +494,6 @@
   border-radius: 2px;
   border: 2px solid;
   border-color: var(--primary-100);
-  all: unset;
   box-sizing: border-box;
 }
 
@@ -547,8 +547,9 @@
 .loginpage-without .text-wrapper-5 {
   position: relative;
   width: 321px;
-  margin-top: -1px;
-  margin-bottom: -10px;
+  height: 20px;
+  border: 0px;
+  margin: -0.5px 0px;
   font-family: var(--body-small-400-font-family);
   font-weight: var(--body-small-400-font-weight);
   color: var(--gray-500);
@@ -562,8 +563,7 @@
   position: relative;
   width: 20px;
   height: 20px;
-  margin-bottom: -11px;
-  margin-right: -4px;
+  margin: 0px 0px;
 }
 
 .loginpage-without .icons {

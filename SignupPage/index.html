@@ -147,7 +147,9 @@
                 đầu giao dịch đầu tiên của mình!
               </div>
             </div>
-            <button class="button"><div class="label">ĐI ĐẾN ĐĂNG NHẬP</div></button>
+            <button class="button" id = "tologin">
+              <div class="label">ĐI ĐẾN ĐĂNG NHẬP</div>
+            </button>
           </div>
         </div>
       </div>
@@ -160,4 +162,12 @@
   {
     document.getElementById("notification").style.display = "block";
   }
+</script>
+
+<script>
+      document.getElementById("tologin").onclick =
+      function ()
+      {
+        location.href = "../LoginPage/index.html";
+      }
 </script>
