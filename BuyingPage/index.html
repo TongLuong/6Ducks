@@ -167,7 +167,7 @@
               <div class="label">XEM TRANG</div>
               <img class="regular-arrowright" src="img/regular-arrowright-47.svg" />
             </button>
-            <div class="button-3">
+            <div class="button-3" id = "btContact">
               <p class="label">LIÊN HỆ VỚI NGƯỜI BÁN</p>
               <img class="regular-arrowright" src="img/regular-arrowright-47.svg" />
             </div>
@@ -437,6 +437,11 @@
     sl = parseInt(sl);
     if(sl > 1) sl--;
     document.getElementById("sl").innerHTML = sl.toString();
+  }
+
+  document.getElementById("btContact").onclick = 
+  function(){
+    location.href = "../Chat/index.html";
   }
 </script>
 
