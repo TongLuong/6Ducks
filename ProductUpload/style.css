@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css?family=Public+Sans:400");
+
+body {
+    background-color:#fff;
+    font-family: 'Public Sans'; 
+}
+
+.mainpage-uploadcomic {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 1280px;
+  background-color: #ffffff;
+}
+
+.mainpage-uploadcomic .wrapper {
+    width: 976px;
+    box-shadow: 7px 7px 12px rgba(0,0,0,0.1);
+    margin: 50px 0;
+}
+
+.mainpage-uploadcomic .wrapper header {
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.mainpage-uploadcomic .wrapper .product {
+    margin: 15.25px 12px;
+    width: 220px;
+    height: 284px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-1 {
+    grid-area: product-1;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-2 {
+    grid-area: product-2;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-3 {
+    grid-area: product-3;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-4 {
+    grid-area: product-4;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-5 {
+    grid-area: product-5;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-6 {
+    grid-area: product-6;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-7 {
+    grid-area: product-7;
+}
+
+.mainpage-uploadcomic .wrapper .product.product-8 {
+    grid-area: product-8;
+}
+
+.mainpage-uploadcomic .wrapper .product-list {
+    display: grid;
+    height: 629px;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 244px 244px 244px 244px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "product-1 product-2 product-3 product-4"
+        "product-5 product-6 product-7 product-8";
+}
+
+.mainpage-uploadcomic .wrapper .product-list .product img {
+    display: block;
+    height: 176px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.mainpage-uploadcomic .wrapper .product .product-name,
+.mainpage-uploadcomic .wrapper .product .product-price,
+.mainpage-uploadcomic .wrapper .product .product-rating {
+    text-align: left;
+    width: 95%;
+    margin: 7px 10px;
+}
+
+.mainpage-uploadcomic .wrapper .product .product-name {
+    font-size: 11px;
+}
+
+.mainpage-uploadcomic .wrapper .product .product-price {
+    font-size: 14px;
+    font-weight: 800;
+    color: #2DA5F3;
+}
+
+.mainpage-uploadcomic .wrapper .product .product-rating ion-icon {
+    color: #EBC80C  ;
+}
+
+.mainpage-uploadcomic .wrapper .product .product-rating {
+    font-size: 7px;
+}
+
+.mainpage-uploadcomic .wrapper .product:hover,
+.mainpage-uploadcomic .wrapper .voucher:hover {
+    transition: all 0.5 ease;
+    transform: scale(1.02);
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+.product .badge {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: yellow;
+  top: 0;
+  left: 0;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.vouchers img {
+  width: 80px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.voucher {
+  border: solid 1px black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.vouchers header {
+    text-align: left;
+    margin: 0;
+}
+
+.vouchers .today-voucher {
+  grid-area: voucher-1;
+}
+
+.vouchers .free-ship {
+  grid-area: voucher-2;
+}
+
+.vouchers .combo-voucher {
+  grid-area: voucher-3;
+}
+
+.mainpage-uploadcomic .vouchers {
+  display: grid;
+  max-height: 420px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 312px 321px 321px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      "voucher-1 voucher-2 voucher-3";
+}
+
+.mainpage-uploadcomic .voucher {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 110px;
+  cursor: pointer;
+}
+
+.voucher .voucher-name {
+  font-size: 13px;
+}
+
+.voucher .voucher-content {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.voucher .voucher-content span {
+  margin: 5px;
+}
+
+.voucher .voucher-content .voucher-value {
+  color: #2DA5F3;
+  font-weight: 500;
+}
+
+.mainpage-uploadcomic .nav {
+  width: 100%;
+}
+
+.mainpage-uploadcomic .top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #1B6392;
+  color: white;
+}
+
+.mainpage-uploadcomic .top-nav .top-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainpage-uploadcomic .top-nav .top-nav-button a {
+  margin: 0 10px;
+  color: white;
+}
+
+.mainpage-uploadcomic .top-nav .top-nav-button a button{
+  background-color: white;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.mainpage-uploadcomic .top-nav .top-nav-button a button:hover{
+  transition: all 0.3 ease;
+  transform: scale(1.15);
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+}
+
+.mainpage-uploadcomic .bot-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  background-color: #1B6392;
+}
+
+.mainpage-uploadcomic .bot-nav img {
+  height: 55px;
+  width: auto;
+}
+
+.mainpage-uploadcomic .bot-nav .logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainpage-uploadcomic .bot-nav .bot-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainpage-uploadcomic .bot-nav .bot-nav-button div {
+  margin: 0 15px;
+  font-size: 30px;
+}
+
+.mainpage-uploadcomic .toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.mainpage-uploadcomic .toolbar div {
+  margin: 0 15px;
+}
+
+.mainpage-uploadcomic .toolbar button {
+  background-color: white;
+  border-radius: 7px;
+  height: 30px;
+}
+
+.mainpage-uploadcomic .toolbar button:hover {
+  transition: all 0.3 ease;
+  transform: scale(1.15);
+  border: 2px solid black;
+  background-color: #1B6392;
+  color: white;
+}
+
+.mainpage-uploadcomic .footer {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #1B6392;
+  padding: 50px;
+}
+
+.mainpage-uploadcomic .footer div {
+  max-width: 200px;
+}
+
+.mainpage-uploadcomic .footer header {
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.mainpage-uploadcomic .footer .info,
+.mainpage-uploadcomic .footer .category,
+.mainpage-uploadcomic .footer .type,
+.mainpage-uploadcomic .footer .contact {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+}
+
+.mainpage-uploadcomic .footer .logo {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainpage-uploadcomic .footer .logo img {
+  height: 50px;
+  width: auto;
+}
+
+.upload {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
+  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+}
+
+.upload.active {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
+  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+}
+
+.upload header{
+  color: #6990F2;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+.upload form{
+  display: flex;
+  cursor: pointer;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.upload form .col{
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.upload form .row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  width: 100%;
+}
+
+form ion-icon {
+  color: #6990F2;
+  font-size: 35px;
+}
+
+.upload .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.upload .button button {
+  height: 40px;
+  width: 100px;
+}
