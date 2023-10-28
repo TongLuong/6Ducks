@@ -584,8 +584,10 @@
 
 .product-buying .text-wrapper-12 {
   position: relative;
+  border : none;
+  outline : none;
   width: 321px;
-  margin-top: -1px;
+  margin-top: -3px;
   margin-bottom: -10px;
   font-family: var(--body-small-400-font-family);
   font-weight: var(--body-small-400-font-weight);
@@ -1151,6 +1153,7 @@
   border-radius: 2px;
   border: 1px solid;
   border-color: var(--gray-100);
+  padding: 12px 20px 12px 5px;
 }
 
 .product-buying .password {

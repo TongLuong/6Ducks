@@ -83,7 +83,7 @@
             <div class="overlap-2">
               <div class="mid-nav">
                 <div class="searchbar">
-                  <div class="text-wrapper-12">Tìm truyện</div>
+                  <input type ="text" class="text-wrapper-12" placeholder="Tìm truyện">
                   <img class="magnifying-glass" src="img/magnifyingglass.svg" />
                 </div>
                 <div class="icons">
@@ -181,25 +181,28 @@
             <div class="log-in"><div class="sign-in-to-your-2">Thông tin sản phẩm</div></div>
           </div>
           <div class="product-info">
-            <p class="p">Điều kì diệu của tiệm tạp hóa Namiya</p>
+            <p class="p" id ="name">Điều kì diệu của tiệm tạp hóa Namiya</p>
             <p class="t-c-gi-higashino">
               Tác giả: Higashino Keigo<br />NXB Hội Nhà Văn<br />Thể loại: Văn học huyền bí/giả tưởng<br />Danh mục:
               Tiểu thuyết
             </p>
             <div class="overlap-5">
               <div class="text-wrapper-17">Giao hàng tới:</div>
-              <div class="input-field"><p class="password">Trường Đại học Bách Khoa</p></div>
+              <input class="input-field" type = "text" id="add">
             </div>
             <div class="overlap-6">
               <p class="text-wrapper-18">Số lượng:</p>
-              <img class="minus" src="img/duotone-minus.svg">
-              <p class="soluong">1</p>
-              <img class="plus" src="img/duotone-plus.svg">
+              <img onclick="minus()" class="minus" id = "minus"src="img/duotone-minus.svg">
+              <p class="soluong" id = "sl">1</p>
+              <img onclick="plus()" class="plus" id = "plus" src="img/duotone-plus.svg">
             </div>
             <div class="text-wrapper-20">129.000đ</div>
             <div class="overlap-group-3">
               <div class="text-wrapper-18">Phương thức vận chuyển:</div>
-              <div class="input-field-2"><div class="password">Hỏa tốc</div></div>
+              <select class="input-field-2" id = "ship">
+                  <option value="fast">Nhanh </option>
+                  <option value="normal">Tiêu chuẩn</option>
+              </select>
             </div>
             <div>
             <button class="Themvaogio">
@@ -243,18 +246,18 @@
             <div class = "textMuaHang"> Mua hàng
               <img class = "ImgMuaHang" src = "img/frame-6.png">
               <div class = "PanelTenSL">
-                <p class = "TenMua"> Điều kì diệu của tiệm tạp hóa Namiya</p>
-                <p class = "soluongMua"> Số lượng : 1</p>
+                <p class = "TenMua" id = "nameBuy"> Điều kì diệu của tiệm tạp hóa Namiya</p>
+                <p class = "soluongMua" id = "slBuy"> Số lượng : 1</p>
               </div>
               <form> 
                 <p class = "FillInfoTitle" style = "left: 116px; top : 205px;">Tên người nhận</p>
                 <input class = "FillInfoTxtBox" style = "left: 116px; top : 230px;box-sizing: border-box;" type="text" id = "name" name = "name">
                 <p class = "FillInfoTitle" style = "left: 116px; top : 270px;">SĐT liên lạc</p>
                 <input class = "FillInfoTxtBox" style = "left: 116px; top : 295px;box-sizing: border-box;;" type="text" id = "name" name = "name">
-                <p class = "FillInfoTitle" style = "left: 116px; top : 335px;">Tên người nhận</p>
-                <input class = "FillInfoTxtBox" style = "left: 116px; top : 360px;box-sizing: border-box;" type="text" id = "name" name = "name">
+                <p class = "FillInfoTitle" style = "left: 116px; top : 335px;">Địa chỉ</p>
+                <input class = "FillInfoTxtBox" style = "left: 116px; top : 360px;box-sizing: border-box;" type="text" id = "addBuy" name = "name">
                 <p class = "FillInfoTitle" style = "left: 116px; top : 400px;">Phương thức giao hàng</p>
-                <select class = "SelectBox" style = "left: 116px; top : 425px;" id = "name" name = "name">
+                <select class = "SelectBox" style = "left: 116px; top : 425px;" id = "shipBuy" name = "name">
                   <option value="fast">Nhanh </option>
                   <option value="normal">Tiêu chuẩn</option>
                 </select>
@@ -392,11 +395,16 @@
   }
 
   function Buy(){
-    if(document.getElementById("fill").style.display == "none")
-    document.getElementById("fill").style.display = "flex";
-    document.getElementById("start").style.display = "flex";
-    document.getElementById("choose_Payment").style.display = "none";
-    document.getElementById("noti").style.display = "none";
+    if(document.getElementById("fill").style.display == "none"){
+      document.getElementById("fill").style.display = "flex";
+      document.getElementById("start").style.display = "flex";
+      document.getElementById("choose_Payment").style.display = "none";
+      document.getElementById("noti").style.display = "none";
+      document.getElementById("nameBuy").innerHTML = document.getElementById("name").innerHTML;
+      document.getElementById("slBuy").innerHTML = "Số lượng : " + document.getElementById("sl").innerHTML;
+      document.getElementById("addBuy").value = document.getElementById("add").value;
+      document.getElementById("shipBuy").selectedIndex = document.getElementById("ship").selectedIndex;
+    }
   }
 
   function checkCOD(){
@@ -416,6 +424,19 @@
       document.getElementById("COD").checked = true;
 
     }
+  }
+
+  function plus(){
+    var sl =  document.getElementById("sl").innerHTML;
+    sl = parseInt(sl);
+    sl++;
+    document.getElementById("sl").innerHTML = sl.toString();
+  }
+  function minus(){
+    var sl =  document.getElementById("sl").innerHTML;
+    sl = parseInt(sl);
+    if(sl > 1) sl--;
+    document.getElementById("sl").innerHTML = sl.toString();
   }
 </script>
 
