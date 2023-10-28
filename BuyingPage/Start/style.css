@@ -77,10 +77,10 @@
 
 .product-buying .end {
   position: absolute;
-  width: 1280px;
+  width: 1464px;
   height: 385px;
   top: 1511px;
-  left: 0;
+  left: -95px;
   background-color: #1b6392;
 }
 
@@ -89,7 +89,7 @@
   width: 112px;
   height: 268px;
   top: 80px;
-  left: 484px;
+  left: 560px;
   overflow: hidden;
 }
 
@@ -125,7 +125,7 @@
   width: 131px;
   height: 172px;
   top: 77px;
-  left: 697px;
+  left: 850px;
   overflow: hidden;
 }
 
@@ -161,7 +161,7 @@
   width: 191px;
   height: 95px;
   top: 80px;
-  left: 934px;
+  left: 1150px;
   overflow: hidden;
 }
 
