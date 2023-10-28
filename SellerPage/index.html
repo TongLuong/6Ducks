@@ -82,56 +82,63 @@
     <div class="wrapper upload">
       <header>Đăng bán sản phẩm</header>
       <form action="#">
-          <div class="col">
-              <div class="row">
-                  <label for="file">Thêm ảnh</label>
-                  <ion-icon name="cloud-upload-outline"></ion-icon>
-                  <input class="file-input" type="file" name="file" id="file" hidden>
-              </div>
-              <div class="row">
-                  <label for="name">Tên sách</label>
-                  <input type="text" name="name" id="name">
-              </div>
-              <div class="row">
-              <label for="category">Thể loại</label>
-              <select name="category" id="category">
-                  <option value="detective">Trinh thám</option>
-                  <option value="horror">Kinh dị</option>   
-                  <option value="romance">Lãng mạn</option>   
-                  <option value="comedy">Hài hước</option>   
-                  <option value="children">Thiếu nhi</option>   
-                  <option value="education">Giáo dục</option>   
-                  <option value="economic">Kinh tế</option>   
-                  <option value="science">Khoa học</option>   
-              </select>
-              </div>
-              <div class="row">
-                  <label for="type">Danh mục</label>
-                  <select name="type" id="type">
-                      <option value="type1">Truyện chữ</option>
-                      <option value="type2">Truyện tranh</option>   
-                      <option value="type3">Sách ảnh</option>   
-                      <option value="type4">Sách chữ nói</option>   
-                      <option value="type5">Sách cữ</option>   
-                  </select>
-              </div>
-          </div>
-          <div class="col">
-              <div class="row">
-                  <label for="quantity">Số lượng</label>
-                  <input type="text" name="quantity" id="quantity">
-              </div>
-              <div class="row">
-                  <label for="price">Giá tiền</label>
-                  <input type="text" name="price" id="price">
-              </div>
-          </div>
+        <div class="col">
+            <div class="row">
+                <p>Thêm ảnh</p>
+                <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
+                <input class="file-input" type="file" name="file" id="file" hidden required>
+            </div>
+            <div class="row">
+                <label for="name">Tên sách</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="row">
+            <label for="category">Thể loại</label>
+            <select name="category" id="category">
+                <option value="detective">Trinh thám</option>
+                <option value="horror">Kinh dị</option>   
+                <option value="romance">Lãng mạn</option>   
+                <option value="comedy">Hài hước</option>   
+                <option value="children">Thiếu nhi</option>   
+                <option value="education">Giáo dục</option>   
+                <option value="economic">Kinh tế</option>   
+                <option value="science">Khoa học</option>   
+            </select>
+            </div>
+            <div class="row">
+                <label for="type">Danh mục</label>
+                <select name="type" id="type">
+                    <option value="type1">Truyện chữ</option>
+                    <option value="type2">Truyện tranh</option>   
+                    <option value="type3">Sách ảnh</option>   
+                    <option value="type4">Sách chữ nói</option>   
+                    <option value="type5">Sách cữ</option>   
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <label for="quantity">Số lượng</label>
+                <input type="text" name="quantity" id="quantity" required>
+            </div>
+            <div class="row">
+                <label for="price">Giá tiền</label>
+                <input type="text" name="price" id="price" required>
+            </div>
+        </div>
       </form>
       <div class="button">
           <button type="submit" class="submit-upload">Đăng bán</button>
           <button type="button" class="cancel-upload">Hủy</button>
       </div>
-  </div>    
+    </div>
+    <div class="wrapper success">
+      <header>Đăng bán sản phẩm thành công!</header>
+      <div class="success-msg">
+        <span>Sản phẩm của bạn đã được duyệt! Kiểm tra xem thông tin sản phẩm trên trang cá nhân của bạn nhé!</span>
+      </div>
+      <button type="button" class="return-btn">Xong</button>
+    </div> 
     <div class="wrapper best-seller">
       <header>Bán chạy nhất</header>
       <div class="product-list">
