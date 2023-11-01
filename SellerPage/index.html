@@ -1,487 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6Ducks</title>
-  <link rel="stylesheet" href="globals.css" />
-  <link rel="stylesheet" href="styleguide.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="mainpage-uploadcomic">
-    <div class="nav">
-      <div class="top-nav">
-        <span class="welcom">Welcom to SixDucks's books purchasing website</span>
-        <div class="top-nav-button">
-          <a href="#">Contact Us</a>
-          <a href="#">Language</a>
-          <a href="#"><button type="button">Logout</button></a>
-        </div>
-      </div>
-      <div class="bot-nav">
-        <div class="logo">
-          <img src="img/logo-1.png" alt="">
-          <span>SixDucks</span>
-        </div>
-        <div class="search-area">
-          <label for="search">Tìm truyện</label>
-          <input type="text" name="search" id="search">
-          <ion-icon name="search"></ion-icon>
-        </div>
-        <div class="bot-nav-button">
-          <div class="cart">
-            <ion-icon name="cart"></ion-icon>
-            <span class="cart-quantity-number">3</span>
-          </div>
-          <div class="notification">
-            <ion-icon name="notifications"></ion-icon>
-            <span class="notification-number">4</span>
-          </div>
-          <div class="user">
-            <ion-icon name="person-circle"></ion-icon>
-          </div>
-        </div>
-      </div>
-      <div class="toolbar">
-        <div class="menu">
-          <ion-icon name="menu"></ion-icon>
-        </div>
-        <div class="discount-btn">
-          <a href="#"><button type="button">
-            <ion-icon name="pricetag"></ion-icon>
-            Khuyến mãi
-          </button></a>
-        </div>
-        <div class="voucher-btn">
-          <a href="#"><button type="button">
-            <ion-icon name="receipt"></ion-icon>
-            Voucher
-          </button></a>
-        </div>
-        <div class="customer-care">
-          <a href="#"><button type="button">
-            <ion-icon name="headset"></ion-icon>
-            CSKH
-          </button></a>
-        </div>
-        <div class="livestream">
-          <a href="#"><button type="button">
-            <ion-icon name="desktop"></ion-icon>
-            Livestream
-          </button></a>
-        </div>
-        <div class="book-upload">
-          <button type="button">
-            <ion-icon name="library"></ion-icon>
-            Đăng bán truyện
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="wrapper upload">
-      <header>Đăng bán sản phẩm</header>
-      <form action="#">
-        <div class="col">
-            <div class="row">
-                <p>Thêm ảnh</p>
-                <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
-                <input class="file-input" type="file" name="file" id="file" hidden required>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6Ducks</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="mainpage-uploadcomic">
+      <div class="mainpage-upload-comic-form"></div>
+      <div class="mainpage-upload_success_notification"></div>
+      <div class="wrapper best-seller">
+        <header>Bán chạy nhất</header>
+        <div class="product-list">
+          <div class="product product-1">
+            <img src="img/book-1.png" alt="" />
+            <div class="product-name">
+              Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
             </div>
-            <div class="row">
-                <label for="name">Tên sách</label>
-                <input type="text" name="name" id="name" required>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
             </div>
-            <div class="row">
-            <label for="category">Thể loại</label>
-            <select name="category" id="category">
-                <option value="detective">Trinh thám</option>
-                <option value="horror">Kinh dị</option>   
-                <option value="romance">Lãng mạn</option>   
-                <option value="comedy">Hài hước</option>   
-                <option value="children">Thiếu nhi</option>   
-                <option value="education">Giáo dục</option>   
-                <option value="economic">Kinh tế</option>   
-                <option value="science">Khoa học</option>   
-            </select>
+          </div>
+          <div class="product product-2">
+            <img src="img/book-2.png" alt="" />
+            <div class="product-name">Conan Thám tử lừng danh - Tập 100</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
             </div>
-            <div class="row">
-                <label for="type">Danh mục</label>
-                <select name="type" id="type">
-                    <option value="type1">Truyện chữ</option>
-                    <option value="type2">Truyện tranh</option>   
-                    <option value="type3">Sách ảnh</option>   
-                    <option value="type4">Sách chữ nói</option>   
-                    <option value="type5">Sách cữ</option>   
-                </select>
+          </div>
+          <div class="product product-3">
+            <img src="img/book-3.png" alt="" />
+            <div class="product-name">Light Novel Thiên sứ nhà bên - Tập 1</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
             </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <label for="quantity">Số lượng</label>
-                <input type="text" name="quantity" id="quantity" required>
+          </div>
+          <div class="product product-4">
+            <img src="img/book-4.png" alt="" />
+            <div class="product-name">Thay đổi cuộc sống với Nhân số học</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
             </div>
-            <div class="row">
-                <label for="price">Giá tiền</label>
-                <input type="text" name="price" id="price" required>
+          </div>
+          <div class="product product-5">
+            <img src="img/book-5.png" alt="" />
+            <div class="product-name">Muôn kiếp nhân sinh - Nguyên Phong</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
             </div>
-        </div>
-      </form>
-      <div class="button">
-          <button type="submit" class="submit-upload">Đăng bán</button>
-          <button type="button" class="cancel-upload">Hủy</button>
-      </div>
-    </div>
-    <div class="wrapper success">
-      <header>Đăng bán sản phẩm thành công!</header>
-      <div class="success-msg">
-        <span>Sản phẩm của bạn đã được duyệt! Kiểm tra xem thông tin sản phẩm trên trang cá nhân của bạn nhé!</span>
-      </div>
-      <button type="button" class="return-btn">Xong</button>
-    </div> 
-    <div class="wrapper best-seller">
-      <header>Bán chạy nhất</header>
-      <div class="product-list">
-        <div class="product product-1">
-          <img src="img/book-1.png" alt="">
-          <div class="product-name">Điều kì diệu của tạp hóa Namiya (Tái bản 2018)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
           </div>
-        </div>
-        <div class="product product-2">
-          <img src="img/book-2.png" alt="">
-          <div class="product-name">Conan Thám tử lừng danh -  Tập 100</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
+          <div class="product product-6">
+            <img src="img/book-6.png" alt="" />
+            <div class="product-name">Nghĩ giàu làm giàu (Tái bản 2020)</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="product product-3">
-          <img src="img/book-3.png" alt="">
-          <div class="product-name">Light Novel Thiên sứ nhà bên - Tập 1</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
+          <div class="product product-7">
+            <img src="img/book-7.png" alt="" />
+            <div class="product-name">Sherlock Holmes toàn tập (Bộ 5 cuốn)</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="product product-4">
-          <img src="img/book-4.png" alt="">
-          <div class="product-name">Thay đổi cuộc sống với Nhân số học</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-5">
-          <img src="img/book-5.png" alt="">
-          <div class="product-name">Muôn kiếp nhân sinh - Nguyên Phong</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-6">
-          <img src="img/book-6.png" alt="">
-          <div class="product-name">Nghĩ giàu làm giàu (Tái bản 2020)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-7">
-          <img src="img/book-7.png" alt="">
-          <div class="product-name">Sherlock Holmes toàn tập (Bộ 5 cuốn)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-      </div>
-        <div class="product product-8">
-          <img src="img/book-8.png" alt="">
-          <div class="product-name">Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
+          <div class="product product-8">
+            <img src="img/book-8.png" alt="" />
+            <div class="product-name">
+              Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)
+            </div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="wrapper vouchers">
-      <div class="today-voucher">
-        <header>VOUCHER HÔM NAY</header>
-        <div class="voucher">
-          <img src="img/voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Voucher dùng cho thể loại Trinh thám</span>
-            <span class="voucher-value">- 30% tối đa 20k</span>
+      <div class="wrapper vouchers">
+        <div class="today-voucher">
+          <header>VOUCHER HÔM NAY</header>
+          <div class="voucher">
+            <img src="img/voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name"
+                >Voucher dùng cho thể loại Trinh thám</span
+              >
+              <span class="voucher-value">- 30% tối đa 20k</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name"
+                >Voucher dùng cho thể loại Thiếu nhi</span
+              >
+              <span class="voucher-value">- 30% tối đa 20k</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name"
+                >Voucher dùng cho danh mục Truyện tranh</span
+              >
+              <span class="voucher-value">- 30% tối đa 20k</span>
+            </div>
           </div>
         </div>
-        <div class="voucher">
-          <img src="img/voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Voucher dùng cho thể loại Thiếu nhi</span>
-            <span class="voucher-value">- 30% tối đa 20k</span>
+        <div class="free-ship">
+          <header>FREE SHIP</header>
+          <div class="voucher">
+            <img src="img/freeship.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Mã Freeship</span>
+              <span class="voucher-value">- 100% tối đa 40k</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/freeship.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Mã Freeeship (Thanh toán online)</span>
+              <span class="voucher-value">- 100%</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/freeship.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Mã Freeship</span>
+              <span class="voucher-value">- 50% tối đa 15k</span>
+            </div>
           </div>
         </div>
-        <div class="voucher">
-          <img src="img/voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Voucher dùng cho danh mục Truyện tranh</span>
-            <span class="voucher-value">- 30% tối đa 20k</span>
+        <div class="combo-voucher">
+          <header>GÓI VOUCHER</header>
+          <div class="voucher">
+            <img src="img/combo-voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Gói Voucher giảm giá + Freeship</span>
+              <span class="voucher-value">10 giảm giá + 10 Freeship</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/combo-voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Gói Voucher 11/11</span>
+              <span class="voucher-value">2 giảm giá + 2 freeship</span>
+            </div>
+          </div>
+          <div class="voucher">
+            <img src="img/combo-voucher.png" alt="" />
+            <div class="voucher-content">
+              <span class="voucher-name">Gói Voucher cho thành viên VIP</span>
+              <span class="voucher-value">Bạn phải là thành viên VIP</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="free-ship">
-        <header>FREE SHIP</header>
-        <div class="voucher">
-          <img src="img/freeship.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Mã Freeship</span>
-            <span class="voucher-value">- 100% tối đa 40k</span>
+      <div class="wrapper discount">
+        <header>Khuyến mãi</header>
+        <div class="product-list">
+          <div class="product product-1">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-1.png" alt="" />
+            <div class="product-name">
+              Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
+            </div>
+            <div class="product-price">
+              <div class="discount-price">97.000đ</div>
+              <div class="normal-price">129.000đ</div>
+            </div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="voucher">
-          <img src="img/freeship.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Mã Freeeship (Thanh toán online)</span>
-            <span class="voucher-value">- 100%</span>
+          <div class="product product-2">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-2.png" alt="" />
+            <div class="product-name">Conan Thám tử lừng danh - Tập 100</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="voucher">
-          <img src="img/freeship.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Mã Freeship</span>
-            <span class="voucher-value">- 50% tối đa 15k</span>
+          <div class="product product-3">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-3.png" alt="" />
+            <div class="product-name">Light Novel Thiên sứ nhà bên - Tập 1</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="combo-voucher">
-        <header>GÓI VOUCHER</header>
-        <div class="voucher">
-          <img src="img/combo-voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Gói Voucher giảm giá + Freeship</span>
-            <span class="voucher-value">10 giảm giá + 10 Freeship</span>
+          <div class="product product-4">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-4.png" alt="" />
+            <div class="product-name">Thay đổi cuộc sống với Nhân số học</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="voucher">
-          <img src="img/combo-voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Gói Voucher 11/11</span>
-            <span class="voucher-value">2 giảm giá + 2 freeship</span>
+          <div class="product product-5">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-5.png" alt="" />
+            <div class="product-name">Muôn kiếp nhân sinh - Nguyên Phong</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-        <div class="voucher">
-          <img src="img/combo-voucher.png" alt="">
-          <div class="voucher-content">
-            <span class="voucher-name">Gói Voucher cho thành viên VIP</span>
-            <span class="voucher-value">Bạn phải là thành viên VIP</span>
+          <div class="product product-6">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-6.png" alt="" />
+            <div class="product-name">Nghĩ giàu làm giàu (Tái bản 2020)</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrapper discount">
-      <header>Khuyến mãi</header>
-      <div class="product-list">
-        <div class="product product-1">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-1.png" alt="">
-          <div class="product-name">Điều kì diệu của tạp hóa Namiya (Tái bản 2018)</div>
-          <div class="product-price">
-            <div class="discount-price">97.000đ</div>
-            <div class="normal-price">129.000đ</div>
+          <div class="product product-7">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-7.png" alt="" />
+            <div class="product-name">Sherlock Holmes toàn tập (Bộ 5 cuốn)</div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-2">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-2.png" alt="">
-          <div class="product-name">Conan Thám tử lừng danh -  Tập 100</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-3">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-3.png" alt="">
-          <div class="product-name">Light Novel Thiên sứ nhà bên - Tập 1</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-4">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-4.png" alt="">
-          <div class="product-name">Thay đổi cuộc sống với Nhân số học</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-5">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-5.png" alt="">
-          <div class="product-name">Muôn kiếp nhân sinh - Nguyên Phong</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-6">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-6.png" alt="">
-          <div class="product-name">Nghĩ giàu làm giàu (Tái bản 2020)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-7">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-7.png" alt="">
-          <div class="product-name">Sherlock Holmes toàn tập (Bộ 5 cuốn)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
-          </div>
-        </div>
-        <div class="product product-8">
-          <div class="badge">25% OFF</div>
-          <img src="img/book-8.png" alt="">
-          <div class="product-name">Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)</div>
-          <div class="product-price">129.000đ</div>
-          <div class="product-rating">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>   
-            (1857)
+          <div class="product product-8">
+            <div class="badge">25% OFF</div>
+            <img src="img/book-8.png" alt="" />
+            <div class="product-name">
+              Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)
+            </div>
+            <div class="product-price">129.000đ</div>
+            <div class="product-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              (1857)
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="info">
-        <div class="logo">
-          <img src="img/logo-1.png" alt="">
-          <span>SixDucks</span>
-        </div>
-        <span>Đại học Quốc gia TP.HCM Trường Đại học Bách Khoa</span>
-      </div>
-      <div class="category">
-        <header>Thể loại</header>
-        <ul>
-          <li>Trinh thám</li>
-          <li>Kinh dị</li>
-          <li>Tình cảm</li>
-          <li>Hài hước</li>
-          <li>Thiếu nhi</li>
-          <li>Giáo dục</li>
-          <li>Kinh tế</li>
-          <li>Khoa học</li>
-        </ul>
-      </div>
-      <div class="type">
-        <header>Danh mục</header>
-        <ul>
-          <li>Truyện chữ</li>
-          <li>Truyện tranh</li>
-          <li>Sách ảnh</li>
-          <li>Sách chữ nổi</li>
-          <li>Sách cũ</li>
-        </ul>
-      </div>
-      <div class="contact">
-        <header>Liên hệ</header>
-        <span>sixducks@hcmut.edu.vn</span>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>

@@ -1,16 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Public+Sans:400");
-
-body {
-    background-color:#fff;
-    font-family: 'Public Sans'; 
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 .mainpage-uploadcomic {
   display: flex;
-  position: relative;
   flex-direction: column;
   align-items: center;
-  width: 1280px;
+  width: 100%;
   background-color: #ffffff;
 }
 
@@ -123,20 +119,17 @@ body {
 
 .mainpage-uploadcomic .wrapper .product:hover,
 .mainpage-uploadcomic .wrapper .voucher:hover {
-    transition: all 0.5 ease;
-    transform: scale(1.02);
-    border: 2px solid black;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 }
 
 .product .badge {
+  overflow: hidden;
   position: absolute;
+  top: 5px; left: 5px;
   padding: 5px 10px;
+  font-size: 15px; font-weight: 900;
+  border-radius: 5px;
   background-color: yellow;
-  top: 0;
-  left: 0;
-  font-size: 15px;
-  font-weight: 900;
 }
 
 .vouchers img {
@@ -208,77 +201,129 @@ body {
   font-weight: 500;
 }
 
-.mainpage-uploadcomic .nav {
+.nav {
   width: 100%;
 }
 
-.mainpage-uploadcomic .top-nav {
+.nav .top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 10px;
   margin-bottom: 5px;
-  background-color: #1B6392;
-  color: white;
+  background-color: #425664;
+  color: #F6F4F2;
 }
 
-.mainpage-uploadcomic .top-nav .top-nav-button {
+.nav .top-nav .top-nav-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.mainpage-uploadcomic .top-nav .top-nav-button a {
+.nav .top-nav .top-nav-button a {
   margin: 0 10px;
-  color: white;
+  color: #F6F4F2;
 }
 
-.mainpage-uploadcomic .top-nav .top-nav-button a button{
-  background-color: white;
-  height: 25px;
-  border-radius: 7px;
-}
-
-.mainpage-uploadcomic .top-nav .top-nav-button a button:hover{
+.nav .top-nav .top-nav-button a:hover{
   transition: all 0.3 ease;
   transform: scale(1.15);
-  border: 2px solid white;
-  background-color: black;
-  color: white;
+  text-decoration: underline solid 2px #F6F4F2;
 }
 
-.mainpage-uploadcomic .bot-nav {
+.nav .bot-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 5px;
-  background-color: #1B6392;
+  background-color: #425664;
 }
 
-.mainpage-uploadcomic .bot-nav img {
-  height: 55px;
+.nav .bot-nav img {
+  height: 35px;
+  width: auto;
+  cursor: pointer;
+}
+
+.nav .bot-nav .search-area {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav .bot-nav .search-area input {
+  width: 400px; height: 30px;
+  margin: 0 10px;
+  border-radius: 15px;
+  background-color: #F6F4F2;
+  border: 2px solid black;
+}
+
+.nav .bot-nav .search-area input::placeholder {
+  font-style: italic;
+}
+
+.nav .bot-nav .search-area input:focus::placeholder {
+  opacity: 0;
+}
+
+.nav .bot-nav .search-area input[type="text" i] {
+  padding-left: 10px;
+}
+
+.nav .bot-nav .search-area img {
+  position: absolute;
+  right: 18px;
+  height: 22px;
   width: auto;
 }
 
-.mainpage-uploadcomic .bot-nav .logo {
+.nav .bot-nav .logo {
   display: flex;
   flex-direction: column;
 }
 
-.mainpage-uploadcomic .bot-nav .bot-nav-button {
+.nav .bot-nav .bot-nav-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.mainpage-uploadcomic .bot-nav .bot-nav-button div {
+.nav .bot-nav .bot-nav-button div {
   margin: 0 15px;
   font-size: 30px;
 }
 
-.mainpage-uploadcomic .toolbar {
+.nav .bot-nav .notification,
+.nav .bot-nav .user,
+.nav .bot-nav .cart {
+  display: flex;
+  position: relative;
+  padding: 0 3px;
+
+}
+
+.nav .bot-nav .notification span,
+.nav .bot-nav .cart span {
+  position: absolute;
+  display: flex;
+  font-size: 15px;
+  color: red;
+  background-color: #425664;
+  top: 0;
+  right: 0;
+  height: 15px;
+  width: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.nav .toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,88 +331,111 @@ body {
   padding: 10px;
 }
 
-.mainpage-uploadcomic .toolbar div {
-  margin: 0 15px;
+.nav .toolbar img {
+  height: 10px;
+  width: auto;
 }
 
-.mainpage-uploadcomic .toolbar button {
-  background-color: white;
-  border-radius: 7px;
-  height: 30px;
+.nav .toolbar > div {
+  padding: 0 30px;
+  margin: 0 20px;
+  border: none;
 }
 
-.mainpage-uploadcomic .toolbar button:hover {
-  transition: all 0.3 ease;
-  transform: scale(1.15);
-  border: 2px solid black;
-  background-color: #1B6392;
-  color: white;
+.nav .toolbar > div > a::after, .book-upload > div::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #425664;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scale(0);
+  transition: transform .5s;
 }
 
-.mainpage-uploadcomic .footer {
+.nav .toolbar > div > a:hover::after, .book-upload > div:hover::after {
+  transform-origin: left;
+  transform: scale(1);
+}
+
+.nav .toolbar > div > a, .book-upload > div{
+  position: relative;
+  color: #425664;
+}
+
+.nav .book-upload {
+  cursor: pointer;
+}
+
+.footer {
   display: flex;
   position: relative;
   bottom: 0;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   width: 100%;
-  background-color: #1B6392;
-  padding: 50px;
+  background-color: #425664;
+  padding: 30px;
 }
 
-.mainpage-uploadcomic .footer div {
-  max-width: 200px;
+.footer div {
+  max-width: 175px;
 }
 
-.mainpage-uploadcomic .footer header {
+.footer header {
   font-weight: 900;
   font-size: 20px;
   margin-bottom: 30px;
 }
 
-.mainpage-uploadcomic .footer .info,
-.mainpage-uploadcomic .footer .category,
-.mainpage-uploadcomic .footer .type,
-.mainpage-uploadcomic .footer .contact {
+.footer .info,
+.footer .category,
+.footer .type,
+.footer .contact {
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 100%;
 }
 
-.mainpage-uploadcomic .footer .logo {
+.footer .logo {
   margin-bottom: 30px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.mainpage-uploadcomic .footer .logo img {
+.footer .logo span {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.footer .logo img {
   height: 50px;
   width: auto;
 }
 
-.upload {
-  display: flex;
-  position: fixed;
-  top: 150px;
-  z-index: -1;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 700px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  border: 2px solid black;
-  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+.footer li, .footer .info span {
+  margin-bottom: 10px;
+  line-height: 20px;
 }
 
-.upload.active {
-  display: flex;
+.mainpage-upload-comic-form {
   position: fixed;
-  top: 100px;
-  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.upload {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -376,45 +444,71 @@ body {
   border-radius: 5px;
   padding: 30px;
   border: 2px solid black;
-  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
 }
 
 .upload header{
-  color: #6990F2;
+  color: #425664;
   font-size: 27px;
   font-weight: 600;
   text-align: center;
   width: 100%;
 }
-.upload form{
-  display: flex;
-  cursor: pointer;
-  margin: 20px 0;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-}
 
-.upload form .col{
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-}
-
-.upload form .row{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.upload table {
   margin: 10px;
-  width: 100%;
+  width: 600px;
 }
 
-form ion-icon {
-  color: #6990F2;
-  font-size: 35px;
+.upload td, th {
+  padding: 15px 10px;
+}
+
+.upload input {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.upload input[type="text" i] {
+  padding-left: 5px;
+}
+
+.upload tr td div > img:first-child {
+  margin-left: 39px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
+
+.upload tr td div > img:not(:first-child) {
+  margin-left: 5px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
+
+.upload tr td div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.upload .preview-side {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.upload .preview-side img {
+  border-radius: 10px;
+  height: 550px;
+  width: auto;
 }
 
 .upload .button {
@@ -425,15 +519,35 @@ form ion-icon {
 }
 
 .upload .button button {
-  height: 40px;
-  width: 100px;
+  height: 40px; width: 100px;
+  background-color: #425664;
+  color: #fff;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+}
+
+.upload .button button:hover {
+  color: black;
+  border: 2px solid black;
+  background-color: #F6F4F2;
+}
+
+.mainpage-upload_success_notification {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
 }
 
 .success {
   display: flex;
-  position: fixed;
-  top: 150px;
-  z-index: -1;
+  z-index: 2;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -442,28 +556,11 @@ form ion-icon {
   border-radius: 5px;
   padding: 30px;
   border: 2px solid black;
-  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
-}
-
-.success.active {
-  display: flex;
-  position: fixed;
-  top: 100px;
-  z-index: 1;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 400px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  border: 2px solid black;
-  box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
 }
 
 .success header {
   margin-bottom: 30px;
-  color: #6990F2;
+  color: #425664;
 }
 
 .success .success-msg {
@@ -473,15 +570,15 @@ form ion-icon {
 }
 
 .mainpage-uploadcomic .success button {
-  width: 100%;
-  height: 50px;
-  background-color: #6990F2;
+  width: 100%; height: 50px;
+  background-color: #425664;
+  border: none;
   border-radius: 5px;
 }
 
 .mainpage-uploadcomic .success button:hover {
-  transition: all 0.2 ease;
-  transform: scale(1.04);
+  border: 2px solid black;
+  background-color: #F6F4F2;
 }
 
 .mainpage-uploadcomic .success .return-btn {
