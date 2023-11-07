@@ -109,7 +109,7 @@
     color: #2DA5F3;
 }
 
-.mainpage-uploadcomic .wrapper .product .product-rating ion-icon {
+.mainpage-uploadcomic .wrapper .product .product-rating i {
     color: #EBC80C  ;
 }
 
@@ -220,11 +220,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 25px;
 }
 
 .nav .top-nav .top-nav-button a {
-  margin: 0 10px;
   color: #F6F4F2;
+  margin-left: 40px;
 }
 
 .nav .top-nav .top-nav-button a:hover{
@@ -245,7 +246,6 @@
 .nav .bot-nav img {
   height: 35px;
   width: auto;
-  cursor: pointer;
 }
 
 .nav .bot-nav .search-area {
@@ -272,6 +272,7 @@
 }
 
 .nav .bot-nav .search-area input[type="text" i] {
+  font-size: 20px;
   padding-left: 10px;
 }
 
@@ -378,7 +379,7 @@
   justify-content: space-around;
   width: 100%;
   background-color: #425664;
-  padding: 30px;
+  padding: 20px;
 }
 
 .footer div {
@@ -484,7 +485,7 @@
   margin-left: 5px;
   height: 30px;
   width: auto;
-  cursor: pointer;
+  cursor: zoom-in;
 }
 
 .upload tr td div {
@@ -505,10 +506,20 @@
   z-index: 2;
 }
 
+.upload .preview-side i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #F6F4F2;
+  font-size: 40px;
+  cursor: pointer;
+}
+
 .upload .preview-side img {
   border-radius: 10px;
   height: 550px;
   width: auto;
+  cursor: default;
 }
 
 .upload .button {
