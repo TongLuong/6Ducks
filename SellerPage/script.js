@@ -4,6 +4,7 @@ $(this).ready(function () {
     $("body").prepend(data);
     $(".book-upload").click(function() {
       $(".mainpage-upload-comic-form").css("display", "flex");
+      $("body, html").css("overflow", "hidden");
     });
   });
 
@@ -15,11 +16,15 @@ $(this).ready(function () {
     $(".mainpage-upload-comic-form").append(data);
     $(".cancel-upload").click(function() {
       $(".mainpage-upload-comic-form").css("display", "none");
-      $(".img-view").css("display", "none");
+      $(".img-view").remove();
+      $("#file, #name, #quantity, #price").val('');
+      $("body, html").css("overflow", "scroll");
     });
     $(".submit-upload").click(function() {
       $(".mainpage-upload-comic-form").css("display", "none");
       $(".mainpage-upload_success_notification").css("display", "flex");
+      $(".img-view").remove();
+      $("#file, #name, #quantity, #price").val('');
     });
     $(".upload-icon").click(function (){
       $(".file-input").click();
@@ -40,7 +45,7 @@ $(this).ready(function () {
                 $(".preview-img").attr("src", this.src);
                 $(".preview-side").css("display", "flex");
               });
-              $(".preview-side:not(img)").click(function (){
+              $(".preview-side>i").click(function (){
                 $(".preview-side").css("display", "none");
               });
         }
@@ -54,6 +59,7 @@ $(this).ready(function () {
     $(".mainpage-upload_success_notification").append(data);
     $(".return-btn").click(function () {
       $(".mainpage-upload_success_notification").css("display", "none");
+      $("body, html").css("overflow", "scroll");
     });
   });
 });
