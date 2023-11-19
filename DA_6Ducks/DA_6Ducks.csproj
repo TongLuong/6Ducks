@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\globals.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\css\styleguide.css" />
+    <None Include="wwwroot\img\duotone-check.svg" />
+    <None Include="wwwroot\img\image-1-1.png" />
+    <None Include="wwwroot\img\image-1.png" />
+    <None Include="wwwroot\img\image-2.png" />
+    <None Include="wwwroot\img\image-3.png" />
+    <None Include="wwwroot\img\image-4.png" />
+    <None Include="wwwroot\img\image-5.png" />
+    <None Include="wwwroot\img\image-6.png" />
+    <None Include="wwwroot\img\image-7.png" />
+    <None Include="wwwroot\img\image-8.png" />
+    <None Include="wwwroot\img\line-1.svg" />
+    <None Include="wwwroot\img\line-29-2.svg" />
+    <None Include="wwwroot\img\magnifyingglass.svg" />
+    <None Include="wwwroot\img\notification-1.svg" />
+    <None Include="wwwroot\img\regular-caretdown.svg" />
+    <None Include="wwwroot\img\regular-eye-4.svg" />
+    <None Include="wwwroot\img\regular-user-1.svg" />
+    <None Include="wwwroot\img\shoppingcartsimple.svg" />
+  </ItemGroup>
+
+</Project>
