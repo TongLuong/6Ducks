@@ -56,3 +56,32 @@ C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ ph�
 C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.pdb
 C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.genruntimeconfig.cache
 C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks\obj\Debug\net6.0\ref\DA_6Ducks.dll
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\appsettings.Development.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\appsettings.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.staticwebassets.runtime.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.exe
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.deps.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.runtimeconfig.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.dll
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\bin\Debug\net6.0\DA_6Ducks.pdb
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.csproj.AssemblyReference.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.GeneratedMSBuildEditorConfig.editorconfig
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.AssemblyInfoInputs.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.AssemblyInfo.cs
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.csproj.CoreCompileInputs.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.MvcApplicationPartsAssemblyInfo.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.RazorAssemblyInfo.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.RazorAssemblyInfo.cs
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets\msbuild.DA_6Ducks.Microsoft.AspNetCore.StaticWebAssets.props
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets\msbuild.build.DA_6Ducks.props
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.DA_6Ducks.props
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.DA_6Ducks.props
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets.pack.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets.build.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\staticwebassets.development.json
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\scopedcss\bundle\DA_6Ducks.styles.css
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.dll
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\refint\DA_6Ducks.dll
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.pdb
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.genruntimeconfig.cache
+D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\ref\DA_6Ducks.dll
