@@ -2,6 +2,9 @@ $(this).ready(function () {
   $.get("/components/header.html", function (data) {
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
+    $(".logo").click(function () {
+      location.href = "/pages/user/user-mainpage/index.html";
+    });
   });
 
   $.get("/components/footer.html", function (data) {
@@ -44,12 +47,12 @@ $(this).ready(function () {
     });
   });
 
-  $(".view-seller-page").click(function (e) { 
+  $(".view-seller-page").click(function (e) {
     e.preventDefault();
-    location.href = "/pages/user/info/seller-information (buyer)"
+    location.href = "/pages/user/info/seller-information (buyer)";
   });
 
-  $(".show-fb").click(function (e) { 
+  $(".show-fb").click(function (e) {
     e.preventDefault();
     $(".full-feedback").toggle();
   });

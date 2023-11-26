@@ -9,6 +9,9 @@ $(this).ready(function () {
     $(".user").click(function() {
         location.href = '/pages/user/info/seller-information (seller)/index.html'
     });
+    $(".logo").click(function() {
+      location.href = '/pages/user/seller-mainpage/index.html'
+  });
   });
 
   $.get("/components/footer.html", function (data) {

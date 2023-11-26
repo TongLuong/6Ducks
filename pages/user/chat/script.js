@@ -3,7 +3,7 @@ $(this).ready(function () {
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
     $(".logo").click(function() {
-      location.href = '/pages/user/user-mainpage/index.html'
+      window.location.href = '/pages/user/user-mainpage/index.html'
   });
   });
 
