@@ -6,6 +6,9 @@ $(this).ready(function () {
       $(".mainpage-upload-comic-form").css("display", "flex");
       $("body, html").css("overflow", "hidden");
     });
+    $(".user").click(function() {
+        location.href = '/pages/user/info/seller-information (seller)/index.html'
+    });
   });
 
   $.get("/components/footer.html", function (data) {

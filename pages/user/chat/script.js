@@ -2,6 +2,9 @@ $(this).ready(function () {
   $.get("/components/header.html", function (data) {
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
+    $(".logo").click(function() {
+      location.href = '/pages/user/user-mainpage/index.html'
+  });
   });
 
   $.get("/components/footer.html", function (data) {
