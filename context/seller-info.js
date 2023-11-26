@@ -1,9 +1,13 @@
 $(this).ready(function () {
   $.get("/components/header.html", function (data) {
     $("body").prepend(data);
-    $(".logo").click(function() {
-      location.href = '/pages/user/seller-mainpage/index.html'
-  });
+    $(".logo").click(function () {
+      location.href = "/pages/user/seller-mainpage/index.html";
+    });
+    $(".book-upload").click(function () {
+      $(".mainpage-upload-comic-form").css("display", "flex");
+      $("body, html").css("overflow", "hidden");
+    });
   });
 
   $.get("/components/footer.html", function (data) {
@@ -54,8 +58,8 @@ $(this).ready(function () {
     }
   });
 
-  $(".about img").click(function (e) { 
+  $(".about img").click(function (e) {
     e.preventDefault();
-      location.href = "/pages/user/info/seller-information (buyer)";
+    location.href = "/pages/user/info/seller-information (buyer)";
   });
 });
