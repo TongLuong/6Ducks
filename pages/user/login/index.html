@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6Ducks</title>
+    <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+    <link rel="stylesheet" href="/assets/styles/globals.css" />
+    <link rel="stylesheet" href="login.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="mainpage-login">
+      <div class="wrapper">
+        <div class="login-side">
+          <header>Đăng nhập</header>
+          <form action="">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" name="username" id="username" />
+            <div class="group-text">
+              <label for="pwd">Mật khẩu</label>
+              <span class="forget-pwd">Quên mật khẩu</span>
+            </div>
+            <input type="password" name="pwd" id="pwd" />
+            <ion-icon name="eye-outline" class="show-pwd"></ion-icon>
+            <ion-icon name="eye-off-outline" class="hide-pwd"></ion-icon>
+          </form>
+          <button type="button" class="
+          login-btn">Đăng nhập <span>&#129122;</span></button>
+        </div>
+        <div class="signin-btn">
+          <span>Bạn chưa có tài khoản? Đăng kí</span>
+          <button type="button" class="signin">Đăng kí</button>
+        </div>
+      </div>
+    </div>
+    <script src="login.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
