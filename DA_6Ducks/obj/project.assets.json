@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Dong Hoang Son\\.nuget\\packages\\": {}
+    "C:\\Users\\Tongkhangte\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\DA_6Ducks.csproj",
+      "projectUniqueName": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\DA_6Ducks.csproj",
       "projectName": "DA_6Ducks",
-      "projectPath": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\DA_6Ducks.csproj",
-      "packagesPath": "C:\\Users\\Dong Hoang Son\\.nuget\\packages\\",
-      "outputPath": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\obj\\",
+      "projectPath": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\DA_6Ducks.csproj",
+      "packagesPath": "C:\\Users\\Tongkhangte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dong Hoang Son\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tongkhangte\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -65,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

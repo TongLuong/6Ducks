@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DA_6Ducks
 build_property.RootNamespace = DA_6Ducks
-build_property.ProjectDir = D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\
+build_property.ProjectDir = C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks
+build_property.MSBuildProjectDirectory = C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/Chat/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/Chat/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/ConfirmOrder/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/ConfirmOrder/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlybU9yZGVyXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/LoginPage/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/LoginPage/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5QYWdlXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/MainPage/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/MainPage/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblBhZ2VcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/ProductBuying/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/ProductBuying/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEJ1eWluZ1xpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/SellerInformation/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/SellerInformation/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbGVySW5mb3JtYXRpb25caW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/SellerPage/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/SellerPage/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsbGVyUGFnZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/SignupPage/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/SignupPage/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnbnVwUGFnZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/UserInfomation/index.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/UserInfomation/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckluZm9tYXRpb25caW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/_ViewImports.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HCMUT/hk231/daCNPM/6d/official/DA_6Ducks/Views/_ViewStart.cshtml]
+[C:/Users/Tongkhangte/OneDrive - hcmut.edu.vn/Tài liệu học/Công nghệ phần mềm/Đồ án/6Ducks/DA_6Ducks/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
