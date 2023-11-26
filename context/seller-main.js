@@ -19,7 +19,7 @@ $(this).ready(function () {
   });
 
   $.get("/components/uploadPopUp.html", function (data) {
-    $(".mainpage-upload-comic-form").append(data);
+    $(".mainpage-uploadcomic").append(data);
     $(".cancel-upload").click(function() {
       $(".mainpage-upload-comic-form").css("display", "none");
       $(".img-view").remove();
@@ -62,7 +62,7 @@ $(this).ready(function () {
   });
 
   $.get("/components/successPopUp.html", function (data) {
-    $(".mainpage-upload_success_notification").append(data);
+    $(".mainpage-uploadcomic").append(data);
     $(".return-btn").click(function () {
       $(".mainpage-upload_success_notification").css("display", "none");
       $("body, html").css("overflow", "scroll");
