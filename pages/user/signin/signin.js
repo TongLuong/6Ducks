@@ -1,11 +1,11 @@
 $(this).ready(function () {
-  $.get("/components/header.html", function (data) {
-    $("body").prepend(data);
-  });
+  // $.get("/components/header.html", function (data) {
+  //   $("body").prepend(data);
+  // });
 
-  $.get("/components/footer.html", function (data) {
-    $("body").append(data);
-  });
+  // $.get("/components/footer.html", function (data) {
+  //   $("body").append(data);
+  // });
 
   $("#pwd ~ .show-pwd").click(function (e) {
     e.preventDefault();
