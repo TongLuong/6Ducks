@@ -85,3 +85,4 @@ D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\refint\DA_6Ducks.dl
 D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.pdb
 D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.genruntimeconfig.cache
 D:\HCMUT\hk231\daCNPM\6d\official\DA_6Ducks\obj\Debug\net6.0\ref\DA_6Ducks.dll
+C:\Users\Tongkhangte\OneDrive - hcmut.edu.vn\Tài liệu học\Công nghệ phần mềm\Đồ án\6Ducks\DA_6Ducks\obj\Debug\net6.0\DA_6Ducks.sourcelink.json

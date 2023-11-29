@@ -8,5 +8,10 @@ namespace DA_6Ducks.Controllers
         {
             return View("~/Views/user/info/user-information/index.cshtml");
         }
+
+        public IActionResult IndexPopup()
+        {
+            return View("~/Views/user/info/user-information/popup.cshtml");
+        }
     }
 }

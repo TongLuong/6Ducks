@@ -8,5 +8,10 @@ namespace DA_6Ducks.Controllers
         {
             return View("~/Views/user/chat/index.cshtml");
         }
+
+        public IActionResult IndexIframe()
+        {
+            return View("~/Views/user/chat/Chat-iframe/index.cshtml");
+        }
     }
 }

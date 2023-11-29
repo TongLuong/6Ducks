@@ -1,6 +1,30 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\Chat-iframe\\app.js",
+      "PackagePath": "staticwebassets\\Chat\\Chat-iframe\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\Chat-iframe\\style.css",
+      "PackagePath": "staticwebassets\\Chat\\Chat-iframe\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\globals.css",
+      "PackagePath": "staticwebassets\\Chat\\globals.css"
+    },
+    {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\script.js",
+      "PackagePath": "staticwebassets\\Chat\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\style.css",
+      "PackagePath": "staticwebassets\\Chat\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\Chat\\styleguide.css",
+      "PackagePath": "staticwebassets\\Chat\\styleguide.css"
+    },
+    {
       "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\HELP-US-OUT.txt",
       "PackagePath": "staticwebassets\\assets\\font-awesome\\HELP-US-OUT.txt"
     },
@@ -365,34 +389,6 @@
       "PackagePath": "staticwebassets\\assets\\styles\\user-information.css"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\app.js",
-      "PackagePath": "staticwebassets\\chat\\Chat iframe\\app.js"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\index.html",
-      "PackagePath": "staticwebassets\\chat\\Chat iframe\\index.html"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\style.css",
-      "PackagePath": "staticwebassets\\chat\\Chat iframe\\style.css"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\globals.css",
-      "PackagePath": "staticwebassets\\chat\\globals.css"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\script.js",
-      "PackagePath": "staticwebassets\\chat\\script.js"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\style.css",
-      "PackagePath": "staticwebassets\\chat\\style.css"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\styleguide.css",
-      "PackagePath": "staticwebassets\\chat\\styleguide.css"
-    },
-    {
       "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\components\\footer.html",
       "PackagePath": "staticwebassets\\components\\footer.html"
     },
@@ -425,24 +421,24 @@
       "PackagePath": "staticwebassets\\context\\user-info.js"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (buyer)\\scripts.js",
-      "PackagePath": "staticwebassets\\info\\seller-information (buyer)\\scripts.js"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information(buyer)\\scripts.js",
+      "PackagePath": "staticwebassets\\info\\seller-information(buyer)\\scripts.js"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (buyer)\\seller-info.css",
-      "PackagePath": "staticwebassets\\info\\seller-information (buyer)\\seller-info.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information(buyer)\\seller-info.css",
+      "PackagePath": "staticwebassets\\info\\seller-information(buyer)\\seller-info.css"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\globals.css",
-      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\globals.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information(seller)\\globals.css",
+      "PackagePath": "staticwebassets\\info\\seller-information(seller)\\globals.css"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\style_table.css",
-      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\style_table.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information(seller)\\style_table.css",
+      "PackagePath": "staticwebassets\\info\\seller-information(seller)\\style_table.css"
     },
     {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\styleguide.css",
-      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\styleguide.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information(seller)\\styleguide.css",
+      "PackagePath": "staticwebassets\\info\\seller-information(seller)\\styleguide.css"
     },
     {
       "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\user-information\\globals.css",
@@ -463,10 +459,6 @@
     {
       "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\seller-mainpage\\globals.css",
       "PackagePath": "staticwebassets\\seller-mainpage\\globals.css"
-    },
-    {
-      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\signin\\index.html",
-      "PackagePath": "staticwebassets\\signin\\index.html"
     },
     {
       "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\signin\\signin.css",

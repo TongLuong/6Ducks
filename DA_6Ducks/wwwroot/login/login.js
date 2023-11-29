@@ -9,7 +9,7 @@ $(this).ready(function () {
 
   $(".signin").click(function (e) {
     e.preventDefault();
-    location.href = "../signin/";
+    location.href = "SignIn";
   });
 
   $(".login-btn").click(function (e) { 

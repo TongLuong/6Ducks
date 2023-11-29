@@ -10,10 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>6Ducks</title>
   <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="globals.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/Chat/globals.css" />
+  <link rel="stylesheet" href="/Chat/style.css" />
   <link rel="stylesheet" href="/assets/styles/header-footer.css" />
-  <link rel="stylesheet" href="styleguide.css" />
+  <link rel="stylesheet" href="/Chat/styleguide.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
@@ -82,11 +82,12 @@
       </div>
     </div>
     <div class="right_section">
-      <iframe src="Chat iframe/" title="Chat"></iframe>
+            <iframe src="@Url.Action("IndexIframe", "Chat")" 
+            title="Chat"></iframe>
     </div>
   </div>
 </body>
-<script type="module" src="script.js"></script>
+<script type="module" src="/Chat/script.js"></script>
 <script>
   // Get the input elements
   const starInputs = document.querySelectorAll('input[name="star"]');

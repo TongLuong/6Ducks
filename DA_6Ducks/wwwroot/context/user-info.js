@@ -3,7 +3,7 @@ $(this).ready(function () {
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
     $(".logo").click(function() {
-      location.href = '/pages/user/user-mainpage/index.html'
+        location.href = 'MainPage'
   });
   });
 
@@ -11,7 +11,7 @@ $(this).ready(function () {
     $("body").append(data);
   });
 
-  $.get("/pages/user/info/user-information/popup.html", function (data) {
+  $.get("UserInfo", function (data) {
     $(".rating_wrapper").prepend(data);
     $(".user_rating").css("display", "none");
     $(".success_popup").css("display", "none");

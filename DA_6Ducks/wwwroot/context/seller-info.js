@@ -2,7 +2,7 @@ $(this).ready(function () {
   $.get("/components/header.html", function (data) {
     $("body").prepend(data);
     $(".logo").click(function () {
-      location.href = "/pages/user/seller-mainpage/index.html";
+      location.href = "SellerMainPage";
     });
     $(".book-upload").click(function () {
       $(".mainpage-upload-comic-form").css("display", "flex");
@@ -16,12 +16,12 @@ $(this).ready(function () {
 
   $(".product-item").click(function (e) {
     e.preventDefault();
-    location.href = "/pages/product/info/";
+    location.href = "Product";
   });
 
   $(".seller-contact").click(function (e) {
     e.preventDefault();
-    location.href = "/pages/user/chat/";
+    location.href = "Chat";
   });
   //pagination function
   $(".pagination p:not(.arrow)").click(function () {
@@ -60,6 +60,6 @@ $(this).ready(function () {
 
   $(".about img").click(function (e) {
     e.preventDefault();
-    location.href = "/pages/user/info/seller-information (buyer)";
+    location.href = "SellerInfoBuyer";
   });
 });

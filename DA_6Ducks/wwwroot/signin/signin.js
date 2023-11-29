@@ -37,6 +37,6 @@ $(this).ready(function () {
 
   $(".login-btn span").click(function (e) {
     e.preventDefault();
-    location.href = "../login/";
+    location.href = "Login";
   });
 });

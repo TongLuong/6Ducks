@@ -3,7 +3,7 @@ $(this).ready(function () {
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
     $(".logo").click(function() {
-      window.location.href = '/pages/user/user-mainpage/index.html'
+      window.location.href = 'MainPage'
   });
   });
 
@@ -13,6 +13,6 @@ $(this).ready(function () {
 
   $(".container_seller img").click(function (e) {
     e.preventDefault();
-    location.href = "/pages/user/info/seller-information (buyer)";
+      location.href = "SellerInfoBuyer";
   });
 });
