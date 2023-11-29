@@ -1,0 +1,50 @@
+@{
+    Layout = null;
+}
+
+<div class="user_rating" id="user_rating">
+  <div class="rating_left">
+    <div class="name">
+      Điều kì diệu của <br />
+      tiệm tạp hóa Namiya
+    </div>
+    <img src="/assets/images/book-1-1.png" class="img" alt="" />
+    <div class="price">89.000đ</div>
+  </div>
+  <div class="rating_right">
+    <div class="title_star">
+      <div class="title1">Hãy cho chúng tôi biết đánh giá của bạn?</div>
+      <div class="rating">
+        <div class="stars">
+          <form action="">
+            <input class="star star-5" id="star-5" type="radio" name="star" />
+            <label class="star star-5" for="star-5"></label>
+            <input class="star star-4" id="star-4" type="radio" name="star" />
+            <label class="star star-4" for="star-4"></label>
+            <input class="star star-3" id="star-3" type="radio" name="star" />
+            <label class="star star-3" for="star-3"></label>
+            <input class="star star-2" id="star-2" type="radio" name="star" />
+            <label class="star star-2" for="star-2"></label>
+            <input class="star star-1" id="star-1" type="radio" name="star" />
+            <label class="star star-1" for="star-1"></label>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="comment_box">
+      <textarea id="comment" placeholder="Nhập nội dung đánh giá..."></textarea>
+    </div>
+    <div class="button_area">
+      <button class="cancel" id="close">HỦY</button>
+      <button class="submit" id="submit">ĐÁNH GIÁ</button>
+    </div>
+  </div>
+</div>
+<div class="success_popup" id="success_popup">
+  <div class="pop_up">Đánh giá thành công!</div>
+  <div class="pop_down">
+    Bạn đã đánh giá thành công sản phẩm. Bạn có thể xem lại cũng như chỉnh sửa
+    đánh giá của mình trong mục Đánh giá.
+  </div>
+  <button class="done" id="done">XONG</button>
+</div>

@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\globals.css" />
-    <None Include="wwwroot\css\style.css" />
-    <None Include="wwwroot\css\styleguide.css" />
+    <Compile Remove="wwwroot\css\**" />
+    <Content Remove="wwwroot\css\**" />
+    <EmbeddedResource Remove="wwwroot\css\**" />
+    <None Remove="wwwroot\css\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\components\footer.html" />
+    <None Include="wwwroot\components\header.html" />
+    <None Include="wwwroot\components\successPopUp.html" />
+    <None Include="wwwroot\components\uploadPopUp.html" />
   </ItemGroup>
 
 </Project>

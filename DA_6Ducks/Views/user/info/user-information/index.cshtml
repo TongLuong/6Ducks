@@ -1,0 +1,193 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Information</title>
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/styles/globals.css" />
+  <link rel="stylesheet" href="/assets/styles/user-information.css" />
+  <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+  <link rel="stylesheet" href="/info/user-information/styleguide.css" />
+  <link rel="stylesheet" href="/assets/styles/style_table.css" />
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="mainpage_user_info">
+    <div class="rating_wrapper" id="rating_wrapper"></div>
+    <div class="title">Thông tin cá nhân</div>
+    <div class="content">
+      <div class="left_section">
+        <div class="left_upper">
+          <div class="title_info">THÔNG TIN TÀI KHOẢN</div>
+          <div class="upper_rest">
+            <div class="title_profile">
+              <img class="img" src="/assets/images/profile.png" alt="" />
+              <div class="profile_info">
+                <div class="name">DuckNo1</div>
+                <div class="school">Trường đại học Bách Khoa</div>
+              </div>
+            </div>
+            <div class="contact">
+              Email: bruce@yahoo.com <br />
+              SĐT: Bị ẩn
+            </div>
+            <button class="button">CHỈNH SỬA THÔNG TIN</button>
+          </div>
+        </div>
+        <div class="order_wrapper">
+          <div class="ordered">
+            <div class="rocket_wrapper">
+              <img style="width: 32px" src="/assets/images/rocket.png" alt="" />
+            </div>
+            <div class="ordered_content">
+              <div class="num">6</div>
+              <div class="text">Tổng số đơn đã đặt</div>
+            </div>
+          </div>
+          <div class="ordered">
+            <div class="rocket_wrapper">
+              <img style="width: 32px" src="/assets/images/confirm.png" alt="" />
+            </div>
+            <div class="ordered_content">
+              <div class="num">2</div>
+              <div class="text">Số đơn đang chờ xác nhận</div>
+            </div>
+          </div>
+          <div class="ordered">
+            <div class="rocket_wrapper">
+              <img style="width: 32px" src="/assets/images/done.png" alt="" />
+            </div>
+            <div class="ordered_content">
+              <div class="num">4</div>
+              <div class="text">Số đơn đã hoàn thành</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right_section">
+        <div class="title_right">LỊCH SỬ GIAO DỊCH</div>
+        <div class="wrap-table100">
+          <div class="table">
+            <div class="row header">
+              <div class="cell">MÃ VẬN ĐƠN</div>
+              <div class="cell">TRẠNG THÁI</div>
+              <div class="cell">THỜI GIAN</div>
+              <div class="cell">THANH TOÁN</div>
+              <div class="cell"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="nhan">Đã nhận</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN">600.000đ</div>
+              <div class="cell rating" data-title="ĐÁNH GIÁ">Đánh giá</div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="nhan">Đã nhận</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN">300.000đ</div>
+              <div class="cell rating" data-title="ĐÁNH GIÁ">Đánh giá</div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+              <div class="cell" data-title="TRẠNG THÁI" id="cho">Đang chờ</div>
+              <div class="cell" data-title="THỜI GIAN">
+                15/10/2023 - 07:52
+              </div>
+              <div class="cell" data-title="THANH TOÁN"></div>
+              <div class="cell" data-title="ĐÁNH GIÁ"></div>
+            </div>
+          </div>
+        </div>
+        <div class="navi">
+          <img style="width: 40px; margin-right: 20px" src="/assets/images/left.png" alt="" />
+          <img style="width: 40px" src="/assets/images/num.png" alt="" />
+          <img style="width: 40px; margin-left: 20px" src="/assets/images/right.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="module" src="/context/user-info.js"></script>
+<!-- <script>
+  const closeButton = document.getElementById("close");
+  const submitRating = document.getElementById("submit");
+  const ratingDivs = document.querySelectorAll('#rating');
+  const userRatingDiv = document.getElementById('rating_wrapper');
+
+  // Close rating popup
+  closeButton.addEventListener("click", () => {
+    userRatingDiv.style.display = "none";
+    // Enable scrolling again
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = 'auto';
+  });
+
+  // Rating popup
+  for (const ratingDiv of ratingDivs) {
+    ratingDiv.addEventListener('click', function () {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      userRatingDiv.style.display = 'block';
+    });
+  }
+</script> -->
+</html>

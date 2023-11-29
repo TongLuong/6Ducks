@@ -1,0 +1,104 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6Ducks</title>
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+  <link rel="stylesheet" href="styleguide.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="mainpage-chat">
+    <div class="left_section">
+      <div class="seller_info">
+        <div class="seller_containter">
+          <div class="seller">Người bán</div>
+          <div class="container_seller">
+            <img src="/assets/images/frame-8.png" draggable="false" width="79px" alt="" />
+            <div>
+              <div class="seller_name">Fantasy Chicken</div>
+              <p class="second_info">
+                Tham gia từ: 1/1/2011 <br />
+                Số sản phẩm bán ra: 100
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rating_info">
+        <div class="rating_wrapper">
+          <div style="line-height: 34px">Đánh giá người bán</div>
+          <div class="rating" style="margin-top: 6px">
+            <div class="stars">
+              <form action="">
+                <input class="star star-5" id="star-5" type="radio" name="star" />
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4" id="star-4" type="radio" name="star" />
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3" id="star-3" type="radio" name="star" />
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2" id="star-2" type="radio" name="star" />
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-1" id="star-1" type="radio" name="star" />
+                <label class="star star-1" for="star-1"></label>
+              </form>
+            </div>
+            <div style="margin-top: 6px; margin-left: 3px">(4.8/5)</div>
+          </div>
+        </div>
+        <div class="scoreboard">
+          <div class="letter">
+            5 sao <br />
+            4 sao <br />
+            3 sao <br />
+            2 sao <br />
+            1 sao
+          </div>
+          <div class="row_bar">
+            <div class="bar_5"></div>
+            <div class="bar_4"></div>
+            <div class="bar_3"></div>
+            <div class="bar_2"></div>
+            <div class="bar_1"></div>
+          </div>
+        </div>
+        <a href="" class="to">
+          <div class="button">
+            <div class="see">XEM TOÀN BỘ ĐÁNH GIÁ</div>
+            <img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="right_section">
+      <iframe src="Chat iframe/" title="Chat"></iframe>
+    </div>
+  </div>
+</body>
+<script type="module" src="script.js"></script>
+<script>
+  // Get the input elements
+  const starInputs = document.querySelectorAll('input[name="star"]');
+
+  // Check the fourth star input
+  starInputs[1].checked = true;
+
+  // Disable the remaining star inputs
+  for (let i = 0; i < starInputs.length; i++) {
+    starInputs[i].disabled = true;
+  }
+
+</script>
+
+</html>

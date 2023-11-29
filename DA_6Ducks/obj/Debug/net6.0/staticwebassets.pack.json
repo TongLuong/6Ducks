@@ -1,1496 +1,488 @@
 {
   "Files": [
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\.gitattributes",
-      "PackagePath": "staticwebassets\\Chat\\.gitattributes"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\HELP-US-OUT.txt",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\HELP-US-OUT.txt"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\globals.css",
-      "PackagePath": "staticwebassets\\Chat\\globals.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\css\\font-awesome.css",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\css\\font-awesome.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\frame-20.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\frame-20.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\css\\font-awesome.min.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\frame-8.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\frame-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-1-2.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-1-2.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-3-1.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-3-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-4-1.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-4-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-5-1.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-5-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-6-1.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-6-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\animated.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\animated.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-7.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\bordered-pulled.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\bordered-pulled.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\core.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\core.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image-9.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image-9.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\fixed-width.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\fixed-width.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\image.png",
-      "PackagePath": "staticwebassets\\Chat\\img\\image.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\font-awesome.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\font-awesome.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\line-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\icons.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\icons.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\line-2.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\line-2.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\larger.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\larger.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\magnifyingglass.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\list.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\list.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\notification.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\notification.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\mixins.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\mixins.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\regular-arrowright.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\regular-arrowright.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\path.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\path.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\regular-star-4.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\regular-star-4.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\rotated-flipped.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\rotated-flipped.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\regular-star-6.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\regular-star-6.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\screen-reader.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\screen-reader.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\regular-star.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\regular-star.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\stacked.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\stacked.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\img\\regular-user.svg",
-      "PackagePath": "staticwebassets\\Chat\\img\\regular-user.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\less\\variables.less",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\less\\variables.less"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\style.css",
-      "PackagePath": "staticwebassets\\Chat\\style.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_animated.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_animated.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\Chat\\styleguide.css",
-      "PackagePath": "staticwebassets\\Chat\\styleguide.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_bordered-pulled.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_bordered-pulled.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\globals.css",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\globals.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_core.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_core.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\frame-8.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\frame-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_fixed-width.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_fixed-width.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-1-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_icons.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_icons.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_larger.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_larger.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-10.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-10.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_list.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_list.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-2.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_mixins.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_mixins.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-3.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_path.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_path.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-4-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-4-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_rotated-flipped.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_rotated-flipped.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-4.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_screen-reader.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_screen-reader.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-5-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-5-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_stacked.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_stacked.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-5.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\_variables.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-6-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-6-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\font-awesome\\scss\\font-awesome.scss",
+      "PackagePath": "staticwebassets\\assets\\font-awesome\\scss\\font-awesome.scss"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-6.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1-1.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-7-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-7-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1-2.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-7.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1-3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1-3.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-8-1.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-8-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1-4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1-4.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1-5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1-5.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image-9.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image-9.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-1.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\image.png",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\image.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-2.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\line-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-3.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\magnifyingglass.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-4.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\notification-1.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\notification-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-5.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowleft-63.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowleft-63.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-6.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowleft-75.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowleft-75.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-7.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowright-124.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowright-124.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-8.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowright-136.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowright-136.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book-9.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book-9.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowright-138.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowright-138.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\book.png",
+      "PackagePath": "staticwebassets\\assets\\images\\book.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-arrowright-91.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-arrowright-91.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\cart.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cart.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-star-1.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-star-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\cart_new.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cart_new.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-star-3.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-star-3.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\combo-voucher.png",
+      "PackagePath": "staticwebassets\\assets\\images\\combo-voucher.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-star-6.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-star-6.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\confirm.png",
+      "PackagePath": "staticwebassets\\assets\\images\\confirm.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-star-8.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-star-8.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\coupon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\coupon.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\img\\regular-user-1.svg",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\img\\regular-user-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\customer_care.png",
+      "PackagePath": "staticwebassets\\assets\\images\\customer_care.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\style.css",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\style.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\discount.png",
+      "PackagePath": "staticwebassets\\assets\\images\\discount.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ConfirmOrder\\styleguide.css",
-      "PackagePath": "staticwebassets\\ConfirmOrder\\styleguide.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\done.png",
+      "PackagePath": "staticwebassets\\assets\\images\\done.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\globals.css",
-      "PackagePath": "staticwebassets\\LoginPage\\globals.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\frame-20.png",
+      "PackagePath": "staticwebassets\\assets\\images\\frame-20.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-1-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\frame-8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\frame-8.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\freeship.png",
+      "PackagePath": "staticwebassets\\assets\\images\\freeship.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-2.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\image.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-3.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\left.png",
+      "PackagePath": "staticwebassets\\assets\\images\\left.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-4.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\live.png",
+      "PackagePath": "staticwebassets\\assets\\images\\live.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-5.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\logo-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo-1.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-6.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-7.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\mastercard.png",
+      "PackagePath": "staticwebassets\\assets\\images\\mastercard.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\image-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\menu.png",
+      "PackagePath": "staticwebassets\\assets\\images\\menu.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\line-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\notification.png",
+      "PackagePath": "staticwebassets\\assets\\images\\notification.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\line-20-1.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\line-20-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\notification_new.png",
+      "PackagePath": "staticwebassets\\assets\\images\\notification_new.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\magnifyingglass.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\num.png",
+      "PackagePath": "staticwebassets\\assets\\images\\num.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\notification.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\notification.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\profile.png",
+      "PackagePath": "staticwebassets\\assets\\images\\profile.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\regular-arrowright.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\regular-arrowright.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\regular-arrowright.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\regular-arrowright.svg"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\regular-eye.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\regular-eye.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\right.png",
+      "PackagePath": "staticwebassets\\assets\\images\\right.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\regular-user.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\regular-user.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\rocket.png",
+      "PackagePath": "staticwebassets\\assets\\images\\rocket.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\img\\shoppingcartsimple.svg",
-      "PackagePath": "staticwebassets\\LoginPage\\img\\shoppingcartsimple.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\search.png",
+      "PackagePath": "staticwebassets\\assets\\images\\search.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\style.css",
-      "PackagePath": "staticwebassets\\LoginPage\\style.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\seller_avatar.png",
+      "PackagePath": "staticwebassets\\assets\\images\\seller_avatar.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\LoginPage\\styleguide.css",
-      "PackagePath": "staticwebassets\\LoginPage\\styleguide.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\upload.png",
+      "PackagePath": "staticwebassets\\assets\\images\\upload.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\globals.css",
-      "PackagePath": "staticwebassets\\MainPage\\globals.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\user.png",
+      "PackagePath": "staticwebassets\\assets\\images\\user.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-1-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\user_new.png",
+      "PackagePath": "staticwebassets\\assets\\images\\user_new.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-1-2.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-1-2.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\visa.png",
+      "PackagePath": "staticwebassets\\assets\\images\\visa.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-16.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-16.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\images\\voucher.png",
+      "PackagePath": "staticwebassets\\assets\\images\\voucher.png"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-2-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-2-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\globals.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-20.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-20.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\header-footer.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\header-footer.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-24.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-24.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\product-info.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\product-info.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-25.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-25.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\seller-info.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\seller-info.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-26.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-26.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\seller-main.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\seller-main.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-27.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-27.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\style_table.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\style_table.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-28.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-28.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\assets\\styles\\user-information.css",
+      "PackagePath": "staticwebassets\\assets\\styles\\user-information.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-29.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-29.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\app.js",
+      "PackagePath": "staticwebassets\\chat\\Chat iframe\\app.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-3-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-3-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\index.html",
+      "PackagePath": "staticwebassets\\chat\\Chat iframe\\index.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-30.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-30.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\Chat iframe\\style.css",
+      "PackagePath": "staticwebassets\\chat\\Chat iframe\\style.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-33.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-33.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\globals.css",
+      "PackagePath": "staticwebassets\\chat\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-36.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-36.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\script.js",
+      "PackagePath": "staticwebassets\\chat\\script.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-39.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-39.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\style.css",
+      "PackagePath": "staticwebassets\\chat\\style.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-4-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-4-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\chat\\styleguide.css",
+      "PackagePath": "staticwebassets\\chat\\styleguide.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-5-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-5-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\components\\footer.html",
+      "PackagePath": "staticwebassets\\components\\footer.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-6.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\components\\header.html",
+      "PackagePath": "staticwebassets\\components\\header.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-7.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\components\\successPopUp.html",
+      "PackagePath": "staticwebassets\\components\\successPopUp.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-8.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\components\\uploadPopUp.html",
+      "PackagePath": "staticwebassets\\components\\uploadPopUp.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\image-9-1.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\image-9-1.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\context\\product-info.js",
+      "PackagePath": "staticwebassets\\context\\product-info.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\line-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\context\\seller-info.js",
+      "PackagePath": "staticwebassets\\context\\seller-info.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\line-29.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\line-29.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\context\\seller-main.js",
+      "PackagePath": "staticwebassets\\context\\seller-main.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\magnifyingglass.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\context\\user-info.js",
+      "PackagePath": "staticwebassets\\context\\user-info.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\notification-1.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\notification-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (buyer)\\scripts.js",
+      "PackagePath": "staticwebassets\\info\\seller-information (buyer)\\scripts.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-caretdown.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-caretdown.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (buyer)\\seller-info.css",
+      "PackagePath": "staticwebassets\\info\\seller-information (buyer)\\seller-info.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-headphones-1.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-headphones-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\globals.css",
+      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-pictureinpicture.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-pictureinpicture.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\style_table.css",
+      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\style_table.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-receipt.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-receipt.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\seller-information (seller)\\styleguide.css",
+      "PackagePath": "staticwebassets\\info\\seller-information (seller)\\styleguide.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-108.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-108.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\user-information\\globals.css",
+      "PackagePath": "staticwebassets\\info\\user-information\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-110.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-110.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\info\\user-information\\styleguide.css",
+      "PackagePath": "staticwebassets\\info\\user-information\\styleguide.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-73.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-73.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\login\\login.css",
+      "PackagePath": "staticwebassets\\login\\login.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-75.png",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-75.png"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\login\\login.js",
+      "PackagePath": "staticwebassets\\login\\login.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-92.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-92.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\seller-mainpage\\globals.css",
+      "PackagePath": "staticwebassets\\seller-mainpage\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-star-95.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-star-95.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\signin\\index.html",
+      "PackagePath": "staticwebassets\\signin\\index.html"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-tag-1.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-tag-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\signin\\signin.css",
+      "PackagePath": "staticwebassets\\signin\\signin.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\img\\regular-user-1.svg",
-      "PackagePath": "staticwebassets\\MainPage\\img\\regular-user-1.svg"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\signin\\signin.js",
+      "PackagePath": "staticwebassets\\signin\\signin.js"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\style.css",
-      "PackagePath": "staticwebassets\\MainPage\\style.css"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\user-mainpage\\globals.css",
+      "PackagePath": "staticwebassets\\user-mainpage\\globals.css"
     },
     {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\MainPage\\styleguide.css",
-      "PackagePath": "staticwebassets\\MainPage\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\globals.css",
-      "PackagePath": "staticwebassets\\ProductBuying\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\duotone-minus.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\duotone-minus.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\duotone-plus.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\duotone-plus.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\frame-6-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\frame-6-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\frame-6.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\frame-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\frame-7.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\frame-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\frame-8-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\frame-8-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\frame-8.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\frame-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-1-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-1-2.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-1-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-10.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-10.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-3-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-3-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-4-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-4-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-4.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-5-1.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-5-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image-9.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image-9.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\image.png",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\image.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\line-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\magnifyingglass.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\notification.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\notification.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-arrowright-47.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-arrowright-47.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-caretdown-1.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-caretdown-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-star-2.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-star-2.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-star-5.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-star-5.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-star-7.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-star-7.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-star.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-star.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\regular-user.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\regular-user.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\img\\shoppingcartsimple.svg",
-      "PackagePath": "staticwebassets\\ProductBuying\\img\\shoppingcartsimple.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\ref.html",
-      "PackagePath": "staticwebassets\\ProductBuying\\ref.html"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\style.css",
-      "PackagePath": "staticwebassets\\ProductBuying\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\ProductBuying\\styleguide.css",
-      "PackagePath": "staticwebassets\\ProductBuying\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\globals.css",
-      "PackagePath": "staticwebassets\\SellerInformation\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\frame-8.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\frame-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-1-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-10.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-10.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-3.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-4-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-4-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-4.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-5-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-5-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-5.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-6-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-6-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-7-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-7-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-8-1.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-8-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image-9.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image-9.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\image.png",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\image.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\line-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\magnifyingglass.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\notification-1.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\notification-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowleft-63.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowleft-63.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowleft-75.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowleft-75.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowright-124.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowright-124.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowright-136.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowright-136.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowright-138.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowright-138.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-arrowright-91.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-arrowright-91.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-star-1.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-star-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-star-3.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-star-3.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-star-6.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-star-6.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-star-8.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-star-8.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\img\\regular-user-1.svg",
-      "PackagePath": "staticwebassets\\SellerInformation\\img\\regular-user-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\style.css",
-      "PackagePath": "staticwebassets\\SellerInformation\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerInformation\\styleguide.css",
-      "PackagePath": "staticwebassets\\SellerInformation\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\HELP-US-OUT.txt",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\HELP-US-OUT.txt"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\css\\font-awesome.css",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\css\\font-awesome.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\css\\font-awesome.min.css",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\css\\font-awesome.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\FontAwesome.otf",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\FontAwesome.otf"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.eot",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.eot"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.svg",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.ttf",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.ttf"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.woff",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.woff"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.woff2",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\fonts\\fontawesome-webfont.woff2"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\animated.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\animated.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\bordered-pulled.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\bordered-pulled.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\core.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\core.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\fixed-width.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\fixed-width.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\font-awesome.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\font-awesome.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\icons.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\icons.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\larger.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\larger.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\list.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\list.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\mixins.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\mixins.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\path.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\path.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\rotated-flipped.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\rotated-flipped.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\screen-reader.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\screen-reader.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\stacked.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\stacked.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\less\\variables.less",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\less\\variables.less"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_animated.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_animated.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_bordered-pulled.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_bordered-pulled.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_core.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_core.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_fixed-width.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_fixed-width.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_icons.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_icons.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_larger.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_larger.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_list.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_list.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_mixins.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_mixins.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_path.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_path.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_rotated-flipped.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_rotated-flipped.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_screen-reader.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_screen-reader.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_stacked.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_stacked.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\_variables.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\_variables.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\font-awesome\\scss\\font-awesome.scss",
-      "PackagePath": "staticwebassets\\SellerPage\\font-awesome\\scss\\font-awesome.scss"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\globals.css",
-      "PackagePath": "staticwebassets\\SellerPage\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-1.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-2.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-3.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-3.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-4.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-4.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-5.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-5.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-6.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-7.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-8.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book-9.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book-9.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\book.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\book.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\cart.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\cart.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\cart_new.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\cart_new.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\combo-voucher.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\combo-voucher.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\coupon.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\coupon.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\customer_care.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\customer_care.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\discount.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\discount.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\freeship.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\freeship.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\live.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\live.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\logo-1.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\logo-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\logo.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\logo.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\mastercard.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\mastercard.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\menu.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\menu.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\notification.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\notification.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\notification_new.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\notification_new.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\search.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\search.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\upload.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\upload.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\user.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\user.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\user_new.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\user_new.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\visa.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\visa.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\img\\voucher.png",
-      "PackagePath": "staticwebassets\\SellerPage\\img\\voucher.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\modules\\footer.html",
-      "PackagePath": "staticwebassets\\SellerPage\\modules\\footer.html"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\modules\\header.html",
-      "PackagePath": "staticwebassets\\SellerPage\\modules\\header.html"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\script.js",
-      "PackagePath": "staticwebassets\\SellerPage\\script.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\style.css",
-      "PackagePath": "staticwebassets\\SellerPage\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\upload\\successPopUp.html",
-      "PackagePath": "staticwebassets\\SellerPage\\upload\\successPopUp.html"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SellerPage\\upload\\uploadPopUp.html",
-      "PackagePath": "staticwebassets\\SellerPage\\upload\\uploadPopUp.html"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\globals.css",
-      "PackagePath": "staticwebassets\\SignupPage\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\duotone-check.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\duotone-check.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-1-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-3.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-4.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-5.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\image-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\line-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\line-29-2.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\line-29-2.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\magnifyingglass.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\notification-1.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\notification-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\regular-caretdown.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\regular-caretdown.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\regular-eye-4.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\regular-eye-4.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\regular-user-1.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\regular-user-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\img\\shoppingcartsimple.svg",
-      "PackagePath": "staticwebassets\\SignupPage\\img\\shoppingcartsimple.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\style.css",
-      "PackagePath": "staticwebassets\\SignupPage\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\SignupPage\\styleguide.css",
-      "PackagePath": "staticwebassets\\SignupPage\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\globals.css",
-      "PackagePath": "staticwebassets\\UserInfomation\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\duotone-package.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\duotone-package.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\duotone-receipt-2.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\duotone-receipt-2.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\duotone-rocket.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\duotone-rocket.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-1-1.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-1-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-1.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-1.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-2.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-2.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-3.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-3.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-4.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-4.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-5.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-5.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-6.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-6.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-7.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-7.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image-8.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image-8.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\image.png",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\image.png"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\line-1.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\line-1.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\magnifyingglass.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\magnifyingglass.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\notification.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\notification.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\regular-arrowleft.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\regular-arrowleft.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\regular-arrowright.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\regular-arrowright.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\regular-user.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\regular-user.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\img\\shoppingcartsimple.svg",
-      "PackagePath": "staticwebassets\\UserInfomation\\img\\shoppingcartsimple.svg"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\style.css",
-      "PackagePath": "staticwebassets\\UserInfomation\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\UserInfomation\\styleguide.css",
-      "PackagePath": "staticwebassets\\UserInfomation\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\css\\globals.css",
-      "PackagePath": "staticwebassets\\css\\globals.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\css\\styleguide.css",
-      "PackagePath": "staticwebassets\\css\\styleguide.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\LICENSE",
-      "PackagePath": "staticwebassets\\lib\\bootstrap"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
-      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery\\LICENSE.txt",
-      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery\\dist\\jquery.js",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
-    },
-    {
-      "Id": "D:\\HCMUT\\hk231\\daCNPM\\6d\\official\\DA_6Ducks\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
-      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+      "Id": "C:\\Users\\Tongkhangte\\OneDrive - hcmut.edu.vn\\Tài liệu học\\Công nghệ phần mềm\\Đồ án\\6Ducks\\DA_6Ducks\\wwwroot\\user-mainpage\\script.js",
+      "PackagePath": "staticwebassets\\user-mainpage\\script.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.DA_6Ducks.Microsoft.AspNetCore.StaticWebAssets.props",
