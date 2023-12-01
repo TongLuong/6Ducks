@@ -89,6 +89,8 @@ CREATE TABLE ProductIMGs (
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
 CREATE TABLE CartItems (
     cartitemID INTEGER IDENTITY(400000001,1) PRIMARY KEY,
+    buyerID INTEGER,
+    FOREIGN key (buyerID) REFERENCES Buyers (buyerID),
     productID INTEGER,
     FOREIGN key (productID) REFERENCES Products (productID),
     quantity INTEGER,
@@ -154,15 +156,21 @@ CREATE TABLE Ratings (
 IF OBJECT_ID(N'dbo.Vouchers', N'U') IS NULL 
 CREATE TABLE Vouchers (
     voucherID INTEGER IDENTITY(700000001,1) PRIMARY KEY,
-    ownerID INTEGER,
-    FOREIGN KEY (ownerID) REFERENCES Users (userID),
     timeStart DATETIME,
     timeExpired DATETIME,
     discountPercent FLOAT,
     maxValue INTEGER,
     minBill INTEGER,
+)
+
+IF OBJECT_ID(N'dbo.VoucherUse', N'U') IS NULL 
+CREATE TABLE VoucherUse (
+    voucherID INTEGER,
+    FOREIGN KEY (voucherID) REFERENCES Vouchers (voucherID),
     categoryID INTEGER,
     FOREIGN KEY (categoryID) REFERENCES Categories (categoryID),
+    sellerApply INTEGER,
+    FOREIGN KEY (sellerApply) REFERENCES Sellers (sellerID)
 )
 
 IF OBJECT_ID(N'dbo.LogChat', N'U') IS NULL
