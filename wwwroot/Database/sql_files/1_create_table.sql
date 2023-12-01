@@ -119,7 +119,7 @@ CREATE TABLE Bills (
     FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     sellerID INTEGER,
     FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
-    billStatus BIT,
+    billStatus varchar(15),
     totalPrice INTEGER,
     time DATETIME, 
     address NVARCHAR(255),
@@ -129,6 +129,14 @@ CREATE TABLE Bills (
     FOREIGN KEY (smethodID) REFERENCES ShippingMethods (smethodID),
 )
 GO
+alter table Bills alter column billStatus varchar(15)
+alter table Bills add constraint Domain_status check(
+billStatus = 'Confirming' or
+billStatus = 'Waiting pickup' or
+billStatus = 'Delivering'	or
+billStatus = 'Done'or
+billStatus = 'Cancelled' or
+billStatus = 'Refund')
 
 IF OBJECT_ID(N'dbo.BillItems', N'U') IS NULL
 CREATE TABLE BillItems (
