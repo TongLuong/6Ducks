@@ -12,10 +12,12 @@ $(this).ready(function () {
     location.href = "SignIn";
   });
 
-  $(".login-btn").click(function (e) { 
+/*$(".login-btn").click(function (e) {
     e.preventDefault();
-    location.href = "MainPage";
-  });
+    
+    //document.write(document.getElementById("username").value);
+    //location.href = "MainPage";
+  });*/
 
   $(".show-pwd").click(function (e) {
     e.preventDefault();

@@ -6,12 +6,12 @@ namespace DA_6Ducks.Controllers
     {
         public IActionResult Index()
         {
-            return View("~/Views/user/chat/index.cshtml");
+            return View("/Views/user/chat/index.cshtml");
         }
 
         public IActionResult IndexIframe()
         {
-            return View("~/Views/user/chat/Chat-iframe/index.cshtml");
+            return View("/Views/user/chat/Chat-iframe/index.cshtml");
         }
     }
 }

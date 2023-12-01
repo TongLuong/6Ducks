@@ -6,7 +6,15 @@ namespace DA_6Ducks.Controllers
     {
         public IActionResult Index()
         {
-            return View("~/Views/user/login/index.cshtml");
+            return View("/Views/user/login/index.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult CheckLogin(string username, string pwd)
+        {
+            // TODO
+            // check username and pwd using function from model
+            return View("/Views/user/user-mainpage/index.cshtml");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace DA_6Ducks.Controllers
     {
         public IActionResult Index()
         {
-            return View("~/Views/user/info/seller-information(seller)/index.cshtml");
+            return View("/Views/user/info/seller-information(seller)/index.cshtml");
         }
     }
 }
