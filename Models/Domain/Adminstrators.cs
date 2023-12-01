@@ -2,11 +2,13 @@
 {
     public class Adminstrators
     {
-        private int adminID;
-        private int userID;
-        public int AdminID { get => adminID; }
-        public int UserID { get => userID; }
-        public Adminstrators(int adminID, int userID) 
+        private long adminID;
+        public long AdminID {get => adminID; set => adminID = value;}
+
+        private long userID;
+        public long UserID {get => userID; set => userID = value;}
+
+        public Adminstrators(long adminID, long userID) 
         {
             this.adminID = adminID;
             this.userID = userID;

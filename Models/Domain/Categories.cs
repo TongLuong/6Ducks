@@ -4,11 +4,11 @@ namespace DA_6Ducks.Models.Domain
 {
     public class Categories
     {
-        private int categoryID;
+        private long categoryID;
         private string name;
-        public int CategoryID { get {  return categoryID; } set {  categoryID = value; } }
-        public string Name { get { return name; } set {  name = value; } }
-        public Categories(int categoryID, string name) 
+        public long CategoryID {get => categoryID; set => categoryID = value;}
+        public string Name {get => name; set => name = value;}
+        public Categories(long categoryID, string name) 
         {
             this.categoryID = categoryID;
             this.name = name;

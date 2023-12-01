@@ -83,7 +83,7 @@ IF OBJECT_ID(N'dbo.ProductIMGs', N'U') IS NULL
 CREATE TABLE ProductIMGs (
     productID INTEGER,
     FOREIGN KEY (productID) REFERENCES Products (productID),
-    img IMAGE
+    imgLink VARCHAR(255)
 )
 
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
@@ -177,8 +177,8 @@ CREATE TABLE VoucherUse (
     FOREIGN KEY (voucherID) REFERENCES Vouchers (voucherID),
     categoryID INTEGER,
     FOREIGN KEY (categoryID) REFERENCES Categories (categoryID),
-    sellerApply INTEGER,
-    FOREIGN KEY (sellerApply) REFERENCES Sellers (sellerID)
+    sellerID INTEGER,
+    FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID)
 )
 
 IF OBJECT_ID(N'dbo.LogChat', N'U') IS NULL

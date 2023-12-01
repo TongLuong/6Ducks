@@ -2,18 +2,19 @@
 {
     public class Bills
     {
-        private int billID, buyerID, sellerID, totalPrice,pmethodID,smethodID;
-        private string billStatus="", address = "";
-        private string datetime="";
-        public int BillID { get { return billID; } set {  billID = value; } }
-        public int BuyerID { get { return buyerID; } set { buyerID = value; } }
-        public int SellerID { get { return sellerID; } set { sellerID = value; } }
-        public int TotalPrice { get {  return totalPrice; } set {  totalPrice = value; } }
-        public string BillStatus { get {  return billStatus; } set { billStatus = value; } }
-        public string Address { get { return address; } set { address = value; } }
-        public int SmethodID { get { return smethodID; } set {  smethodID = value; } }
-        public int PmethodID { get { return pmethodID; } set { pmethodID = value; } }
-        public Bills(int billID, int buyerID, int sellerID, int totalPrice, int pmethodID, int smethodID, string billStatus, string address, string datetime)
+        private long billID, buyerID, sellerID, totalPrice, pmethodID, smethodID;
+        public long BillID {get => billID; set => billID = value;}
+        public long BuyerID {get => buyerID; set => buyerID = value;}
+        public long SellerID {get => sellerID; set => sellerID = value;}
+        public long TotalPrice {get => totalPrice; set => totalPrice = value;}
+        public long SmethodID {get => smethodID; set => smethodID = value;}
+        public long PmethodID {get => pmethodID; set => pmethodID = value;}
+
+        private string billStatus, address, datetime;
+        public string BillStatus {get => billStatus; set => billStatus = value;}
+        public string Address {get => address; set => address = value;}
+        
+        public Bills(long billID, long buyerID, long sellerID, long totalPrice, long pmethodID, long smethodID, string billStatus, string address, string datetime)
         {
             this.billID = billID;
             this.buyerID = buyerID;

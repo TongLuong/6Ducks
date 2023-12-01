@@ -2,10 +2,10 @@
 {
     public class Buyers
     {
-        private int buyerID, userID;
-        public int BuyersID { get {  return buyerID; } set {  buyerID = value; } }
-        public int UserID { get { return userID; } set {  userID = value; } }
-        public Buyers(int buyerID, int userID) 
+        private long buyerID, userID;
+        public long BuyersID {get => buyerID; set => buyerID = value;}
+        public long UserID {get => userID; set => userID = value;}
+        public Buyers(long buyerID, long userID) 
         {
             this.userID = userID;
             this.buyerID = buyerID;
