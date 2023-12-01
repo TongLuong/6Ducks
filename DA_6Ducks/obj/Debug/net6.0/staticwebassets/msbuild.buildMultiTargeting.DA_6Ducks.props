@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\DA_6Ducks.props" />
-</Project>
