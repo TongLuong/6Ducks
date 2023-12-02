@@ -83,5 +83,17 @@ begin
 	return
 end
 go
+-- load all the feedback of a product
+create function loadFeedback(
+@productID int)
+returns @rtntable table(displayName nvarchar(255), ratingStar float, detail nvarchar(255))
+as
+begin
+	insert into @rtntable
+		select u.displayName, r.ratingStar, r.detail
+		from Ratings r, Buyers b, Users u
+		where r.buyerID = b.buyerID and b.userID = u.userID and r.productID = @productID;
+	return
+end
 go
 go
