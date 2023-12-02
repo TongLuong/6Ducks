@@ -47,6 +47,8 @@ end
 go
 -- calculate total price of a bill (check ship,voucher...
 go
+-- insert a bill
+go
 -- load the number of ratings classified into *, **, ***...
 create function numberOfRatings(
 @sellerID int)

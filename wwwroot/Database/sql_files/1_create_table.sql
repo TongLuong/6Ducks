@@ -194,6 +194,18 @@ CREATE TABLE LogChat(
     time DATETIME,
 )
 
+IF OBJECT_ID(N'dbo.Voucher_apply', N'U') IS NULL
+CREATE TABLE Voucher_apply (
+    billID int,
+	voucherID int,
+	constraint FK_apply_bid
+		foreign key (billID) references Bills(billID),
+	constraint FK_apply_vchID
+		foreign key (voucherID) references Vouchers(voucherID),
+)
+GO
 -- change 
 alter table ShippingMethods add price int not null default 0
 alter table ShippingMethods add constraint Domain_price_ship check(price >= 0)
+
+alter table Vouchers add quantity int not null default 0
