@@ -38,7 +38,7 @@ create procedure loadLog
 @objectIDView int
 as
 begin
-	select senderID, receiverID,msg,[time]
+	select senderID, receiverID, msg, [time]
 	from LogChat
 	where (senderID = @userIDView and receiverID = @objectIDView) or
 	(senderID = @objectIDView and receiverID = @userIDView)

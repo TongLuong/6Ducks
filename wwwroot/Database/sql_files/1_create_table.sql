@@ -17,7 +17,7 @@ CREATE TABLE Users (
     pass VARCHAR(255),
 )
 GO
-alter table Users add   transactionNumber varchar(16)
+alter table Users add transactionNumber varchar(16)
 alter table Users add constraint Domain_number check(transactionNumber not like '%[^0-9]%') 
 
 
