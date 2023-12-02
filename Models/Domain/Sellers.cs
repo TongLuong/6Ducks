@@ -13,7 +13,7 @@
         private float avgRating;
         public float AvgRating {get => avgRating; set => avgRating = value;}
 
-        public Sellers
+        public Sellers (long sellerID, long userID, long  productSale, string startingTime, float avgRating)
         {
             this.sellerID = sellerID;
             this.userID = userID;

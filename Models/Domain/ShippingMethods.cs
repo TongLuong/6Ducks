@@ -3,7 +3,7 @@
     public class ShippingMethods
     {
         private int smethodID;
-        public int SmethodID {get => smethodID; set smethodID = value;}
+        public int SmethodID {get => smethodID; set => smethodID = value;}
         
         private string name;
         public string Name {get => name; set => name = value;}

@@ -10,7 +10,7 @@
         
         public Genres(long genrelID, string name) 
         {
-           this.genrelID = genrelID;
+           this.genreID = genrelID;
            this.name = name;
         }
     }
