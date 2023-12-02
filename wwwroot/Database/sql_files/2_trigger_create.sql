@@ -121,7 +121,7 @@ BEGIN
 		UPDATE Vouchers
 		SET quantity = quantity - @num_used
 		WHERE voucherID = @vchID;
-		FETCH from cur INTEGER @vchID, @num_used
+		FETCH from cur INTO @vchID, @num_used
 	END
 	CLOSE cur
 	DEALLOCATE cur
