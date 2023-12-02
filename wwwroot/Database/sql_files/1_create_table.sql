@@ -17,6 +17,9 @@ CREATE TABLE Users (
     pass VARCHAR(255),
 )
 GO
+alter table Users add   transactionNumber varchar(16)
+alter table Users add constraint Domain_number check(transactionNumber not like '%[^0-9]%') 
+
 
 IF OBJECT_ID(N'dbo.Sellers', N'U') IS NULL
 CREATE TABLE Sellers (
@@ -104,8 +107,7 @@ CREATE TABLE PaymentMethods (
     name NVARCHAR(255)
 )
 GO
-alter table PaymentMethods add accountNumber varchar(16)
-alter table PaymentMethods add constraint Domain_number check(accountNumber not like '%[^0-9]%') 
+
 IF OBJECT_ID(N'dbo.ShippingMethods', N'U') IS NULL
 CREATE TABLE ShippingMethods (
     smethodID INTEGER IDENTITY(4001,1) PRIMARY KEY,
