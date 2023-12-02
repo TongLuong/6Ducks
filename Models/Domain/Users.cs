@@ -7,19 +7,19 @@
         public long Usertype {get => usertype; set => usertype = value;}
 
         private string displayName;
-        public string DisplayName {get =>  displayName; set => displayName = value;}
+        public string DisplayName {get => displayName; set => displayName = value;}
         private string dob;
-        public string Dob {get =>  dob; set => dob = value;}
+        public string Dob {get => dob; set => dob = value;}
         private string email;
-        public string Email {get =>  email; set => email = value;}
+        public string Email {get => email; set => email = value;}
         private string phoneNumber;
-        public string PhoneNumber {get =>  phoneNumber; set => phoneNumber = value;}
+        public string PhoneNumber {get => phoneNumber; set => phoneNumber = value;}
         private string address;
-        public string Address {get =>  address; set => address = value;}
+        public string Address {get => address; set => address = value;}
         private string username;
-        public string Username {get =>  username; set => username = value;}
+        public string Username {get => username; set => username = value;}
         //private string pass;
-        //public string Pass {get =>  pass; set => pass = value;} //pass cant be public
+        //public string Pass {get => pass; set => pass = value;} //pass cant be public
 
         private string transactionNumber;
         public string TransactionNumber { get => transactionNumber;}

@@ -41,16 +41,24 @@
           <div style="line-height: 34px">Đánh giá người bán</div>
           <div class="rating" style="margin-top: 6px">
             <div class="stars">
-              <form action="">
-                <input class="star star-5" id="star-5" type="radio" name="star" />
+                <form action="@Url.Action("Chat","Rating1")" id="star1" method ="post">
+                <input class="star star-5" id="star-5" type="submit" name="star" form ="star1" />
                 <label class="star star-5" for="star-5"></label>
-                <input class="star star-4" id="star-4" type="radio" name="star" />
+                </form>
+                <form action="@Url.Action("Chat","Rating2")" id="star2" method ="post">
+                <input class="star star-4" id="star-4" type="submit" name="star" form ="star2"/>
                 <label class="star star-4" for="star-4"></label>
-                <input class="star star-3" id="star-3" type="radio" name="star" />
+                </form>
+                <form action="@Url.Action("Chat","Rating3")" id="star3" method ="post">
+                <input class="star star-3" id="star-3" type="submit" name="star" form ="star3"/>
                 <label class="star star-3" for="star-3"></label>
-                <input class="star star-2" id="star-2" type="radio" name="star" />
+                </form>
+                <form action="@Url.Action("Chat","Rating4")" id="star4" method ="post">
+                <input class="star star-2" id="star-2" type="submit" name="star" form ="star4" />
                 <label class="star star-2" for="star-2"></label>
-                <input class="star star-1" id="star-1" type="radio" name="star" />
+                </form>
+                 <form action="@Url.Action("Chat","Rating5")" id="star5" method ="post">
+                <input class="star star-1" id="star-1" type="submit" name="star" form ="star5" />
                 <label class="star star-1" for="star-1"></label>
               </form>
             </div>

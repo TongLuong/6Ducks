@@ -9,7 +9,7 @@
         public string Name {get => name; set => name = value;}
 
         private long price;
-        public long Price { get => price; set => price = value;}
+        public long Price {get => price; set => price = value;}
         
         public ShippingMethods(int smethodID, string name, long price)
         {

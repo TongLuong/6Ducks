@@ -7,10 +7,10 @@ $(this).ready(function () {
       $("body, html").css("overflow", "hidden");
     });
     $(".user").click(function() {
-        location.href = '/pages/user/info/seller-information (seller)/index.html'
+        location.href = "SellerInfoSeller"
     });
     $(".logo").click(function() {
-      location.href = '/pages/user/seller-mainpage/index.html'
+      location.href = "SellerMainPage"
   });
   });
 
