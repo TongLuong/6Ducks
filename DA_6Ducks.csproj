@@ -24,4 +24,8 @@
     <None Include="wwwroot\Database\sql_files\3_initial_data.sql" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
 </Project>
