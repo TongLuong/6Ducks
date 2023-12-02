@@ -193,3 +193,7 @@ CREATE TABLE LogChat(
     msg NVARCHAR(255),
     time DATETIME,
 )
+
+-- change 
+alter table ShippingMethods add price int not null default 0
+alter table ShippingMethods add constraint Domain_price_ship check(price >= 0)
