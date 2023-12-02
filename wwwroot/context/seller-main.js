@@ -18,7 +18,7 @@ $(this).ready(function () {
     $("body").append(data);
   });
 
-  $.get("/components/uploadPopUp.html", function (data) {
+  $.get("Components/upload", function (data) {
     $(".mainpage-uploadcomic").append(data);
     $(".cancel-upload").click(function() {
       $(".mainpage-upload-comic-form").css("display", "none");

@@ -20,7 +20,7 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public IActionResult CheckLogin(string username, string pwd)
+        public IActionResult CheckLogin(string username, string email, string pwd)
         {
             // TODO
             // check username and pwd using function from model
@@ -30,16 +30,15 @@ namespace DA_6Ducks.Controllers
 
             SqlCommand func = new SqlCommand("SELECT dbo.checkValid(@username, @email, @pass)", 
                 conn);
-            /*SqlParameter user = new SqlParameter("@username", SqlDbType.VarChar);
-            SqlParameter mail = new SqlParameter("@email", SqlDbType.VarChar);
-            SqlParameter password = new SqlParameter("@pass", SqlDbType.VarChar);
-            user.Value = username;
-            password.Value = pwd;*/
-            func.Parameters.AddWithValue("@username", username);
-            func.Parameters.AddWithValue("@email", null);
-            func.Parameters.AddWithValue("@pass", pwd);
+
+            if (username != null)
+            {
+                func.Parameters.AddWithValue("@username", username);
+                func.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
+                func.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
+            }
             bool result = (bool)func.ExecuteScalar();
-            return Content("result: " + result.ToString());
+            //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
             if (result)
                 return RedirectToAction("Index", "MainPage");
             else
