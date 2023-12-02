@@ -101,5 +101,6 @@ BEGIN
 END;
 GO
 
+-- check valid before applying voucher
 --------------------------------
 
