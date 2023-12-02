@@ -19,27 +19,31 @@ namespace DA_6Ducks.Controllers
         [HttpPost]
         public IActionResult Rating1()
         {
-            
+            GetRate(1);
             return null;
         }
         [HttpPost]
         public IActionResult Rating2()
         {
+            GetRate(2);
             return null;
         }
         [HttpPost]
         public IActionResult Rating3()
         {
+            GetRate(3);
             return null;
         }
         [HttpPost]
         public IActionResult Rating4()
         {
+            GetRate(4);
             return null;
         }
         [HttpPost]
         public IActionResult Rating5()
         {
+            GetRate(5);
             return null;
         }
 
