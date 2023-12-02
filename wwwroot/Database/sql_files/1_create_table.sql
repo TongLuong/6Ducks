@@ -17,6 +17,9 @@ CREATE TABLE Users (
     pass VARCHAR(255),
 )
 GO
+alter table Users add transactionNumber varchar(16)
+alter table Users add constraint Domain_number check(transactionNumber not like '%[^0-9]%') 
+
 
 IF OBJECT_ID(N'dbo.Sellers', N'U') IS NULL
 CREATE TABLE Sellers (
@@ -83,12 +86,14 @@ IF OBJECT_ID(N'dbo.ProductIMGs', N'U') IS NULL
 CREATE TABLE ProductIMGs (
     productID INTEGER,
     FOREIGN KEY (productID) REFERENCES Products (productID),
-    img IMAGE
+    imgLink VARCHAR(255)
 )
 
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
 CREATE TABLE CartItems (
     cartitemID INTEGER IDENTITY(400000001,1) PRIMARY KEY,
+    buyerID INTEGER,
+    FOREIGN key (buyerID) REFERENCES Buyers (buyerID),
     productID INTEGER,
     FOREIGN key (productID) REFERENCES Products (productID),
     quantity INTEGER,
@@ -117,7 +122,7 @@ CREATE TABLE Bills (
     FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     sellerID INTEGER,
     FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
-    billStatus BIT,
+    billStatus varchar(15),
     totalPrice INTEGER,
     time DATETIME, 
     address NVARCHAR(255),
@@ -127,6 +132,14 @@ CREATE TABLE Bills (
     FOREIGN KEY (smethodID) REFERENCES ShippingMethods (smethodID),
 )
 GO
+alter table Bills alter column billStatus varchar(15)
+alter table Bills add constraint Domain_status check(
+billStatus = 'Confirming' or
+billStatus = 'Waiting pickup' or
+billStatus = 'Delivering'	or
+billStatus = 'Done'or
+billStatus = 'Cancelled' or
+billStatus = 'Refund')
 
 IF OBJECT_ID(N'dbo.BillItems', N'U') IS NULL
 CREATE TABLE BillItems (
@@ -154,15 +167,21 @@ CREATE TABLE Ratings (
 IF OBJECT_ID(N'dbo.Vouchers', N'U') IS NULL 
 CREATE TABLE Vouchers (
     voucherID INTEGER IDENTITY(700000001,1) PRIMARY KEY,
-    ownerID INTEGER,
-    FOREIGN KEY (ownerID) REFERENCES Users (userID),
     timeStart DATETIME,
     timeExpired DATETIME,
     discountPercent FLOAT,
     maxValue INTEGER,
     minBill INTEGER,
+)
+
+IF OBJECT_ID(N'dbo.VoucherUse', N'U') IS NULL 
+CREATE TABLE VoucherUse (
+    voucherID INTEGER,
+    FOREIGN KEY (voucherID) REFERENCES Vouchers (voucherID),
     categoryID INTEGER,
     FOREIGN KEY (categoryID) REFERENCES Categories (categoryID),
+    sellerID INTEGER,
+    FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID)
 )
 
 IF OBJECT_ID(N'dbo.LogChat', N'U') IS NULL
@@ -174,3 +193,19 @@ CREATE TABLE LogChat(
     msg NVARCHAR(255),
     time DATETIME,
 )
+
+IF OBJECT_ID(N'dbo.Voucher_apply', N'U') IS NULL
+CREATE TABLE Voucher_apply (
+    billID int,
+	voucherID int,
+	constraint FK_apply_bid
+		foreign key (billID) references Bills(billID),
+	constraint FK_apply_vchID
+		foreign key (voucherID) references Vouchers(voucherID),
+)
+GO
+-- change 
+alter table ShippingMethods add price int not null default 0
+alter table ShippingMethods add constraint Domain_price_ship check(price >= 0)
+
+alter table Vouchers add quantity int not null default 0

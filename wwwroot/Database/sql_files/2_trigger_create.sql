@@ -101,5 +101,28 @@ BEGIN
 END;
 GO
 
---------------------------------
+-- check valid before insert applying voucher
 
+-- update quantity of Voucher after inserting Apply
+--drop trigger update_quantity
+CREATE TRIGGER update_quantity
+ON Voucher_apply
+AFTER INSERT
+AS
+BEGIN
+	declare @vchID int
+	declare @num_used int
+	declare cur Cursor for (select voucherID, count(*) as num_used from inserted group by voucherID);
+	open cur
+	fetch from cur into @vchID, @num_used
+	while @@FETCH_STATUS = 0
+	begin
+		update Vouchers
+		set quantity = quantity - @num_used
+		where voucherID = @vchID;
+		fetch from cur into @vchID, @num_used
+	end
+	close cur
+	deallocate cur
+END
+--------------------------------
