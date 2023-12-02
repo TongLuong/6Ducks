@@ -12,7 +12,7 @@
         public string TimeExpired {get => timeExpired; set => timeExpired = value;}
 
         private float discountPercent;
-        public float DiscountPercent {get => discountPercent; set => discountPercent = value;}
+        public float DiscountPercent { get => discountPercent; set => discountPercent = value; }
 
         public Vouchers (long voucherID; string timeStart, string timeExpired, float discountPercent, long maxValue, long minBill)
         {
