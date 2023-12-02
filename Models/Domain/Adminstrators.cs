@@ -2,10 +2,8 @@
 {
     public class Adminstrators
     {
-        private long adminID;
+        private long adminID, userID;
         public long AdminID {get => adminID; set => adminID = value;}
-
-        private long userID;
         public long UserID {get => userID; set => userID = value;}
 
         public Adminstrators(long adminID, long userID) 

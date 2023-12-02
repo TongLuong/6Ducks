@@ -49,8 +49,8 @@ go
 go
 -- insert a bill
 go
--- load the number of ratings classified into *, **, ***...
-create function numberOfRatings(
+-- load the number of seller ratings classified into *, **, ***...
+create function numberOfSellerRatings(
 @sellerID int)
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
 as
@@ -64,24 +64,56 @@ begin
 	declare @twoStar int = (
 		select count(*) as num
 		from Ratings r, Products p
-		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar > 1 and r.ratingStar <=2)
+		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar > 1 and r.ratingStar <= 2)
 	)
 	declare @threeStar int = (
 		select count(*) as num
 		from Ratings r, Products p
-		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar >2 and r.ratingStar <=3)
+		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar > 2 and r.ratingStar <= 3)
 	)
 	declare @fourStar int = (
 		select count(*) as num
 		from Ratings r, Products p
-		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar>3 and r.ratingStar <=4)
+		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar > 3 and r.ratingStar <= 4)
 	)
 	declare @fiveStar int = (
 		select count(*) as num
 		from Ratings r, Products p
 		where r.productID = p.productID and p.sellerID = @sellerID and (r.ratingStar > 4 and r.ratingStar <= 5)
 	)
-	insert into @rtnTable values(@oneStar, @twoStar, @threeStar,@fourStar,@fiveStar);
+	insert into @rtnTable values(@oneStar, @twoStar, @threeStar, @fourStar, @fiveStar);
+	return
+end
+go
+-- load the number of seller ratings classified into *, **, ***...
+create function numberOfProductRatings(
+@productID int)
+returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
+as
+begin
+	--declare @result table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
+	declare @oneStar int = (
+		select count(*) as num from Ratings r
+		where r.productID = @productID and (r.ratingStar > 0.9 and r.ratingStar < 1.1)
+	)
+	declare @twoStar int = (
+		select count(*) as num from Ratings r
+		where r.productID = @productID and (r.ratingStar > 1.9 and r.ratingStar < 2.1)
+	)
+	declare @threeStar int = (
+		select count(*) as num from Ratings r
+		where r.productID = @productID and (r.ratingStar > 2.9 and r.ratingStar < 3.1)
+	)
+	declare @fourStar int = (
+		select count(*) as num from Ratings r
+		where r.productID = @productID and (r.ratingStar > 3.9 and r.ratingStar < 4.1)
+	)
+	declare @fiveStar int = (
+		select count(*) as num
+		select count(*) as num from Ratings r
+		where r.productID = @productID and (r.ratingStar > 4.9 and r.ratingStar < 5.1)
+	)
+	insert into @rtnTable values(@oneStar, @twoStar, @threeStar, @fourStar, @fiveStar);
 	return
 end
 go

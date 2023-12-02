@@ -10,21 +10,22 @@
         public long SmethodID {get => smethodID; set => smethodID = value;}
         public long PmethodID {get => pmethodID; set => pmethodID = value;}
 
-        private string billStatus, address, datetime;
+        private string billStatus, address, time;
         public string BillStatus {get => billStatus; set => billStatus = value;}
         public string Address {get => address; set => address = value;}
+        public string Time {get => time; set => time = value;}
         
-        public Bills(long billID, long buyerID, long sellerID, long totalPrice, long pmethodID, long smethodID, string billStatus, string address, string datetime)
+        public Bills(long billID, long buyerID, long sellerID, string billStatus, long totalPrice, string time, string address, long pmethodID, long smethodID)
         {
             this.billID = billID;
             this.buyerID = buyerID;
             this.sellerID = sellerID;
-            this.datetime = datetime;
+            this.billStatus = billStatus;
             this.totalPrice = totalPrice;
+            this.time = time;
+            this.address = address;
             this.pmethodID = pmethodID;
             this.smethodID = smethodID;
-            this.address = address;
-            this.billStatus = billStatus;
         }
     }
 }
