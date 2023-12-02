@@ -1,26 +1,26 @@
 USE dath_database
 GO
 
--- Classify users into types
+-- Classify users INTEGERo types
 CREATE TRIGGER classify_new_user
 ON Users
 AFTER INSERT
 AS
 BEGIN
-    -- Insert into Sellers for usertype 21
-    INSERT INTO Sellers (userID, startingTime)
+    -- Insert INTEGERo Sellers for usertype 21
+    INSERT INTEGERO Sellers (userID, startingTime)
     SELECT userID, CONVERT(DATE, GETDATE())
     FROM inserted
     WHERE usertype = 21;
 
-    -- Insert into Buyers for usertype 22
-    INSERT INTO Buyers (userID)
+    -- Insert INTEGERo Buyers for usertype 22
+    INSERT INTEGERO Buyers (userID)
     SELECT userID
     FROM inserted
     WHERE usertype = 22;
 
-    -- Insert into Administrators for usertype 23
-    INSERT INTO Administrators (userID)
+    -- Insert INTEGERo Administrators for usertype 23
+    INSERT INTEGERO Administrators (userID)
     SELECT userID
     FROM inserted
     WHERE usertype = 23;
@@ -104,25 +104,26 @@ GO
 -- check valid before insert applying voucher
 
 -- update quantity of Voucher after inserting Apply
---drop trigger update_quantity
+
+-- drop trigger update_quantity
 CREATE TRIGGER update_quantity
 ON Voucher_apply
 AFTER INSERT
 AS
 BEGIN
-	declare @vchID int
-	declare @num_used int
-	declare cur Cursor for (select voucherID, count(*) as num_used from inserted group by voucherID);
-	open cur
-	fetch from cur into @vchID, @num_used
-	while @@FETCH_STATUS = 0
-	begin
-		update Vouchers
-		set quantity = quantity - @num_used
-		where voucherID = @vchID;
-		fetch from cur into @vchID, @num_used
-	end
-	close cur
-	deallocate cur
+	DECLARE @vchID INTEGER
+	DECLARE @num_used INTEGER
+	DECLARE cur CURSOR FOR (SELECT voucherID, count(*) AS num_used FROM inserted GROUP BY voucherID);
+	OPEN cur
+	FETCH FROM cur INTEGERo @vchID, @num_used
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		UPDATE Vouchers
+		SET quantity = quantity - @num_used
+		WHERE voucherID = @vchID;
+		FETCH from cur INTEGER @vchID, @num_used
+	END
+	CLOSE cur
+	DEALLOCATE cur
 END
 --------------------------------

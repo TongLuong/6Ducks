@@ -15,10 +15,10 @@ CREATE TABLE Users (
     usertype INTEGER,
     username VARCHAR(255),
     pass VARCHAR(255),
+    transactionNumber VARCHAR(16),
+    CONSTRAINT Domain_number CHECK(transactionNumber not like '%[^0-9]%')
 )
 GO
-alter table Users add transactionNumber varchar(16)
-alter table Users add constraint Domain_number check(transactionNumber not like '%[^0-9]%') 
 
 
 IF OBJECT_ID(N'dbo.Sellers', N'U') IS NULL
@@ -27,8 +27,8 @@ CREATE TABLE Sellers (
     userID INTEGER,
     FOREIGN KEY (userID) REFERENCES Users (userID),
     startingTime DATE,
-    avgRating FLOAT DEFAULT 0,
     productSale INTEGER DEFAULT 0
+    avgRating FLOAT DEFAULT 0,
 )
 GO
 
@@ -69,7 +69,7 @@ CREATE TABLE Products (
     name NVARCHAR(255),
     author NVARCHAR(255),
     publisher NVARCHAR(255),
-    genreID integer,
+    genreID INTEGEReger,
     FOREIGN KEY (genreID) REFERENCES Genres (genreID),
     categoryID INTEGER,
     FOREIGN KEY (categoryID) REFERENCES Categories (categoryID),
@@ -112,6 +112,8 @@ IF OBJECT_ID(N'dbo.ShippingMethods', N'U') IS NULL
 CREATE TABLE ShippingMethods (
     smethodID INTEGER IDENTITY(4001,1) PRIMARY KEY,
     name NVARCHAR(255),
+    price INTEGER NOT NULL DEFAULT 0;
+    CONSTRAINT domain_ShippingPrice CHECK (price >= 0),
 )
 GO
 
@@ -122,7 +124,7 @@ CREATE TABLE Bills (
     FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     sellerID INTEGER,
     FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
-    billStatus varchar(15),
+    billStatus VARCHAR(15),
     totalPrice INTEGER,
     time DATETIME, 
     address NVARCHAR(255),
@@ -130,16 +132,16 @@ CREATE TABLE Bills (
     FOREIGN KEY (pmethodID) REFERENCES PaymentMethods (pmethodID),
     smethodID INTEGER,
     FOREIGN KEY (smethodID) REFERENCES ShippingMethods (smethodID),
+    CONSTRAINT Domain_status CHECK (
+        billStatus = 'Confirming' or
+        billStatus = 'Waiting pickup' or
+        billStatus = 'Delivering' or
+        billStatus = 'Done' or
+        billStatus = 'Cancelled' or
+        billStatus = 'Refund'
+    )
 )
 GO
-alter table Bills alter column billStatus varchar(15)
-alter table Bills add constraint Domain_status check(
-billStatus = 'Confirming' or
-billStatus = 'Waiting pickup' or
-billStatus = 'Delivering'	or
-billStatus = 'Done'or
-billStatus = 'Cancelled' or
-billStatus = 'Refund')
 
 IF OBJECT_ID(N'dbo.BillItems', N'U') IS NULL
 CREATE TABLE BillItems (
@@ -172,6 +174,7 @@ CREATE TABLE Vouchers (
     discountPercent FLOAT,
     maxValue INTEGER,
     minBill INTEGER,
+    quantity INTEGER NOT NULL DEFAULT 0,
 )
 
 IF OBJECT_ID(N'dbo.VoucherUse', N'U') IS NULL 
@@ -194,18 +197,12 @@ CREATE TABLE LogChat(
     time DATETIME,
 )
 
-IF OBJECT_ID(N'dbo.Voucher_apply', N'U') IS NULL
-CREATE TABLE Voucher_apply (
-    billID int,
-	voucherID int,
-	constraint FK_apply_bid
-		foreign key (billID) references Bills(billID),
-	constraint FK_apply_vchID
-		foreign key (voucherID) references Vouchers(voucherID),
+IF OBJECT_ID(N'dbo.VoucherApply', N'U') IS NULL
+CREATE TABLE VoucherApply (
+    billID INTEGER,
+	FOREIGN KEY (billID) REFERENCES Bills(billID),
+    voucherID INTEGER,
+	FOREIGN KEY (voucherID) REFERENCES Vouchers(voucherID),
 )
 GO
--- change 
-alter table ShippingMethods add price int not null default 0
-alter table ShippingMethods add constraint Domain_price_ship check(price >= 0)
 
-alter table Vouchers add quantity int not null default 0
