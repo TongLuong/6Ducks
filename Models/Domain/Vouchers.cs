@@ -13,8 +13,10 @@
 
         private float discountPercent;
         public float DiscountPercent { get => discountPercent; set => discountPercent = value; }
+        private long quantity;
+        public long Qauntity { get => quantity; set => quantity = value; }
 
-        public Vouchers (long voucherID, string timeStart, string timeExpired, float discountPercent, long maxValue, long minBill)
+        public Vouchers (long voucherID, string timeStart, string timeExpired, float discountPercent, long maxValue, long minBill, long quantity)
         {
             this.voucherID = voucherID;
             this.timeStart = timeStart;
@@ -22,6 +24,7 @@
             this.discountPercent = discountPercent;
             this.maxValue = maxValue;
             this.minBill = minBill;
+            this.quantity = quantity;
         }
     }
 }
