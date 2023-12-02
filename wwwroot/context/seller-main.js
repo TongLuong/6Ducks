@@ -61,7 +61,7 @@ $(this).ready(function () {
     });
   });
 
-  $.get("/components/successPopUp.html", function (data) {
+  $.get("Component", function (data) {
     $(".mainpage-uploadcomic").append(data);
     $(".return-btn").click(function () {
       $(".mainpage-upload_success_notification").css("display", "none");

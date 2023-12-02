@@ -2,7 +2,6 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +17,8 @@
     <div class="mainpage-signin">
       <div class="wrapper">
         <header>Đăng kí</header>
-        <form action="" class="signin-form">
+            <form action="@Url.Action("RegisterNewUser", "SignIn")" 
+            class="signin-form" method="post" id="signupForm">
           <div class="left-form">
             <div class="form-item">
               <label for="username">Tên đăng nhập</label>
@@ -36,7 +36,7 @@
             </div>
             <div class="form-item">
               <label for="re-pwd">Nhập lại mật khẩu</label>
-              <input type="password" name="re-pwd" id="re-pwd" />
+              <input type="password" name="re_pwd" id="re-pwd" />
               <ion-icon name="eye-outline" class="show-pwd"></ion-icon>
               <ion-icon name="eye-off-outline" class="hide-pwd"></ion-icon>
             </div>
@@ -45,7 +45,7 @@
             <div class="form-item">
               <label for="account-type">Loại tài khoản</label>
               <select
-                name="account-type"
+                name="account_type"
                 id="account-type"
                 placeholder="Chọn loại tài khoản"
               >
@@ -70,7 +70,7 @@
             <span>SixDucks</span></label
           >
         </div>
-        <button type="button">Đăng kí</button>
+        <button type="submit" form="signupForm">Đăng kí</button>
         <div class="login-btn">
           <p>Đã có tài khoản? <span>Đăng nhập</span></p>
         </div>

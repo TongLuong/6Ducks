@@ -1,9 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DA_6Ducks.Controllers
 {
     public class Login : Controller
     {
+        private static string connectionString = "Data Source=TONGKHANGTE;Initial Catalog=dath_database;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private SqlConnection conn;
+
+        public Login()
+        {
+            conn = new SqlConnection(connectionString);
+        }
+
         public IActionResult Index()
         {
             return View("/Views/user/login/index.cshtml");
@@ -14,7 +24,26 @@ namespace DA_6Ducks.Controllers
         {
             // TODO
             // check username and pwd using function from model
-            return View("/Views/user/user-mainpage/index.cshtml");
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand func = new SqlCommand("SELECT dbo.checkValid(@username, @email, @pass)", 
+                conn);
+            /*SqlParameter user = new SqlParameter("@username", SqlDbType.VarChar);
+            SqlParameter mail = new SqlParameter("@email", SqlDbType.VarChar);
+            SqlParameter password = new SqlParameter("@pass", SqlDbType.VarChar);
+            user.Value = username;
+            password.Value = pwd;*/
+            func.Parameters.AddWithValue("@username", username);
+            func.Parameters.AddWithValue("@email", null);
+            func.Parameters.AddWithValue("@pass", pwd);
+            bool result = (bool)func.ExecuteScalar();
+            return Content("result: " + result.ToString());
+            if (result)
+                return RedirectToAction("Index", "MainPage");
+            else
+                return RedirectToAction("CheckLogin", "Login");
         }
     }
 }
