@@ -124,7 +124,7 @@ CREATE TABLE Bills (
     FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     sellerID INTEGER,
     FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
-    billStatus VARCHAR(15),
+    billStatus VARCHAR(15) DEFAULT 'Confirming',
     totalPrice INTEGER,
     time DATETIME, 
     address NVARCHAR(255),
