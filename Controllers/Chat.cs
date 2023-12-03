@@ -28,7 +28,6 @@ namespace DA_6Ducks.Controllers
 
         public JsonResult GetRate(int sellerID)
         {
-            List<int> star = new List<int>(5);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -38,19 +37,27 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@SellerID", sellerID);
 
             SqlDataReader dr = cmd.ExecuteReader();
+            double avg = 0;
+            double dividend = 0.0;
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
                     for (int i = 0; i < 5; i++)
-                        star[i] = (int)dr["fiveStar"];
+                        if (!dr.IsDBNull(i))
+                        {
+                            avg += dr.GetInt32(i);
+
+                            if (dr.GetInt32(i) != 0)
+                                dividend++;
+                        }
                 }
             }
             conn.Close();
 
             return new JsonResult
             (
-                new { numberOfStars = star.Average() }
+                new { numberOfStars = (int)(avg / dividend) }
             );
         }
     }

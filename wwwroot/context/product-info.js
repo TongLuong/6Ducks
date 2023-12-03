@@ -58,19 +58,26 @@ $(this).ready(function () {
   });
 
     function displayStar() {
-        const starInputs = document.querySelectorAll('input[name="star"]');
-        console.log(starInputs);
+        const starInputs = document.querySelectorAll('i[name="star"]');
+
+        for (let i = 0; i < starInputs.length; i++) {
+            starInputs[i].className = "fa fa-star-o";
+        }
 
         $.get(
             "Product/DisplayRating", { "productID": 300000001 },
             function (response) {
-                starInputs[response.numberOfStars].checked = true;
+                for (let i = response.numberOfStars - 1;
+                    i < starInputs.length; i++) {
+                    starInputs[i].className = "fa fa-star-o";
+                }
+
+                for (let i = response.numberOfStars - 1;
+                    i >= 0; i--) {
+                    starInputs[i].className = "fa fa-star";
+                }
             }
         )
-
-        for (let i = 0; i < starInputs.length; i++) {
-            starInputs[i].disable = true;
-        }
     }
 
     displayStar();
