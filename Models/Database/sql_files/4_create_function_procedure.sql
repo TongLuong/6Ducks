@@ -109,7 +109,6 @@ begin
 		where r.productID = @productID and (r.ratingStar > 3.9 and r.ratingStar < 4.1)
 	)
 	declare @fiveStar int = (
-		select count(*) as num
 		select count(*) as num from Ratings r
 		where r.productID = @productID and (r.ratingStar > 4.9 and r.ratingStar < 5.1)
 	)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 
@@ -7,6 +8,14 @@ namespace DA_6Ducks.Controllers
 {
     public class Chat : Controller
     {
+        private static string connectionString = "Data Source=TONGKHANGTE;Initial Catalog=dath_database;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private SqlConnection conn;
+
+        public Chat()
+        {
+            conn = new SqlConnection(connectionString);
+        }
+
         public IActionResult Index()
         {
             return View("/Views/user/chat/index.cshtml");
@@ -20,13 +29,13 @@ namespace DA_6Ducks.Controllers
         public JsonResult GetRate(int sellerID)
         {
             List<int> star = new List<int>(5);
-            SqlConnection conn = new SqlConnection(StaticVariable.sqlConnectionString);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
 
-            SqlCommand cmd = new SqlCommand("select dbo.numberOfSellerRatings(@SellerID);", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.numberOfSellerRatings(@SellerID)", conn);
 
             cmd.Parameters.AddWithValue("@SellerID", sellerID);
-
-            conn.Open();
 
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -34,7 +43,7 @@ namespace DA_6Ducks.Controllers
                 while (dr.Read())
                 {
                     for (int i = 0; i < 5; i++)
-                        star[i] = dr.GetInt32(i);
+                        star[i] = (int)dr["fiveStar"];
                 }
             }
             conn.Close();
