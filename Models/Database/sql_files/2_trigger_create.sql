@@ -1,26 +1,26 @@
 USE dath_database
 GO
 
--- Classify users INTEGERo types
+-- Classify users INTO types
 CREATE TRIGGER classify_new_user
 ON Users
 AFTER INSERT
 AS
 BEGIN
-    -- Insert INTEGERo Sellers for usertype 21
-    INSERT INTEGERO Sellers (userID, startingTime)
+    -- Insert INTO Sellers for usertype 21
+    INSERT INTO Sellers (userID, startingTime)
     SELECT userID, CONVERT(DATE, GETDATE())
     FROM inserted
     WHERE usertype = 21;
 
-    -- Insert INTEGERo Buyers for usertype 22
-    INSERT INTEGERO Buyers (userID)
+    -- Insert INTO Buyers for usertype 22
+    INSERT INTO Buyers (userID)
     SELECT userID
     FROM inserted
     WHERE usertype = 22;
 
-    -- Insert INTEGERo Administrators for usertype 23
-    INSERT INTEGERO Administrators (userID)
+    -- Insert INTO Administrators for usertype 23
+    INSERT INTO Administrators (userID)
     SELECT userID
     FROM inserted
     WHERE usertype = 23;
@@ -115,13 +115,13 @@ BEGIN
 	DECLARE @num_used INTEGER
 	DECLARE cur CURSOR FOR (SELECT voucherID, count(*) AS num_used FROM inserted GROUP BY voucherID);
 	OPEN cur
-	FETCH FROM cur INTEGERo @vchID, @num_used
+	FETCH FROM cur INTO @vchID, @num_used
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
 		UPDATE Vouchers
 		SET quantity = quantity - @num_used
 		WHERE voucherID = @vchID;
-		FETCH from cur INTEGER @vchID, @num_used
+		FETCH from cur INTO @vchID, @num_used
 	END
 	CLOSE cur
 	DEALLOCATE cur
