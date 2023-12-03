@@ -17,122 +17,87 @@
   background: var(--gray-00, #fff);
   box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
   margin: 50px 200px;
-  padding: 10px 50px;
+  padding: 30px;
 }
 
-.mainpage-uploadcomic .wrapper header {
+.mainpage-uploadcomic .wrapper > header {
   font-size: 25px;
   font-weight: 800;
-  margin-top: 10px;
-  margin-left: 10px;
+  text-align: center;
+  margin: 10px;
 }
 
-.mainpage-uploadcomic .wrapper .product {
-  margin: 15.25px 12px;
-  width: 150px;
-  height: max-content;
-  border: 1px solid black;
+.mainpage-uploadcomic .wrapper .product-item {
+  margin: 0 auto;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   border-radius: 5px;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-1 {
-  grid-area: product-1;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-2 {
-  grid-area: product-2;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-3 {
-  grid-area: product-3;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-4 {
-  grid-area: product-4;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-5 {
-  grid-area: product-5;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-6 {
-  grid-area: product-6;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-7 {
-  grid-area: product-7;
-}
-
-.mainpage-uploadcomic .wrapper .product.product-8 {
-  grid-area: product-8;
+  & img {
+    margin: 0 auto;
+    display: block;
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px 5px 0 0;
+  }
+  .container {
+    padding: 5px 5px;
+    & header {
+      color: #191c1f;
+      text-align: justify;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 15px;
+      margin-block: 5px;
+    }
+    .price {
+      color: var(--secondary-500, #2da5f3);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 10px;
+      margin-block: 5px;
+    }
+    .rate {
+      color: #ebc80c;
+      font-size: 12px;
+      & span {
+        color: var(--gray-500, #77878f);
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
+      }
+    }
+  }
 }
 
 .mainpage-uploadcomic .wrapper .product-list {
-  position: relative;
+  width: 100%;
+  margin: 0 auto;
   display: grid;
-  height: 629px;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: 180px 180px 180px 180px;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "product-1 product-2 product-3 product-4"
-    "product-5 product-6 product-7 product-8";
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.mainpage-uploadcomic .wrapper .product-list .product img {
-  height: 150px;
-  width: auto;
-  border-radius: 5px;
-}
-
-.mainpage-uploadcomic .wrapper .product .product-name,
-.mainpage-uploadcomic .wrapper .product .product-price,
-.mainpage-uploadcomic .wrapper .product .product-rating {
-  text-align: left;
-  width: 95%;
-  margin: 7px 10px;
-}
-
-.mainpage-uploadcomic .wrapper .product .product-name {
-  font-size: 11px;
-}
-
-.mainpage-uploadcomic .wrapper .product .product-price {
-  font-size: 14px;
-  font-weight: 800;
-  color: #2da5f3;
-}
-
-.mainpage-uploadcomic .wrapper .product .product-rating i {
-  color: #ebc80c;
-}
-
-.mainpage-uploadcomic .wrapper .product .product-rating {
-  font-size: 7px;
-}
-
-.mainpage-uploadcomic .wrapper .product:hover,
+.mainpage-uploadcomic .wrapper .product-item:hover,
 .mainpage-uploadcomic .wrapper .voucher:hover {
-  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.product .badge {
+.discount .product-item {
+  position: relative;
+}
+
+.product-item .badge {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  padding: 5px 10px;
+  top: 6px;
+  left: -14px;
+  padding: 5px 15px;
   font-size: 15px;
   font-weight: 900;
   border-radius: 5px;
   background-color: yellow;
+  rotate: -15deg;
 }
 
 .vouchers img {
@@ -142,9 +107,11 @@
 }
 
 .voucher {
-  border: solid 1px black;
+  margin: 0 auto;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   border-radius: 5px;
-  margin: 10px;
 }
 
 .vouchers .header {
@@ -156,25 +123,20 @@
   margin-left: 10px;
 }
 
-.vouchers .today-voucher {
-  grid-area: voucher-1;
-}
-
-.vouchers .free-ship {
-  grid-area: voucher-2;
-}
-
-.vouchers .combo-voucher {
-  grid-area: voucher-3;
-}
-
 .mainpage-uploadcomic .vouchers {
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-columns: 240px 240px 240px;
-  grid-template-rows: auto;
-  grid-template-areas: "voucher-1 voucher-2 voucher-3";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.today-voucher, .free-ship, .combo-voucher {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  overflow: scroll;
+  height: calc(3*80px + 4*20px + 50px);
 }
 
 .mainpage-uploadcomic .voucher {
@@ -207,190 +169,4 @@
 .voucher .voucher-content .voucher-value {
   color: #2da5f3;
   font-weight: 500;
-}
-
-.mainpage-upload-comic-form {
-  position: fixed;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-.upload {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 700px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  border: 2px solid black;
-}
-
-.upload header {
-  color: #425664;
-  font-size: 27px;
-  font-weight: 600;
-  text-align: center;
-  width: 100%;
-}
-
-.upload table {
-  margin: 10px;
-  width: 600px;
-}
-
-.upload td,
-th {
-  padding: 15px 10px;
-}
-
-.upload input {
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 90%;
-}
-
-.upload input[type="text" i] {
-  padding-left: 5px;
-}
-
-.upload tr td div > img:first-child {
-  margin-left: 39px;
-  height: 30px;
-  width: auto;
-  cursor: pointer;
-}
-
-.upload tr td div > img:not(:first-child) {
-  margin-left: 5px;
-  height: 30px;
-  width: auto;
-  cursor: zoom-in;
-}
-
-.upload tr td div {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.upload .preview-side {
-  position: fixed;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-.upload .preview-side i {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #f6f4f2;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-.upload .preview-side img {
-  border-radius: 10px;
-  height: 550px;
-  width: auto;
-  cursor: default;
-}
-
-.upload .button {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.upload .button button {
-  height: 40px;
-  width: 100px;
-  background-color: #425664;
-  color: #fff;
-  font-weight: 900;
-  border: none;
-  border-radius: 5px;
-}
-
-.upload .button button:hover {
-  color: black;
-  border: 2px solid black;
-  background-color: #f6f4f2;
-}
-
-.mainpage-upload_success_notification {
-  position: fixed;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-
-.success {
-  display: flex;
-  z-index: 2;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 400px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  border: 2px solid black;
-}
-
-.success header {
-  margin-bottom: 30px;
-  color: #425664;
-}
-
-.success .success-msg {
-  max-width: 300px;
-  text-align: justify;
-  margin-bottom: 30px;
-}
-
-.mainpage-uploadcomic .success button {
-  width: 100%;
-  height: 50px;
-  background-color: #425664;
-  border: none;
-  border-radius: 5px;
-}
-
-.mainpage-uploadcomic .success button:hover {
-  border: 2px solid black;
-  background-color: #f6f4f2;
-}
-
-.mainpage-uploadcomic .success .return-btn {
-  font-size: 20px;
-  font-weight: 700;
 }
