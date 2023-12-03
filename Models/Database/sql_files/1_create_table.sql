@@ -27,7 +27,7 @@ CREATE TABLE Sellers (
     userID INTEGER,
     FOREIGN KEY (userID) REFERENCES Users (userID),
     startingTime DATE,
-    productSale INTEGER DEFAULT 0
+    productSale INTEGER DEFAULT 0,
     avgRating FLOAT DEFAULT 0,
 )
 GO
@@ -69,7 +69,7 @@ CREATE TABLE Products (
     name NVARCHAR(255),
     author NVARCHAR(255),
     publisher NVARCHAR(255),
-    genreID INTEGEReger,
+    genreID INTEGER,
     FOREIGN KEY (genreID) REFERENCES Genres (genreID),
     categoryID INTEGER,
     FOREIGN KEY (categoryID) REFERENCES Categories (categoryID),
@@ -112,7 +112,7 @@ IF OBJECT_ID(N'dbo.ShippingMethods', N'U') IS NULL
 CREATE TABLE ShippingMethods (
     smethodID INTEGER IDENTITY(4001,1) PRIMARY KEY,
     name NVARCHAR(255),
-    price INTEGER NOT NULL DEFAULT 0;
+    price INTEGER NOT NULL DEFAULT 0,
     CONSTRAINT domain_ShippingPrice CHECK (price >= 0),
 )
 GO
@@ -124,7 +124,7 @@ CREATE TABLE Bills (
     FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     sellerID INTEGER,
     FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
-    billStatus VARCHAR(15),
+    billStatus VARCHAR(15) DEFAULT 'Confirming',
     totalPrice INTEGER,
     time DATETIME, 
     address NVARCHAR(255),

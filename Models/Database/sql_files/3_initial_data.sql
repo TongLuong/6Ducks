@@ -102,3 +102,19 @@ VALUES
     (210000003, N'Sherlock Holmes toàn tập (Bộ 5 cuốn)', N'Conan Doyle', N'Trẻ', 1016, 2003, 590000, 45),
     (210000004, N'Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)', N'Virginia Woolf', N'Kim Đồng', 1022, 2001, 729000, 70)
 GO
+
+INSERT INTO Ratings
+    (productID,buyerID,detail,ratingStar)
+VALUES
+    (300000001,220000001,N'Sáng tạo và mô tả cuốn hút người đọc.',5),
+    (300000001,220000002,N'Tác giả sử dụng ngôn ngữ một cách linh hoạt và hiệu quả.',5),
+    (300000003,220000003,N'Sâu sắc và lôi cuốn, nhưng có thể quá phức tạp với một số độc giả.',4),
+    (300000002,220000001,N'Cấu trúc câu chuyện thông tin hợp lý, nhưng một số đoạn mô tả có thể cần được rút gọn.',4),
+    (300000001,220000004,N'Nhân vật cần thêm sự phức tạp ở một số điểm.',4),
+    (300000004,220000002,N'Một số lỗi in ấn đánh máy nhỏ, cần kiểm tra và sửa chữa.',3),
+    (300000003,220000004,N'Kết cấu câu chuyện có thể cần một chút điều chỉnh để tạo ra sự suôn sẻ hơn.',3),
+    (300000003,220000002,N'Tựa sách khá đắt so với giá trị nó đem lại.',2),
+    (300000005,220000001,N'Giao hàng chậm',2),
+    (300000001,220000001,N'Sách bị rớt bản lề, cần được đổi trả.',1),
+    (300000004,220000003,N'Nhân viên giao hàng thái độ kém, sách bị cong dập nhiều chỗ.',1)
+GO

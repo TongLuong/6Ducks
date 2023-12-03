@@ -45,7 +45,7 @@ namespace DA_6Ducks.Controllers
             if (result)
                 return RedirectToAction("Index", "MainPage");
             else
-                return RedirectToAction("CheckLogin", "Login");
+                return RedirectToAction("Index", "Login");
         }
     }
 }

@@ -22,9 +22,9 @@ $(this).ready(function () {
 
         $.get
             (
-                "Chat/GetRate", { "sellerID": 1 },
+                "Chat/GetRate", { "sellerID": 210000001 },
                 function (response) {
-                    starInputs[response.numberOfStars].checked = true;
+                    starInputs[5 - response.numberOfStars].checked = true;
                 }
             )
 

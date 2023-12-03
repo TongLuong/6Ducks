@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Include="wwwroot\components\footer.html" />
     <None Include="wwwroot\components\header.html" />
+    <None Include="wwwroot\components\productItem.html" />
     <None Include="wwwroot\components\successPopUp.cshtml" />
     <None Include="wwwroot\components\uploadPopUp.cshtml" />
   </ItemGroup>
