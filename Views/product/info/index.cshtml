@@ -1,304 +1,456 @@
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6Ducks</title>
-    <link
-      rel="stylesheet"
-      href="/assets/font-awesome/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="/assets/styles/globals.css" />
-    <link rel="stylesheet" href="/assets/styles/product-info.css" />
-    <link rel="stylesheet" href="/assets/styles/header-footer.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="mainpage-productinfo">
-      <div class="product-info wrapper">
-        <header>Thông tin sản phẩm</header>
-        <div class="information">
-          <div class="image-box">
-            <div class="product-image">
-              <div class="demo-image">
-                <div class="demo demo-1"></div>
-                <div class="demo demo-2"></div>
-                <div class="demo demo-3"></div>
-                <div class="demo demo-4"></div>
-                <div class="demo demo-5"></div>
-              </div>
-              <div class="show-image"></div>
-            </div>
-            <div class="button-box">
-              <button class="add_product-button">
-                <span>Thêm vào giỏ</span>
-                <ion-icon name="cart-outline"></ion-icon>
-              </button>
-              <button class="buy_product-button">
-                <span>Mua ngay</span>
-              </button>
-            </div>
-          </div>
-          <div class="text">
-            <header>Điều kì diệu của tạp hóa Namiya</header>
-            <div class="rating">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              (4,8)
-            </div>
-            <div class="info">
-              <div class="author">
-                <span>Tác giả:</span>
-                <span>Higashino Keigo</span>
-              </div>
-              <div class="publisher">
-                <span>Nhà xuất bản:</span>
-                <span>Hội Nhà Văn</span>
-              </div>
-              <div class="category">
-                <span>Thể loại:</span>
-                <span>Văn học huyền bí/Giả tưởng</span>
-              </div>
-              <div class="type">
-                <span>Danh mục:</span>
-                <span>Tiểu thuyết</span>
-              </div>
-              <div class="price">
-                <span>129.000đ</span>
-              </div>
-              <form action="">
-                <div class="delivery">
-                  <label for="delivery">Giao hàng tới:</label>
-                  <input type="text" name="delivery" id="delivery" />
-                </div>
-                <div class="delivery-method">
-                  <label for="delivery-method">Phương thức vận chuyển:</label>
-                  <select name="delivery-method" id="delivery-method">
-                    <option value="fast">Nhanh</option>
-                    <option value="x-fast">Hỏa tốc</option>
-                    <option value="saving">Tiết kiệm</option>
-                    <option value="default" selected>
-                      Chọn phương thức vận chuyển
-                    </option>
-                  </select>
-                </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6Ducks</title>
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/styles/globals.css" />
+  <link rel="stylesheet" href="/assets/styles/product-info.css" />
+  <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="mainpage-productinfo">
+    <div class="disabled">
+      <div class="buy-product wrapper">
+        <h1>Mua hàng</h1>
+        <div class="content">
+          <div class="left">
+            <div>
+              <img src="/assets/images/book-1-1.png" alt="" />
+              <div>
+                <p>Điều kì diệu của tiệm tạp hóa Namiya</p>
                 <div class="quantity">
-                  <label for="quantity">Số lượng</label>
                   <input type="number" name="quantity" id="quantity" />
+                  <label for="quantity">Số lượng</label>
                   <ion-icon name="add-outline" id="increase"></ion-icon>
                   <ion-icon name="remove-outline" id="reduce"></ion-icon>
                 </div>
-              </form>
+              </div>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" name="name" id="name" />
+                <label for="name">Tên người nhận</label>
+              </div>
+              <div>
+                <input type="text" name="phone" id="phone" />
+                <label for="phone">SĐT liên lạc khi nhận hàng</label>
+              </div>
+              <div>
+                <input type="text" name="address" id="address" />
+                <label for="address">Địa chỉ</label>
+              </div>
+              <div>
+                <select name="method" id="method">
+                  <option value="fast">Nhanh</option>
+                  <option value="x-fast">Hỏa tốc</option>
+                  <option value="saving">Tiết kiệm</option>
+                  <option value="default">...</option>
+                </select>
+                <label for="method">Phương thức giao hàng</label>
+              </div>
+            </form>
+          </div>
+          <div class="right">
+            <div class="wrapper">
+              <h1>Voucher giảm giá</h1>
+              <div class="voucher-item voucher-discount">
+                <div class="voucher-image"></div>
+                <div class="description">
+                  <span>Voucher dùng cho danh mục Tiểu thuyết</span>
+                  <span class="text">- 30% tối đa 20k</span>
+                </div>
+                <button class="voucher-using" type="button">Đã dùng</button>
+              </div>
+              <div class="voucher-item voucher-freeship">
+                <div class="voucher-image"></div>
+                <div class="description">
+                  <span>Voucher Freeship toàn quốc cho đơn trên 50k</span>
+                  <span class="text">- 30% tối đa 20k</span>
+                </div>
+                <button class="voucher-using" type="button">Đã dùng</button>
+              </div>
+              <button type="button" class="choose-voucher">
+                Chọn voucher
+              </button>
+            </div>
+            <div>
+              <input type="text" name="cost" id="cost" />
+              <label for="cost">Phí giao hàng</label>
             </div>
           </div>
         </div>
+        <div class="price-box">
+          <label for="total-cost">Tổng thanh toán</label>
+          <input type="text" name="total-cost" id="total-cost" readonly />
+        </div>
+        <div class="button-box">
+          <button type="button" id="buy-cancel">Hủy</button>
+          <button type="button" id="buy-confirm">Mua ngay</button>
+        </div>
       </div>
-      <div class="seller-info wrapper">
-        <header>Người bán</header>
-        <div class="container">
-          <div class="info">
-            <div class="avatar"></div>
-            <div class="description">
-              <header>Fantasy Chicken</header>
-              <div>
-                <span>Tham gia từ:</span>
-                <span>5/7/2021</span>
-              </div>
-              <div>
-                <span>Số sản phẩm đã bán:</span>
-                <span>63</span>
-              </div>
+      <div class="cash wrapper">
+        <h1>Phương thức thanh toán</h1>
+        <div class="content">
+          <div class="left">
+            <div>
+              <input type="checkbox" name="cod-method" id="cod-method" />
+              <label for="cod-method">Thanh toán khi nhận hàng</label>
             </div>
+            <form action="" class="cod-form">
+              <div>
+                <input type="text" name="name" id="name" />
+                <label for="name">Tên người nhận</label>
+              </div>
+              <div>
+                <input type="text" name="phone" id="phone" />
+                <label for="phone">SĐT liên lạc khi nhận hàng</label>
+              </div>
+              <div>
+                <input type="text" name="address" id="address" />
+                <label for="address">Địa chỉ</label>
+              </div>
+              <div>
+                <select name="method" id="method">
+                  <option value="fast">Nhanh</option>
+                  <option value="x-fast">Hỏa tốc</option>
+                  <option value="saving">Tiết kiệm</option>
+                  <option value="default">...</option>
+                </select>
+                <label for="method">Phương thức giao hàng</label>
+              </div>
+            </form>
+          </div>
+          <div class="right">
+            <div>
+              <input type="checkbox" name="banking-method" id="banking-method" />
+              <label for="banking-method">Thanh toán online qua ngân hàng</label>
+            </div>
+            <form action="" class="bank-form">
+              <div>
+                <select name="bank" id="bank">
+                  <option value="1">MB Bank</option>
+                  <option value="2">BIDV</option>
+                  <option value="3">Vietcombank</option>
+                  <option value="4">OCB</option>
+                </select>
+                <label for="bank">Ngân hàng</label>
+              </div>
+              <div>
+                <input type="text" name="stk" id="stk" />
+                <label for="stk">STK ngân hàng</label>
+              </div>
+              <div>
+                <input type="text" name="bank-name" id="bank-name" />
+                <label for="bank-name">Chủ tài khoản</label>
+              </div>
+              <div>
+                <input type="password" name="otp" id="otp" />
+                <label for="otp">OTP xác nhận</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="price-box">
+          <label for="total-cost">Tổng thanh toán</label>
+          <input type="text" name="total-cost" id="total-cost" readonly />
+        </div>
+        <div class="button-box">
+          <button type="button" id="buy-cancel">Hủy</button>
+          <button type="button" id="buy-confirm">Mua ngay</button>
+        </div>
+      </div>
+      <div class="success wrapper">
+        <h1>Đặt hàng thành công!</h1>
+        <div class="text">
+          Bạn đã hoàn tất giao dịch đặt hàng! Hãy chờ người bán xác nhận đơn hàng và đóng gói gửi đến cho bạn nhé!
+        </div>
+        <button type="button" id="buy-done">Xong</button>
+      </div>
+    </div>
+    <div class="product-info wrapper">
+      <header>Thông tin sản phẩm</header>
+      <div class="information">
+        <div class="image-box">
+          <div class="product-image">
+            <div class="demo-image">
+              <div class="demo demo-1"></div>
+              <div class="demo demo-2"></div>
+              <div class="demo demo-3"></div>
+              <div class="demo demo-4"></div>
+              <div class="demo demo-5"></div>
+            </div>
+            <div class="show-image"></div>
           </div>
           <div class="button-box">
-            <button type="button" class="view-seller-page">
-              <span>Xem trang</span>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+            <button class="add_product-button">
+              <span>Thêm vào giỏ</span>
+              <ion-icon name="cart-outline"></ion-icon>
             </button>
-                    <a href="@Url.Action("Index", "Chat")">
-              <button type="button">
-                <span>Liên hệ với người bán</span>
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </button>
-            </a>
+            <button class="buy_product-button">
+              <span>Mua ngay</span>
+            </button>
           </div>
         </div>
-      </div>
-      <div class="voucher wrapper">
-        <header>Voucher giảm giá</header>
-        <div class="voucher-box">
-          <div class="voucher-item voucher-discount">
-            <div class="voucher-image"></div>
-            <div class="description">
-              <span>Voucher dùng cho danh mục Tiểu thuyết</span>
-              <span class="text">- 30% tối đa 20k</span>
-            </div>
-            <button class="voucher-using" type="button">Dùng</button>
-          </div>
-          <div class="voucher-item voucher-discount">
-            <div class="voucher-image"></div>
-            <div class="description">
-              <span>Voucher dùng cho thể loại Huyền bí/Giả tưởng</span>
-              <span class="text">- 30% tối đa 20k</span>
-            </div>
-            <button class="voucher-using" type="button">Dùng</button>
-          </div>
-          <div class="voucher-item voucher-freeship">
-            <div class="voucher-image"></div>
-            <div class="description">
-              <span>Voucher Freeship toàn quốc cho đơn trên 50k</span>
-              <span class="text">- 30% tối đa 20k</span>
-            </div>
-            <button class="voucher-using" type="button">Dùng</button>
-          </div>
-        </div>
-      </div>
-      <div class="feedback wrapper">
-        <div class="star-box">
-          <header>Đánh giá</header>
+        <div class="text">
+          <header>Điều kì diệu của tạp hóa Namiya</header>
           <div class="rating">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
-            <span>(4,8/5)</span>
+            (4,8)
           </div>
-        </div>
-        <div class="rate-box">
-          <div class="rate-chart-box">
-            <div class="rate-item">
-              <span>5 sao</span>
-              <div class="rate-column _5star"></div>
+          <div class="info">
+            <div class="author">
+              <span>Tác giả:</span>
+              <span>Higashino Keigo</span>
             </div>
-            <div class="rate-item">
-              <span>4 sao</span>
-              <div class="rate-column _4star"></div>
+            <div class="publisher">
+              <span>Nhà xuất bản:</span>
+              <span>Hội Nhà Văn</span>
             </div>
-            <div class="rate-item">
-              <span>3 sao</span>
-              <div class="rate-column _3star"></div>
+            <div class="category">
+              <span>Thể loại:</span>
+              <span>Văn học huyền bí/Giả tưởng</span>
             </div>
-            <div class="rate-item">
-              <span>2 sao</span>
-              <div class="rate-column _2star"></div>
+            <div class="type">
+              <span>Danh mục:</span>
+              <span>Tiểu thuyết</span>
             </div>
-            <div class="rate-item">
-              <span>1 sao</span>
-              <div class="rate-column _1star"></div>
+            <div class="price">
+              <span>129.000đ</span>
             </div>
-          </div>
-          <div class="button-box">
-            <button type="button" class="show-fb">
-              <p>Xem toàn bộ đánh giá</p>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="full-feedback">
-          <div class="feedback-item">
-            <div class="info-side">
-              <img src="/assets/images/user.png" alt="" class="avt" />
-              <p class="username">Random User</p>
-              <p class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-              <p class="time">19/12/2023 20:12</p>
-            </div>
-            <div class="cmt-side">
-              <p>Chất lượng sách oke</p>
-            </div>
-          </div>
-          <div class="feedback-item">
-            <div class="info-side">
-              <img src="/assets/images/user.png" alt="" class="avt" />
-              <p class="username">Random User</p>
-              <p class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-              <p class="time">19/12/2023 20:12</p>
-            </div>
-            <div class="cmt-side">
-              <p>Chất lượng sách oke</p>
-            </div>
-          </div>
-          <div class="feedback-item">
-            <div class="info-side">
-              <img src="/assets/images/user.png" alt="" class="avt" />
-              <p class="username">Random User</p>
-              <p class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-              <p class="time">19/12/2023 20:12</p>
-            </div>
-            <div class="cmt-side">
-              <p>Chất lượng sách oke</p>
-            </div>
-          </div>
-          <div class="feedback-item">
-            <div class="info-side">
-              <img src="/assets/images/user.png" alt="" class="avt" />
-              <p class="username">Random User</p>
-              <p class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-              <p class="time">19/12/2023 20:12</p>
-            </div>
-            <div class="cmt-side">
-              <p>Chất lượng sách oke</p>
-            </div>
-          </div>
-          <div class="feedback-item">
-            <div class="info-side">
-              <img src="/assets/images/user.png" alt="" class="avt" />
-              <p class="username">Random User</p>
-              <p class="rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-              <p class="time">19/12/2023 20:12</p>
-            </div>
-            <div class="cmt-side">
-              <p>Chất lượng sách oke</p>
-            </div>
+            <form action="">
+              <div class="delivery">
+                <label for="delivery">Giao hàng tới:</label>
+                <input type="text" name="delivery" id="delivery" />
+              </div>
+              <div class="delivery-method">
+                <label for="delivery-method">Phương thức vận chuyển:</label>
+                <select name="delivery-method" id="delivery-method">
+                  <option value="fast">Nhanh</option>
+                  <option value="x-fast">Hỏa tốc</option>
+                  <option value="saving">Tiết kiệm</option>
+                  <option value="default" selected>
+                    Chọn phương thức vận chuyển
+                  </option>
+                </select>
+              </div>
+              <div class="quantity">
+                <label for="quantity">Số lượng</label>
+                <input type="number" name="quantity" id="quantity" />
+                <ion-icon name="add-outline" id="increase"></ion-icon>
+                <ion-icon name="remove-outline" id="reduce"></ion-icon>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <script type="module" src="/context/product-info.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+    <div class="seller-info wrapper">
+      <header>Người bán</header>
+      <div class="container">
+        <div class="info">
+          <div class="avatar"></div>
+          <div class="description">
+            <header>Fantasy Chicken</header>
+            <div>
+              <span>Tham gia từ:</span>
+              <span>5/7/2021</span>
+            </div>
+            <div>
+              <span>Số sản phẩm đã bán:</span>
+              <span>63</span>
+            </div>
+          </div>
+        </div>
+        <div class="button-box">
+          <button type="button" class="view-seller-page">
+            <span>Xem trang</span>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </button>
+          <a href="@Url.Action("Index", "Chat")">
+            <button type="button">
+              <span>Liên hệ với người bán</span>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="voucher wrapper">
+      <header>Voucher giảm giá</header>
+      <div class="voucher-box">
+        <div class="voucher-item voucher-discount">
+          <div class="voucher-image"></div>
+          <div class="description">
+            <span>Voucher dùng cho danh mục Tiểu thuyết</span>
+            <span class="text">- 30% tối đa 20k</span>
+          </div>
+          <button class="voucher-using" type="button">Dùng</button>
+        </div>
+        <div class="voucher-item voucher-discount">
+          <div class="voucher-image"></div>
+          <div class="description">
+            <span>Voucher dùng cho thể loại Huyền bí/Giả tưởng</span>
+            <span class="text">- 30% tối đa 20k</span>
+          </div>
+          <button class="voucher-using" type="button">Dùng</button>
+        </div>
+        <div class="voucher-item voucher-freeship">
+          <div class="voucher-image"></div>
+          <div class="description">
+            <span>Voucher Freeship toàn quốc cho đơn trên 50k</span>
+            <span class="text">- 30% tối đa 20k</span>
+          </div>
+          <button class="voucher-using" type="button">Dùng</button>
+        </div>
+      </div>
+    </div>
+    <div class="feedback wrapper">
+      <div class="star-box">
+        <header>Đánh giá</header>
+        <div class="rating">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <span>(4,8/5)</span>
+        </div>
+      </div>
+      <div class="rate-box">
+        <div class="rate-chart-box">
+          <div class="rate-item">
+            <span>5 sao</span>
+            <div class="rate-column _5star"></div>
+          </div>
+          <div class="rate-item">
+            <span>4 sao</span>
+            <div class="rate-column _4star"></div>
+          </div>
+          <div class="rate-item">
+            <span>3 sao</span>
+            <div class="rate-column _3star"></div>
+          </div>
+          <div class="rate-item">
+            <span>2 sao</span>
+            <div class="rate-column _2star"></div>
+          </div>
+          <div class="rate-item">
+            <span>1 sao</span>
+            <div class="rate-column _1star"></div>
+          </div>
+        </div>
+        <div class="button-box">
+          <button type="button" class="show-fb">
+            <p>Xem toàn bộ đánh giá</p>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+      <div class="full-feedback">
+        <div class="feedback-item">
+          <div class="info-side">
+            <img src="/assets/images/user.png" alt="" class="avt" />
+            <p class="username">Random User</p>
+            <p class="rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+            <p class="time">19/12/2023 20:12</p>
+          </div>
+          <div class="cmt-side">
+            <p>Chất lượng sách oke</p>
+          </div>
+        </div>
+        <div class="feedback-item">
+          <div class="info-side">
+            <img src="/assets/images/user.png" alt="" class="avt" />
+            <p class="username">Random User</p>
+            <p class="rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+            <p class="time">19/12/2023 20:12</p>
+          </div>
+          <div class="cmt-side">
+            <p>Chất lượng sách oke</p>
+          </div>
+        </div>
+        <div class="feedback-item">
+          <div class="info-side">
+            <img src="/assets/images/user.png" alt="" class="avt" />
+            <p class="username">Random User</p>
+            <p class="rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+            <p class="time">19/12/2023 20:12</p>
+          </div>
+          <div class="cmt-side">
+            <p>Chất lượng sách oke</p>
+          </div>
+        </div>
+        <div class="feedback-item">
+          <div class="info-side">
+            <img src="/assets/images/user.png" alt="" class="avt" />
+            <p class="username">Random User</p>
+            <p class="rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+            <p class="time">19/12/2023 20:12</p>
+          </div>
+          <div class="cmt-side">
+            <p>Chất lượng sách oke</p>
+          </div>
+        </div>
+        <div class="feedback-item">
+          <div class="info-side">
+            <img src="/assets/images/user.png" alt="" class="avt" />
+            <p class="username">Random User</p>
+            <p class="rating">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+            <p class="time">19/12/2023 20:12</p>
+          </div>
+          <div class="cmt-side">
+            <p>Chất lượng sách oke</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/context/product-info.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>
