@@ -33,6 +33,7 @@
             this.price = price;
             this.discount = discount;
             this.avgStar = avgStar;
+            this.ratingCount = ratingCount;
             this.numbersLeft = numbersLeft;
             this.soldNumber = soldNumber;
         }
