@@ -50,8 +50,7 @@ go
 -- insert a bill
 go
 -- load the number of seller ratings classified into *, **, ***...
-create function numberOfSellerRatings(
-@sellerID int)
+create function numberOfSellerRatings(@sellerID int)
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
 as
 begin
@@ -86,8 +85,7 @@ begin
 end
 go
 -- load the number of seller ratings classified into *, **, ***...
-create function numberOfProductRatings(
-@productID int)
+create function numberOfProductRatings(@productID int)
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
 as
 begin
@@ -117,8 +115,7 @@ begin
 end
 go
 -- load all the feedback of a product
-create function loadFeedback(
-@productID int)
+create function loadFeedback(@productID int)
 returns @rtntable table(displayName nvarchar(255), ratingStar float, detail nvarchar(255))
 as
 begin
@@ -128,5 +125,4 @@ begin
 		where r.buyerID = b.buyerID and b.userID = u.userID and r.productID = @productID;
 	return
 end
-go
 go
