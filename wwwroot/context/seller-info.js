@@ -4,10 +4,6 @@ $(this).ready(function () {
     $(".logo").click(function () {
       location.href = "SellerMainPage";
     });
-    $(".book-upload").click(function () {
-      $(".mainpage-upload-comic-form").css("display", "flex");
-      $("body, html").css("overflow", "hidden");
-    });
   });
 
   $.get("/components/footer.html", function (data) {
