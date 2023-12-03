@@ -45,12 +45,68 @@ begin
 	order by [time] asc
 end
 go
--- calculate total price of a bill (check ship,voucher...
+-- calculate total price of a bill (check ship,voucher...)
+create function checkBillPrice(
+@billID int, 
+@smethodID int, 
+@discountVoucher int,
+@freeshipVoucher int 
+)
+returns int
+as
+begin
+	declare @productPrice int
+	declare @smethodPrice int
+	declare @discount int, @discountPercent float, @maxDiscount int
+	declare @freeship int, @freeshipPercent float, @maxFreeship int
+	declare @totalBill int
+	--
+	set @productPrice = (
+		SELECT SUM(price) FROM BillItems
+		where billID = @billID
+	)
+	--
+	set @smethodPrice = (
+		SELECT MAX(price) FROM ShippingMethods
+		where smethodID = @smethodID
+	)
+	--
+	set @discountPercent = (
+		SELECT MAX(discountPercent) FROM Vouchers
+		where voucherID = @discountVoucher
+	)
+	set @maxDiscount = (
+		SELECT MAX(maxValue) FROM Vouchers
+		where voucherID = @discountVoucher
+	)
+	set @discount = @discountPercent * @productPrice
+	if (@discount > @maxDiscount)
+	BEGIN
+		set @discount = @maxDiscount
+	END
+	--
+	set @freeshipPercent = (
+		SELECT MAX(discountPercent) FROM Vouchers
+		where voucherID = @freeshipVoucher
+	)
+	set @maxFreeship = (
+		SELECT MAX(maxValue) FROM Vouchers
+		where voucherID = @freeshipVoucher
+	)
+	set @discount = @freeshipPercent * @smethodPrice
+	if (@discount > @maxFreeship)
+	BEGIN
+		set @discount = @maxFreeship
+	END
+
+	set @totalBill = @productPrice + @smethodPrice - @discount - @freeship
+	return @totalBill
+end
 go
 -- insert a bill
 go
 -- load the number of seller ratings classified into *, **, ***...
-create function numberOfSellerRatings(@sellerID int)
+create function numberOfSellerRatings(@sellerID int)	
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
 as
 begin
@@ -84,7 +140,7 @@ begin
 	return
 end
 go
--- load the number of seller ratings classified into *, **, ***...
+-- load the number of Product ratings classified into *, **, ***...
 create function numberOfProductRatings(@productID int)
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
 as

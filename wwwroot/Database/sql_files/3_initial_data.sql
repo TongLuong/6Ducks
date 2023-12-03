@@ -9,11 +9,11 @@ VALUES
 GO
 
 INSERT INTO ShippingMethods
-    (name)
+    (name, price)
 VALUES
-    (N'Tiêu chuẩn'), 
-    (N'Nhanh'), 
-    (N'Hỏa tốc')
+    (N'Tiêu chuẩn', 27000), 
+    (N'Nhanh', 54000), 
+    (N'Hỏa tốc', 90000)
 GO
 
 INSERT INTO Genres
