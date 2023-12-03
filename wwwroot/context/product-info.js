@@ -106,10 +106,6 @@ $(this).ready(function () {
     function displayStar() {
         const starInputs = document.querySelectorAll('i[name="star"]');
 
-        for (let i = 0; i < starInputs.length; i++) {
-            starInputs[i].className = "fa fa-star-o";
-        }
-
         $.get(
             "Product/DisplayRating", { "productID": 300000001 },
             function (response) {
