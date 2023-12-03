@@ -56,4 +56,21 @@ $(this).ready(function () {
     e.preventDefault();
     $(".full-feedback").toggle();
   });
+
+    function displayStar() {
+        const starInputs = document.querySelectorAll('i[class="fa fa-star"]');
+
+        $.get(
+            "Product/DisplayRating", { "productID": 300000001 },
+            function (response) {
+                starInputs[response.numberOfStars].checked = true;
+            }
+        )
+
+        for (let i = 0; i < starInputs.length; i++) {
+            starInputs[i].disabled = true;
+        }
+    }
+
+    displayStar();
 });
