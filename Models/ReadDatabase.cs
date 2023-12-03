@@ -2,5 +2,9 @@
 {
     public class ReadDatabase
     {
+        public void checkPass()
+        {
+
+        }
     }
 }

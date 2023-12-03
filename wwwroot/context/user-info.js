@@ -11,7 +11,7 @@ $(this).ready(function () {
     $("body").append(data);
   });
 
-  $.get("UserInfo", function (data) {
+    $.get("UserInfo/IndexPopup", function (data) {
     $(".rating_wrapper").prepend(data);
     $(".user_rating").css("display", "none");
     $(".success_popup").css("display", "none");

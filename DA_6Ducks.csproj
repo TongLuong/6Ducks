@@ -14,14 +14,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Models\Database\bacpac\dath_database.bacpac" />
+    <Content Include="Models\Database\sql_files\1_create_table.sql" />
+    <Content Include="Models\Database\sql_files\2_trigger_create.sql" />
+    <Content Include="Models\Database\sql_files\3_initial_data.sql" />
+    <Content Include="Models\Database\sql_files\4_create_function_procedure.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\components\footer.html" />
     <None Include="wwwroot\components\header.html" />
-    <None Include="wwwroot\components\successPopUp.html" />
-    <None Include="wwwroot\components\uploadPopUp.html" />
-    <None Include="wwwroot\Database\bacpac\dath_database.bacpac" />
-    <None Include="wwwroot\Database\sql_files\1_create_table.sql" />
-    <None Include="wwwroot\Database\sql_files\2_trigger_create.sql" />
-    <None Include="wwwroot\Database\sql_files\3_initial_data.sql" />
+    <None Include="wwwroot\components\productItem.html" />
+    <None Include="wwwroot\components\successPopUp.cshtml" />
+    <None Include="wwwroot\components\uploadPopUp.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>

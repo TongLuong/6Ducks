@@ -56,4 +56,71 @@ $(this).ready(function () {
     e.preventDefault();
     $(".full-feedback").toggle();
   });
+
+  $(".disabled > .wrapper").hide();
+  $("button.buy_product-button").click(function () {
+    $(".disabled").css("display", "flex");
+    $(".buy-product").show();
+    $("body").css("overflow", "hidden");
+  });
+  $(".buy-product #buy-cancel").click(function () {
+    $(".disabled > .wrapper").hide();
+    $(".disabled").css("display", "none");
+    $("body").css("overflow", "scroll");
+  });
+  $(".buy-product #buy-confirm").click(function () {
+    $(".buy-product").hide();
+    $(".cash").show();
+  });
+  $(".cash #buy-cancel").click(function () {
+    $(".disabled > .wrapper").hide();
+    $(".disabled").css("display", "none");
+    $("body").css("overflow", "scroll");
+  });
+  $(".cash #buy-confirm").click(function () {
+    $(".disabled > .wrapper").hide();
+    $(".success").show();
+  });
+  $(".success #buy-done").click(function () {
+    $(".disabled > .wrapper").hide();
+    $(".disabled").css("display", "none");
+    $("body").css("overflow", "scroll");
+  });
+  $(".cash form").css("opacity", "0");
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+      checkboxes.forEach(function (c) {
+        if (c !== checkbox) c.checked = false;
+      });
+      if ($(".cash .left").has(this).length) {
+        $(".cash .left form").css("opacity", "1");
+        $(".cash .right form").css("opacity", "0");
+      } else {
+        $(".cash .left form").css("opacity", "0");
+        $(".cash .right form").css("opacity", "1");
+      }
+    });
+  });
+
+    function displayStar() {
+        const starInputs = document.querySelectorAll('i[name="star"]');
+
+        $.get(
+            "Product/DisplayRating", { "productID": 300000001 },
+            function (response) {
+                for (let i = response.numberOfStars - 1;
+                    i < starInputs.length; i++) {
+                    starInputs[i].className = "fa fa-star-o";
+                }
+
+                for (let i = response.numberOfStars - 1;
+                    i >= 0; i--) {
+                    starInputs[i].className = "fa fa-star";
+                }
+            }
+        )
+    }
+
+    displayStar();
 });

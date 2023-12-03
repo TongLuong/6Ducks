@@ -6,12 +6,12 @@ namespace DA_6Ducks.Controllers
     {
         public IActionResult Index()
         {
-            return View("~/Views/user/info/user-information/index.cshtml");
+            return View("/Views/user/info/user-information/index.cshtml");
         }
 
         public IActionResult IndexPopup()
         {
-            return View("~/Views/user/info/user-information/popup.cshtml");
+            return View("/Views/user/info/user-information/popup.cshtml");
         }
     }
 }

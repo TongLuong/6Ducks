@@ -41,18 +41,18 @@
           <div style="line-height: 34px">Đánh giá người bán</div>
           <div class="rating" style="margin-top: 6px">
             <div class="stars">
-              <form action="">
-                <input class="star star-5" id="star-5" type="radio" name="star" />
-                <label class="star star-5" for="star-5"></label>
-                <input class="star star-4" id="star-4" type="radio" name="star" />
-                <label class="star star-4" for="star-4"></label>
-                <input class="star star-3" id="star-3" type="radio" name="star" />
-                <label class="star star-3" for="star-3"></label>
-                <input class="star star-2" id="star-2" type="radio" name="star" />
-                <label class="star star-2" for="star-2"></label>
-                <input class="star star-1" id="star-1" type="radio" name="star" />
-                <label class="star star-1" for="star-1"></label>
-              </form>
+                <form action="">
+                    <input class="star star-5" id="star-5" type="radio" name="star" />
+                    <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star" />
+                    <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star" />
+                    <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star" />
+                    <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star" />
+                    <label class="star star-1" for="star-1"></label>
+                </form>
             </div>
             <div style="margin-top: 6px; margin-left: 3px">(4.8/5)</div>
           </div>
@@ -88,18 +88,8 @@
   </div>
 </body>
 <script type="module" src="/chat/script.js"></script>
-<script>
-  // Get the input elements
-  const starInputs = document.querySelectorAll('input[name="star"]');
-
-  // Check the fourth star input
-  starInputs[1].checked = true;
-
-  // Disable the remaining star inputs
-  for (let i = 0; i < starInputs.length; i++) {
-    starInputs[i].disabled = true;
-  }
-
-</script>
+<!-- <script>
+    
+</script> -->
 
 </html>
