@@ -16,11 +16,11 @@ namespace DA_6Ducks.Controllers
 
         public JsonResult DisplayRating(int productID)
         {
-            List<int> star = new List<int>(5);
+            int[] star = new int[5];
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT dbo.numberOfProductRatings(@productID)", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.numberOfProductRatings(@productID)", conn);
 
             cmd.Parameters.AddWithValue("@productID", productID);
 
@@ -30,7 +30,9 @@ namespace DA_6Ducks.Controllers
                 while (dr.Read())
                 {
                     for (int i = 0; i < 5; i++)
+                    {
                         star[i] = dr.GetInt32(i);
+                    }    
                 }
             }
 

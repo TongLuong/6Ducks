@@ -58,7 +58,8 @@ $(this).ready(function () {
   });
 
     function displayStar() {
-        const starInputs = document.querySelectorAll('i[class="fa fa-star"]');
+        const starInputs = document.querySelectorAll('input[name="star"]');
+        console.log(starInputs);
 
         $.get(
             "Product/DisplayRating", { "productID": 300000001 },
@@ -68,7 +69,7 @@ $(this).ready(function () {
         )
 
         for (let i = 0; i < starInputs.length; i++) {
-            starInputs[i].disabled = true;
+            starInputs[i].disable = true;
         }
     }
 
