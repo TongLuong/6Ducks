@@ -39,6 +39,9 @@ namespace DA_6Ducks.Controllers
             }
             bool result = (bool)func.ExecuteScalar();
             //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
+
+            conn.Close();
+
             if (result)
                 return RedirectToAction("Index", "MainPage");
             else
