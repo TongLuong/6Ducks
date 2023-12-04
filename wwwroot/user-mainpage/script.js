@@ -11,43 +11,25 @@ $(this).ready(function () {
       $("body").append(data);
     });
 
-    $.get("/components/productItem.html", function (data) {
-        //document.createElement('i');
-        $(data).find("a").attr("href", "..");
-        $(data).find("img").attr("src", "/assets/images/book-1-1.png");
-        $(data).find("header").text("yeahh");
-        $(data).find(".price").text("100");
-
-        //TODO: function for rating
-        $(data).find(".rate").html(function () { });
-
-        $(data).find("span").text(10);
-
-        $("#wrapper").append(data);
-    }
-    );
-
     function showItems(srcImg, title, price, rate, amount) {
-        var result = null;
+        var result = "";
         $.get("/components/productItem.html", function (data) {
                 //document.createElement('i');
-            $(data).find("a").attr("href", "Product");
-            $(data).find("img").attr("src", srcImg);
-            $(data).find("header").text(title);
-            $(data).find(".price").text(price);
+                $("#wrp").append($(data).find("a").attr("href", "Product"));
+                $("#wrp").append($(data).find("img").attr("src", srcImg));
+                $("#wrp").append($(data).find("header").text(title));
+                $("#wrp").append($(data).find(".price").text(price));
 
-            //TODO: function for rating
-            $(data).find(".rate").html(function () { });
+                //TODO: function for rating
+                //$("#wrp").append($(data).find(".rate").html(function () { }));
 
-            $(data).find("span").text(amount);
-
-            result = data;
+                $("#wrp").append($(data).find("span").text(amount));
             }
         );
-        $("body").append(data);
+        
         return result;
     }
-    showItem("", "yeahh", 198, 12, 100);
+    showItems("/assets/images/book-1-1.png", "yeahh", 198, 12, 100);
     /*$.get("/components/productItem.html", function (data) {
         $.get(".wrapper best-seller").append(showItem("", "yeahh", 198, 12, 100));
         }
