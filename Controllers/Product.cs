@@ -12,7 +12,8 @@ namespace DA_6Ducks.Controllers
 
         public Product() 
         {
-            conn = new SqlConnection(connectionString);
+            //conn = new SqlConnection(connectionString);
+            conn = new SqlConnection(StaticVariable.sqlConnectionString);
         }
 
         public IActionResult Index()
@@ -37,6 +38,7 @@ namespace DA_6Ducks.Controllers
                 while (dr.Read())
                 {
                     for (int i = 0; i < 5; i++)
+                    {
                         if (!dr.IsDBNull(i))
                         {
                             avg += dr.GetInt32(i);
@@ -44,6 +46,7 @@ namespace DA_6Ducks.Controllers
                             if (dr.GetInt32(i) != 0)
                                 dividend++;
                         }
+                    }
                 }
             }
             conn.Close();
@@ -51,6 +54,39 @@ namespace DA_6Ducks.Controllers
             return new JsonResult
             (
                 new { numberOfStars = (int)(avg / dividend) }
+            );
+        }
+
+        public JsonResult LoadFeedback(int productID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            int num = 0;
+            List<string> usernames = new List<string>();
+            List<int> stars = new List<int>();
+            List<string> details = new List<string>();
+
+            SqlCommand cmd = new SqlCommand("SELECT username,ratingStar,detail FROM Ratings JOIN Users ON buyerID = userID WHERE productID = @productID", conn);
+
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    num++;
+                    usernames.Add(dr.GetString(0));
+                    stars.Add(dr.GetInt32(1));
+                    details.Add(dr.GetString(2));
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new {number = num, username = usernames,star = stars,detail = details }
             );
         }
     }

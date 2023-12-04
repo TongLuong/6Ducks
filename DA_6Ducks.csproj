@@ -25,11 +25,10 @@
     <None Include="wwwroot\components\footer.html" />
     <None Include="wwwroot\components\header.html" />
     <None Include="wwwroot\components\productItem.html" />
-    <None Include="wwwroot\components\successPopUp.cshtml" />
-    <None Include="wwwroot\components\uploadPopUp.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 

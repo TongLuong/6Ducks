@@ -1,5 +1,5 @@
-$(this).ready(function () {
-    $.get("/components/header.html", function (data) {
+﻿$(this).ready(function () {
+    /*$.get("/components/header.html", function (data) {
       $("body").prepend(data);
       $(".book-upload").css("display", "none");
       $(".user").click(function() {
@@ -9,47 +9,46 @@ $(this).ready(function () {
   
     $.get("/components/footer.html", function (data) {
       $("body").append(data);
-    });
+    });*/
 
-    $.get("/components/productItem.html", function (data) {
-        //document.createElement('i');
-        $(data).find("a").attr("href", "..");
-        $(data).find("img").attr("src", "/assets/images/book-1-1.png");
-        $(data).find("header").text("yeahh");
-        $(data).find(".price").text("100");
-
-        //TODO: function for rating
-        $(data).find(".rate").html(function () { });
-
-        $(data).find("span").text(10);
-
-        $("#wrapper").append(data);
-    }
-    );
-
-    function showItems(srcImg, title, price, rate, amount) {
-        var result = null;
-        $.get("/components/productItem.html", function (data) {
+    function showItems(srcImg, title, price, rate, amount,
+                        productID) {
+        $.get("components/productItem.html", function (data) {
                 //document.createElement('i');
-            $(data).find("a").attr("href", "Product");
-            $(data).find("img").attr("src", srcImg);
-            $(data).find("header").text(title);
-            $(data).find(".price").text(price);
+                $(".best-seller .product-list").append(data);
+                var item = $(".best-seller .product-list .product-item:last-child()");
+                //console.log(data);
+                //item.find("#atag").attr("href", 'Product');
+                item.find("#imgtag").attr("src", srcImg);
+                item.find("#product-name").text(title);
+                item.find("#price").text(price);
+                item.find("span").text(amount);
 
-            //TODO: function for rating
-            $(data).find(".rate").html(function () { });
-
-            $(data).find("span").text(amount);
-
-            result = data;
+                item.click(function () {
+                    location.href = "Product" + "?id=" + productID;
+                });
             }
         );
-        $("body").append(data);
-        return result;
     }
-    showItem("", "yeahh", 198, 12, 100);
-    /*$.get("/components/productItem.html", function (data) {
-        $.get(".wrapper best-seller").append(showItem("", "yeahh", 198, 12, 100));
-        }
-    )*/
+    /*showItems("/assets/images/book-2.png",
+        "Conan Thám tử lừng danh - Tập 100", "129.000đ", 12, 1857,
+        "1234");
+    showItems("/assets/images/book-3.png",
+        "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);*/
+
+    function showProducts() {
+        $.get
+            (
+                "MainPage/DisplayProducts", { },
+                function (response) {
+                    showItems(response.srcImg, response.title,
+                        response.price, response.rate, response.amount,
+                        response.productID);
+                }
+            );
+    }
+    /*showItems(response.srcImg, response.title,
+        response.price, response.rate, response.amount,
+        response.productID);*/
+    showProducts();
 });  

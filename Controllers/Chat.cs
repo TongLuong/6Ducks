@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
+using System.Configuration;
 
 namespace DA_6Ducks.Controllers
 {
