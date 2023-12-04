@@ -21,20 +21,6 @@ html {
   font-family: sans-serif;
 }
 /* ------------------------------------ */
-a {
-  margin: 0px;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-}
-a:focus {
-  outline: none !important;
-}
-a:hover {
-  text-decoration: none;
-}
-/* ------------------------------------ */
 h1,
 h2,
 h3,

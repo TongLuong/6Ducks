@@ -33,7 +33,7 @@
 }
 
 .nav .top-nav .top-nav-button a:hover {
-  transition: all 0.3 ease;
+  transition: all .3s ease;
   transform: scale(1.15);
   text-decoration: underline solid 2px #f6f4f2;
 }
@@ -135,48 +135,38 @@
   background-color: #fff;
   padding: 10px 200px;
   box-shadow: 1px 1px 5px #425664;
+  font-size: 16px;
 }
 
-.nav .toolbar img {
-  height: 10px;
-  width: auto;
-}
-
-.nav .toolbar > div {
+.nav .toolbar div {
+    cursor: pointer;
   padding: 0 10px;
   margin: 0 15px;
   border: none;
 }
 
-.nav .toolbar > div > a::after,
-.book-upload > div::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 3px;
-  background: #425664;
-  border-radius: 5px;
-  transform-origin: right;
-  transform: scale(0);
-  transition: transform 0.5s;
+.nav .toolbar div a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #425664;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform 0.5s;
 }
 
-.nav .toolbar > div > a:hover::after,
-.book-upload > div:hover::after {
-  transform-origin: left;
-  transform: scale(1);
+.nav .toolbar div a:hover::after {
+    transform-origin: left;
+    transform: scale(1);
 }
 
-.nav .toolbar > div > a,
-.book-upload > div {
+.nav .toolbar div a {
   position: relative;
   color: #425664;
-}
-
-.nav .book-upload {
-  cursor: pointer;
 }
 
 .footer {
