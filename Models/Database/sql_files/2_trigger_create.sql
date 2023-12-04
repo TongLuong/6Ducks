@@ -180,4 +180,6 @@ BEGIN
 	CLOSE cur7
 	DEALLOCATE cur7
 END
+
+go
 --------------------------------
