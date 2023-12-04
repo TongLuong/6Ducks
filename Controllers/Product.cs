@@ -53,5 +53,10 @@ namespace DA_6Ducks.Controllers
                 new { numberOfStars = (int)(avg / dividend) }
             );
         }
+
+        public void DisplayProducts()
+        {
+
+        }
     }
 }
