@@ -122,13 +122,7 @@ $(this).ready(function () {
         )
     }
 
-    displayStar();
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    alert(id);
-
-    //$(".show-image").attr("src")
+    //displayStar();
 
     $(".show-image").css("background-image", "url(" +
         '/assets/images/book-3.png' + ")");
@@ -147,11 +141,11 @@ $(this).ready(function () {
     }
 
     function displayFeedback() {
-        $.get(
-            "Product/LoadFeedback", { "productID": 300000001 },
+        $.get("Product/LoadFeedback" { "productID": 300000001 },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
                     showFeedback(response.username[i], response.star[i], response.detail[i]);
+                    console.log(response.username[i]);
                 }
             }
         )
