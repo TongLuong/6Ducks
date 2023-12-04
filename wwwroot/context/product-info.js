@@ -132,4 +132,30 @@ $(this).ready(function () {
 
     $(".show-image").css("background-image", "url(" +
         '/assets/images/book-3.png' + ")");
+
+    function showFeedback(username, star, detail) {
+        $.get("components/feedbackTemplate.html", function (data) {
+
+            $(".full-feedback").append(data);
+            var item = $(".full-feedback .feedback-item:last-child()");
+
+
+            item.find(".username").text(username);
+            item.find(".cmt-side p").text(detail);
+        }
+        );
+    }
+
+    function displayFeedback() {
+        $.get(
+            "Product/LoadFeedback", { "productID": 300000001 },
+            function (response) {
+                for (let i = 0; i < response.number; i++) {
+                    showFeedback(response.username[i], response.star[i], response.detail[i]);
+                }
+            }
+        )
+    }
+
+    displayFeedback();
 });
