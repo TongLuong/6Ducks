@@ -1,5 +1,5 @@
 ﻿$(this).ready(function () {
-    $.get("/components/header.html", function (data) {
+    /*$.get("/components/header.html", function (data) {
       $("body").prepend(data);
       $(".book-upload").css("display", "none");
       $(".user").click(function() {
@@ -9,18 +9,21 @@
   
     $.get("/components/footer.html", function (data) {
       $("body").append(data);
-    });
+    });*/
 
     function showItems(srcImg, title, price, rate, amount) {
-        $.get("/components/productItem.html", function (data) {
+        $.get("components/productItem.html", function (data) {
             //document.createElement('i');
-            $(data).find("#atag").attr("href", "Product");
-            $(data).find("#imgtag").attr("src", srcImg);
-            $(data).find("#product-name").text(title);
-            $(data).find("#price").text(price);
-            $(data).find("span").text(amount);
+            $(".best-seller .product-list").append(data);
+            var item = $(".best-seller .product-list a:last-child()");
+            //console.log(data);
+            item.find("#atag").attr("href", "Product?id=" + productid);
+            item.find("#imgtag").attr("src", srcImg);
+            item.find("#product-name").text(title);
+            item.find("#price").text(price);
+            item.find("span").text(amount);
 
-            $("#wrp").append(data);
+            //$("#wrp").append(data);
             /*var result = $(data).find("a").attr("href", "Product");
             $("#wrp").append(result);
             $("#wrp").append($(data).find("#product-item"));
@@ -35,8 +38,8 @@
             }
         );
     }
-    /*showItems("/assets/images/book-2.png",
+    showItems("/assets/images/book-2.png",
         "Conan Thám tử lừng danh - Tập 100", "129.000đ", 12, 1857);
     showItems("/assets/images/book-3.png",
-        "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);*/
+        "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);
 });  
