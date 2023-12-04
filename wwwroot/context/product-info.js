@@ -139,9 +139,6 @@ $(this).ready(function () {
         }
         );
     }
-    /*var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    alert(id);
 
     function displayFeedback() {
         $.get("Product/LoadFeedback" { "productID": 300000001 },
@@ -155,6 +152,10 @@ $(this).ready(function () {
     }
 
     displayFeedback();
+
+    /*var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
+    alert(id);
     $(".show-image").css("background-image", "url(" +
         '/assets/images/book-3.png' + ")");*/
 });

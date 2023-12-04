@@ -57,32 +57,6 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public void DisplayProducts()
-        {
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-
-            //List<>
-            SqlCommand cmd = new SqlCommand("SELECT p.productID, " +
-                "pi.img FROM dbo.Products p, dbo.ProductIMGs pi" +
-                " WHERE p.productID = pi.productID", conn);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    
-                }
-            }
-            conn.Close();
-
-            /*return new JsonResult
-            (
-                new { numberOfStars = (int)(avg / dividend) }
-            );*/
-        }
-
         public JsonResult LoadFeedback(int productID)
         {
             if (conn.State == ConnectionState.Closed)
