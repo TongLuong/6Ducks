@@ -74,10 +74,10 @@ namespace DA_6Ducks.Controllers
             }
             conn.Close();
 
-            return new JsonResult
+            /*return new JsonResult
             (
                 new { numberOfStars = (int)(avg / dividend) }
-            );
+            );*/
         }
     }
 }
