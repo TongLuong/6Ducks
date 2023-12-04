@@ -103,8 +103,39 @@ begin
 	return @totalBill
 end
 go
--- insert a bill
+-- insert a bill (insert BillItems then)
+--drop procedure insert_Bill
+create procedure insert_Bill -- get the output of this procedure to insert BillItems
+@buyerID int,
+@sellerID int,
+@address nvarchar(255),
+@pmethod int,
+@smethod int,
+@discountVchID int = null,
+@freeShipVchID int = null
+as
+begin
+	insert into Bills (buyerID,sellerID,[address],pmethodID,smethodID,discountVoucher,freeshipVoucher)
+	output inserted.billID
+	values(
+		@buyerID,@sellerID,@address,@pmethod,@smethod,@discountVchID,@freeShipVchID
+	)
+end
+
 go
+--insert BillItems (use BillID ) -- use loop in application
+create procedure insert_BillItems
+@BillID int,
+@ProductID int,
+@quantity int,
+@price int
+as
+begin
+	insert into BillItems (billID,productID,quantity,price) values
+	(@BillID, @ProductID, @quantity,@price)
+end
+go
+
 -- load the number of seller ratings classified into *, **, ***...
 create function numberOfSellerRatings(@sellerID int)	
 returns @rtnTable table(oneStar int, twoStar int, threeStar int, fourStar int, fiveStar int)
@@ -183,6 +214,57 @@ begin
 end
 go
 
---insert feedback
---insert Bill
+--insert Rating
+create procedure insert_Ratings
+@productID int,
+@buyerID int,
+@detail nvarchar(255),
+@ratingStar float,
+@result bit = 'False' output
+as 
+begin
+	insert into Ratings values(@productID,@buyerID,@detail,@ratingStar)
+	set @result = 'True'
+end
+go
 --insert Product
+create procedure insert_Product -- get productID to add img (if necessary)
+@sellerID int,
+@name nvarchar(255),
+@author nvarchar(255),
+@publisher nvarchar(255),
+@genrelID int,
+@catID int,
+@price int,
+@discount int,
+@numbersLeft int
+as
+begin
+	insert into Products
+	(sellerID,[name],author,publisher,genreID,categoryID,price,discount,numbersLeft)
+	output inserted.productID
+	values
+	(@sellerID,@name,@author,@publisher,@genrelID,@catID,@price,@discount,@numbersLeft)
+end
+
+go
+create procedure insert_ProductIMG
+@productID int,
+@img varchar(255),
+@result bit = 'False' output
+as
+begin
+	insert into ProductIMGs values(@productID,@img)
+	set @result = 'True'
+end
+go
+
+--set 0 to Product (unactived)
+create procedure unactive_Product
+@name nvarchar(255)
+as
+begin
+	update Products
+	set numbersLeft  = 0
+	where [name] = @name
+end

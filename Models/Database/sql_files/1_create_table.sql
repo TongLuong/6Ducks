@@ -210,3 +210,11 @@ CREATE TABLE VoucherApply (
 )
 GO
 
+alter table Bills add constraint DF_totalPrice  default 0 for totalPrice
+alter table Bills add constraint DF_time default getdate() for [time]
+
+alter table BillItems drop constraint [PK__BillItem__B61EB4DE7FD3DFE3]
+alter table BillItems alter column billID int not null
+alter table BillItems alter column productID int not null
+alter table BillItems add constraint PK_BillItems primary key (billID,productID)
+alter table BillItems drop column billItemID
