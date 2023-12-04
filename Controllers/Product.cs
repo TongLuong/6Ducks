@@ -37,6 +37,7 @@ namespace DA_6Ducks.Controllers
                 while (dr.Read())
                 {
                     for (int i = 0; i < 5; i++)
+                    {
                         if (!dr.IsDBNull(i))
                         {
                             avg += dr.GetInt32(i);
@@ -44,6 +45,7 @@ namespace DA_6Ducks.Controllers
                             if (dr.GetInt32(i) != 0)
                                 dividend++;
                         }
+                    }
                 }
             }
             conn.Close();
@@ -52,32 +54,6 @@ namespace DA_6Ducks.Controllers
             (
                 new { numberOfStars = (int)(avg / dividend) }
             );
-        }
-
-        public void DisplayProducts()
-        {
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-
-            //List<>
-            SqlCommand cmd = new SqlCommand("SELECT p.productID, " +
-                "pi.img FROM dbo.Products p, dbo.ProductIMGs pi" +
-                " WHERE p.productID = pi.productID", conn);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    
-                }
-            }
-            conn.Close();
-
-            /*return new JsonResult
-            (
-                new { numberOfStars = (int)(avg / dividend) }
-            );*/
         }
     }
 }

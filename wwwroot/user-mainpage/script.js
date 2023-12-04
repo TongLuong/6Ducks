@@ -30,9 +30,25 @@
             }
         );
     }
-    showItems("/assets/images/book-2.png",
+    /*showItems("/assets/images/book-2.png",
         "Conan Thám tử lừng danh - Tập 100", "129.000đ", 12, 1857,
         "1234");
     showItems("/assets/images/book-3.png",
-        "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);
+        "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);*/
+
+    function showProducts() {
+        $.get
+            (
+                "MainPage/DisplayProducts", { },
+                function (response) {
+                    showItems(response.srcImg, response.title,
+                        response.price, response.rate, response.amount,
+                        response.productID);
+                }
+            );
+    }
+    /*showItems(response.srcImg, response.title,
+        response.price, response.rate, response.amount,
+        response.productID);*/
+    showProducts();
 });  

@@ -124,12 +124,12 @@ $(this).ready(function () {
 
     displayStar();
 
-    var urlParams = new URLSearchParams(window.location.search);
+    /*var urlParams = new URLSearchParams(window.location.search);
     var id = urlParams.get('id');
     alert(id);
 
     //$(".show-image").attr("src")
 
     $(".show-image").css("background-image", "url(" +
-        '/assets/images/book-3.png' + ")");
+        '/assets/images/book-3.png' + ")");*/
 });
