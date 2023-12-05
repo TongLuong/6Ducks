@@ -268,3 +268,19 @@ begin
 	set numbersLeft  = 0
 	where [name] = @name
 end
+
+go
+--drop function get_list_valid_vch
+create function get_list_valid_vch(
+@categoryID int = null,
+@sellerID int = null,
+@currentPriceBill int
+)
+returns table 
+as
+return(
+	select vch.voucherID, vch.discountPercent, vch.maxValue,vch.voucherType from VoucherUse vchu, Vouchers vch
+	where (@categoryID is null or @categoryID = vchu.categoryID) and (@sellerID is null or @sellerID = vchu.sellerID)
+	and vchu.voucherID = vch.voucherID and vch.timeStart <= getdate() and vch.timeExpired >= getdate()
+	and @currentPriceBill >= vch.minBill and vch.quantity > 0
+);
