@@ -13,7 +13,7 @@ namespace DA_6Ducks.Controllers
         public Product() 
         {
             //conn = new SqlConnection(connectionString);
-            conn = new SqlConnection(StaticVariable.sqlConnectionString);
+            conn = new SqlConnection(ConnectionString.sqlConnectionString);
         }
 
         public IActionResult Index()
@@ -88,6 +88,11 @@ namespace DA_6Ducks.Controllers
             (
                 new {number = num, username = usernames,star = stars,detail = details }
             );
+        }
+
+        public JsonResult LoadProductInfo(string productID)
+        {
+            return null;
         }
     }
 }

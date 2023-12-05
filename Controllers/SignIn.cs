@@ -1,9 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace DA_6Ducks.Controllers
 {
     public class SignIn : Controller
     {
+        private static string connectionString = "Data Source=TONGKHANGTE;Initial Catalog=dath_database;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private SqlConnection conn;
+
+        public SignIn()
+        {
+            //conn = new SqlConnection(connectionString);
+            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+        }
+
         public IActionResult Index()
         {
             return View("/Views/user/signin/index.cshtml");

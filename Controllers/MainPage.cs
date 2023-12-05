@@ -12,7 +12,8 @@ namespace DA_6Ducks.Controllers
 
         public MainPage()
         {
-            conn = new SqlConnection(connectionString);
+            //conn = new SqlConnection(connectionString);
+            conn = new SqlConnection(ConnectionString.sqlConnectionString);
         }
 
         public IActionResult Index()
