@@ -6,7 +6,6 @@ namespace DA_6Ducks.Controllers
 {
     public class Login : Controller
     {
-        private static string connectionString = "Data Source=TONGKHANGTE;Initial Catalog=dath_database;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         private SqlConnection conn;
 
         public Login()
