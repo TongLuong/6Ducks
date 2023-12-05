@@ -93,14 +93,27 @@ GO
 INSERT INTO Products
     (sellerID, name, author, publisher, genreID, categoryID, price, numbersLeft)
 VALUES
-    (210000001, N'Điều kì diệu của tiệm tạp hóa Namiya', N'Higashino Keigo', N'Hội Nhà Văn', 1004, 2003, 129000, 100),
-    (210000002, N'Conan Thám tử lừng danh -  Tập 100', N'Gosho Aoyama', N'Kim Đồng', 1016, 2006, 30000, 80),
+    (210000001, N'Điều kì diệu của tiệm tạp hóa Namiya', N'Higashino Keigo', N'Hội Nhà Văn', 1004, 2003, 129000, 100), --300000001
+    (210000002, N'Conan Thám tử lừng danh -  Tập 100', N'Gosho Aoyama', N'Kim Đồng', 1016, 2006, 30000, 80), --300000002
     (210000002, N'Thiên sứ nhà bên - Tập 1', N'Yamada Taro', N'Trẻ', 1010, 2003, 95000, 120),
-    (210000003, N'Thay đổi cuộc sống với Nhân số học', N'David A. Phillps', N'Tổng hợp TPHCM', 1020, 2001, 248000, 90),
+    (210000003, N'Thay đổi cuộc sống với Nhân số học', N'David A. Phillps', N'Tổng hợp TPHCM', 1020, 2001, 248000, 90), --300000004
     (210000001, N'Muôn kiếp nhân sinh', N'Nguyên Phong', N'Hội Nhà Văn', 1009, 2004, 168000, 60),
-    (210000004, N'Nghĩ giàu làm giàu (Tái bản 2020)', N'Napoleon Hill', N'Hội Nhà Văn', 1021, 2001, 88000, 150),
+    (210000004, N'Nghĩ giàu làm giàu (Tái bản 2020)', N'Napoleon Hill', N'Hội Nhà Văn', 1021, 2001, 88000, 150), --300000006
     (210000003, N'Sherlock Holmes toàn tập (Bộ 5 cuốn)', N'Conan Doyle', N'Trẻ', 1016, 2003, 590000, 45),
-    (210000004, N'Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)', N'Virginia Woolf', N'Kim Đồng', 1022, 2001, 729000, 70)
+    (210000004, N'Bộ sách kể chuyện cuộc đời các thiên tài (Bộ 12 cuốn)', N'Virginia Woolf', N'Kim Đồng', 1022, 2001, 729000, 70) --300000008
+GO
+
+INSERT INTO ProductIMGs
+    (productID, imgLink)
+VALUES
+    (300000001, '/assets/images/book-1-1.png'),
+	(300000002, '/assets/images/book-2.png'),
+	(300000003, '/assets/images/book-3.png'),
+	(300000004, '/assets/images/book-4.png'),
+	(300000005, '/assets/images/book-5.png'),
+	(300000006, '/assets/images/book-6.png'),
+	(300000007, '/assets/images/book-7.png'),
+	(300000008, '/assets/images/book-8.png')
 GO
 
 INSERT INTO Ratings

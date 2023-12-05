@@ -36,19 +36,22 @@
     showItems("/assets/images/book-3.png",
         "Light Novel Thiên sứ nhà bên - Tập 1", "129.000đ", 12, 1857);*/
 
-    function showProducts() {
-        $.get
-            (
-                "MainPage/DisplayProducts", { },
-                function (response) {
-                    showItems(response.srcImg, response.title,
-                        response.price, response.rate, response.amount,
-                        response.productID);
+    function showProducts(numDisplays) {
+        $.ajax
+            ({
+                url: 'MainPage/DisplayProducts',
+                dataType: 'json',
+                data: { "n": numDisplays },
+                type: 'POST',
+                success: function (response) {
+                    var temp = response.data;
+                    for (var i = 0; i < temp.length; i++) {
+                        showItems(temp[i].value.imgLink, temp[i].value.name,
+                            temp[i].value.price, temp[i].value.ratingCount,
+                            temp[i].value.numbersLeft, temp[i].value.productID);
+                    }
                 }
-            );
+            });
     }
-    /*showItems(response.srcImg, response.title,
-        response.price, response.rate, response.amount,
-        response.productID);*/
-    showProducts();
+    showProducts(8);
 });  
