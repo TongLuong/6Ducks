@@ -1,4 +1,4 @@
-$(this).ready(function () {
+﻿$(this).ready(function () {
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
@@ -103,14 +103,16 @@ $(this).ready(function () {
         });
     });
 
-    function displayStar() {
-        const starInputs = document.querySelectorAll('i[name="star"]');
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
+    
+    function displayStar(productID) {
+        const starInputs = document.querySelectorAll('i[name="starprod"]');
 
         $.get(
-            "Product/DisplayRating", { "productID": 300000001 },
+            "Product/DisplayRating", { "productID": productID },
             function (response) {
-                for (let i = response.numberOfStars - 1;
-                    i < starInputs.length; i++) {
+                for (let i = 0; i < starInputs.length; i++) {
                     starInputs[i].className = "fa fa-star-o";
                 }
 
@@ -118,14 +120,49 @@ $(this).ready(function () {
                     i >= 0; i--) {
                     starInputs[i].className = "fa fa-star";
                 }
+
+                $("#ratingAvg").text("(" + response.avgRating + ")");
             }
         )
     }
 
-    //displayStar();
+    displayStar(id);
 
-    $(".show-image").css("background-image", "url(" +
-        '/assets/images/book-3.png' + ")");
+    function displayProdInfo(productID) {
+        $.get(
+            "Product/LoadProductInfo", { "productID": productID },
+            function (response) {
+                $(".show-image").css("background-image", "url(" +
+                    response.imgLink + ")");
+
+                /*$("#1").css("background-image", "url(" +
+                    response.imgLink + ")");
+                $("#2").css("background-image", "url(" +
+                    response.imgLink + ")");
+                $("#3").css("background-image", "url(" +
+                    response.imgLink + ")");
+                $("#4").css("background-image", "url(" +
+                    response.imgLink + ")");
+                $("#5").css("background-image", "url(" +
+                    response.imgLink + ")");*/
+
+                $("#prodName").text(response.name);
+                //$("#ratingAvg").text(response.avgStar);
+                $("#author").text(response.author);
+                $("#publisher").text(response.publisher);
+                $("#genreID").text(response.genreName);
+                $("#categoryID").text(response.catName);
+
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'vnd',
+                });
+                $("#price").text(formatter.format(response.price));
+            }
+        )
+    }
+
+    displayProdInfo(id);
 
     function showFeedback(username, star, detail) {
         $.get("components/feedbackTemplate.html", function (data) {
@@ -141,7 +178,7 @@ $(this).ready(function () {
     }
 
     function displayFeedback() {
-        $.get("Product/LoadFeedback" { "productID": 300000001 },
+        $.get("Product/LoadFeedback", { "productID": 300000001 },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
                     showFeedback(response.username[i], response.star[i], response.detail[i]);
@@ -152,10 +189,4 @@ $(this).ready(function () {
     }
 
     displayFeedback();
-
-    /*var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    alert(id);
-    $(".show-image").css("background-image", "url(" +
-        '/assets/images/book-3.png' + ")");*/
 });

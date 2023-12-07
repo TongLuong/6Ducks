@@ -20,39 +20,40 @@ namespace DA_6Ducks.Controllers
             return View("/Views/product/info/index.cshtml");
         }
 
-        public JsonResult DisplayRating(int productID)
+        public JsonResult DisplayRating(string productID)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.numberOfProductRatings(@productID)", conn);
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT avgStar FROM dbo.Products " +
+                "WHERE productID = " + productID, 
+                conn
+            );
 
             cmd.Parameters.AddWithValue("@productID", productID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             double avg = 0;
-            double dividend = 0.0;
+            int dividend = 0;
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        if (!dr.IsDBNull(i))
-                        {
-                            avg += dr.GetInt32(i);
-
-                            if (dr.GetInt32(i) != 0)
-                                dividend++;
-                        }
-                    }
+                    avg += dr.GetDouble(0);
+                    dividend++;
                 }
             }
             conn.Close();
 
             return new JsonResult
             (
-                new { numberOfStars = (int)(avg / dividend) }
+                new 
+                { 
+                    numberOfStars = (int)(avg / dividend),
+                    avgRating = Math.Round(avg / (dividend * 1.0), 1)
+                }
             );
         }
 
@@ -91,7 +92,61 @@ namespace DA_6Ducks.Controllers
 
         public JsonResult LoadProductInfo(string productID)
         {
-            return null;
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT p.*, c.name, g.name, pi.imgLink " +
+                "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g " +
+                "WHERE p.productID = pi.productID " +
+                "AND p.productID = @productID " +
+                "AND p.categoryID = c.categoryID " +
+                "AND p.genreID = g.genreID"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            string[] temp = new string[dr.FieldCount];
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (!dr.IsDBNull(i))
+                            temp[i] = dr.GetValue(i).ToString() ?? "";
+                        else
+                            temp[i] = "";
+                    }
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    productID = temp[0],
+                    sellerID = temp[1],
+                    name = temp[2],
+                    author = temp[3],
+                    publisher = temp[4],
+                    genreID = temp[5],
+                    categoryID = temp[6],
+                    price = temp[7],
+                    discount = temp[8],
+                    avgStar = temp[9],
+                    ratingCount = temp[10],
+                    numbersLeft = temp[11],
+                    soldNumber = temp[12],
+                    catName = temp[13],
+                    genreName = temp[14],
+                    imgLink = temp[15]
+                }
+            );
         }
     }
 }

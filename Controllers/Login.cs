@@ -31,12 +31,10 @@ namespace DA_6Ducks.Controllers
             SqlCommand func = new SqlCommand("SELECT dbo.checkValid(@username, @email, @pass)", 
                 conn);
 
-            if (username != null)
-            {
-                func.Parameters.AddWithValue("@username", username);
-                func.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
-                func.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
-            }
+            func.Parameters.AddWithValue("@username", username == null ? DBNull.Value : username);
+            func.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
+            func.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
+
             bool result = (bool)func.ExecuteScalar();
             //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
 
