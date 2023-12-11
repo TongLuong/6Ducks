@@ -86,11 +86,20 @@ namespace DA_6Ducks.Controllers
                     times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
+
+            cmd = new SqlCommand("select displayName from Users where userID = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            string username = (string)cmd.ExecuteScalar();
+
+            cmd = new SqlCommand("select displayName from Users where userID = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", sellerID);
+            string sellername = (string)cmd.ExecuteScalar();
+
             conn.Close();
 
             return new JsonResult
             (
-                new { number = msgs.Count, pos = poss,msg = msgs,time = times }
+                new { userName = username,sellerName = sellername,number = msgs.Count, pos = poss,msg = msgs,time = times }
             );
         }
 
