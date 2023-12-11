@@ -169,3 +169,10 @@ button:hover {
 ::-ms-reveal {
     display: none;
 }
+
+#invalid-label {
+    display: none;
+    margin: auto;
+    color: red;
+    font-weight: bold;
+}

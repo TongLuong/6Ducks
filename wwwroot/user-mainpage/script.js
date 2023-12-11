@@ -11,6 +11,9 @@
       $("body").append(data);
     });*/
 
+    var urlParams = new URLSearchParams(window.location.search);
+    var userID = urlParams.get('user');
+
     function showItems(srcImg, title, price, rate, amount,
                         productID) {
         $.get("components/productItem.html", function (data) {
@@ -25,7 +28,8 @@
                 item.find("span").text(amount);
 
                 item.click(function () {
-                    location.href = "Product" + "?id=" + productID;
+                    location.href = "Product" + "?user=" + userID +
+                        "&product=" + productID;
                 });
             }
         );

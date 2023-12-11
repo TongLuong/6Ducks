@@ -18,7 +18,7 @@
       <div class="wrapper">
         <div class="login-side">
           <header>Đăng nhập</header>
-            <form action="@Url.Action("CheckLogin", "Login")" method="post" id="loginForm">
+            <form action="">
                 <label for="username">Tên đăng nhập</label>
                 <input type="text" name="username" id="username" />
                 <div class="group-text">
@@ -29,8 +29,11 @@
                 <ion-icon name="eye-outline" class="show-pwd"></ion-icon>
                 <ion-icon name="eye-off-outline" class="hide-pwd"></ion-icon>
             </form>
-            <button type="submit" form="loginForm" class="
-            login-btn">Đăng nhập <span>&#129122;</span></button>
+            <label id="invalid-label">
+                Thông tin đăng nhập không hợp lệ!
+            </label>
+            <button type="button" class="login-btn">Đăng nhập
+                <span>&#129122;</span></button>
         </div>
         <div class="signin-btn">
           <span>Bạn chưa có tài khoản? Đăng kí</span>

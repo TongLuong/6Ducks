@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography.Xml;
 
 namespace DA_6Ducks.Controllers
 {
@@ -19,12 +20,11 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/login/index.cshtml");
         }
 
-        [HttpPost]
-        public IActionResult CheckLogin(string username, string email, string pwd)
+        public JsonResult CheckLogin(string username, string email, 
+            string pwd)
         {
             // TODO
             // check username and pwd using function from model
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
@@ -35,15 +35,18 @@ namespace DA_6Ducks.Controllers
             func.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
             func.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
 
-            bool result = (bool)func.ExecuteScalar();
+            int userID = (int)func.ExecuteScalar();
             //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
 
             conn.Close();
 
-            if (result)
-                return RedirectToAction("Index", "MainPage");
-            else
-                return RedirectToAction("Index", "Login");
+            return new JsonResult
+            (
+                new 
+                { 
+                    userID = userID
+                } 
+            );
         }
     }
 }

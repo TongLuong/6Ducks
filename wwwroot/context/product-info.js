@@ -104,8 +104,8 @@
     });
 
     var urlParams = new URLSearchParams(window.location.search);
-    var id = urlParams.get('id');
-    
+    var product_id = urlParams.get('product');
+
     function displayStar(productID) {
         const starInputs = document.querySelectorAll('i[name="starprod"]');
 
@@ -126,7 +126,7 @@
         )
     }
 
-    displayStar(id);
+    displayStar(product_id);
 
     function displayProdInfo(productID) {
         $.get(
@@ -162,31 +162,29 @@
         )
     }
 
-    displayProdInfo(id);
+    displayProdInfo(product_id);
 
     function showFeedback(username, star, detail) {
         $.get("components/feedbackTemplate.html", function (data) {
 
             $(".full-feedback").append(data);
             var item = $(".full-feedback .feedback-item:last-child()");
-
-
+            
             item.find(".username").text(username);
             item.find(".cmt-side p").text(detail);
         }
         );
     }
 
-    function displayFeedback() {
-        $.get("Product/LoadFeedback", { "productID": 300000001 },
+    function displayFeedback(productID) {
+        $.get("Product/LoadFeedback", { "productID": productID },
             function (response) {
                 for (let i = 0; i < response.number; i++) {
                     showFeedback(response.username[i], response.star[i], response.detail[i]);
-                    console.log(response.username[i]);
                 }
             }
         )
     }
 
-    displayFeedback();
+    displayFeedback(product_id);
 });
