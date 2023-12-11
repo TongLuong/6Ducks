@@ -3,17 +3,23 @@ use [dath_database]
 
 go
 -- check valid pass and userID
+--drop function checkValid
 create function checkValid (
 @username varchar(255) = null,
 @email varchar(255) = null,
 @pass varchar(255)
 )
-returns bit
+returns int
 as
 begin
-	if exists (select * from Users where (username = @username or email = @email) and pass = @pass)
-		return 'True'
-	return 'False'
+	declare @userID int
+	set @userID = null
+
+	select @userID = userID from Users where (username = @username or email = @email) and pass = @pass
+
+	if @userID is not null
+		return @userID
+	return -1
 end
 go
 -- save logChat
