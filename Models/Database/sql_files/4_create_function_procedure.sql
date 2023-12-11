@@ -32,7 +32,8 @@ begin
 	)	
 end
 go
--- load LogChat
+ load LogChat
+drop procedure loadLog
 create procedure loadLog
 @userIDView int,
 @objectIDView int
@@ -45,6 +46,24 @@ begin
 	order by [time] asc
 end
 go
+
+--drop function loadLogChat
+create function loadLogChat
+(
+@userID int,
+@sellerID int
+)
+returns table
+as 
+return
+(
+	select msg, [time]
+	from LogChat
+	where (senderID = @userID and receiverID = @sellerID) or
+	(senderID = @sellerID and receiverID = @userID)
+);
+go
+	
 -- calculate total price of a bill (check ship,voucher...)
 create function checkBillPrice(
 @billID int, 

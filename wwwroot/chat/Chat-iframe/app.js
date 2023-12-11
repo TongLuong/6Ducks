@@ -14,7 +14,24 @@ msgerForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const msgText = msgerInput.value;
-  if (!msgText) return;
+    if (!msgText) return;
+
+    //var urlParams = new URLSearchParams(window.location.search);
+    //var buyerID = urlParams.get('user_id');
+    //var sellerID = urlParams.get('seller_id');
+
+    //$.ajax({
+    //    url: "Chat/SaveLogChat",
+    //    data: {
+    //        "buyerID": buyerID,
+    //        "sellerID": sellerID,
+    //        "msg":msgText
+    //    },
+    //    async: false,
+    //    cache: false,
+    //    type: "post",
+    //});
+
 
   appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
   msgerInput.value = "";
