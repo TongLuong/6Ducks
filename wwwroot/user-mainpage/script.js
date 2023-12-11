@@ -63,5 +63,5 @@
                 }
             });
     }
-    showProducts(8);
+    //showProducts(8);
 });
