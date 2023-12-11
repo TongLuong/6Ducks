@@ -66,7 +66,7 @@ returns table
 as 
 return
 (
-	select msg, [time]
+	select senderID, msg, [time]
 	from LogChat
 	where (senderID = @userID and receiverID = @sellerID) or
 	(senderID = @sellerID and receiverID = @userID)
