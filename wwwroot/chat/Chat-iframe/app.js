@@ -39,8 +39,12 @@ msgerForm.addEventListener("submit", (event) => {
     botResponse();
 });
 
-function appendMessage(name, img, side, text) {
-    //   Simple solution for small apps
+function appendMessage(name, img, side, text, time = null) {
+    // Nếu không có thời gian được truyền vào, sử dụng thời gian hiện tại
+    if (!time) {
+        time = formatDate(new Date());
+    }
+
     const msgHTML = `
     <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
@@ -48,7 +52,7 @@ function appendMessage(name, img, side, text) {
       <div class="msg-bubble">
         <div class="msg-info">
           <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
+          <div class="msg-info-time">${time}</div>
         </div>
 
         <div class="msg-text">${text}</div>
@@ -97,8 +101,10 @@ function displayLogChat(userID, sellerID) {
         type: "post",
         success: function (response) {
             for (let i = 0; i < response.number; i++) {
-                let side = response.msg[i].sender === 'buyer' ? "right" : "left";
-                appendMessage(PERSON_NAME, PERSON_IMG, side, response.msg[i].message);
+                let side = response.pos[i];
+                let msg = response.msg[i];
+                let time = response.time[i];
+                appendMessage(name, PERSON_IMG, side, msg, time);
             }
         }
     });
