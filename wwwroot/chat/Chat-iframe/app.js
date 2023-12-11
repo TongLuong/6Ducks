@@ -100,11 +100,17 @@ function displayLogChat(userID, sellerID) {
         },
         type: "post",
         success: function (response) {
+            BOT_NAME = response.sellerName;
+            PERSON_NAME = response.userName;
+
             for (let i = 0; i < response.number; i++) {
                 let side = response.pos[i];
                 let msg = response.msg[i];
                 let time = response.time[i];
-                appendMessage(name, PERSON_IMG, side, msg, time);
+                var sender_name;
+                if (side = "right") { sender_name = PERSON_NAME; }
+                if (side = "left") { sender_name = BOT_NAME; }
+                appendMessage(sender_name, PERSON_IMG, side, msg, time);
             }
         }
     });
