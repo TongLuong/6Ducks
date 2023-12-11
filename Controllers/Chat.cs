@@ -104,7 +104,7 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public void SaveLogChat(int buyerID, int sellerID, string msg)
+        public void SaveLogChat(int senderID, int receiverID, string msg)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -117,8 +117,8 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@snd_id", buyerID);
-            cmd.Parameters.AddWithValue("@rcv_id", sellerID);
+            cmd.Parameters.AddWithValue("@snd_id", senderID);
+            cmd.Parameters.AddWithValue("@rcv_id", receiverID);
             cmd.Parameters.AddWithValue("@msg", msg);
 
             cmd.ExecuteNonQuery();
