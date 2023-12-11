@@ -73,20 +73,24 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@sellerID", sellerID);
 
             SqlDataReader dr = cmd.ExecuteReader();
+            List<string> poss = new List<string>();
             List<string> msgs = new List<string>();
+            List<string> times = new List<string>();
 
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
-                    msgs.Add(dr.GetString(0));
+                    poss.Add((dr.GetInt32(0) == userID) ? "right" : "left");
+                    msgs.Add(dr.GetString(1));
+                    times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
             conn.Close();
 
             return new JsonResult
             (
-                new { number = msgs.Count, msg = msgs }
+                new { number = msgs.Count, pos = poss,msg = msgs,time = times }
             );
         }
 
