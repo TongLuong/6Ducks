@@ -28,15 +28,30 @@ namespace DA_6Ducks.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            SqlCommand func = new SqlCommand("SELECT dbo.checkValid(@username, @email, @pass)", 
-                conn);
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.[checkValid]"
+                , conn
+            );
 
-            func.Parameters.AddWithValue("@username", username == null ? DBNull.Value : username);
-            func.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
-            func.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            int userID = (int)func.ExecuteScalar();
-            //return Content("result: " + result.ToString() + " " + username + " " + email + " " + pwd);
+            cmd.Parameters.AddWithValue("@username", username == null ? DBNull.Value : username);
+            cmd.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
+            cmd.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
+
+            SqlParameter status = cmd.Parameters.Add("@status", 
+                SqlDbType.Bit);
+            SqlParameter userID = cmd.Parameters.Add("@userID",
+                SqlDbType.Int);
+            SqlParameter userType = cmd.Parameters.Add("@userType",
+                SqlDbType.Int);
+
+            status.Direction = ParameterDirection.Output;
+            userID.Direction = ParameterDirection.Output;
+            userType.Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
 
             conn.Close();
 
@@ -44,7 +59,9 @@ namespace DA_6Ducks.Controllers
             (
                 new 
                 { 
-                    userID = userID
+                    status = status.Value, 
+                    userID = userID.Value, 
+                    userType = userType.Value
                 } 
             );
         }

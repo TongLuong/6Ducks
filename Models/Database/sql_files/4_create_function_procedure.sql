@@ -3,23 +3,26 @@ use [dath_database]
 
 go
 -- check valid pass and userID
---drop function checkValid
-create function checkValid (
-@username varchar(255) = null,
+--drop procedure checkValid
+create procedure checkValid
+@username varchar(255),
 @email varchar(255) = null,
-@pass varchar(255)
-)
-returns int
+@pass varchar(255),
+@status bit = 0 output,
+@userID int = null output,
+@userType int = null output
 as
 begin
-	declare @userID int
-	set @userID = null
+	-- 21: buyer, 22: seller, 23: admin
 
-	select @userID = userID from Users where (username = @username or email = @email) and pass = @pass
+	select @userID = userID, @userType = usertype
+	from Users 
+	where (username = @username or email = @email) and pass = @pass
 
 	if @userID is not null
-		return @userID
-	return -1
+		set @status = 1
+	else
+		set @status = 0
 end
 go
 -- save logChat

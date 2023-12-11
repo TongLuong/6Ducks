@@ -18,22 +18,29 @@ $(this).ready(function () {
         var username = $("#username").val();
         var pwd = $("#pwd").val();
 
-        $.get(
-            "Login/CheckLogin",
+        $.ajax({
+            url: "Login/CheckLogin",
+            data:
             {
                 "username": username,
                 "email": null,
                 "pwd": pwd
             },
-            function (response) {
-                if (response.userID > -1) {
-                    location.href = "MainPage" + "?user=" + response.userID;
+            cache: false,
+            success: function (response) {
+                if (response.status) {
+                    if (response.userType == 21) // buyer
+                        location.href = "MainPage" + "?user=" + response.userID;
+                    else if (response.userType == 22) // seller
+                        location.href = "SellerMainPage" + "?user=" + response.userID;
+                    /*else if (response.userType == 23) // admin
+                        pass*/
                 }
                 else {
                     $("#invalid-label").css("display", "block");
                 }
             }
-        )
+        });
 
         //document.write(document.getElementById("username").value);
         //location.href = "MainPage";

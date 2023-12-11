@@ -15,23 +15,29 @@
     var userID = urlParams.get('user');
 
     function showItems(srcImg, title, price, rate, amount,
-                        productID) {
+        productID) {
         $.get("components/productItem.html", function (data) {
-                //document.createElement('i');
-                $(".best-seller .product-list").append(data);
-                var item = $(".best-seller .product-list .product-item:last-child()");
-                //console.log(data);
-                //item.find("#atag").attr("href", 'Product');
-                item.find("#imgtag").attr("src", srcImg);
-                item.find("#product-name").text(title);
-                item.find("#price").text(price);
-                item.find("span").text(amount);
+            //document.createElement('i');
+            $(".best-seller .product-list").append(data);
+            var item = $(".best-seller .product-list .product-item:last-child()");
+            //console.log(data);
+            //item.find("#atag").attr("href", 'Product');
+            item.find("#imgtag").attr("src", srcImg);
+            item.find("#product-name").text(title);
 
-                item.click(function () {
-                    location.href = "Product" + "?user=" + userID +
-                        "&product=" + productID;
-                });
-            }
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'vnd',
+            });
+            item.find("#price").text(formatter.format(price));
+
+            item.find("span").text(amount);
+
+            item.click(function () {
+                location.href = "Product" + "?user=" + userID +
+                    "&product=" + productID;
+            });
+        }
         );
     }
     /*showItems("/assets/images/book-2.png",
@@ -58,4 +64,4 @@
             });
     }
     showProducts(8);
-});  
+});
