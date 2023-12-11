@@ -10,7 +10,7 @@ namespace DA_6Ducks.Controllers
         public SignIn()
         {
             //conn = new SqlConnection(connectionString);
-            conn = new SqlConnection(ConnectionString.sqlConnectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["dath_database"].ConnectionString);
         }
 
         public IActionResult Index()
