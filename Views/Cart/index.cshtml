@@ -1,0 +1,133 @@
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="stylesheet" href="/cart/cart.css" />
+  <link rel="stylesheet" href="/assets/styles/globals.css" />
+  <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/cart/cart.js"></script>
+</head>
+
+<body>
+  <div class="main-cart">
+    <div class="wrapper">
+      <h1>Giỏ hàng</h1>
+      <div class="cart-total-price">
+        <span>Tổng thanh toán: </span>
+        <span class="total-price"><span>0</span>Đ</span>
+        <button type="button" id="mark-all">Chọn tất cả</button>
+        <button type="button" id="make-buy">Mua ngay</button>
+      </div>
+      <div class="cart-list">
+        <div class="cart-item">
+          <img src="/assets/images/book-1-1.png" alt="" />
+          <div class="detail">
+            <span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>
+            <span class="quantity">Số lượng: <span>1</span></span>
+            <span class="item-price">Đơn giá:<span>86000</span>đ</span>
+          </div>
+          <span class="item-total-price">Tổng: <span>86000</span>đ</span>
+          <input type="checkbox" name="item-choose" />
+        </div>
+        <div class="cart-item">
+          <img src="/assets/images/book-1-1.png" alt="" />
+          <div class="detail">
+            <span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>
+            <span class="quantity">Số lượng: <span>1</span></span>
+            <span class="item-price">Đơn giá: <span>86000</span>đ</span>
+          </div>
+          <span class="item-total-price">Tổng: <span>86000</span>đ</span>
+          <input type="checkbox" name="item-choose" />
+        </div>
+        <div class="cart-item">
+          <img src="/assets/images/book-1-1.png" alt="" />
+          <div class="detail">
+            <span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>
+            <span class="quantity">Số lượng: <span>1</span></span>
+            <span class="item-price">Đơn giá: <span>86000</span>đ</span>
+          </div>
+          <span class="item-total-price">Tổng: <span>86000</span>đ</span>
+          <input type="checkbox" name="item-choose" />
+        </div>
+        <div class="cart-item">
+          <img src="/assets/images/book-1-1.png" alt="" />
+          <div class="detail">
+            <span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>
+            <span class="quantity">Số lượng: <span>1</span></span>
+            <span class="item-price">Đơn giá: <span>86000</span>đ</span>
+          </div>
+          <span class="item-total-price">Tổng: <span>86000</span>đ</span>
+          <input type="checkbox" name="item-choose" />
+        </div>
+        <div class="cart-item">
+          <img src="/assets/images/book-1-1.png" alt="" />
+          <div class="detail">
+            <span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>
+            <span class="quantity">Số lượng: <span>1</span></span>
+            <span class="item-price">Đơn giá: <span>86000</span>đ</span>
+          </div>
+          <span class="item-total-price">Tổng: <span>86000</span>đ</span>
+          <input type="checkbox" name="item-choose" />
+        </div>
+      </div>
+    </div>
+    <div class="overlay-cart">
+      <div class="wrapper">
+        <h1>Mua hàng</h1>
+        <div class="buy">
+          <div class="cart-list">
+            <div class="cart-item">
+              <img src="/assets/images/book-1-1.png" alt="" />
+              <span class="detail">Điều kì diệu ở tiệm tạp hóa Namiya</span>
+              <span class="item-price"><span>86.000</span>đ</span>
+            </div>
+          </div>
+          <form class="buyer-info" method="post" action="">
+            <h1>Thông tin nhận hàng</h1>
+            <div>
+              <input type="text" name="name" id="name" />
+              <label for="name">Tên người nhận</label>
+            </div>
+            <div>
+              <input type="text" name="phone" id="phone" />
+              <label for="phone">SĐT liên lạc khi nhận hàng</label>
+            </div>
+            <div>
+              <input type="text" name="address" id="address" />
+              <label for="address">Địa chỉ</label>
+            </div>
+            <div>
+              <select name="method" id="method">
+                <option value="fast">Nhanh</option>
+                <option value="x-fast">Hỏa tốc</option>
+                <option value="saving">Tiết kiệm</option>
+              </select>
+              <label for="method">Phương thức giao hàng</label>
+            </div>
+            <div>
+              <input type="text" name="cost" id="cost" readonly />
+              <label for="cost">Phí giao hàng</label>
+            </div>
+          </form>
+        </div>
+        <div class="total">
+          <label for="total">Tổng thanh toán</label>
+          <input type="text" readonly />
+        </div>
+        <div class="btn-group">
+          <button type="button" id="cancel">Hủy</button>
+          <button type="submit" id="confirm-buy">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
