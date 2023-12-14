@@ -66,7 +66,7 @@ namespace DA_6Ducks.Controllers
             List<int> stars = new List<int>();
             List<string> details = new List<string>();
 
-            SqlCommand cmd = new SqlCommand("SELECT username,ratingStar,detail FROM Ratings JOIN Users ON buyerID = userID WHERE productID = @productID", conn);
+            SqlCommand cmd = new SqlCommand("SELECT username,ratingStar,detail FROM Ratings r JOIN Buyer b ON r.buyerID = b.buyerID JOIN Users u ON u.userID = b.userID WHERE productID = @productID", conn);
 
             cmd.Parameters.AddWithValue("@productID", productID);
 
