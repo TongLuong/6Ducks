@@ -131,12 +131,14 @@
   gap: 30px;
 }
 
-.today-voucher, .free-ship, .combo-voucher {
+.today-voucher,
+.free-ship,
+.combo-voucher {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   overflow: scroll;
-  height: calc(3*80px + 4*20px + 50px);
+  height: calc(3 * 80px + 4 * 20px + 50px);
 }
 
 .mainpage-uploadcomic .voucher {
@@ -169,4 +171,194 @@
 .voucher .voucher-content .voucher-value {
   color: #2da5f3;
   font-weight: 500;
+}
+
+.mainpage-upload-comic-form {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
+}
+
+.upload header {
+  color: #425664;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+.upload table {
+  margin: 10px;
+  width: 600px;
+}
+
+.upload td,
+th {
+  padding: 15px 10px;
+}
+
+.upload input {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.upload input[type="text" i] {
+  padding-left: 5px;
+}
+
+.upload tr td div > img:first-child {
+  margin-left: 39px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
+
+.upload tr td div > img:not(:first-child) {
+  margin-left: 5px;
+  height: 30px;
+  width: auto;
+  cursor: zoom-in;
+}
+
+.upload tr td div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.upload .preview-side {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.upload .preview-side i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #f6f4f2;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.upload .preview-side img {
+  border-radius: 10px;
+  height: 550px;
+  width: auto;
+  cursor: default;
+}
+
+.upload .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.upload .button button {
+  height: 40px;
+  width: 100px;
+  background-color: #425664;
+  color: #fff;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+}
+
+.upload .button button:hover {
+  color: black;
+  border: 2px solid black;
+  background-color: #f6f4f2;
+}
+
+.mainpage-upload_success_notification {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.success {
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
+}
+
+.success header {
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  color: #425664;
+}
+
+.success .success-msg {
+  max-width: 300px;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+.success .return-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #425664;
+  border: none;
+  border-radius: 5px;
+}
+
+.success button:hover {
+  border: 2px solid black;
+  background-color: #f6f4f2;
+}
+
+.success .return-btn {
+  font-size: 20px;
+  font-weight: 700;
 }
