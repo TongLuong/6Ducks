@@ -20,7 +20,7 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/login/index.cshtml");
         }
 
-        public JsonResult CheckLogin(string username, string email, 
+        public JsonResult CheckLogin(string username, string email,
             string pwd)
         {
             // TODO
@@ -40,7 +40,7 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@email", email == null ? DBNull.Value : email);
             cmd.Parameters.AddWithValue("@pass", pwd == null ? DBNull.Value : pwd);
 
-            SqlParameter status = cmd.Parameters.Add("@status", 
+            SqlParameter status = cmd.Parameters.Add("@status",
                 SqlDbType.Bit);
             SqlParameter userID = cmd.Parameters.Add("@userID",
                 SqlDbType.Int);
@@ -57,12 +57,12 @@ namespace DA_6Ducks.Controllers
 
             return new JsonResult
             (
-                new 
-                { 
-                    status = status.Value, 
-                    userID = userID.Value, 
+                new
+                {
+                    status = status.Value,
+                    userID = userID.Value,
                     userType = userType.Value
-                } 
+                }
             );
         }
     }
