@@ -63,10 +63,10 @@ namespace DA_6Ducks.Controllers
                 conn.Open();
             int num = 0;
             List<string> usernames = new List<string>();
-            List<int> stars = new List<int>();
+            List<double> stars = new List<double>();
             List<string> details = new List<string>();
 
-            SqlCommand cmd = new SqlCommand("SELECT username,ratingStar,detail FROM Ratings r JOIN Buyer b ON r.buyerID = b.buyerID JOIN Users u ON u.userID = b.userID WHERE productID = @productID", conn);
+            SqlCommand cmd = new SqlCommand("SELECT username,ratingStar,detail FROM Ratings r JOIN Buyers b ON r.buyerID = b.buyerID JOIN Users u ON u.userID = b.userID WHERE productID = @productID", conn);
 
             cmd.Parameters.AddWithValue("@productID", productID);
 
@@ -78,7 +78,7 @@ namespace DA_6Ducks.Controllers
                 {
                     num++;
                     usernames.Add(dr.GetString(0));
-                    stars.Add(dr.GetInt32(1));
+                    stars.Add(dr.GetDouble(1));
                     details.Add(dr.GetString(2));
                 }
             }
