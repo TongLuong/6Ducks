@@ -44,11 +44,7 @@ li {
   list-style-type: none;
 }
 /* ------------------------------------ */
-input {
-  display: block;
-  outline: none;
-  border: none !important;
-}
+
 textarea {
   display: block;
   outline: none;

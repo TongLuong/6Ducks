@@ -11,6 +11,10 @@
   box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
 }
 
+a {
+  text-decoration: none;
+}
+
 .seller-info .left_section {
   display: flex;
   flex-direction: column;
