@@ -73,5 +73,56 @@ namespace DA_6Ducks.Controllers
                 new { data = result }
             );
         }
+
+        [HttpPost]
+        public void Upload(int sellerID,string imgPath, string bookName, int quantity, string genre, int price, string category,string author, string publisher)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("select genreID from Genres where name = @genre", conn);
+            cmd.Parameters.AddWithValue("@seller_id", sellerID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            int genreID = -1;
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    genreID = dr.GetInt32(0);
+                }
+            }
+
+            cmd = new SqlCommand("select categoryID from Categories where name = @category", conn);
+            cmd.Parameters.AddWithValue("@category", category);
+
+            dr = cmd.ExecuteReader();
+            int categoryID = -1;
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    categoryID = dr.GetInt32(0);
+                }
+            }
+
+            cmd = new SqlCommand("dbo.upload",conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@seller_id", sellerID);
+            cmd.Parameters.AddWithValue("@img_path", imgPath);
+            cmd.Parameters.AddWithValue("@book_name", bookName);
+            cmd.Parameters.AddWithValue("@quantity", quantity);
+            cmd.Parameters.AddWithValue("@genre_id", genreID);
+            cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@category_id", categoryID);
+            cmd.Parameters.AddWithValue("@author", author);
+            cmd.Parameters.AddWithValue("@publisher", publisher);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

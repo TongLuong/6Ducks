@@ -18,6 +18,36 @@ $(document).ready(function () {
             $(".mainpage-upload_success_notification").css("display", "flex");
             $(".img-view").remove();
             $("#file, #name, #quantity, #price").val("");
+
+            var urlParams = new URLSearchParams(window.location.search);
+            var seller_id = urlParams.get('seller');
+            var img_path = $("#upload-icon").attr('src');
+            var book_name = $("#name").val();
+            var quantity = $("#quantity").val();
+            var genre = $("#category").text;
+            var price = $("#quantity").val();
+            var category = $("#type").text;
+            //var author = $("#quantity").val();
+            //var publisher = $("#quantity").val();
+
+            $.ajax({
+                url: "SellerMainPage/Upload",
+                data: {
+                    "sellerID": seller_id,
+                    "imgPath": img_path,
+                    "bookName": book_name,
+                    "quantity": quantity,
+                    "genre": genre,
+                    "price": price,
+                    "category": category,
+                    "author": author,
+                    "publisher":publisher
+                },
+                type: "post",
+                success: function (response) {
+                    //display product again
+                }
+            });
         });
         $(".upload-icon").click(function () {
             $(".file-input").click();
