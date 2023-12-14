@@ -32,7 +32,7 @@ $(this).ready(function () {
                     if (response.userType == 21) // buyer
                         location.href = "MainPage" + "?user=" + response.userID;
                     else if (response.userType == 22) // seller
-                        location.href = "SellerMainPage" + "?user=" + response.userID;
+                        location.href = "SellerMainPage" + "?seller=" + response.userID;
                     /*else if (response.userType == 23) // admin
                         pass*/
                 }

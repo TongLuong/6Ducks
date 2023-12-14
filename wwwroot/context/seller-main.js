@@ -14,6 +14,14 @@ function discountPrice() {
 };
 
 $(this).ready(function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var userID = urlParams.get('user');
+    var type = 0; // 0: buyer, 1: seller, (2: admin)
+    if (userID == null) {
+        userID = urlParams.get('seller'); // ideal condition
+        type = 1;
+    }
+
     function removeVietnameseTones(str) {
         str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
         str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -65,11 +73,22 @@ $(this).ready(function () {
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".user").click(function () {
-            location.href = "SellerInfoSeller";
+            if (type == 0)
+                location.href = "UserInfo" + "?user=" + userID;
+            else if (type == 1)
+                location.href = "SellerInfoSeller" + "?seller=" + userID;
         });
         $(".logo").click(function () {
-            location.href = "SellerMainPage";
+            if (type == 0)
+                location.href = "MainPage" + "?user=" + userID;
+            else if (type == 1)
+                location.href = "SellerMainPage" + "?seller=" + userID;
         });
+
+        if (type == 0)
+            $(".book-upload").css("display", "none");
+        else if (type == 1)
+            $(".book-upload").css("display", "");
 
         $("#search").keyup(filterItem);
     });
@@ -79,9 +98,6 @@ $(this).ready(function () {
     });
 
     discountPrice();
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
 
     function showItems(num, srcImg, title, price, rate, amount,
         productID) {
