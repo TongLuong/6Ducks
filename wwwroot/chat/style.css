@@ -201,10 +201,11 @@ label.star:before {
   margin-bottom: 67px;
 }
 .button .see {
+  margin-top: 2px;
   position: relative;
   padding-left: 24px;
   width: fit-content;
-  font-family: var(--heading-07-font-family);
+  font-family: "Josefin Sans";
   font-weight: var(--heading-07-font-weight);
   color: var(--gray-00);
   font-size: var(--heading-07-font-size);

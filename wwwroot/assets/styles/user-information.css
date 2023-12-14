@@ -58,8 +58,8 @@
   border-radius: 4px 4px 0px 0px;
   border: 1px solid;
   border-color: var(--gray-100);
-  font-family: var(--label-03-font-family);
-  font-weight: 550;
+  font-family: "Josefin Sans";
+  font-weight: 600;
   color: var(--gray-900);
   font-size: var(--label-03-font-size);
   letter-spacing: var(--label-03-letter-spacing);
@@ -125,7 +125,7 @@
   border-radius: 2px;
   border: 2px solid;
   border-color: var(--secondary-100);
-  font-family: var(--heading-07-font-family);
+  font-family: "Josefin Sans";
   font-weight: var(--heading-07-font-weight);
   color: var(--secondary-500);
   font-size: var(--heading-07-font-size);
@@ -189,8 +189,8 @@
 
 .title_right {
   margin: 16px 608px 16px 24px;
-  font-family: var(--label-03-font-family);
-  font-weight: 550;
+  font-family: "Josefin Sans";
+  font-weight: 600;
   color: var(--gray-900);
   font-size: var(--label-03-font-size);
   letter-spacing: var(--label-03-letter-spacing);
@@ -425,7 +425,7 @@ label.star:before {
   width: 100%;
   box-shadow: inset 0px -3px 0px #f98131, inset 0px 1px 0px #e4e7e9,
     inset 1px 0px 0px #e4e7e9;
-  font-family: var(--body-XL-600-font-family);
+  font-family: "Josefin Sans";
   font-weight: var(--body-XL-600-font-weight);
   color: var(--gray-900);
   font-size: var(--body-XL-600-font-size);
