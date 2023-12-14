@@ -1,13 +1,5 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-@font-face {
-  font-family: Poppins-Regular;
-  src: url("../fonts/poppins/Poppins-Regular.ttf");
-}
-@font-face {
-  font-family: Poppins-Bold;
-  src: url("../fonts/poppins/Poppins-Bold.ttf");
-}
 /*//////////////////////////////////////////////////////////////////
     [ RESTYLE TAG ]*/
 * {
@@ -18,7 +10,7 @@
 body,
 html {
   height: 100%;
-  font-family: sans-serif;
+  font-family: "Josefin Sans";
 }
 /* ------------------------------------ */
 a {
@@ -132,7 +124,7 @@ iframe {
     display: none;
   }
   .row .cell:before {
-    font-family: Poppins-Bold;
+    font-family: "Josefin Sans";
     font-size: 12px;
     color: #808080;
     line-height: 1.2;
@@ -153,7 +145,7 @@ iframe {
   }
 }
 .row .cell {
-  font-family: Poppins-Regular;
+  font-family: "Josefin Sans";
   font-size: 15px;
   color: #666666;
   line-height: 1.2;
@@ -165,7 +157,7 @@ iframe {
 .cell[data-title="MÃ VẬN ĐƠN"],
 .cell[data-title="TRẠNG THÁI"],
 .cell[data-title="HÀNH ĐỘNG"] {
-  font-family: Poppins-Regular;
+  font-family: "Josefin Sans";
   font-size: 15px;
   color: #666666;
   font-weight: 600;
@@ -188,11 +180,11 @@ iframe {
   user-select: none;
 }
 .row.header .cell {
-  font-family: Poppins-Regular;
+  font-family: "Josefin Sans";
   font-size: 18px;
   color: #fff;
   line-height: 1.2;
-  font-weight: unset !important;
+  font-weight: 600;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -238,7 +230,7 @@ iframe {
     padding-left: 30px;
   }
   .row .cell {
-    font-family: Poppins-Regular;
+    font-family: "Josefin Sans";
     font-size: 18px;
     color: #555555;
     line-height: 1.2;

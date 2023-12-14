@@ -251,7 +251,7 @@ label.star:before {
 }
 .title {
   margin: 16px 608px 16px 24px;
-  font-family: var(--label-03-font-family);
+  font-family: "Josefin Sans";
   font-weight: 550;
   color: var(--gray-900);
   font-size: var(--label-03-font-size);
