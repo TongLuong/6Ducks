@@ -56,6 +56,29 @@ begin
 end
 go
 
+-- drop procedure upload
+create procedure upload
+@seller_id int,
+@img_path nvarchar(255),
+@book_name nvarchar(255),
+@quantity int,
+@genre_id int,
+@price int,
+@category_id int,
+@author nvarchar(255),
+@publisher nvarchar(255)
+as
+begin
+	insert into Products(sellerID,[name],author,publisher,genreID,categoryID,price,numbersLeft)
+	values
+	(@seller_id,@book_name,@author,@publisher,@genre_id,@category_id,@price,@quantity);
+
+	declare @product_id int = (select productID from Products where [name]=@book_name and sellerID=@seller_id)
+
+	insert into ProductIMGs values (@product_id, @img_path)
+end
+go
+
 --drop function loadLogChat
 create function loadLogChat
 (
