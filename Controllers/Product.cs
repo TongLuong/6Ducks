@@ -148,5 +148,56 @@ namespace DA_6Ducks.Controllers
                 }
             );
         }
+
+        public JsonResult LoadSellerInfo(string sellerID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT s.*, u.displayName " +
+                "FROM dbo.[Sellers] s, dbo.[Users] u " +
+                "WHERE s.sellerID = @sellerID " +
+                "AND s.userID = u.userID"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            string[] temp = new string[dr.FieldCount];
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (!dr.IsDBNull(i))
+                        {
+                            if (i == 2)
+                                temp[i] = ((DateTime)dr.GetValue(i)).ToString("dd/MM/yyyy") ?? "";
+                            else
+                                temp[i] = dr.GetValue(i).ToString() ?? "";
+                        }
+                        else
+                            temp[i] = "";
+                    }
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    userID = temp[1],
+                    startingTime = temp[2],
+                    productSale = temp[3],
+                    avgRating = temp[4],
+                    displayName = temp[5]
+                }
+            );
+        }
     }
 }

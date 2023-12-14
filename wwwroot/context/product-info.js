@@ -1,9 +1,20 @@
 ﻿$(this).ready(function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var userID = urlParams.get('user');
+    var type = 0; // 0: buyer, 1: seller, (2: admin)
+    if (userID == null) {
+        userID = urlParams.get('seller'); // ideal condition
+        type = 1;
+    }
+
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
         $(".logo").click(function () {
-            location.href = "MainPage";
+            if (type == 0)
+                location.href = "MainPage" + "?user=" + userID;
+            else if (type == 1)
+                location.href = "SellerMainPage" + "?seller=" + userID;
         });
     });
 
@@ -49,7 +60,11 @@
 
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
-        location.href = "SellerInfoBuyer";
+        if (type == 0)
+            location.href = "SellerInfoBuyer" + "?user=" + userID;
+        else if (type == 1)
+            location.href = "SellerInfoSeller" + "?seller=" + userID;
+        //location.href = "SellerInfoBuyer" + "?seller=" + userID;;
     });
 
     $(".show-fb").click(function (e) {
@@ -129,9 +144,13 @@
     displayStar(product_id);
 
     function displayProdInfo(productID) {
-        $.get(
-            "Product/LoadProductInfo", { "productID": productID },
-            function (response) {
+        $.ajax({
+            url: "Product/LoadProductInfo", 
+            data: { "productID": productID },
+            async: false,
+            success: function (response) {
+                $(".header-info").attr("id", response.sellerID);
+
                 $(".show-image").css("background-image", "url(" +
                     response.imgLink + ")");
 
@@ -159,17 +178,29 @@
                 });
                 $("#price").text(formatter.format(response.price));
             }
-        )
+        });
     }
 
     displayProdInfo(product_id);
+
+    function displaySellerInfo(sellerID) {
+        $.get(
+            "Product/LoadSellerInfo", { "sellerID": sellerID },
+            function (response) {
+                $("#shop-name").text(response.displayName);
+                $("#starting-time").text(response.startingTime);
+                $("#product-sole").text(response.productSale);
+            }
+        )
+    }
+    displaySellerInfo($(".header-info").attr("id"));
 
     function showFeedback(username, star, detail) {
         $.get("components/feedbackTemplate.html", function (data) {
 
             $(".full-feedback").append(data);
             var item = $(".full-feedback .feedback-item:last-child()");
-            
+
             item.find(".username").text(username);
             item.find(".cmt-side p").text(detail);
         }
