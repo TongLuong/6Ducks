@@ -33,12 +33,14 @@ create procedure saveLog
 @msg nvarchar(255)
 as
 begin
+	declare @res nvarchar(100) = N'Success';
 	insert into LogChat values(
 		@sndID,
 		@rcvID,
 		@msg,
 		GETDATE()
 	)	
+	select @res;
 end
 go
  load LogChat

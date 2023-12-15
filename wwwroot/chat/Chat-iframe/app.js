@@ -10,34 +10,35 @@ const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const BOT_NAME = "Fantasy Chicken";
 const PERSON_NAME = "Đậu Đức Quân";
 
-msgerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
 
-    const msgText = msgerInput.value;
-    if (!msgText) return;
+//msgerForm.addEventListener("submit", (event) => {
+//    event.preventDefault();
 
-    //var urlParams = new URLSearchParams(window.location.search);
-    //var buyerID = urlParams.get('user_id');
-    //var sellerID = urlParams.get('seller_id');
+//    const msgText = msgerInput.value;
+//    if (!msgText) return;
 
-    //$.ajax({
-    //    url: "Chat/SaveLogChat",
-    //    data: {
-    //        "buyerID": buyerID,
-    //        "sellerID": sellerID,
-    //        "msg":msgText
-    //    },
-    //    async: false,
-    //    cache: false,
-    //    type: "post",
-    //});
+//    var urlParams = new URLSearchParams(window.location.search);
+//    var senderID = urlParams.get("user");
+//    var receiverID = urlParams.get("receiver");
 
+   
+//    $.ajax({
+//        url: "Chat/SaveLogChat",
+//        type: "post",
+//        data: {
+//            "senderID": senderID,
+//            "receiverID": receiverID,
+//            "msg":msgText
+//        }
+//    });
 
-    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-    msgerInput.value = "";
+//    alert(msgText);
 
-    botResponse();
-});
+//    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+//    msgerInput.value = "";
+
+//    botResponse();
+//});
 
 function appendMessage(name, img, side, text, time = null) {
     // Nếu không có thời gian được truyền vào, sử dụng thời gian hiện tại
@@ -116,11 +117,41 @@ function displayLogChat(userID, sellerID) {
     });
 }
 
-// Gọi hàm displayLogChat khi trang web tải xong
+ //Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
-    var urlParams = new URLSearchParams(window.location.search);
-    var buyerID = urlParams.get('user_id');
-    var sellerID = urlParams.get('seller_id');
+    //var urlParams = new URLSearchParams(window.location.search);
+    //var buyerID = urlParams.get('user_id');
+    //var sellerID = urlParams.get('seller_id');
 
-    displayLogChat(buyerID, sellerID);
+    //displayLogChat(buyerID, sellerID);
+
+    $("#msger-send-btn").click(function (e) {
+        //e.preventDefault();
+
+        const msgText = msgerInput.value;
+        if (!msgText) return;
+
+        var urlParams = new URLSearchParams(window.top.location.search);
+
+        var senderID = urlParams.get('user');
+        var receiverID = urlParams.get('receiver');
+
+        $.ajax({
+            url: "SaveLogChat",
+            type: "post",
+            data: {
+                "senderID": senderID,
+                "receiverID": receiverID,
+                "msg": msgText
+            },
+            success: function () {
+                alert(msgText);
+
+                appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+                msgerInput.value = "";
+
+                botResponse();
+            }
+        });
+    });
 });

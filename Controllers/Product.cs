@@ -1,8 +1,10 @@
 ﻿using DA_6Ducks.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Runtime.Intrinsics.X86;
 
 namespace DA_6Ducks.Controllers
 {
@@ -59,6 +61,37 @@ namespace DA_6Ducks.Controllers
                     numberOfStars = (int)(avg / dividend),
                     avgRating = Math.Round(avg / (dividend * 1.0), 1)
                 }
+            );
+        }
+
+        public JsonResult ShowRatingTable(string productID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from dbo.numberOfProductRatings(@productID)",conn);
+            cmd.Parameters.AddWithValue("@productID", productID);
+            List<int> stars = new List<int>();
+            int sumStar = 0;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i=0;i<5;i++)
+                    {
+                        stars.Add(dr.GetInt32(i));
+                        sumStar += dr.GetInt32(i);
+                    }
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult
+            (
+                new { star= stars ,sum=sumStar}
             );
         }
 
