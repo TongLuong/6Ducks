@@ -2,17 +2,22 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DA_6Ducks.Controllers
 {
     public class Product : Controller
     {
         private SqlConnection conn;
+        private string wwwPath;
+        private Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment;
 
-        public Product() 
+        public Product(Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment) 
         {
             //conn = new SqlConnection(connectionString);
             conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["dath_database"].ConnectionString);
+            Environment = _environment;
+            wwwPath = this.Environment.WebRootPath;
         }
 
         public IActionResult Index()
@@ -123,6 +128,15 @@ namespace DA_6Ducks.Controllers
                     }
                 }
             }
+            
+            List<string> imgs = new List<string>();
+            DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[15]);
+            FileInfo[] files = di.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                imgs.Add(temp[15] + "/" + file.Name);
+            }
+
             conn.Close();
 
             return new JsonResult
@@ -144,7 +158,7 @@ namespace DA_6Ducks.Controllers
                     soldNumber = temp[12],
                     catName = temp[13],
                     genreName = temp[14],
-                    imgLink = temp[15]
+                    imgLink = imgs
                 }
             );
         }

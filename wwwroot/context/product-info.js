@@ -32,7 +32,7 @@
     });
 
     //demo image function
-    $(".product-image").ready(function () {
+    /*$(".product-image").ready(function () {
         var n = $(".demo-image .demo").length;
         for (let i = 1; i <= n; i++) {
             var url = 'url("/assets/images/book-1-' + i + '.png")';
@@ -46,7 +46,7 @@
         $(".demo-image .demo").click(function () {
             $(".show-image").css("background-image", $(this).css("background-image"));
         });
-    });
+    });*/
     //quantity increase and reduce function
     $("#increase").click(function () {
         $("#quantity").val(Number($("#quantity").val()) + 1);
@@ -158,23 +158,18 @@
             async: false,
             success: function (response) {
                 $(".header-info").attr("id", response.sellerID);
-
-                var fs = require('fs');
-                var file = fs.readdirSync(response.imgLink);
-                alert(file)
-                $(".show-image").css("background-image", "url(" +
-                    response.imgLink + ")");
                 
-                /*$("#1").css("background-image", "url(" +
-                    response.imgLink + ")");
-                $("#2").css("background-image", "url(" +
-                    response.imgLink + ")");
-                $("#3").css("background-image", "url(" +
-                    response.imgLink + ")");
-                $("#4").css("background-image", "url(" +
-                    response.imgLink + ")");
-                $("#5").css("background-image", "url(" +
-                    response.imgLink + ")");*/
+                /*var fs = require('fs');
+                var file = fs.readdirSync(response.imgLink);*/
+                
+                $(".show-image").css("background-image", "url(" +
+                    response.imgLink[0] + ")");
+
+                var sideImgs = $(".demo");
+                sideImgs.each(function (i) {
+                    $(this).css("background-image", "url(" +
+                        response.imgLink[i] + ")");
+                });
 
                 $("#prodName").text(response.name);
                 //$("#ratingAvg").text(response.avgStar);

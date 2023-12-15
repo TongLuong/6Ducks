@@ -249,7 +249,7 @@ $(this).ready(function () {
                 success: function (response) {
                     var temp = response.data;
                     for (var i = 0; i < temp.length; i++) {
-                        showItems(i, temp[i].value.imgLink, temp[i].value.name,
+                        showItems(i, temp[i].value.imgLink[0], temp[i].value.name,
                             temp[i].value.price, temp[i].value.ratingCount,
                             temp[i].value.numbersLeft, temp[i].value.productID);
                     }

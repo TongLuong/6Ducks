@@ -7,11 +7,15 @@ namespace DA_6Ducks.Controllers
     public class SellerMainPage : Controller
     {
         private SqlConnection conn;
+        private string wwwPath;
+        private Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment;
 
-        public SellerMainPage()
+        public SellerMainPage(Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment)
         {
             //conn = new SqlConnection(connectionString);
             conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["dath_database"].ConnectionString);
+            Environment = _environment;
+            wwwPath = this.Environment.WebRootPath;
         }
 
         public IActionResult Index()
@@ -48,6 +52,15 @@ namespace DA_6Ducks.Controllers
                         else
                             temp[i] = "";
                     }
+
+                    List<string> imgs = new List<string>();
+                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[5]);
+                    FileInfo[] files = di.GetFiles();
+                    foreach (FileInfo file in files)
+                    {
+                        imgs.Add(temp[5] + "/" + file.Name);
+                    }
+
                     result.Add
                     (
                         new JsonResult
@@ -59,13 +72,14 @@ namespace DA_6Ducks.Controllers
                                 price = temp[2],
                                 ratingCount = temp[3],
                                 numbersLeft = temp[4],
-                                imgLink = temp[5]
+                                imgLink = imgs
                             }
                         )
                     );
                     n--;
                 }
             }
+
             conn.Close();
 
             return new JsonResult
