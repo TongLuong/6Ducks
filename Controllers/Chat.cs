@@ -106,6 +106,7 @@ namespace DA_6Ducks.Controllers
         [HttpPost]
         public void SaveLogChat(int senderID, int receiverID, string msg)
         {
+            
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
@@ -117,11 +118,11 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@snd_id", senderID);
-            cmd.Parameters.AddWithValue("@rcv_id", receiverID);
+            cmd.Parameters.AddWithValue("@sndID", senderID);
+            cmd.Parameters.AddWithValue("@rcvID", receiverID);
             cmd.Parameters.AddWithValue("@msg", msg);
 
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteScalar();
 
             conn.Close();
         }

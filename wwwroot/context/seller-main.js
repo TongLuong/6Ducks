@@ -130,8 +130,8 @@ $(this).ready(function () {
             var genre = $("#category").text;
             var price = $("#quantity").val();
             var category = $("#type").text;
-            //var author = $("#quantity").val();
-            //var publisher = $("#quantity").val();
+            var author = $("#quantity").val();
+            var publisher = $("#quantity").val();
 
             $.ajax({
                 url: "SellerMainPage/Upload",
@@ -149,6 +149,7 @@ $(this).ready(function () {
                 type: "post",
                 success: function (response) {
                     //display product again
+                    showProducts(8);
                 }
             });
         });

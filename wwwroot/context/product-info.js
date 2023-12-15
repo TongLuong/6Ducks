@@ -131,20 +131,34 @@
 
     function displayStar(productID) {
         const starInputs = document.querySelectorAll('i[name="starprod"]');
-
+        const starInputsFb = document.querySelectorAll('i[name="star-fb-avg"]');
         $.get(
             "Product/DisplayRating", { "productID": productID },
             function (response) {
                 for (let i = 0; i < starInputs.length; i++) {
                     starInputs[i].className = "fa fa-star-o";
+                    starInputsFb[i].className = "fa fa-star-o";
                 }
 
                 for (let i = response.numberOfStars - 1;
                     i >= 0; i--) {
                     starInputs[i].className = "fa fa-star";
+                    starInputsFb[i].className = "fa fa-star";
                 }
 
                 $("#ratingAvg").text("(" + response.avgRating + ")");
+                $("#rating-fb-avg").text("(" + response.avgRating + ")");
+            }
+        )
+
+        $.get(
+            "Product/ShowRatingTable", { "productID": productID },
+            function (response) {
+                $("._1star").css('width', response.star[0] / response.sum * 100 + '%');
+                $("._2star").css('width', response.star[1] / response.sum * 100 + '%');
+                $("._3star").css('width', response.star[2] / response.sum * 100 + '%');
+                $("._4star").css('width', response.star[3] / response.sum * 100 + '%');
+                $("._5star").css('width', response.star[4] / response.sum * 100 + '%');
             }
         )
     }
@@ -220,8 +234,19 @@
             $(".full-feedback").append(data);
             var item = $(".full-feedback .feedback-item:last-child()");
 
+            const starInputs = item.find('i[name="star-fb"]');
+            //alert(Object.keys(starInputs).length);
+
             item.find(".username").text(username);
             item.find(".cmt-side p").text(detail);
+
+            for (let i = 0; i < starInputs.length; i++) {
+                starInputs[i].className = "fa fa-star-o";
+            }
+            for (let i = star - 1;
+                i >= 0; i--) {
+                starInputs[i].className = "fa fa-star";
+            }
         }
         );
     }
