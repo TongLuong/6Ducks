@@ -94,7 +94,6 @@ $(this).ready(function () {
               </div>
             </div>`;
 
-
         $(".toolbar").append(button);
         $(".book-upload").click(function () {
             $(".mainpage-upload-comic-form").css("display", "flex");
