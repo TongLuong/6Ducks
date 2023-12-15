@@ -814,7 +814,19 @@
             </div>
         </div>
     </div>
+    <script>
+        $.get("/components/header.html", function (data) {
+            $("body").prepend(data);
+            $(".logo").click(function () {
+                location.href = "SellerMainPage";
+            });
+        });
+
+        $.get("/components/footer.html", function (data) {
+            $("body").append(data);
+        });
+    </script>
+    <script type="module" src="/context/seller-info.js"></script>
+    <script type="module" src="/info/seller-information(buyer)/scripts.js"></script>
 </body>
-<script type="module" src="/context/seller-info.js"></script>
-<script type="module" src="/info/seller-information(buyer)/scripts.js"></script>
 </html>
