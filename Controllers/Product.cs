@@ -102,12 +102,13 @@ namespace DA_6Ducks.Controllers
 
             SqlCommand cmd = new SqlCommand
             (
-                "SELECT p.*, c.name, g.name, pi.imgLink " +
-                "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g " +
+                "SELECT p.*, c.name, g.name, pi.imgLink, s.userID " +
+                "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g, dbo.Sellers s " +
                 "WHERE p.productID = pi.productID " +
                 "AND p.productID = @productID " +
                 "AND p.categoryID = c.categoryID " +
-                "AND p.genreID = g.genreID"
+                "AND p.genreID = g.genreID " +
+                "AND p.sellerID = s.sellerID"
                 , conn
             );
 
@@ -144,7 +145,6 @@ namespace DA_6Ducks.Controllers
                 new
                 {
                     productID = temp[0],
-                    sellerID = temp[1],
                     name = temp[2],
                     author = temp[3],
                     publisher = temp[4],
@@ -158,7 +158,8 @@ namespace DA_6Ducks.Controllers
                     soldNumber = temp[12],
                     catName = temp[13],
                     genreName = temp[14],
-                    imgLink = imgs
+                    imgLink = imgs,
+                    sellerID = temp[16],
                 }
             );
         }
