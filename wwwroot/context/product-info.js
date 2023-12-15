@@ -119,7 +119,15 @@
     });
 
     var urlParams = new URLSearchParams(window.location.search);
+    var userID = urlParams.get('user');
+    var type = 0; // 0: buyer, 1: seller, (2: admin)
+    if (userID == null) {
+        userID = urlParams.get('seller'); // ideal condition
+        type = 1;
+    }
+
     var product_id = urlParams.get('product');
+    var seller_id;
 
     function displayStar(productID) {
         const starInputs = document.querySelectorAll('i[name="starprod"]');
@@ -140,20 +148,23 @@
             }
         )
     }
-
+    
     displayStar(product_id);
-
+    
     function displayProdInfo(productID) {
         $.ajax({
-            url: "Product/LoadProductInfo", 
+            url: "Product/LoadProductInfo",
             data: { "productID": productID },
             async: false,
             success: function (response) {
                 $(".header-info").attr("id", response.sellerID);
 
+                var fs = require('fs');
+                var file = fs.readdirSync(response.imgLink);
+                alert(file)
                 $(".show-image").css("background-image", "url(" +
                     response.imgLink + ")");
-
+                
                 /*$("#1").css("background-image", "url(" +
                     response.imgLink + ")");
                 $("#2").css("background-image", "url(" +
@@ -182,18 +193,31 @@
     }
 
     displayProdInfo(product_id);
-
+    
     function displaySellerInfo(sellerID) {
-        $.get(
-            "Product/LoadSellerInfo", { "sellerID": sellerID },
-            function (response) {
+        $.ajax({
+            url: "Product/LoadSellerInfo",
+            data: { "sellerID": sellerID },
+            async: false,
+            success: function (response) {
                 $("#shop-name").text(response.displayName);
                 $("#starting-time").text(response.startingTime);
                 $("#product-sole").text(response.productSale);
+
+                seller_id = sellerID;
             }
-        )
+        });
     }
     displaySellerInfo($(".header-info").attr("id"));
+
+    $(".contact-seller").click(function () {
+        if (type == 0)
+            location.href = "Chat" + "?user=" + userID + "&receiver=" +
+                seller_id;
+        else if (type == 1)
+            location.href = "Chat" + "?seller=" + userID + "&receiver=" +
+                seller_id;
+    });
 
     function showFeedback(username, star, detail) {
         $.get("components/feedbackTemplate.html", function (data) {

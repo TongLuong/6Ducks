@@ -99,6 +99,14 @@ $(this).ready(function () {
 
     discountPrice();
 
+    var urlParams = new URLSearchParams(window.location.search);
+    var userID = urlParams.get('user');
+    var type = 0; // 0: buyer, 1: seller, (2: admin)
+    if (userID == null) {
+        userID = urlParams.get('seller'); // ideal condition
+        type = 1;
+    }
+
     function showItems(num, srcImg, title, price, rate, amount,
         productID) {
         $.get(
@@ -129,8 +137,12 @@ $(this).ready(function () {
                 item.find("#span-" + num).text(amount);
 
                 item.click(function () {
-                    location.href = "Product" + "?user=" + userID +
-                        "&product=" + productID;
+                    if (type == 0)
+                        location.href = "Product" + "?user=" + userID +
+                            "&product=" + productID;
+                    else if (type == 1)
+                        location.href = "Product" + "?seller=" + userID +
+                            "&product=" + productID;
                 });
             }
         );
