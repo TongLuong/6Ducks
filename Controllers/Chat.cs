@@ -27,6 +27,11 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/chat/Chat-iframe/index.cshtml");
         }
 
+        public IActionResult Seller()
+        {
+            return View("/Views/Seller-chat/index.cshtml");
+        }
+
         public JsonResult GetRate(int sellerID)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -99,14 +104,14 @@ namespace DA_6Ducks.Controllers
 
             return new JsonResult
             (
-                new { userName = username,sellerName = sellername,number = msgs.Count, pos = poss,msg = msgs,time = times }
+                new { userName = username, sellerName = sellername, number = msgs.Count, pos = poss, msg = msgs, time = times }
             );
         }
 
         [HttpPost]
         public void SaveLogChat(int senderID, int receiverID, string msg)
         {
-            
+
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 

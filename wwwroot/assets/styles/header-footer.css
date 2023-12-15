@@ -30,7 +30,7 @@
 }
 
 .nav .top-nav .top-nav-button a:hover {
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
   transform: scale(1.15);
   text-decoration: underline solid 2px #f6f4f2;
 }
@@ -172,7 +172,8 @@
   color: #425664;
 }
 
-.nav .book-upload {
+.nav .book-upload,
+.nav .chat-button {
   cursor: pointer;
 }
 

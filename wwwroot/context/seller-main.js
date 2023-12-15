@@ -1,16 +1,16 @@
 function discountPrice() {
-  $(".discount .price").each(function() {
-    var price =  parseFloat($(this).text().replace(/[.]/g, ''));
-    var badge = parseFloat($(".discount .product-item").has($(this)).find(".badge").text()) / 100;
-    var discount = ((1 + badge) * price).toLocaleString() + "đ";
-    $(this).html($("<span>").text($(this).text()));
-    $(this).append($("<span>").text(discount));
-  });
-  $(".price span:nth-child(2)").css({
-    "text-decoration": "none",
-    "margin-left": "10px"
-  })
-  $(".price span:first-child").css("text-decoration", "line-through");
+    $(".discount .price").each(function () {
+        var price = parseFloat($(this).text().replace(/[.]/g, ''));
+        var badge = parseFloat($(".discount .product-item").has($(this)).find(".badge").text()) / 100;
+        var discount = ((1 + badge) * price).toLocaleString() + "đ";
+        $(this).html($("<span>").text($(this).text()));
+        $(this).append($("<span>").text(discount));
+    });
+    $(".price span:nth-child(2)").css({
+        "text-decoration": "none",
+        "margin-left": "10px"
+    })
+    $(".price span:first-child").css("text-decoration", "line-through");
 };
 
 const imgCount = 0;
@@ -99,6 +99,19 @@ $(this).ready(function () {
             $(".mainpage-upload-comic-form").css("display", "flex");
             $("body, html").css("overflow", "hidden");
         });
+
+        button =
+            `<div class="chat-button">
+              <a>
+                Trò chuyện
+              </a>
+            </div>`;
+
+        $(".toolbar").append(button);
+
+        $(".chat-button").click(function () {
+            location.href = "Chat/Seller";
+        })
 
         $("#search").keyup(filterItem);
     });
