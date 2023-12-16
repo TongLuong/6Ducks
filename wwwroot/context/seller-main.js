@@ -81,6 +81,12 @@ $(this).ready(function () {
             location.href = "MainPage";
         });
 
+        $.get("Login/GetSession", function (response) {
+            if (response.type == 0) {
+                $(".toolbar").hide();
+            }
+        });
+
         $(".book-upload").click(function () {
             $(".mainpage-upload-comic-form").css("display", "flex");
             $("body, html").css("overflow", "hidden");

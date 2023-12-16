@@ -27,6 +27,20 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/login/index.cshtml");
         }
 
+        [HttpGet]
+        public JsonResult GetSession()
+        {
+            var userID = Session.sessionID;
+            var userType = Session.sessionType;
+            return new JsonResult
+            (
+                new
+                {
+                    id = userID,
+                    type = userType
+                }
+            );
+        }
         public JsonResult CheckLogin(string username, string email,
             string pwd)
         {
