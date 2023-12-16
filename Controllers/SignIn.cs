@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DA_6Ducks.Models.Domain;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DA_6Ducks.Controllers
@@ -18,20 +20,35 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/signin/index.cshtml");
         }
 
-        [HttpPost]
-        public IActionResult RegisterNewUser(string username, string email,
-               string pwd, string re_pwd, string account_type,
-               string address, string code)
+        public void RegisterNewUser(string displayName, string dob,
+               string email, string phoneNumber, string address,
+               string usertype, string username, string pass,
+               string transactionNumber)
         {
-            // TODO
-            // insert new record into database, call model function
-            /*return Content(username + " " + email + " " + pwd + " " +
-                re_pwd + " " + account_type + " " + address + " " +
-                code);*/
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
 
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.[insert_new_user]"
+                , conn
+            );
 
-            Login login = new Login();
-            return RedirectToAction("Index", "Login");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@displayName", displayName);
+            cmd.Parameters.AddWithValue("@dob", dob);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@usertype", usertype);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@pass", pass);
+            cmd.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }

@@ -6,7 +6,7 @@ $(this).ready(function () {
 
     $(".seller-contact").click(function (e) {
         e.preventDefault();
-        location.href = "Chat";
+        location.href = "/Chat";
     });
     //pagination function
     $(".pagination p:not(.arrow)").click(function () {

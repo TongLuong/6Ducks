@@ -353,3 +353,39 @@ begin
 	end
 end
 go
+
+--drop procedure insert_new_user
+create procedure insert_new_user
+@displayName nvarchar(255),
+@dob date,
+@email varchar(255),
+@phoneNumber varchar(255),
+@address nvarchar(255),
+@usertype int,
+@username varchar(255),
+@pass varchar(255),
+@transactionNumber varchar(16) = null
+as
+begin
+	insert into [Users] (displayName,
+						dob,
+						email,
+						phoneNumber,
+						[address],
+						usertype,
+						username,
+						pass,
+						transactionNumber)
+	values
+	(
+			@displayName,
+			@dob,
+			@email,
+			@phoneNumber,
+			@address,
+			@usertype,
+			@username,
+			@pass,
+			@transactionNumber
+	)
+end
