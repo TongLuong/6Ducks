@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     $.ajax({
         url: "Cart/LoadCartItems",
-        data: { "userID": userID },
+        data: { },
         success: function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 var temp = response.data[i].value;
