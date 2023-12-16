@@ -1,20 +1,17 @@
 ﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
+    /*var userID = urlParams.get('user');
     var type = 0; // 0: buyer, 1: seller, (2: admin)
     if (userID == null) {
         userID = urlParams.get('seller'); // ideal condition
         type = 1;
-    }
-
+    }*/
+    
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
         $(".logo").click(function () {
-            if (type == 0)
-                location.href = "MainPage" + "?user=" + userID;
-            else if (type == 1)
-                location.href = "SellerMainPage" + "?seller=" + userID;
+            location.href = "MainPage";
         });
     });
 
@@ -60,11 +57,7 @@
 
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
-        if (type == 0)
-            location.href = "SellerInfoBuyer" + "?user=" + userID;
-        else if (type == 1)
-            location.href = "SellerInfoSeller" + "?seller=" + userID;
-        //location.href = "SellerInfoBuyer" + "?seller=" + userID;;
+        location.href = "UserInfo/SellerInfo";
     });
 
     $(".show-fb").click(function (e) {
@@ -117,15 +110,7 @@
             }
         });
     });
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
-    var type = 0; // 0: buyer, 1: seller, (2: admin)
-    if (userID == null) {
-        userID = urlParams.get('seller'); // ideal condition
-        type = 1;
-    }
-
+    
     var product_id = urlParams.get('product');
     var seller_id;
 
@@ -262,4 +247,20 @@
     }
 
     displayFeedback(product_id);
+
+    $(".add_product-button").click(function () {
+        var currency = $("#price").text();
+        var price = Number(currency.replace(/[^0-9.-]+/g, ""));
+
+        $.ajax({
+            url: "Cart/AddCartItems",
+            data: {
+                "buyerID": "",
+                "productID": product_id,
+                "quantity": 1,
+                "price": price
+            },
+            async: false
+        })
+    });
 });

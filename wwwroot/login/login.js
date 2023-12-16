@@ -30,9 +30,9 @@ $(this).ready(function () {
             success: function (response) {
                 if (response.status) {
                     if (response.userType == 21) // buyer
-                        location.href = "MainPage" + "?user=" + response.userID;
+                        location.href = "MainPage";
                     else if (response.userType == 22) // seller
-                        location.href = "SellerMainPage" + "?seller=" + response.userID;
+                        location.href = "SellerMainPage";
                     /*else if (response.userType == 23) // admin
                         pass*/
                 }

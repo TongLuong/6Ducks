@@ -24,7 +24,7 @@ namespace DA_6Ducks.Controllers
             return View("/Views/Cart/Index.cshtml");
         }
 
-        public JsonResult LoadCartItems(string userID)
+        public JsonResult LoadCartItems()
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -35,12 +35,12 @@ namespace DA_6Ducks.Controllers
                 "SELECT c.*, p.name, pi.imgLink " +
                 "FROM CartItems c, Products p, ProductIMGs pi " +
                 "WHERE c.buyerID = @userID " +
-                "WHERE c.productID = p.productID " +
-                "WHERE p.productID = pi.productID"
+                "AND c.productID = p.productID " +
+                "AND p.productID = pi.productID"
                 , conn
             );
 
-            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@userID", Session.sessionID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             string[] temp = new string[dr.FieldCount];
@@ -91,6 +91,28 @@ namespace DA_6Ducks.Controllers
                     data = result
                 }
             );
+        }
+
+        public void AddCartItems(string buyerID, string productID, 
+            string quantity, string price)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "INSERT INTO CartItems VALUES(buyerID, productID, quantity, price) " +
+                "(@buyerID, @productID, @quantity, @price)"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@buyerID", Session.sessionID);
+            cmd.Parameters.AddWithValue("@productID", productID);
+            cmd.Parameters.AddWithValue("@quantity", quantity);
+            cmd.Parameters.AddWithValue("@price", price);
+
+            conn.Close();
         }
     }
 }

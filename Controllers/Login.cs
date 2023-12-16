@@ -1,10 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography.Xml;
 
 namespace DA_6Ducks.Controllers
 {
+    public static class Session
+    {
+        public static string sessionID = "";
+        public static int sessionType = -1; // 0: buyer, 1: seller, 2: admin
+    }
+
     public class Login : Controller
     {
         private SqlConnection conn;
@@ -52,6 +59,17 @@ namespace DA_6Ducks.Controllers
             userType.Direction = ParameterDirection.Output;
 
             cmd.ExecuteNonQuery();
+
+            Session.sessionID = userID.Value.ToString() ?? "";
+
+            string type = userType.Value.ToString() ?? "";
+            if (type == "21") // buyer
+                Session.sessionType = 1;
+            else if (type == "22") // seller
+                Session.sessionType = 2;
+            /*else if (response.userType == 23) // admin
+                pass*/
+
 
             conn.Close();
 

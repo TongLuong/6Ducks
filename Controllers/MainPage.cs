@@ -17,7 +17,11 @@ namespace DA_6Ducks.Controllers
 
         public IActionResult Index()
         {
-            return View("/Views/user/user-mainpage/index.cshtml");
+            if (Session.sessionType == 0)
+                return View("/Views/user/user-mainpage/index.cshtml");
+            else if (Session.sessionType == 1)
+                return View("/Views/user/seller-mainpage/index.cshtml");
+            return View();
         }
 
         public IActionResult SearchBooks(string search)
