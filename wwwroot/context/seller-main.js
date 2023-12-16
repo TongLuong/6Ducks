@@ -129,7 +129,7 @@ $(this).ready(function () {
             var publisher = $("#quantity").val();
 
             $.ajax({
-                url: "SellerMainPage/Upload",
+                url: "/SellerMainPage/Upload",
                 data: {
                     "sellerID": seller_id,
                     "imgPath": img_path,
