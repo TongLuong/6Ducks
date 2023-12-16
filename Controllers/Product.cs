@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net;
 using System.Runtime.Intrinsics.X86;
 
 namespace DA_6Ducks.Controllers
@@ -246,6 +247,174 @@ namespace DA_6Ducks.Controllers
                     displayName = temp[5]
                 }
             );
+        }
+
+        public JsonResult LoadShippingMethods()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT * " +
+                "FROM dbo.[ShippingMethods]"
+                , conn
+            );
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            string[] temp = new string[dr.FieldCount];
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (!dr.IsDBNull(i))
+                            temp[i] = dr.GetValue(i).ToString() ?? "";
+                        else
+                            temp[i] = "";
+                    }
+                    result.Add
+                    (
+                        new JsonResult
+                        (
+                            new
+                            {
+                                smethodID = temp[0],
+                                name = temp[1],
+                                price = temp[2]
+                            }
+                        )
+                    );
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    data = result
+                }
+            );
+        }
+
+        public JsonResult LoadPaymentMethods()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT * " +
+                "FROM dbo.[PaymentMethods]"
+                , conn
+            );
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            string[] temp = new string[dr.FieldCount];
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        if (!dr.IsDBNull(i))
+                            temp[i] = dr.GetValue(i).ToString() ?? "";
+                        else
+                            temp[i] = "";
+                    }
+                    result.Add
+                    (
+                        new JsonResult
+                        (
+                            new
+                            {
+                                pmethodID = temp[0],
+                                name = temp[1]
+                            }
+                        )
+                    );
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    data = result
+                }
+            );
+        }
+
+        public JsonResult CreateBill(string buyerID, string sellerID,
+            string billStatus, string totalPrice, string time,
+            string address, string pmethodID, string smethodID,
+            string discountVoucher, string freeshipVoucher)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.[insert_Bill]"
+                , conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@buyerID", Session.sessionID);
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
+            cmd.Parameters.AddWithValue("@totalPrice", totalPrice);
+            cmd.Parameters.AddWithValue("@time", time);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@pmethodID", pmethodID);
+            cmd.Parameters.AddWithValue("@smethodID", smethodID);
+            cmd.Parameters.AddWithValue("@discountVoucher", discountVoucher);
+            cmd.Parameters.AddWithValue("@freeshipVoucher", freeshipVoucher);
+
+            SqlParameter billID_param = cmd.Parameters.Add("@billID", SqlDbType.Int);
+            billID_param.Direction = ParameterDirection.Output;
+            string bill_id = billID_param.Value.ToString() ?? "";
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            return new JsonResult(new { billID = bill_id });
+        }
+
+        public void AddBillItems(string billID, string productID,
+            string quantity, string price)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.[insert_BillItems]"
+                , conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@BillID", billID);
+            cmd.Parameters.AddWithValue("@ProductID", productID);
+            cmd.Parameters.AddWithValue("@quantity", quantity);
+            cmd.Parameters.AddWithValue("@price", price);
+
+            SqlParameter billID_param = cmd.Parameters.Add("@billID", SqlDbType.Int);
+            billID_param.Direction = ParameterDirection.Output;
+            string bill_id = billID_param.Value.ToString() ?? "";
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }

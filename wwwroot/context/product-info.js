@@ -28,6 +28,8 @@
         );
     });
 
+    $("#quantity").val("1");
+
     //demo image function
     /*$(".product-image").ready(function () {
         var n = $(".demo-image .demo").length;
@@ -66,6 +68,31 @@
     });
 
     $(".disabled > .wrapper").hide();
+
+    $.get(
+        "Product/LoadShippingMethods",
+        {},
+        function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                var temp = response.data[i].value;
+
+                var op = `<option value="` + temp.smethodID + `">`
+                    + temp.name + `</option>`;
+
+                $("#method").append(op);
+            }
+        }
+    );
+
+    $.get(
+        "Product/LoadPaymentMethods",
+        {},
+        function (response) {
+            $("#cod-method").attr("id", response.data[0].value.pmethodID);
+            $("#banking-method").attr("id", response.data[1].value.pmethodID);
+        }
+    );
+
     $("button.buy_product-button").click(function () {
         $(".disabled").css("display", "flex");
         $(".buy-product").show();
@@ -76,7 +103,7 @@
         $(".disabled").css("display", "none");
         $("body").css("overflow", "scroll");
     });
-    $(".buy-product #buy-confirm").click(function () {
+    $(".buy-product #buy-next").click(function () {
         $(".buy-product").hide();
         $(".cash").show();
     });
@@ -88,6 +115,9 @@
     $(".cash #buy-confirm").click(function () {
         $(".disabled > .wrapper").hide();
         $(".success").show();
+
+        var payment = $("#cod-method, #banking-method, input:checked").next().text();
+
     });
     $(".success #buy-done").click(function () {
         $(".disabled > .wrapper").hide();
@@ -102,11 +132,17 @@
                 if (c !== checkbox) c.checked = false;
             });
             if ($(".cash .left").has(this).length) {
-                $(".cash .left form").css("opacity", "1");
+                if (this.checked)
+                    $(".cash .left form").css("opacity", "1");
+                else
+                    $(".cash .left form").css("opacity", "0");
                 $(".cash .right form").css("opacity", "0");
             } else {
                 $(".cash .left form").css("opacity", "0");
-                $(".cash .right form").css("opacity", "1");
+                if (this.checked)
+                    $(".cash .right form").css("opacity", "1");
+                else
+                    $(".cash .right form").css("opacity", "0");
             }
         });
     });
