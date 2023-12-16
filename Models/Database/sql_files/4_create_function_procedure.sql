@@ -321,3 +321,35 @@ begin
 	set numbersLeft  = 0
 	where [name] = @name
 end
+
+go
+--drop procedure insert_cart_item
+create procedure insert_cart_item
+@userID int, 
+@productID int,
+@quantity int,
+@price int
+as
+begin
+	declare @buyerID int
+	select @buyerID = buyerID
+	from Buyers
+	where userID = @userID
+
+	if exists
+	(
+		select * 
+		from CartItems
+		where buyerID = @buyerID and productID = @productID
+	)
+	begin
+		update CartItems
+		set quantity = quantity + @quantity
+		where buyerID = @buyerID and productID = @productID
+	end
+	else
+	begin
+		insert into CartItems values (@buyerID, @productID, @quantity, @price)
+	end
+end
+go

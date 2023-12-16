@@ -61,22 +61,23 @@ $(document).ready(function () {
                 var temp = response.data[i].value;
 
                 var cartItem =
-                    '<div class="cart-item-' + i + '">' +
-                    '<img src = "/assets/images/DieuKyDieuCuaTiemTapHoaNamiya/book-1-1.png" alt = "" />' +
-                    '<div class="detail">'
+                    '<div class="cart-item cart-item-' + i + '">' +
+                    '<img src = "" alt = ""/>' +
+                    '<div class="detail">' +
                 '<span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>' +
-                    '<span class="quantity" > Số lượng: <span>1</span></span >' +
-                    '<span class="item-price" > Đơn giá: <span>86000</span>đ</span>' +
-                    '</div>'
+                    '<span class="quantity">Số lượng: <span>1</span></span>' +
+                    '<span class="item-price">Đơn giá: <span>86000</span>đ</span>' +
+                    '</div>' +
                 '<span class="item-total-price">Tổng: <span>86000</span>đ</span>' +
-                    '<input type = "checkbox" name = "item-choose" />' +
+                    '<input type = "checkbox" name = "item-choose"/>' +
                     '</div>';
 
                 $(".cart-list").append(cartItem);
 
                 $(".cart-item-" + i + " .book-name").text(temp.name);
-                $(".cart-item-" + i + " .quantity span").text(temp.price);
-                //$(".cart-item-" + i + " img").attr("src", temp.imgLink[0]);
+                $(".cart-item-" + i + " .quantity span").text(temp.quantity);
+                $(".cart-item-" + i + " .item-price span").text(temp.price);
+                $(".cart-item-" + i + " img").attr("src", temp.imgLink[0]);
             }
         }
     });

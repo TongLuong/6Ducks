@@ -206,7 +206,7 @@ namespace DA_6Ducks.Controllers
             (
                 "SELECT s.*, u.displayName " +
                 "FROM dbo.[Sellers] s, dbo.[Users] u " +
-                "WHERE s.sellerID = @sellerID " +
+                "WHERE s.userID = @sellerID " +
                 "AND s.userID = u.userID"
                 , conn
             );

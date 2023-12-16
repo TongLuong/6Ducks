@@ -33,8 +33,9 @@ namespace DA_6Ducks.Controllers
             SqlCommand cmd = new SqlCommand
             (
                 "SELECT c.*, p.name, pi.imgLink " +
-                "FROM CartItems c, Products p, ProductIMGs pi " +
-                "WHERE c.buyerID = @userID " +
+                "FROM CartItems c, Buyers b, Products p, ProductIMGs pi " +
+                "WHERE c.buyerID = b.buyerID " +
+                "AND b.userID = @userID " +
                 "AND c.productID = p.productID " +
                 "AND p.productID = pi.productID"
                 , conn
@@ -57,11 +58,11 @@ namespace DA_6Ducks.Controllers
                     }
 
                     List<string> imgs = new List<string>();
-                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[15]);
+                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[5]);
                     FileInfo[] files = di.GetFiles();
                     foreach (FileInfo file in files)
                     {
-                        imgs.Add(temp[15] + "/" + file.Name);
+                        imgs.Add(temp[5] + "/" + file.Name);
                     }
 
                     result.Add
@@ -70,13 +71,12 @@ namespace DA_6Ducks.Controllers
                         (
                             new
                             {
-                                cartitemID = temp[0],
-                                buyerID = temp[1],
-                                productID = temp[2],
-                                quantity = temp[3],
-                                price = temp[4],
-                                name = temp[5],
-                                imgLink = temp[6]
+                                buyerID = temp[0],
+                                productID = temp[1],
+                                quantity = temp[2],
+                                price = temp[3],
+                                name = temp[4],
+                                imgLink = imgs
                             }
                         )
                     );
@@ -102,15 +102,18 @@ namespace DA_6Ducks.Controllers
             List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
             (
-                "INSERT INTO CartItems VALUES(buyerID, productID, quantity, price) " +
-                "(@buyerID, @productID, @quantity, @price)"
+                "dbo.[insert_cart_item]"
                 , conn
             );
 
-            cmd.Parameters.AddWithValue("@buyerID", Session.sessionID);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@userID", Session.sessionID);
             cmd.Parameters.AddWithValue("@productID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);
             cmd.Parameters.AddWithValue("@price", price);
+
+            cmd.ExecuteNonQuery();
 
             conn.Close();
         }
