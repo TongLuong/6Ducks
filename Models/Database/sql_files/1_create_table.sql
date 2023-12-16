@@ -92,7 +92,6 @@ CREATE TABLE ProductIMGs (
 --delete CartItems
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
 CREATE TABLE CartItems (
-    timeAdd datetime not null default getdate(),
     buyerID INTEGER,
         FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     productID INTEGER,
@@ -101,7 +100,7 @@ CREATE TABLE CartItems (
     price INTEGER
 
 	constraint PK_cart
-		primary key (timeAdd,buyerID,productID)
+		primary key (buyerID,productID)
 )
 GO
 
