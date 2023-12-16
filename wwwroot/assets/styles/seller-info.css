@@ -246,6 +246,7 @@ label.star:before {
   background-color: var(--gray-00);
   border: 1px solid;
   border-color: var(--gray-100);
+  scale: 0.9;
 }
 
 .title_wrapper {

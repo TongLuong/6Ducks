@@ -55,6 +55,7 @@
     font-weight: 400;
     line-height: 15px;
     margin-block: 5px;
+    overflow: hidden;
 }
 
 .price {
@@ -87,11 +88,15 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    padding: 5px 0;
+    max-height: 650px;
+    overflow: scroll;
 }
 
 .mainpage-uploadcomic .wrapper .product-item:hover,
 .mainpage-uploadcomic .wrapper .voucher:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .discount .product-item {

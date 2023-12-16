@@ -89,15 +89,18 @@ CREATE TABLE ProductIMGs (
     imgLink VARCHAR(255)
 )
 
+--drop table CartItems
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
 CREATE TABLE CartItems (
-    cartitemID INTEGER IDENTITY(400000001,1) PRIMARY KEY,
     buyerID INTEGER,
         FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
     productID INTEGER,
         FOREIGN KEY (productID) REFERENCES Products (productID),
     quantity INTEGER,
-    price INTEGER
+    price INTEGER,
+
+	constraint PK_cart
+		primary key (buyerID, productID)
 )
 GO
 
