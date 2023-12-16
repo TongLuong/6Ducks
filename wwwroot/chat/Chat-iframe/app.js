@@ -7,8 +7,8 @@ const BOT_MSGS = [];
 // Icons made by Freepik from www.flaticon.com
 const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
-const BOT_NAME = "Fantasy Chicken";
-const PERSON_NAME = "Đậu Đức Quân";
+var BOT_NAME = "Fantasy Chicken";
+var PERSON_NAME = "Đậu Đức Quân";
 
 
 //msgerForm.addEventListener("submit", (event) => {
@@ -92,18 +92,17 @@ function random(min, max) {
 }
 
 
-function displayLogChat(userID, sellerID) {
+function displayLogChat(receiverID) {
     $.ajax({
-        url: "Chat/DisplayLogChat",
+        url: "DisplayLogChat",
         data: {
-            "userID": userID,
-            "sellerID": sellerID
+            "receiverID": receiverID
         },
-        type: "post",
+        type:"json",
         success: function (response) {
+            //alert("Start display");
             BOT_NAME = response.sellerName;
             PERSON_NAME = response.userName;
-
             for (let i = 0; i < response.number; i++) {
                 let side = response.pos[i];
                 let msg = response.msg[i];
@@ -112,18 +111,18 @@ function displayLogChat(userID, sellerID) {
                 if (side = "right") { sender_name = PERSON_NAME; }
                 if (side = "left") { sender_name = BOT_NAME; }
                 appendMessage(sender_name, PERSON_IMG, side, msg, time);
+                alert(msg);
             }
+            //alert("Display done");
         }
     });
 }
 
  //Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
-    //var urlParams = new URLSearchParams(window.location.search);
-    //var buyerID = urlParams.get('user_id');
-    //var sellerID = urlParams.get('seller_id');
-
-    //displayLogChat(buyerID, sellerID);
+    var urlParams = new URLSearchParams(window.top.location.search);
+    var receiverID = urlParams.get('receiver');
+    displayLogChat(receiverID);
 
     $("#msger-send-btn").click(function (e) {
         //e.preventDefault();
@@ -131,16 +130,12 @@ $(document).ready(function () {
         const msgText = msgerInput.value;
         if (!msgText) return;
 
-        var urlParams = new URLSearchParams(window.top.location.search);
-
-        var senderID = urlParams.get('user');
-        var receiverID = urlParams.get('receiver');
+        
 
         $.ajax({
             url: "SaveLogChat",
             type: "post",
             data: {
-                "senderID": senderID,
                 "receiverID": receiverID,
                 "msg": msgText
             },
