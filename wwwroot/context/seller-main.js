@@ -75,13 +75,13 @@ $(this).ready(function () {
     $.get("/components/seller/header.html", function (data) {
         $("body").prepend(data);
         $(".user").click(function () {
-            location.href = "UserInfo";
+            location.href = "/UserInfo";
         });
         $(".logo").click(function () {
-            location.href = "MainPage";
+            location.href = "/MainPage";
         });
 
-        $.get("Login/GetSession", function (response) {
+        $.get("/Login/GetSession", function (response) {
             if (response.type == 0) {
                 $(".toolbar").hide();
             }
@@ -93,7 +93,7 @@ $(this).ready(function () {
         });
 
         $(".chat-button").click(function () {
-            location.href = "Chat/Seller";
+            location.href = "/Chat/Seller";
         })
 
         $("#search").keyup(filterItem);
@@ -103,7 +103,7 @@ $(this).ready(function () {
         $("body").append(data);
     });
 
-    $.get("components/uploadPopUp.html", function (data) {
+    $.get("/components/uploadPopUp.html", function (data) {
         $("body").append(data);
         $(".cancel-upload").click(function () {
             $(".mainpage-upload-comic-form").css("display", "none");
@@ -176,7 +176,7 @@ $(this).ready(function () {
         });
     });
 
-    $.get("components/successPopUp.html", function (data) {
+    $.get("/components/successPopUp.html", function (data) {
         $("body").append(data);
         $(".return-btn").click(function () {
             $(".mainpage-upload_success_notification").css("display", "none");
@@ -225,7 +225,7 @@ $(this).ready(function () {
     function showProducts(numDisplays) {
         $.ajax
             ({
-                url: 'SellerMainPage/DisplayProducts',
+                url: '/SellerMainPage/DisplayProducts',
                 dataType: 'json',
                 data: { "n": numDisplays },
                 type: 'POST',
