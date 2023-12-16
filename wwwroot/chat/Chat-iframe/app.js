@@ -5,8 +5,8 @@ const msgerChat = get(".msger-chat");
 const BOT_MSGS = [];
 
 // Icons made by Freepik from www.flaticon.com
-const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
-const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
+const BOT_IMG = "https://images.unsplash.com/photo-1702234728311-baaa6c8aa212?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+const PERSON_IMG = "https://images.unsplash.com/photo-1701743808933-3467556d43c3?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 var BOT_NAME = "Fantasy Chicken";
 var PERSON_NAME = "Đậu Đức Quân";
 
@@ -21,7 +21,7 @@ var PERSON_NAME = "Đậu Đức Quân";
 //    var senderID = urlParams.get("user");
 //    var receiverID = urlParams.get("receiver");
 
-   
+
 //    $.ajax({
 //        url: "Chat/SaveLogChat",
 //        type: "post",
@@ -53,7 +53,6 @@ function appendMessage(name, img, side, text, time = null) {
       <div class="msg-bubble">
         <div class="msg-info">
           <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${time}</div>
         </div>
 
         <div class="msg-text">${text}</div>
@@ -98,7 +97,7 @@ function displayLogChat(receiverID) {
         data: {
             "receiverID": receiverID
         },
-        type:"json",
+        type: "json",
         success: function (response) {
             //alert("Start display");
             BOT_NAME = response.sellerName;
@@ -108,29 +107,33 @@ function displayLogChat(receiverID) {
                 let msg = response.msg[i];
                 let time = response.time[i];
                 var sender_name;
-                if (side = "right") { sender_name = PERSON_NAME; }
-                if (side = "left") { sender_name = BOT_NAME; }
+                if (side == "right") { sender_name = PERSON_NAME; }
+                if (side == "left") { sender_name = BOT_NAME; }
                 appendMessage(sender_name, PERSON_IMG, side, msg, time);
-                alert(msg);
+                //alert(msg);
             }
             //alert("Display done");
         }
     });
 }
 
- //Gọi hàm displayLogChat khi trang web tải xong
+//Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
     var urlParams = new URLSearchParams(window.top.location.search);
     var receiverID = urlParams.get('receiver');
     displayLogChat(receiverID);
 
-    $("#msger-send-btn").click(function (e) {
-        //e.preventDefault();
+    $(".msger-input").keydown(function (event) {
+        if (event.keyCode === 13) { // Enter key
+            $("#msger-send-btn").trigger("click");
+        };
+    });
 
+    $("#msger-send-btn").click(function () {
         const msgText = msgerInput.value;
         if (!msgText) return;
 
-        
+
 
         $.ajax({
             url: "SaveLogChat",

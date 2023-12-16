@@ -12,9 +12,13 @@ $(this).ready(function () {
         location.href = "SignIn";
     });
 
-    $(".login-btn").click(function (e) {
-        e.preventDefault();
+    $("input#username, input#pwd").keydown(function (event) {
+        if (event.keyCode === 13) {
+            $(".login-btn").trigger("click");
+        }
+    });
 
+    $(".login-btn").click(function () {
         var username = $("#username").val();
         var pwd = $("#pwd").val();
 

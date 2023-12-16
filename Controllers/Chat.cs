@@ -74,11 +74,10 @@ namespace DA_6Ducks.Controllers
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.loadLogChat(@userID,@sellerID) ORDER BY [time] asc", conn);
 
-            string senderID = Session.sessionID;
+            int senderID = Int32.Parse(Session.sessionID);
 
             cmd.Parameters.AddWithValue("@userID", senderID);
             cmd.Parameters.AddWithValue("@sellerID", receiverID);
-            Console.WriteLine(receiverID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             List<string> poss = new List<string>();
@@ -89,13 +88,12 @@ namespace DA_6Ducks.Controllers
             {
                 while (dr.Read())
                 {
-                    poss.Add((dr.GetInt32(0).ToString() == senderID) ? "right" : "left");
+                    var x = dr.GetInt32(0) == senderID;
+                    poss.Add((dr.GetInt32(0) == senderID) ? "right" : "left");
                     msgs.Add(dr.GetString(1));
                     times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
-
-            Console.WriteLine(msgs.Count);
 
             conn.Close();
             conn.Open();
