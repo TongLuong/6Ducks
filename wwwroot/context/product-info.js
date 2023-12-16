@@ -205,12 +205,7 @@
     displaySellerInfo($(".header-info").attr("id"));
 
     $(".contact-seller").click(function () {
-        if (type == 0)
-            location.href = "Chat" + "?user=" + userID + "&receiver=" +
-                seller_id;
-        else if (type == 1)
-            location.href = "Chat" + "?seller=" + userID + "&receiver=" +
-                seller_id;
+        location.href = "Chat" + "?receiver=" + seller_id;
     });
 
     function showFeedback(username, star, detail) {

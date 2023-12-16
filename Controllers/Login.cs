@@ -63,10 +63,10 @@ namespace DA_6Ducks.Controllers
             Session.sessionID = userID.Value.ToString() ?? "";
 
             string type = userType.Value.ToString() ?? "";
-            if (type == "21") // buyer
+            if (type == "22") // buyer
+                Session.sessionType = 0;
+            else if (type == "21") // seller
                 Session.sessionType = 1;
-            else if (type == "22") // seller
-                Session.sessionType = 2;
             /*else if (response.userType == 23) // admin
                 pass*/
 

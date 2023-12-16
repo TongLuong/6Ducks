@@ -29,12 +29,7 @@ $(this).ready(function () {
             cache: false,
             success: function (response) {
                 if (response.status) {
-                    if (response.userType == 21) // buyer
-                        location.href = "MainPage";
-                    else if (response.userType == 22) // seller
-                        location.href = "SellerMainPage";
-                    /*else if (response.userType == 23) // admin
-                        pass*/
+                    location.href = "MainPage";
                 }
                 else {
                     $("#invalid-label").css("display", "block");
