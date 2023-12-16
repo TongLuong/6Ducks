@@ -72,7 +72,7 @@ $(this).ready(function () {
         });
     }
 
-    $.get("/components/header.html", function (data) {
+    $.get("/components/seller/header.html", function (data) {
         $("body").prepend(data);
         $(".user").click(function () {
             if (type == 0)
@@ -86,28 +86,11 @@ $(this).ready(function () {
             else if (type == 1)
                 location.href = "SellerMainPage" + "?seller=" + userID;
         });
-        var button =
-            `<div class="book-upload">
-              <div>
-                <img src="/assets/images/book.png" alt="" />
-                Đăng bán truyện
-              </div>
-            </div>`;
 
-        $(".toolbar").append(button);
         $(".book-upload").click(function () {
             $(".mainpage-upload-comic-form").css("display", "flex");
             $("body, html").css("overflow", "hidden");
         });
-
-        button =
-            `<div class="chat-button">
-              <a>
-                Trò chuyện
-              </a>
-            </div>`;
-
-        $(".toolbar").append(button);
 
         $(".chat-button").click(function () {
             location.href = "Chat/Seller";
