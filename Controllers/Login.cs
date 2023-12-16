@@ -27,6 +27,13 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/login/index.cshtml");
         }
 
+        public IActionResult Logout()
+        {
+            Session.sessionID = "";
+            Session.sessionType = -1;
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public JsonResult GetSession()
         {

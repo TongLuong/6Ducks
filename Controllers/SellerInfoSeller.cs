@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DA_6Ducks.Controllers
 {
@@ -28,15 +29,34 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            string sellerID = Session.sessionID;
+            string userID = Session.sessionID;
 
-            SqlCommand cmd = new SqlCommand("select * from dbo.numberOfSellerRatings(@sellerID)", conn);
+            SqlCommand cmd = new SqlCommand("Select sellerId From dbo.Sellers Where userId = @userId", conn);
+            cmd.Parameters.AddWithValue("@userId", userID);
+            SqlDataReader dr = cmd.ExecuteReader();
+            string sellerID = "";
+            var id = 0;
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+                }
+            }
+
+            sellerID = id.ToString();
+
+            conn.Close();
+            conn.Open();
+
+            cmd = new SqlCommand("select * from dbo.numberOfSellerRatings(@sellerID)", conn);
             cmd.Parameters.AddWithValue("@sellerID", sellerID);
             List<int> stars = new List<int>();
             int sumStar = 0;
 
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
@@ -55,14 +75,15 @@ namespace DA_6Ducks.Controllers
                 avgStar = (stars[0] + stars[1] * 2 + stars[2] * 3 + stars[3] * 4 + stars[4] * 5) * 1.0 / (stars[0] + stars[1] + stars[2] + stars[3] + stars[4]);
                 starDisplay = Math.Round(avgStar, 1);
             }
-            
+
 
             conn.Close();
 
-            return new JsonResult(
+            return new JsonResult(  
                 new
                 {
-                    sum = sumStar, star = stars,
+                    sum = sumStar,
+                    star = stars,
                     numberOfStars = avgStar,
                     avgRating = starDisplay
                 });

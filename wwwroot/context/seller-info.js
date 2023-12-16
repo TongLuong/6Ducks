@@ -49,31 +49,20 @@ $(this).ready(function () {
     });
 
     $.get({
-        url: "SellerInfoSeller/DisplayRating",
+        url: "/SellerInfoSeller/DisplayRating",
+        dataType: "json",
         success: function (response) {
-            alert("Start");
             //bar
             $(".bar_1").css('width', response.star[0] / response.sum * 100 + '%');
             $(".bar_2").css('width', response.star[1] / response.sum * 100 + '%');
             $(".bar_3").css('width', response.star[2] / response.sum * 100 + '%');
             $(".bar_4").css('width', response.star[3] / response.sum * 100 + '%');
             $(".bar_5").css('width', response.star[4] / response.sum * 100 + '%');
-            alert("Bar");
             //star
-            const starInputs = document.querySelectorAll('input[name="star"]');
-            for (let i = 0; i < starInputs.length; i++) {
-                starInputs[i].className = "fa fa-star-o";
-                starInputsFb[i].className = "fa fa-star-o";
-            }
 
-            for (let i = response.numberOfStars - 1;
-                i >= 0; i--) {
-                starInputs[i].className = "fa fa-star";
-                starInputsFb[i].className = "fa fa-star";
-            }
+            $("input#star-" + Math.round(Number(response.avgRating))).prop("checked", true);
 
-            $("#rating-avg").text("(" + response.avgRating + ")");
-            alert("Star");
+            $("#rating-avg").text("(" + response.avgRating + "/5)");
         }
     });
 });
