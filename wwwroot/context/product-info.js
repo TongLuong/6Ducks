@@ -59,7 +59,7 @@
 
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
-        location.href = "UserInfo/SellerInfo";
+        location.href = "UserInfo/SellerInfo" + "?seller=" + seller_id;
     });
 
     $(".show-fb").click(function (e) {

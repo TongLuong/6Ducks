@@ -1,4 +1,7 @@
 $(this).ready(function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var sellerID = urlParams.get('seller');
+
     $(".product-item").click(function (e) {
         e.preventDefault();
         location.href = "/Product";
@@ -6,7 +9,7 @@ $(this).ready(function () {
 
     $(".seller-contact").click(function (e) {
         e.preventDefault();
-        location.href = "/Chat";
+        location.href = "/Chat" + "?receiver=" + sellerID;
     });
     //pagination function
     $(".pagination p:not(.arrow)").click(function () {
