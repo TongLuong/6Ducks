@@ -173,8 +173,9 @@ begin
 	values(
 		@buyerID,@sellerID,@address,@pmethod,@smethod,@discountVchID,@freeShipVchID
 	)
+	declare @BillID int = scope_identity()
+	select @BillID
 end
-
 go
 --insert BillItems (use BillID ) -- use loop in application
 create procedure insert_BillItems
