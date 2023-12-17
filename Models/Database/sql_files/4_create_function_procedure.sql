@@ -416,3 +416,40 @@ begin
 	return null
 end
 go
+
+--drop function display_conversation
+go
+create function display_conversation(@user_id int)
+returns @rtntable table(buyerID int, buyerName nvarchar(255), msg nvarchar(255),[time] datetime)
+as
+begin
+	declare @buyerID int,@buyerName nvarchar(255),@senderID int,@receiverID int,@msg  nvarchar(255),@time datetime;
+
+	declare cur Cursor for 
+	select l1.senderID,l1.receiverID,l1.msg,l1.[time]
+	from LogChat l1
+	where (l1.senderID=@user_id or l1.senderID=@user_id) and l1.[time] >= 
+		(select l2.[time] 
+		from LogChat l2 
+		where (l2.senderID=@user_id or l2.senderID=@user_id))
+
+	open cur
+	fetch next from cur into @senderID,@receiverID,@msg,@time;
+
+	while @@FETCH_STATUS=0
+	begin
+		if (@senderID=@user_id) 
+			set @buyerID = @receiverID;
+		else if (@receiverID=@user_id)
+			set @buyerID=@senderID;
+		set @buyerName=(select username from Users where userID=@buyerID);
+		insert into @rtntable values(@buyerID,@buyerName,@msg,@time);
+		fetch next from cur into @senderID,@receiverID,@msg,@time;
+	end
+
+	close cur;
+	deallocate cur;
+
+	return
+end
+go

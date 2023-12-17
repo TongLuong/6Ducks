@@ -142,5 +142,41 @@ namespace DA_6Ducks.Controllers
 
             conn.Close();
         }
+
+        public JsonResult DisplayConversation()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.display_conversation(@userID)", conn);
+
+            int userID = Int32.Parse(Session.sessionID);
+
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<string> buyerIDs = new List<string>();
+            List<string> buyerName = new List<string>();
+            List<string> msgs = new List<string>();
+            List<string> times = new List<string>();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    buyerIDs.Add(dr.GetInt32(0).ToString());
+                    buyerName.Add(dr.GetString(1));
+                    msgs.Add(dr.GetString(2));
+                    times.Add(dr.GetDateTime(3).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult
+            (
+                new { id = buyerIDs,name = buyerName, msg = msgs, time = times,num=msgs.Count }
+            );
+        }
     }
 }

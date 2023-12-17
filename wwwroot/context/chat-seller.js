@@ -89,60 +89,55 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function displayLogChat(userID, sellerID) {
-  $.ajax({
-    url: "/Chat/DisplayLogChat",
-    data: {
-      userID: userID,
-      sellerID: sellerID,
-    },
-    type: "post",
-    success: function (response) {
-      BOT_NAME = response.userName;
-      PERSON_NAME = response.sellerName;
+//function displayLogChat(userID, sellerID) {
+//  $.ajax({
+//    url: "/Chat/DisplayLogChat",
+//    data: {
+//      userID: userID,
+//      sellerID: sellerID,
+//    },
+//    type: "post",
+//    success: function (response) {
+//      BOT_NAME = response.userName;
+//      PERSON_NAME = response.sellerName;
 
-      for (let i = 0; i < response.number; i++) {
-        let side = response.pos[i];
-        let msg = response.msg[i];
-        let time = response.time[i];
-        var sender_name;
-        if ((side = "right")) {
-          sender_name = PERSON_NAME;
-        }
-        if ((side = "left")) {
-          sender_name = BOT_NAME;
-        }
-        appendMessage(sender_name, PERSON_IMG, side, msg, time);
-      }
-    },
-  });
-}
+//      for (let i = 0; i < response.number; i++) {
+//        let side = response.pos[i];
+//        let msg = response.msg[i];
+//        let time = response.time[i];
+//        var sender_name;
+//        if ((side = "right")) {
+//          sender_name = PERSON_NAME;
+//        }
+//        if ((side = "left")) {
+//          sender_name = BOT_NAME;
+//        }
+//        appendMessage(sender_name, PERSON_IMG, side, msg, time);
+//      }
+//    },
+//  });
+//}
 
 // Hàm để thêm vào bên thanh Người nhắn
-function fetchMessages(userID, sellerID) {
-    $.ajax({
-        url: "",
-        type: 'POST',
-        data: {
-            userID: userID,
-            sellerID: sellerID,
-        },
-        success: function(data) {
+function fetchMessages() {
+    $.get({
+        url: "/Chat/DisplayConversation",
+        success: function(response) {
             // Giả sử 'data' là một mảng các đối tượng, mỗi đối tượng có các thuộc tính 'status', 'imageUrl', 'username', 'message', và 'date'
             // status: xem class là msgs online hay msgs
-            data.forEach(function(item) {
-                addMessage(item.status, item.imageUrl, item.username, item.message, item.date);
-            });
+            for (let i = 0; i < response.num; i++) {
+                addMessage(response.id[i], response.name[i], response.msg[i], response.time[i]);
+            }
         },
-        error: function(error) {
-            console.error(error);
+        error: function() {
+            alert("Cannot display conversation");
         }
     });
 }
 
-function addMessage(status, imageUrl, username, message, date) {
-    var html = '<div class="msgs ' + status + '">' +
-               '    <img class="msgs-profile" src="' + imageUrl + '" alt="" />' +
+function addMessage(userID, username, message, date) {
+    var html = '<div class="msgs" name="' + userID + '">' +
+        '    <img class="msgs-profile" src="' + PERSON_IMG + '" alt="" />' +
                '    <div class="msgs-detail">' +
                '        <div class="msgs-username">' + username + '</div>' +
                '        <div class="msgs-content">' +
@@ -154,12 +149,7 @@ function addMessage(status, imageUrl, username, message, date) {
     $('.conversation-area').append(html);
 }
 
-
 // Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
-  var urlParams = new URLSearchParams(window.location.search);
-  var buyerID = urlParams.get("user_id");
-  var sellerID = urlParams.get("seller_id");
-
-  displayLogChat(buyerID, sellerID);
+    fetchMessages();
 });
