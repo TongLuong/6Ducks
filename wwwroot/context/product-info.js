@@ -1,20 +1,17 @@
 ﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
+    /*var userID = urlParams.get('user');
     var type = 0; // 0: buyer, 1: seller, (2: admin)
     if (userID == null) {
         userID = urlParams.get('seller'); // ideal condition
         type = 1;
-    }
-
+    }*/
+    
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
         $(".logo").click(function () {
-            if (type == 0)
-                location.href = "MainPage" + "?user=" + userID;
-            else if (type == 1)
-                location.href = "SellerMainPage" + "?seller=" + userID;
+            location.href = "MainPage";
         });
     });
 
@@ -30,6 +27,8 @@
             $("." + this.classList[1]).css("background-image")
         );
     });
+
+    $("#quantity").val("1");
 
     //demo image function
     /*$(".product-image").ready(function () {
@@ -60,11 +59,7 @@
 
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
-        if (type == 0)
-            location.href = "SellerInfoBuyer" + "?user=" + userID;
-        else if (type == 1)
-            location.href = "SellerInfoSeller" + "?seller=" + userID;
-        //location.href = "SellerInfoBuyer" + "?seller=" + userID;;
+        location.href = "UserInfo/SellerInfo" + "?seller=" + seller_id;
     });
 
     $(".show-fb").click(function (e) {
@@ -73,6 +68,31 @@
     });
 
     $(".disabled > .wrapper").hide();
+
+    $.get(
+        "Product/LoadShippingMethods",
+        {},
+        function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                var temp = response.data[i].value;
+
+                var op = `<option value="` + temp.smethodID + `">`
+                    + temp.name + `</option>`;
+
+                $("#method").append(op);
+            }
+        }
+    );
+
+    $.get(
+        "Product/LoadPaymentMethods",
+        {},
+        function (response) {
+            $("#cod-method").attr("id", response.data[0].value.pmethodID);
+            $("#banking-method").attr("id", response.data[1].value.pmethodID);
+        }
+    );
+
     $("button.buy_product-button").click(function () {
         $(".disabled").css("display", "flex");
         $(".buy-product").show();
@@ -83,7 +103,7 @@
         $(".disabled").css("display", "none");
         $("body").css("overflow", "scroll");
     });
-    $(".buy-product #buy-confirm").click(function () {
+    $(".buy-product #buy-next").click(function () {
         $(".buy-product").hide();
         $(".cash").show();
     });
@@ -95,6 +115,9 @@
     $(".cash #buy-confirm").click(function () {
         $(".disabled > .wrapper").hide();
         $(".success").show();
+
+        var payment = $("#cod-method, #banking-method, input:checked").next().text();
+
     });
     $(".success #buy-done").click(function () {
         $(".disabled > .wrapper").hide();
@@ -109,23 +132,21 @@
                 if (c !== checkbox) c.checked = false;
             });
             if ($(".cash .left").has(this).length) {
-                $(".cash .left form").css("opacity", "1");
+                if (this.checked)
+                    $(".cash .left form").css("opacity", "1");
+                else
+                    $(".cash .left form").css("opacity", "0");
                 $(".cash .right form").css("opacity", "0");
             } else {
                 $(".cash .left form").css("opacity", "0");
-                $(".cash .right form").css("opacity", "1");
+                if (this.checked)
+                    $(".cash .right form").css("opacity", "1");
+                else
+                    $(".cash .right form").css("opacity", "0");
             }
         });
     });
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
-    var type = 0; // 0: buyer, 1: seller, (2: admin)
-    if (userID == null) {
-        userID = urlParams.get('seller'); // ideal condition
-        type = 1;
-    }
-
+    
     var product_id = urlParams.get('product');
     var seller_id;
 
@@ -220,12 +241,7 @@
     displaySellerInfo($(".header-info").attr("id"));
 
     $(".contact-seller").click(function () {
-        if (type == 0)
-            location.href = "Chat" + "?user=" + userID + "&receiver=" +
-                seller_id;
-        else if (type == 1)
-            location.href = "Chat" + "?seller=" + userID + "&receiver=" +
-                seller_id;
+        location.href = "Chat" + "?receiver=" + seller_id;
     });
 
     function showFeedback(username, star, detail) {
@@ -262,4 +278,20 @@
     }
 
     displayFeedback(product_id);
+
+    $(".add_product-button").click(function () {
+        var currency = $("#price").text();
+        var price = Number(currency.replace(/[^0-9.-]+/g, ""));
+
+        $.ajax({
+            url: "Cart/AddCartItems",
+            data: {
+                "buyerID": "",
+                "productID": product_id,
+                "quantity": 1,
+                "price": price
+            },
+            async: false
+        })
+    });
 });

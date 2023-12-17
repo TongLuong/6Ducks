@@ -16,13 +16,13 @@ function discountPrice() {
 const imgCount = 0;
 
 $(this).ready(function () {
-    var urlParams = new URLSearchParams(window.location.search);
+    /*var urlParams = new URLSearchParams(window.location.search);
     var userID = urlParams.get('user');
     var type = 0; // 0: buyer, 1: seller, (2: admin)
     if (userID == null) {
         userID = urlParams.get('seller'); // ideal condition
         type = 1;
-    }
+    }*/
 
     function removeVietnameseTones(str) {
         str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -75,16 +75,18 @@ $(this).ready(function () {
     $.get("/components/seller/header.html", function (data) {
         $("body").prepend(data);
         $(".user").click(function () {
-            if (type == 0)
-                location.href = "UserInfo" + "?user=" + userID;
-            else if (type == 1)
-                location.href = "SellerInfoSeller" + "?seller=" + userID;
+            location.href = "/UserInfo";
         });
         $(".logo").click(function () {
-            if (type == 0)
-                location.href = "MainPage" + "?user=" + userID;
-            else if (type == 1)
-                location.href = "SellerMainPage" + "?seller=" + userID;
+            location.href = "/MainPage";
+        });
+
+        $.get("/Login/GetSession", function (response) {
+            if (response.type == 0) {
+                $(".toolbar").hide();
+            }
+
+            $(".welcome-user").html(response.name);
         });
 
         $(".book-upload").click(function () {
@@ -93,7 +95,7 @@ $(this).ready(function () {
         });
 
         $(".chat-button").click(function () {
-            location.href = "Chat/Seller";
+            location.href = "/Chat/Seller";
         })
 
         $("#search").keyup(filterItem);
@@ -103,7 +105,7 @@ $(this).ready(function () {
         $("body").append(data);
     });
 
-    $.get("components/uploadPopUp.html", function (data) {
+    $.get("/components/uploadPopUp.html", function (data) {
         $("body").append(data);
         $(".cancel-upload").click(function () {
             $(".mainpage-upload-comic-form").css("display", "none");
@@ -129,7 +131,7 @@ $(this).ready(function () {
             var publisher = $("#quantity").val();
 
             $.ajax({
-                url: "SellerMainPage/Upload",
+                url: "/SellerMainPage/Upload",
                 data: {
                     "sellerID": seller_id,
                     "imgPath": img_path,
@@ -176,7 +178,7 @@ $(this).ready(function () {
         });
     });
 
-    $.get("components/successPopUp.html", function (data) {
+    $.get("/components/successPopUp.html", function (data) {
         $("body").append(data);
         $(".return-btn").click(function () {
             $(".mainpage-upload_success_notification").css("display", "none");
@@ -185,14 +187,6 @@ $(this).ready(function () {
     });
 
     discountPrice();
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var userID = urlParams.get('user');
-    var type = 0; // 0: buyer, 1: seller, (2: admin)
-    if (userID == null) {
-        userID = urlParams.get('seller'); // ideal condition
-        type = 1;
-    }
 
     function showItems(num, srcImg, title, price, rate, amount,
         productID) {
@@ -224,12 +218,7 @@ $(this).ready(function () {
                 item.find("#span-" + num).text(amount);
 
                 item.click(function () {
-                    if (type == 0)
-                        location.href = "Product" + "?user=" + userID +
-                            "&product=" + productID;
-                    else if (type == 1)
-                        location.href = "Product" + "?seller=" + userID +
-                            "&product=" + productID;
+                    location.href = "Product" + "?product=" + productID;
                 });
             }
         );
@@ -238,7 +227,7 @@ $(this).ready(function () {
     function showProducts(numDisplays) {
         $.ajax
             ({
-                url: 'SellerMainPage/DisplayProducts',
+                url: '/SellerMainPage/DisplayProducts',
                 dataType: 'json',
                 data: { "n": numDisplays },
                 type: 'POST',

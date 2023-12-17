@@ -89,7 +89,7 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public void Upload(int sellerID,string imgPath, string bookName, int quantity, string genre, int price, string category,string author, string publisher)
+        public void Upload(int sellerID, string imgPath, string bookName, int quantity, string genre, int price, string category, string author, string publisher)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -120,7 +120,7 @@ namespace DA_6Ducks.Controllers
                 }
             }
 
-            cmd = new SqlCommand("dbo.upload",conn);
+            cmd = new SqlCommand("dbo.upload", conn);
 
             cmd.CommandType = CommandType.StoredProcedure;
 

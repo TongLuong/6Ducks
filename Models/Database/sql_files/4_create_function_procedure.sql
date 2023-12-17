@@ -327,3 +327,71 @@ begin
 	set numbersLeft  = 0
 	where [name] = @name
 end
+
+go
+--drop procedure insert_cart_item
+create procedure insert_cart_item
+@userID int, 
+@productID int,
+@quantity int,
+@price int
+as
+begin
+	declare @buyerID int
+	select @buyerID = buyerID
+	from Buyers
+	where userID = @userID
+
+	if exists
+	(
+		select * 
+		from CartItems
+		where buyerID = @buyerID and productID = @productID
+	)
+	begin
+		update CartItems
+		set quantity = quantity + @quantity
+		where buyerID = @buyerID and productID = @productID
+	end
+	else
+	begin
+		insert into CartItems values (@buyerID, @productID, @quantity, @price)
+	end
+end
+go
+
+--drop procedure insert_new_user
+create procedure insert_new_user
+@displayName nvarchar(255),
+@dob date,
+@email varchar(255),
+@phoneNumber varchar(255),
+@address nvarchar(255),
+@usertype int,
+@username varchar(255),
+@pass varchar(255),
+@transactionNumber varchar(16) = null
+as
+begin
+	insert into [Users] (displayName,
+						dob,
+						email,
+						phoneNumber,
+						[address],
+						usertype,
+						username,
+						pass,
+						transactionNumber)
+	values
+	(
+			@displayName,
+			@dob,
+			@email,
+			@phoneNumber,
+			@address,
+			@usertype,
+			@username,
+			@pass,
+			@transactionNumber
+	)
+end

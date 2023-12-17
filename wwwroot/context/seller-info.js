@@ -1,12 +1,15 @@
 $(this).ready(function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var sellerID = urlParams.get('seller');
+
     $(".product-item").click(function (e) {
         e.preventDefault();
-        location.href = "Product";
+        location.href = "/Product";
     });
 
     $(".seller-contact").click(function (e) {
         e.preventDefault();
-        location.href = "Chat";
+        location.href = "/Chat" + "?receiver=" + sellerID;
     });
     //pagination function
     $(".pagination p:not(.arrow)").click(function () {
@@ -45,6 +48,30 @@ $(this).ready(function () {
 
     $(".about img").click(function (e) {
         e.preventDefault();
-        location.href = "SellerInfoBuyer";
+        location.href = "/SellerInfoBuyer";
+    });
+
+    $.get({
+        url: "/SellerInfoSeller/DisplayRating",
+        dataType: "json",
+        success: function (response) {
+            //bar
+            $(".bar_1").css('width', (response.sum ? response.star[0] / response.sum * 100 : 0) + "%");
+            $(".bar_2").css('width', (response.sum ? response.star[1] / response.sum * 100 : 0) + "%");
+            $(".bar_3").css('width', (response.sum ? response.star[2] / response.sum * 100 : 0) + "%");
+            $(".bar_4").css('width', (response.sum ? response.star[3] / response.sum * 100 : 0) + "%");
+            $(".bar_5").css('width', (response.sum ? response.star[4] / response.sum * 100 : 0) + "%");
+
+            $(".bar_1 span").text((response.sum ? response.star[0] / response.sum * 100 : 0) + "%");
+            $(".bar_2 span").text((response.sum ? response.star[1] / response.sum * 100 : 0) + "%");
+            $(".bar_3 span").text((response.sum ? response.star[2] / response.sum * 100 : 0) + "%");
+            $(".bar_4 span").text((response.sum ? response.star[3] / response.sum * 100 : 0) + "%");
+            $(".bar_5 span").text((response.sum ? response.star[4] / response.sum * 100 : 0) + "%");
+            //star
+
+            $("input#star-" + Math.round(Number(response.avgRating))).prop("checked", true);
+
+            $("#rating-avg").text("(" + response.avgRating + "/5)");
+        }
     });
 });

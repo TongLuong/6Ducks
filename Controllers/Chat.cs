@@ -67,15 +67,17 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public JsonResult DisplayLogChat(int userID, int sellerID)
+        public JsonResult DisplayLogChat(string receiverID)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.loadLogChat(@userID,@sellerID) ORDER BY [time] asc", conn);
 
-            cmd.Parameters.AddWithValue("@userID", userID);
-            cmd.Parameters.AddWithValue("@sellerID", sellerID);
+            int senderID = Int32.Parse(Session.sessionID);
+
+            cmd.Parameters.AddWithValue("@userID", senderID);
+            cmd.Parameters.AddWithValue("@sellerID", receiverID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             List<string> poss = new List<string>();
@@ -86,18 +88,25 @@ namespace DA_6Ducks.Controllers
             {
                 while (dr.Read())
                 {
-                    poss.Add((dr.GetInt32(0) == userID) ? "right" : "left");
+                    var x = dr.GetInt32(0) == senderID;
+                    poss.Add((dr.GetInt32(0) == senderID) ? "right" : "left");
                     msgs.Add(dr.GetString(1));
                     times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                 }
             }
 
-            cmd = new SqlCommand("select displayName from Users where userID = @userID", conn);
-            cmd.Parameters.AddWithValue("@userID", userID);
-            string username = (string)cmd.ExecuteScalar();
+            conn.Close();
+            conn.Open();
 
             cmd = new SqlCommand("select displayName from Users where userID = @userID", conn);
-            cmd.Parameters.AddWithValue("@userID", sellerID);
+            cmd.Parameters.AddWithValue("@userID", senderID);
+            string username = (string)cmd.ExecuteScalar();
+
+            conn.Close();
+            conn.Open();
+
+            cmd = new SqlCommand("select displayName from Users where userID = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", receiverID);
             string sellername = (string)cmd.ExecuteScalar();
 
             conn.Close();
@@ -109,7 +118,7 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public void SaveLogChat(int senderID, int receiverID, string msg)
+        public void SaveLogChat(int receiverID, string msg)
         {
 
             if (conn.State == ConnectionState.Closed)
@@ -120,6 +129,8 @@ namespace DA_6Ducks.Controllers
                 "dbo.saveLog",
                 conn
             );
+
+            string senderID = Session.sessionID;
 
             cmd.CommandType = CommandType.StoredProcedure;
 

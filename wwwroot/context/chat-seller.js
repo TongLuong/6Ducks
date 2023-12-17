@@ -91,7 +91,7 @@ function random(min, max) {
 
 function displayLogChat(userID, sellerID) {
   $.ajax({
-    url: "Chat/DisplayLogChat",
+    url: "/Chat/DisplayLogChat",
     data: {
       userID: userID,
       sellerID: sellerID,

@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography.Xml;
 
 namespace DA_6Ducks.Controllers
 {
+    public static class Session
+    {
+        public static string sessionID = "";
+        public static int sessionType = -1; // 0: buyer, 1: seller, 2: admin
+        public static string sessionName = "";
+    }
+
     public class Login : Controller
     {
         private SqlConnection conn;
@@ -20,6 +28,29 @@ namespace DA_6Ducks.Controllers
             return View("/Views/user/login/index.cshtml");
         }
 
+        public IActionResult Logout()
+        {
+            Session.sessionID = "";
+            Session.sessionType = -1;
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public JsonResult GetSession()
+        {
+            var userID = Session.sessionID;
+            var userType = Session.sessionType;
+            var name = Session.sessionName;
+            return new JsonResult
+            (
+                new
+                {
+                    id = userID,
+                    name = name,
+                    type = userType
+                }
+            );
+        }
         public JsonResult CheckLogin(string username, string email,
             string pwd)
         {
@@ -52,6 +83,17 @@ namespace DA_6Ducks.Controllers
             userType.Direction = ParameterDirection.Output;
 
             cmd.ExecuteNonQuery();
+
+            Session.sessionID = userID.Value.ToString() ?? "";
+
+            string type = userType.Value.ToString() ?? "";
+            if (type == "22") // buyer
+                Session.sessionType = 0;
+            else if (type == "21") // seller
+                Session.sessionType = 1;
+            /*else if (response.userType == 23) // admin
+                pass*/
+
 
             conn.Close();
 

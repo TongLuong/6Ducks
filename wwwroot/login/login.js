@@ -12,9 +12,13 @@ $(this).ready(function () {
         location.href = "SignIn";
     });
 
-    $(".login-btn").click(function (e) {
-        e.preventDefault();
+    $("input#username, input#pwd").keydown(function (event) {
+        if (event.keyCode === 13) {
+            $(".login-btn").trigger("click");
+        }
+    });
 
+    $(".login-btn").click(function () {
         var username = $("#username").val();
         var pwd = $("#pwd").val();
 
@@ -29,12 +33,7 @@ $(this).ready(function () {
             cache: false,
             success: function (response) {
                 if (response.status) {
-                    if (response.userType == 21) // buyer
-                        location.href = "MainPage" + "?user=" + response.userID;
-                    else if (response.userType == 22) // seller
-                        location.href = "SellerMainPage" + "?seller=" + response.userID;
-                    /*else if (response.userType == 23) // admin
-                        pass*/
+                    location.href = "MainPage";
                 }
                 else {
                     $("#invalid-label").css("display", "block");
