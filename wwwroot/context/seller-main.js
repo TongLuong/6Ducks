@@ -85,6 +85,8 @@ $(this).ready(function () {
             if (response.type == 0) {
                 $(".toolbar").hide();
             }
+
+            $(".welcome-user").html(response.name);
         });
 
         $(".book-upload").click(function () {

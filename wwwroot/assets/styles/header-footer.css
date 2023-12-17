@@ -1,6 +1,7 @@
 .nav {
   width: 100%;
   background-color: #fff;
+  user-select: none;
 }
 
 .nav .top-nav {
@@ -12,7 +13,7 @@
   background-color: #425664;
   color: #f6f4f2;
 
-  .welcom {
+  .welcome {
     margin-left: 10px;
   }
 }
@@ -21,12 +22,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 25px;
 }
 
 .nav .top-nav .top-nav-button a {
   color: #f6f4f2;
-  margin-left: 40px;
 }
 
 .nav .top-nav .top-nav-button a:hover {
@@ -44,6 +43,7 @@
 }
 
 .nav .bot-nav img {
+  object-fit: cover;
   height: 35px;
   width: auto;
 }
@@ -94,19 +94,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
-.nav .bot-nav .bot-nav-button div {
-  margin: 0 15px;
-  font-size: 30px;
+.nav .bot-nav .bot-nav-button .welcome-user {
+  cursor: default;
+  color: #f6f4f2;
+  font-size: 15px;
 }
 
-.nav .bot-nav .notification,
-.nav .bot-nav .user,
-.nav .bot-nav .cart {
-  display: flex;
-  position: relative;
-  padding: 0 3px;
+
+.nav .bot-nav .user img {
+  aspect-ratio: 1/1;
+}
+
+.nav .bot-nav .user img {
+  border-radius: 50%;
 }
 
 .nav .bot-nav .notification span,
@@ -193,6 +196,7 @@
 }
 
 .footer header {
+  user-select: none;
   font-weight: 900;
   font-size: 20px;
   margin-bottom: 30px;
@@ -208,16 +212,13 @@
 }
 
 .footer .logo {
+  user-select: none;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.footer .logo span {
-  font-weight: 900;
-  font-size: 20px;
-}
 
 .footer .logo img {
   height: 50px;
@@ -228,4 +229,10 @@
 .footer .info span {
   margin-bottom: 10px;
   line-height: 20px;
+}
+
+.footer .logo span {
+  margin: 0;
+  font-weight: 900;
+  font-size: 20px;
 }

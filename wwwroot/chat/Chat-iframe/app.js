@@ -125,15 +125,13 @@ $(document).ready(function () {
 
     $(".msger-input").keydown(function (event) {
         if (event.keyCode === 13) { // Enter key
-            $("#msger-send-btn").trigger("click");
+            $("#msger-send-btn").click();
         };
     });
 
     $("#msger-send-btn").click(function () {
-        const msgText = msgerInput.value;
+        var msgText = $(".msger-input").val();
         if (!msgText) return;
-
-
 
         $.ajax({
             url: "SaveLogChat",
@@ -143,8 +141,6 @@ $(document).ready(function () {
                 "msg": msgText
             },
             success: function () {
-                alert(msgText);
-
                 appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
                 msgerInput.value = "";
 

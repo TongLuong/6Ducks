@@ -10,6 +10,7 @@ namespace DA_6Ducks.Controllers
     {
         public static string sessionID = "";
         public static int sessionType = -1; // 0: buyer, 1: seller, 2: admin
+        public static string sessionName = "";
     }
 
     public class Login : Controller
@@ -39,11 +40,13 @@ namespace DA_6Ducks.Controllers
         {
             var userID = Session.sessionID;
             var userType = Session.sessionType;
+            var name = Session.sessionName;
             return new JsonResult
             (
                 new
                 {
                     id = userID,
+                    name = name,
                     type = userType
                 }
             );
