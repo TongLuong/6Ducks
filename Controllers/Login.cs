@@ -9,6 +9,7 @@ namespace DA_6Ducks.Controllers
     public static class Session
     {
         public static string sessionID = "";
+        public static string sessionTypeID = "";
         public static int sessionType = -1; // 0: buyer, 1: seller, 2: admin
         public static string sessionName = "";
     }
@@ -54,8 +55,6 @@ namespace DA_6Ducks.Controllers
         public JsonResult CheckLogin(string username, string email,
             string pwd)
         {
-            // TODO
-            // check username and pwd using function from model
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
@@ -94,8 +93,9 @@ namespace DA_6Ducks.Controllers
             /*else if (response.userType == 23) // admin
                 pass*/
 
-
             conn.Close();
+
+            Session.sessionTypeID = GetTypeID(Session.sessionID);
 
             return new JsonResult
             (
@@ -106,6 +106,25 @@ namespace DA_6Ducks.Controllers
                     userType = userType.Value
                 }
             );
+        }
+
+        public string GetTypeID(string userID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT dbo.[get_type_id] (@user_id)"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@user_id", userID == null ? DBNull.Value : userID);
+
+            string result = cmd.ExecuteScalar().ToString() ?? "";
+
+            conn.Close();
+            return result;
         }
     }
 }

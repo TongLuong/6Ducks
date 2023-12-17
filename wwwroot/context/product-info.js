@@ -1,12 +1,8 @@
 ﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
-    /*var userID = urlParams.get('user');
-    var type = 0; // 0: buyer, 1: seller, (2: admin)
-    if (userID == null) {
-        userID = urlParams.get('seller'); // ideal condition
-        type = 1;
-    }*/
-    
+    var product_id = urlParams.get('product');
+    var seller_userid;
+
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
@@ -46,16 +42,29 @@
             $(".show-image").css("background-image", $(this).css("background-image"));
         });
     });*/
+
     //quantity increase and reduce function
     $("#increase").click(function () {
         $("#quantity").val(Number($("#quantity").val()) + 1);
+
+        var currency = $("#price").text();
+        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+        $(".total-cost").val(Number($(".total-cost").val()) + curr_price);
     });
     $("#reduce").click(function () {
         $("#quantity").val(function () {
-            if (Number($("#quantity").val()) < 2) return 1;
-            else return Number($("#quantity").val()) - 1;
+            if (Number($("#quantity").val()) < 2)
+                return 1;
+            else {
+                var currency = $("#price").text();
+                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+                $(".total-cost").val(Number($(".total-cost").val()) - curr_price);
+
+                return Number($("#quantity").val()) - 1;
+            }
         });
     });
+    
 
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
@@ -97,6 +106,10 @@
         $(".disabled").css("display", "flex");
         $(".buy-product").show();
         $("body").css("overflow", "hidden");
+
+        var currency = $("#price").text();
+        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+        $(".total-cost").val(curr_price);
     });
     $(".buy-product #buy-cancel").click(function () {
         $(".disabled > .wrapper").hide();
@@ -112,13 +125,7 @@
         $(".disabled").css("display", "none");
         $("body").css("overflow", "scroll");
     });
-    $(".cash #buy-confirm").click(function () {
-        $(".disabled > .wrapper").hide();
-        $(".success").show();
-
-        var payment = $("#cod-method, #banking-method, input:checked").next().text();
-
-    });
+    
     $(".success #buy-done").click(function () {
         $(".disabled > .wrapper").hide();
         $(".disabled").css("display", "none");
@@ -147,9 +154,6 @@
         });
     });
     
-    var product_id = urlParams.get('product');
-    var seller_id;
-
     function displayStar(productID) {
         const starInputs = document.querySelectorAll('i[name="starprod"]');
         const starInputsFb = document.querySelectorAll('i[name="star-fb-avg"]');
@@ -199,6 +203,7 @@
                 
                 $(".show-image").css("background-image", "url(" +
                     response.imgLink[0] + ")");
+                $(".buy-product .left img").attr("src", response.imgLink[0]);
 
                 var sideImgs = $(".demo");
                 sideImgs.each(function (i) {
@@ -234,7 +239,7 @@
                 $("#starting-time").text(response.startingTime);
                 $("#product-sole").text(response.productSale);
 
-                seller_id = sellerID;
+                seller_userid = sellerID;
             }
         });
     }
@@ -293,5 +298,53 @@
             },
             async: false
         })
+    });
+
+    $(".cash #buy-confirm").click(function () {
+        var currency = $(".total-cost").val();
+
+        var payment = $("#cod-method, #banking-method, input:checked");
+        var totalPrice = Number(currency.replace(/[^0-9.-]+/g, ""));
+        var address = $("#address").val();
+        var pmethodID = payment.prop("id");
+        var smethodID = $("#method").val();
+        var billID;
+
+        $.ajax({
+            url: "Product/CreateBill",
+            data: {
+                "buyerID": "",
+                "selleruserID": seller_userid,
+                "billStatus": "",
+                "totalPrice": totalPrice,
+                "address": address,
+                "pmethodID": pmethodID,
+                "smethodID": smethodID,
+                "discountVoucher": null,
+                "freeshipVoucher": null
+            },
+            async: false,
+            success: function (response) {
+                billID = response.billID;
+            }
+        });
+
+        var quantity = $("#quantity").val();
+        var price = $("#price").text();
+        price = Number(price.replace(/[^0-9.-]+/g, ""));
+
+        $.ajax({
+            url: "Product/AddBillItems",
+            data: {
+                "billID": billID,
+                "productID": product_id,
+                "quantity": quantity,
+                "price": price
+            },
+            async: false
+        });
+
+        $(".disabled > .wrapper").hide();
+        $(".success").show();
     });
 });

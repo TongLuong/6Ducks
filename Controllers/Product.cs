@@ -350,13 +350,16 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public JsonResult CreateBill(string buyerID, string sellerID,
-            string billStatus, string totalPrice, string time,
-            string address, string pmethodID, string smethodID,
-            string discountVoucher, string freeshipVoucher)
+        public JsonResult CreateBill(string buyerID, string selleruserID,
+            string billStatus, string totalPrice, string address, 
+            string pmethodID, string smethodID, string discountVoucher, 
+            string freeshipVoucher)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
+
+            Login login = new Login();
+            string sellerID = login.GetTypeID(selleruserID);
 
             List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
@@ -367,21 +370,21 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@buyerID", Session.sessionID);
+            cmd.Parameters.AddWithValue("@buyerID", Session.sessionTypeID);
             cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@totalPrice", totalPrice);
-            cmd.Parameters.AddWithValue("@time", time);
             cmd.Parameters.AddWithValue("@address", address);
-            cmd.Parameters.AddWithValue("@pmethodID", pmethodID);
-            cmd.Parameters.AddWithValue("@smethodID", smethodID);
-            cmd.Parameters.AddWithValue("@discountVoucher", discountVoucher);
-            cmd.Parameters.AddWithValue("@freeshipVoucher", freeshipVoucher);
+            cmd.Parameters.AddWithValue("@pmethod", pmethodID);
+            cmd.Parameters.AddWithValue("@smethod", smethodID);
+            cmd.Parameters.AddWithValue("@discountVchID", discountVoucher);
+            cmd.Parameters.AddWithValue("@freeShipVchID", freeshipVoucher);
 
             SqlParameter billID_param = cmd.Parameters.Add("@billID", SqlDbType.Int);
             billID_param.Direction = ParameterDirection.Output;
-            string bill_id = billID_param.Value.ToString() ?? "";
-
+            
             cmd.ExecuteNonQuery();
+
+            string bill_id = billID_param.Value.ToString() ?? "";
 
             conn.Close();
 
@@ -394,7 +397,6 @@ namespace DA_6Ducks.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
             (
                 "dbo.[insert_BillItems]"
@@ -407,10 +409,6 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);
             cmd.Parameters.AddWithValue("@price", price);
-
-            SqlParameter billID_param = cmd.Parameters.Add("@billID", SqlDbType.Int);
-            billID_param.Direction = ParameterDirection.Output;
-            string bill_id = billID_param.Value.ToString() ?? "";
 
             cmd.ExecuteNonQuery();
 

@@ -395,3 +395,27 @@ begin
 			@transactionNumber
 	)
 end
+
+go
+create function get_type_id (@user_id int)
+returns int
+as
+begin
+	declare @result int = null
+	select @result = sellerID
+	from Sellers
+	where userID = @user_id
+
+	if @result is not null
+		return @result
+
+	set @result = null
+	select @result = buyerID
+	from Buyers
+	where userID = @user_id
+
+	if @result is not null
+		return @result
+	return null
+end
+go
