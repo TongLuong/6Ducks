@@ -161,6 +161,7 @@ go
 create procedure insert_Bill -- get the output of this procedure to insert BillItems
 @buyerID int,
 @sellerID int,
+@totalPrice int,
 @address nvarchar(255),
 @pmethod int,
 @smethod int,
@@ -169,10 +170,12 @@ create procedure insert_Bill -- get the output of this procedure to insert BillI
 @billID int output
 as
 begin
-	insert into Bills (buyerID,sellerID,[address],pmethodID,smethodID,discountVoucher,freeshipVoucher)
+	insert into Bills (buyerID,sellerID,totalPrice,[time],[address],pmethodID,smethodID,
+	discountVoucher, freeshipVoucher)
 	output inserted.billID
 	values(
-		@buyerID,@sellerID,@address,@pmethod,@smethod,@discountVchID,@freeShipVchID
+		@buyerID,@sellerID,@totalPrice,getdate(),@address,@pmethod,@smethod,
+		@discountVchID,@freeShipVchID
 	)
 
 	select @billID = scope_identity()
