@@ -1,7 +1,7 @@
 ﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var product_id = urlParams.get('product');
-    var seller_userid;
+    var seller_id;
 
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
@@ -239,7 +239,7 @@
                 $("#starting-time").text(response.startingTime);
                 $("#product-sole").text(response.productSale);
 
-                seller_userid = sellerID;
+                seller_id = sellerID;
             }
         });
     }
@@ -292,6 +292,7 @@
             url: "Cart/AddCartItems",
             data: {
                 "buyerID": "",
+                "sellerID": seller_id,
                 "productID": product_id,
                 "quantity": 1,
                 "price": price
@@ -314,7 +315,6 @@
             url: "Product/CreateBill",
             data: {
                 "buyerID": "",
-                "selleruserID": seller_userid,
                 "billStatus": "",
                 "totalPrice": totalPrice,
                 "address": address,
@@ -337,6 +337,7 @@
             url: "Product/AddBillItems",
             data: {
                 "billID": billID,
+                "sellerID": seller_id,
                 "productID": product_id,
                 "quantity": quantity,
                 "price": price

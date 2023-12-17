@@ -136,7 +136,7 @@ namespace DA_6Ducks.Controllers
 
             SqlCommand cmd = new SqlCommand
             (
-                "SELECT p.*, c.name, g.name, pi.imgLink, s.userID " +
+                "SELECT p.*, c.name, g.name, pi.imgLink, s.sellerID " +
                 "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g, dbo.Sellers s " +
                 "WHERE p.productID = pi.productID " +
                 "AND p.productID = @productID " +
@@ -350,16 +350,13 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public JsonResult CreateBill(string buyerID, string selleruserID,
+        public JsonResult CreateBill(string buyerID,
             string billStatus, string totalPrice, string address, 
             string pmethodID, string smethodID, string discountVoucher, 
             string freeshipVoucher)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-
-            Login login = new Login();
-            string sellerID = login.GetTypeID(selleruserID);
 
             List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
@@ -371,7 +368,6 @@ namespace DA_6Ducks.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@buyerID", Session.sessionTypeID);
-            cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@totalPrice", totalPrice);
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@pmethod", pmethodID);
@@ -391,8 +387,8 @@ namespace DA_6Ducks.Controllers
             return new JsonResult(new { billID = bill_id });
         }
 
-        public void AddBillItems(string billID, string productID,
-            string quantity, string price)
+        public void AddBillItems(string billID, string sellerID,
+            string productID, string quantity, string price)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -405,6 +401,7 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@BillID", billID);
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);
