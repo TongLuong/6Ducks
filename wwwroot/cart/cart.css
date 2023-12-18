@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .main-cart {
   display: grid;
   grid-template-columns: 1fr;
@@ -14,10 +18,13 @@
   border-radius: 4px;
   border: 1px solid var(--Gray-100, #e4e7e9);
   background: var(--Gray-00, #fff);
+  position: relative;
+  z-index: 0;
+  overflow: visible;
 }
 
 .overlay-cart .wrapper {
-    padding: 20px;
+  padding: 20px;
 }
 
 .main-cart h1 {
@@ -38,6 +45,13 @@
   padding: 5px 10px;
   border: 1px solid var(--Gray-100, #e4e7e9);
   background: var(--Gray-50, #f2f4f5);
+}
+
+.main-cart .cart-total-price .total-price {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 5px;
 }
 
 .main-cart .cart-total-price span {
@@ -67,6 +81,7 @@
   padding: 12px;
   max-height: 400px;
   overflow-y: scroll;
+  overflow-x: visible;
 }
 
 .main-cart .cart-item {
@@ -76,15 +91,36 @@
   gap: 20px;
   padding: 10px;
   border-radius: 5px;
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.16);
+  transition: all .1s ease;
+}
+
+.delete-cart-item {
+  position: absolute;
+  z-index: 2;
+  border: none;
+  padding: 5px;
+  background: rgba(0,0,0,0);
+  padding: 2px 1px;
+  font-size: 20px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  left: 0px;
+  top: 0px;
+}
+
+.main-cart .cart-item:hover {
+  user-select: none;
 }
 
 .main-cart .cart-item img {
   flex-grow: 1;
   height: 100%;
+  aspect-ratio: 1/1;
   object-fit: contain;
   border-radius: 5px;
-  border: 1px solid #000;
+  cursor: default;
 }
 
 .main-cart .cart-item .detail {
@@ -105,21 +141,31 @@
   line-height: 20px;
 }
 
+.detail .item-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
 .detail .item-price span {
   color: #044876;
 }
 
 .main-cart .cart-item .item-total-price {
   flex-grow: 1;
+  min-width: 120px;
   display: flex;
   align-items: end;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
 }
 
 .main-cart .cart-item input {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 7px;
+  right: 7px;
   height: 20px;
   aspect-ratio: 1/1;
 }
@@ -188,14 +234,17 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  text-align: center;
 }
 
 .overlay-cart .total input {
-  height: 30px;
   width: 100%;
   border: none;
   outline: 2px solid black;
   border-radius: 3px;
+  padding: 15px 0;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .overlay-cart .btn-group {
@@ -227,4 +276,66 @@
   border-radius: 3px;
   border: 2px solid #144e74;
   background: #044876;
+}
+
+#delete-popup {
+  position: absolute;
+  padding: 20px;
+  z-index: 1;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-side {
+  position: fixed;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-popup {
+  padding: 0 50px 20px 50px;
+  border: 2px solid black;
+  width: max-content;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-popup .btn-group {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-popup .btn-group button {
+  padding: 5px 10px;
+  transition: all .2s ease-in-out;
+}
+
+button#confirm-delete {
+  border-radius: 2px;
+  border: 2px solid rgba(255, 0, 0, 0.52);
+  background: rgba(255, 0, 0, 0.20);
+}
+
+button#cancel-delete {
+  border-radius: 2px;
+  border: 2px solid var(--Secondary-500, #2DA5F3);
+  background: rgba(20, 136, 219, 0.20);
+}
+
+.delete-popup .btn-group button:hover {
+  transform: scale(1.1);
 }

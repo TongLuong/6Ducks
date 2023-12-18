@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/cart/cart.css" />
     <link rel="stylesheet" href="/assets/styles/globals.css" />
     <link rel="stylesheet" href="/assets/styles/header-footer.css" />
@@ -16,6 +17,15 @@
 </head>
 
 <body>
+    <div class="delete-side">
+        <div class="delete-popup">
+            <h4>Chắc chắn xóa?</h4>
+            <div class="btn-group">
+                <button id="confirm-delete">Xóa</button>
+                <button id="cancel-delete">Không</button>
+            </div>
+        </div>
+    </div>
     <div class="main-cart">
         <div class="wrapper">
             <h1>Giỏ hàng</h1>
@@ -73,8 +83,11 @@
                         <span class="quantity">Số lượng: <span>1</span></span>
                         <span class="item-price">Đơn giá: <span>86000</span>đ</span>
                     </div>
-                    <span class="item-total-price">Tổng: <span>86000</span>đ</span>
-                    <input type="checkbox" name="item-choose" />
+                    <span class="item-total-price">
+                        Tổng: <span>86000</span>đ
+                        <input type="checkbox" name="item-choose" />
+                    </span>
+                    <div class="delete-cart-item">Xóa</div>
                 </div> -->
             </div>
         </div>
@@ -119,7 +132,7 @@
                 </div>
                 <div class="total">
                     <label for="total">Tổng thanh toán</label>
-                    <input type="text" class="total" readonly />
+                    <input type="number" class="total" readonly />
                 </div>
                 <div class="btn-group">
                     <button type="button" id="cancel">Hủy</button>

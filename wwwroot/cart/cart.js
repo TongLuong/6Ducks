@@ -6,6 +6,7 @@ $(document).ready(function () {
         userID = urlParams.get('seller'); // ideal condition
         type = 1;
     }*/
+    $(".delete-side").hide();
 
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
@@ -32,16 +33,17 @@ $(document).ready(function () {
                     '<div class="cart-item cart-item-' + i + '">' +
                     '<img src = "" alt = ""/>' +
                     '<div class="detail">' +
-                '<span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>' +
+                    '<span class="book-name">Điều kì diệu của tiệm tạp hóa Namiya</span>' +
                     '<span class="quantity">Số lượng: <span>1</span></span>' +
                     '<span class="item-price">Đơn giá: <span>86000</span>đ</span>' +
                     '</div>' +
-                '<span class="item-total-price">Tổng: <span>86000</span>đ</span>' +
+                    '<span class="item-total-price">Tổng: <span>86000</span>đ</span>' +
                     '<input type = "checkbox" name = "item-choose"/>' +
+                    '<div class="delete-cart-item"><i class="fa fa-times" aria-hidden="true"></i></div>' +
                     '</div>';
-                
+
                 $(".waiting-cart-list").append(cartItem);
-                
+
                 $(".cart-item-" + i + " .book-name").text(temp.name);
                 $(".cart-item-" + i + " .quantity span").text(temp.quantity);
                 $(".cart-item-" + i + " img").attr("src", temp.imgLink[0]);
@@ -50,8 +52,25 @@ $(document).ready(function () {
                 $(".cart-item-" + i + " .item-price span").text(temp.price);
 
                 var totalPrice = Number(temp.quantity) * Number(temp.price);
-                $(".cart-item-" + i + " .item-total-price span").text(
-                    totalPrice);
+                $(".cart-item-" + i + " .item-total-price span").text(totalPrice);
+
+                //Delete cart-item 
+                $(".delete-cart-item").click(function () {
+                    $(".delete-side").show();
+
+                    var item = $(this);
+
+                    $(".delete-popup button").click(function (e) {
+                        if (e.target === $("#confirm-delete")[0]) {
+                            item.closest(".cart-item").replaceWith("");
+                            $(".delete-side").hide();
+                            //Load lại cart list
+                            ///...............
+                        } else if (e.target === $("#cancel-delete")[0]) {
+                            $(".delete-side").hide();
+                        };
+                    }); 
+                });
             }
         }
     });
