@@ -130,6 +130,10 @@ function fetchMessages() {
                 addMessage(response.id[i], response.name[i], response.msg[i], response.time[i]);
             }
             display_log_chat(response.id[0]);
+            $.ajax({
+                url: "/Chat/SaveCurrentConversation",
+                data: { "receiverID": response.id[0] }
+            });
         },
         error: function() {
             alert("Cannot display conversation");
@@ -160,5 +164,44 @@ $(document).ready(function () {
     $(".msgs").click(function () {
         var buyerID = $(this).prop("id");
         display_log_chat(buyerID);
+        $.ajax({
+            url: "/Chat/SaveCurrentConversation",
+            data: { "receiverID": buyerID }
+        });
+    });
+
+    function saveChat() {
+        var msgText = $(".msger-input").val();
+        if (!msgText) return;
+
+        $.ajax({
+            url: "SaveLogChatSeller",
+            type: "post",
+            data: {
+                "msg": msgText
+            },
+            success: function (response) {
+                appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+                msgerInput.value = "";
+
+                $("#" + response.buyerID + " .msgs-message").text(msgText);
+                $("#" + response.buyerID + " .msgs-date").text(response.timeSave);
+                botResponse();
+
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+
+    $(".msger-input").keydown(function (event) {
+        if (event.keyCode === 13) { // Enter key
+            saveChat();
+        };
+    });
+
+    $("#msger-send-btn").click(function () {
+        saveChat();
     });
 });
