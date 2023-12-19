@@ -131,3 +131,12 @@ VALUES
     (300000001,220000001,N'Sách bị rớt bản lề, cần được đổi trả.',1),
     (300000004,220000003,N'Nhân viên giao hàng thái độ kém, sách bị cong dập nhiều chỗ.',1)
 GO
+
+insert into LogChat
+values 
+(100000003,100000008,N'Tôi có thể giúp gì cho bạn không?',GETDATE()),
+(100000003,100000006,N'Tôi có thể giúp gì cho bạn không?',GETDATE()),
+(100000003,100000004,N'Tôi có thể giúp gì cho bạn không?',GETDATE()),
+(100000003,100000002,N'Tôi có thể giúp gì cho bạn không?',GETDATE()),
+(100000003,100000001,N'Tôi có thể giúp gì cho bạn không?',GETDATE()),
+(100000003,100000011,N'Tôi có thể giúp gì cho bạn không?',GETDATE())

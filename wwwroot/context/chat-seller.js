@@ -6,9 +6,9 @@ const BOT_MSGS = [];
 
 // Icons made by Freepik from www.flaticon.com
 const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
-const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
-const BOT_NAME = "Đậu Đức Quân";
-const PERSON_NAME = "Fantasy Chicken";
+const PERSON_IMG = "/assets/images/user.png";
+var BOT_NAME = "Đậu Đức Quân";
+var PERSON_NAME = "Fantasy Chicken";
 
 msgerForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -58,7 +58,7 @@ function appendMessage(name, img, side, text, time = null) {
       </div>
     </div>
   `;
-
+  $(".msger-chat .msg").remove()
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }
@@ -89,45 +89,46 @@ function random(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-//function displayLogChat(userID, sellerID) {
-//  $.ajax({
-//    url: "/Chat/DisplayLogChat",
-//    data: {
-//      userID: userID,
-//      sellerID: sellerID,
-//    },
-//    type: "post",
-//    success: function (response) {
-//      BOT_NAME = response.userName;
-//      PERSON_NAME = response.sellerName;
-
-//      for (let i = 0; i < response.number; i++) {
-//        let side = response.pos[i];
-//        let msg = response.msg[i];
-//        let time = response.time[i];
-//        var sender_name;
-//        if ((side = "right")) {
-//          sender_name = PERSON_NAME;
-//        }
-//        if ((side = "left")) {
-//          sender_name = BOT_NAME;
-//        }
-//        appendMessage(sender_name, PERSON_IMG, side, msg, time);
-//      }
-//    },
-//  });
-//}
+function display_log_chat(buyerID) {
+    
+    $.ajax({
+        url: "DisplayLogChat",
+        data: {
+            "receiverID": buyerID
+        },
+        type: "json",
+        success: function (response) {
+            BOT_NAME = response.sellerName;
+            PERSON_NAME = response.userName;
+            for (let i = 0; i < response.number; i++) {
+                let side = response.pos[i];
+                let msg = response.msg[i];
+                let time = response.time[i];
+                var sender_name;
+                if (side == "right") { sender_name = PERSON_NAME; }
+                if (side == "left") { sender_name = BOT_NAME; }
+                appendMessage(sender_name, PERSON_IMG, side, msg, time);
+            }
+        },
+        error: function() {
+            alert("Log chat error");
+        }
+    });
+}
 
 // Hàm để thêm vào bên thanh Người nhắn
 function fetchMessages() {
-    $.get({
+    $.ajax({
         url: "/Chat/DisplayConversation",
+        type: "json",
+        async:false,
         success: function(response) {
             // Giả sử 'data' là một mảng các đối tượng, mỗi đối tượng có các thuộc tính 'status', 'imageUrl', 'username', 'message', và 'date'
             // status: xem class là msgs online hay msgs
             for (let i = 0; i < response.num; i++) {
                 addMessage(response.id[i], response.name[i], response.msg[i], response.time[i]);
             }
+            display_log_chat(response.id[0]);
         },
         error: function() {
             alert("Cannot display conversation");
@@ -136,7 +137,7 @@ function fetchMessages() {
 }
 
 function addMessage(userID, username, message, date) {
-    var html = '<div class="msgs" name="' + userID + '">' +
+    var html = '<div class="msgs" id="' + userID + '">' +
         '    <img class="msgs-profile" src="' + PERSON_IMG + '" alt="" />' +
                '    <div class="msgs-detail">' +
                '        <div class="msgs-username">' + username + '</div>' +
@@ -149,7 +150,14 @@ function addMessage(userID, username, message, date) {
     $('.conversation-area').append(html);
 }
 
+
+
 // Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
     fetchMessages();
+
+    $(".msgs").click(function () {
+        var buyerID = $(this).prop("id");
+        display_log_chat(buyerID);
+    });
 });
