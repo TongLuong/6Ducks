@@ -30,21 +30,23 @@ go
 create procedure saveLog
 @sndID int,
 @rcvID int,
-@msg nvarchar(255)
+@msg nvarchar(255),
+@time datetime out
 as
 begin
 	declare @res nvarchar(100) = N'Success';
+	set @time = getdate();
 	insert into LogChat values(
 		@sndID,
 		@rcvID,
 		@msg,
-		GETDATE()
+		@time
 	)	
 	select @res;
 end
 go
  load LogChat
-drop procedure loadLog
+--drop procedure loadLog
 create procedure loadLog
 @userIDView int,
 @objectIDView int
