@@ -118,11 +118,16 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public void SaveLogChat(int receiverID, string msg)
+        public void SaveLogChat(string receiverID, string msg)
         {
 
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
+            if (receiverID[0] != '1')
+            {
+                Login login = new Login();
+                receiverID = login.ConvertToUserID(receiverID);
+            }
 
             SqlCommand cmd = new SqlCommand
             (

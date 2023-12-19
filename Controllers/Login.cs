@@ -126,5 +126,30 @@ namespace DA_6Ducks.Controllers
             conn.Close();
             return result;
         }
+
+        public string ConvertToUserID(string userID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            string userType = userID.Substring(0, 2);
+
+            if (userType == "21")
+            {
+                SqlCommand cmd = new SqlCommand("select userID from Sellers where sellerID=@userID", conn);
+                cmd.Parameters.AddWithValue("@userID", userID);
+
+                string newUID = cmd.ExecuteScalar().ToString();
+                return newUID;
+            }
+            else if (userType == "22")
+            {
+                SqlCommand cmd = new SqlCommand("select userID from Buyers where buyerID=@userID", conn);
+                cmd.Parameters.AddWithValue("@userID", userID);
+
+                string newUID = cmd.ExecuteScalar().ToString();
+                return newUID;
+            }
+            else return null;
+        }
     }
 }
