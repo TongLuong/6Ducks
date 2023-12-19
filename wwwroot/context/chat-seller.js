@@ -58,7 +58,7 @@ function appendMessage(name, img, side, text, time = null) {
       </div>
     </div>
   `;
-  $(".msger-chat .msg").remove();
+  
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }
@@ -98,6 +98,7 @@ function display_log_chat(buyerID) {
         },
         type: "json",
         success: function (response) {
+            $(".msger-chat .msg").remove();
             BOT_NAME = response.sellerName;
             PERSON_NAME = response.userName;
             for (let i = 0; i < response.number; i++) {

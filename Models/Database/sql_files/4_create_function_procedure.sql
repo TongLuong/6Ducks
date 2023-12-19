@@ -426,15 +426,9 @@ begin
 	declare @buyerID int,@buyerName nvarchar(255),@senderID int,@receiverID int,@msg  nvarchar(255),@time datetime;
 
 	declare cur Cursor for 
-	select senderID,receiverID,msg,[time]
-	from
-	(
-		select senderID,receiverID,msg,[time],ROW_NUMBER() over (PARTITION BY senderID, receiverID ORDER BY [time] DESC) AS rowNum
+		select senderID,receiverID,msg,[time]
 		from LogChat
 		where (senderID=@user_id or receiverID=@user_id)
-	) as latestMsg
-	where rowNum=1;
-
 	
 
 	open cur
@@ -446,9 +440,21 @@ begin
 			set @buyerID = @receiverID;
 		else if (@receiverID=@user_id)
 			set @buyerID=@senderID;
-		set @buyerName=(select username from Users where userID=@buyerID);
-		insert into @rtntable values(@buyerID,@buyerName,@msg,@time);
-		fetch next from cur into @senderID,@receiverID,@msg,@time;
+		if (@buyerID in (select buyerID from @rtntable))
+			fetch next from cur into @senderID,@receiverID,@msg,@time;
+		else
+		begin
+			declare @tmpMsg nvarchar(255),@tmpTime datetime;
+
+			select top(1) @tmpMsg=msg,@tmpTime=[time] 
+			from LogChat 
+			where (senderID=@user_id and receiverID=@buyerID) or(senderID=@buyerID and receiverID=@user_id)
+			order by [time] desc
+
+			set @buyerName=(select username from Users where userID=@buyerID);
+			insert into @rtntable values(@buyerID,@buyerName,@tmpMsg,@tmpTime);
+			fetch next from cur into @senderID,@receiverID,@msg,@time;
+		end
 	end
 
 	close cur;
@@ -457,3 +463,5 @@ begin
 	return
 end
 go
+
+select * from display_conversation(100000003);
