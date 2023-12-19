@@ -183,5 +183,48 @@ namespace DA_6Ducks.Controllers
                 new { id = buyerIDs,name = buyerName, msg = msgs, time = times,num=msgs.Count }
             );
         }
+
+        static string currentConversation = "";//only used for seller chat
+        public void SaveCurrentConversation(string receiverID)
+        {
+            currentConversation = receiverID;
+        }
+
+        public JsonResult SaveLogChatSeller(string msg)//only used for seller chat
+        {
+
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.saveLog",
+                conn
+            );
+
+            string senderID = Session.sessionID;
+            SqlParameter time = cmd.Parameters.Add("@time", SqlDbType.DateTime);
+            time.Direction = ParameterDirection.Output;
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@sndID", senderID);
+            cmd.Parameters.AddWithValue("@rcvID", currentConversation);
+            cmd.Parameters.AddWithValue("@msg", msg);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            string timeVal = ((DateTime)time.Value).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+
+            return new JsonResult(new
+            {
+                buyerID = currentConversation,
+                timeSave = timeVal
+            });
+        }
+
+
     }
 }
