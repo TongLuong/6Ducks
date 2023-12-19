@@ -182,6 +182,7 @@ end
 
 go
 --insert BillItems (use BillID ) -- use loop in application
+--drop procedure insert_BillItems
 create procedure insert_BillItems
 @sellerID int,
 @BillID int,
