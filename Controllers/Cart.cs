@@ -119,5 +119,27 @@ namespace DA_6Ducks.Controllers
 
             conn.Close();
         }
+
+        public void DeleteCartItems(string buyerID, string productID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "DELETE FROM dbo.[CartItems] " +
+                "WHERE productID = @productID " +
+                "AND buyerID = @buyerID"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@buyerID", Session.sessionTypeID);
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

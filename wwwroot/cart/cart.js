@@ -90,26 +90,36 @@ $(document).ready(function () {
                 $(".cart-item-" + i + " .item-total-price span").text(totalPrice);
 
                 //Delete cart-item 
-                $(".delete-cart-item").click(function () {
-                    $(".delete-side").show();
-
-                    var item = $(this);
-
-                    $(".delete-popup button").click(function (e) {
-                        if (e.target === $("#confirm-delete")[0]) {
-                            item.closest(".cart-item").replaceWith("");
-                            $(".delete-side").hide();
-                            //Load lại cart list
-                            ///...............
-                        } else if (e.target === $("#cancel-delete")[0]) {
-                            $(".delete-side").hide();
-                        };
-                    }); 
-                });
+                deleteCartItems(i, temp.productID);
             }
         }
     });
 
+    function deleteCartItems(index, productID) {
+        $(".cart-item-" + index + " .delete-cart-item").click(function () {
+            $(".delete-side").show();
+            
+            var item = $(this);
+
+            $(".delete-popup button").click(function (e) {
+                if (e.target === $("#confirm-delete")[0]) {
+                    item.closest(".cart-item").replaceWith("");
+                    $(".delete-side").hide();
+
+                    $.ajax({
+                        url: "Cart/DeleteCartItems",
+                        data: {
+                            "buyerID": "",
+                            "productID": productID
+                        }
+                    });
+                } else if (e.target === $("#cancel-delete")[0]) {
+                    $(".delete-side").hide();
+                };
+            });
+        });
+    }
+    
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener("change", function () {
@@ -140,7 +150,7 @@ $(document).ready(function () {
             var totalPrice = 0;
             var itemList = $(".cart-item");
             itemList.each(function () {
-                if ($(this).find('.cart-list input[type="checkbox"]').prop("checked")) {
+                if ($(this).find('input[type="checkbox"]').prop("checked")) {
                     var priceText = $(this)
                         .find(".item-total-price span")
                         .text();
