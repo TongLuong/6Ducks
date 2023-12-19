@@ -130,14 +130,76 @@
                         </div>
                     </form>
                 </div>
+                <div class="cash">
+                    <h1>Phương thức thanh toán</h1>
+                    <div class="content">
+                        <div class="left">
+                            <div>
+                                <input type="checkbox" name="cod-method" id="cod-method" />
+                                <label for="cod-method">Thanh toán khi nhận hàng</label>
+                            </div>
+                            <form action="" class="cod-form">
+                                <div>
+                                    <input type="text" name="name" id="name" />
+                                    <label for="name">Tên người nhận</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="phone" id="phone" />
+                                    <label for="phone">SĐT liên lạc khi nhận hàng</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="address" id="address" />
+                                    <label for="address">Địa chỉ</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="right">
+                            <div>
+                                <input type="checkbox" name="banking-method" id="banking-method" />
+                                <label for="banking-method">Thanh toán online qua ngân hàng</label>
+                            </div>
+                            <form action="" class="bank-form">
+                                <div>
+                                    <select name="bank" id="bank">
+                                        <option value="1">MB Bank</option>
+                                        <option value="2">BIDV</option>
+                                        <option value="3">Vietcombank</option>
+                                        <option value="4">OCB</option>
+                                    </select>
+                                    <label for="bank">Ngân hàng</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="stk" id="stk" />
+                                    <label for="stk">STK ngân hàng</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="bank-name" id="bank-name" />
+                                    <label for="bank-name">Chủ tài khoản</label>
+                                </div>
+                                <div>
+                                    <input type="password" name="otp" id="otp" />
+                                    <label for="otp">OTP xác nhận</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="total">
                     <label for="total">Tổng thanh toán</label>
                     <input type="number" class="total" readonly />
                 </div>
                 <div class="btn-group">
                     <button type="button" id="cancel">Hủy</button>
+                    <button type="submit" id="next">Tiếp theo</button>
                     <button type="submit" id="confirm-buy">Mua ngay</button>
                 </div>
+            </div>
+            <div class="success wrapper">
+                <h1>Đặt hàng thành công!</h1>
+                <div class="text">
+                    Bạn đã hoàn tất giao dịch đặt hàng! Hãy chờ người bán xác nhận đơn hàng và đóng gói gửi đến cho bạn nhé!
+                </div>
+                <button type="button" id="buy-done">Xong</button>
             </div>
         </div>
     </div>

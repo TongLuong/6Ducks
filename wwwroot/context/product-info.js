@@ -303,8 +303,9 @@
 
     $(".cash #buy-confirm").click(function () {
         var currency = $(".total-cost").val();
+        var payment = $('input[name="cod-method"], ' +
+            'input[name="banking-method"] input:checked');
 
-        var payment = $("#cod-method, #banking-method, input:checked");
         var totalPrice = Number(currency.replace(/[^0-9.-]+/g, ""));
         var address = $("#address").val();
         var pmethodID = payment.prop("id");

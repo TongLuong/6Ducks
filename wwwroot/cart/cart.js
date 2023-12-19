@@ -7,7 +7,42 @@ $(document).ready(function () {
         type = 1;
     }*/
     $(".delete-side").hide();
+    $(".overlay-cart .success").css("display", "none");
+    
+    $(".overlay-cart .cash").css("display", "none");
+    $(".overlay-cart #confirm-buy").css("display", "none");
+    $(".cash .left form").css("opacity", "0");
+    $(".cash .right form").css("opacity", "0");
+    $("#next").click(function () {
+        $(".overlay-cart .buy").css("display", "none");
+        $(".overlay-cart .cash").css("display", "");
 
+        $(".overlay-cart #confirm-buy").css("display", "");
+        $(".overlay-cart #next").css("display", "none");
+
+        let checkboxes = document.querySelectorAll('.overlay-cart input[type="checkbox"]');
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("change", function () {
+                checkboxes.forEach(function (c) {
+                    if (c !== checkbox) c.checked = false;
+                });
+                if ($(".cash .left").has(this).length) {
+                    if (this.checked)
+                        $(".cash .left form").css("opacity", "1");
+                    else
+                        $(".cash .left form").css("opacity", "0");
+                    $(".cash .right form").css("opacity", "0");
+                } else {
+                    $(".cash .left form").css("opacity", "0");
+                    if (this.checked)
+                        $(".cash .right form").css("opacity", "1");
+                    else
+                        $(".cash .right form").css("opacity", "0");
+                }
+            });
+        });
+    });
+    
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
@@ -93,19 +128,19 @@ $(document).ready(function () {
     });
 
     $("#mark-all").click(function () {
-        if ($('input[type="checkbox"]').prop("checked") &&
+        if ($('.cart-list input[type="checkbox"]').prop("checked") &&
             $(this).text() == "Hủy chọn tất cả") {
             $(this).text("Chọn tất cả");
-            $('input[type="checkbox"]').prop("checked", false);
+            $('.cart-list input[type="checkbox"]').prop("checked", false);
             $(".total-price span").text("0");
         } else {
             $(this).text("Hủy chọn tất cả");
-            $('input[type="checkbox"]').prop("checked", true);
+            $('.cart-list input[type="checkbox"]').prop("checked", true);
 
             var totalPrice = 0;
             var itemList = $(".cart-item");
             itemList.each(function () {
-                if ($(this).find('input[type="checkbox"]').prop("checked")) {
+                if ($(this).find('.cart-list input[type="checkbox"]').prop("checked")) {
                     var priceText = $(this)
                         .find(".item-total-price span")
                         .text();
@@ -128,6 +163,15 @@ $(document).ready(function () {
 
                 $("#method").append(op);
             }
+        }
+    );
+
+    $.get(
+        "Product/LoadPaymentMethods",
+        {},
+        function (response) {
+            $("#cod-method").attr("id", response.data[0].value.pmethodID);
+            $("#banking-method").attr("id", response.data[1].value.pmethodID);
         }
     );
 
@@ -174,9 +218,12 @@ $(document).ready(function () {
         $(".total").val($(".total-price span").text());
 
         $("#confirm-buy").click(function () {
+            var payment = $('input[name="cod-method"], ' +
+                'input[name="banking-method"] input:checked');
+
             var totalPrice = $(".total").val();
             var address = $("#address").val();
-            var pmethodID = "";
+            var pmethodID = payment.prop("id");
             var smethodID = $("#method").val();
             var billID;
             $.ajax({
@@ -197,12 +244,12 @@ $(document).ready(function () {
                 }
             });
 
-            for (var i = 0; i < itemChose.length; i++) {
+            for (var i = 0; i < itemsChose.length; i++) {
                 $.ajax({
                     url: "Product/AddBillItems",
                     data: {
                         "billID": billID,
-                        "selleruserID": itemsChoseSellerID[i],
+                        "sellerID": itemsChoseSellerID[i],
                         "productID": itemsChoseID[i],
                         "quantity": itemsChoseQuant[i],
                         "price": itemsChoseTotalPrice[i]
@@ -210,12 +257,25 @@ $(document).ready(function () {
                     async: false
                 });
             }
+
+            $(".overlay-cart .wrapper").css("display", "none");
+            $(".overlay-cart .success").css("display", "");
         });
 
         $(".overlay-cart").show();
         $("#cancel").click(function () {
             $(".overlay-cart").hide();
             $(".overlay-cart input").val("");
+
+            $(".overlay-cart .buy").css("display", "");
+            $(".overlay-cart .cash").css("display", "none");
+
+            $(".overlay-cart #confirm-buy").css("display", "none");
+            $(".overlay-cart #next").css("display", "");
         });
+    });
+
+    $("#buy-done").click(function () {
+        $(".overlay-cart .success").css("display", "none");
     });
 });
