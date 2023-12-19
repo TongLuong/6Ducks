@@ -466,5 +466,3 @@ begin
 	return
 end
 go
-
-select * from display_conversation(100000003);
