@@ -117,6 +117,26 @@ function displayLogChat(receiverID) {
     });
 }
 
+function saveChat() {
+    var msgText = $(".msger-input").val();
+    if (!msgText) return;
+
+    $.ajax({
+        url: "SaveLogChat",
+        type: "post",
+        data: {
+            "receiverID": receiverID,
+            "msg": msgText
+        },
+        success: function () {
+            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+            msgerInput.value = "";
+
+            botResponse();
+        }
+    });
+}
+
 //Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
     var urlParams = new URLSearchParams(window.top.location.search);
@@ -125,27 +145,13 @@ $(document).ready(function () {
 
     $(".msger-input").keydown(function (event) {
         if (event.keyCode === 13) { // Enter key
-            $("#msger-send-btn").click();
+            saveChat();
         };
     });
 
     $("#msger-send-btn").click(function () {
-        var msgText = $(".msger-input").val();
-        if (!msgText) return;
-
-        $.ajax({
-            url: "SaveLogChat",
-            type: "post",
-            data: {
-                "receiverID": receiverID,
-                "msg": msgText
-            },
-            success: function () {
-                appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-                msgerInput.value = "";
-
-                botResponse();
-            }
-        });
+        saveChat();
     });
+
+
 });
