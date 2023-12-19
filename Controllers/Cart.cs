@@ -58,11 +58,11 @@ namespace DA_6Ducks.Controllers
                     }
 
                     List<string> imgs = new List<string>();
-                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[5]);
+                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[6]);
                     FileInfo[] files = di.GetFiles();
                     foreach (FileInfo file in files)
                     {
-                        imgs.Add(temp[5] + "/" + file.Name);
+                        imgs.Add(temp[6] + "/" + file.Name);
                     }
 
                     result.Add
@@ -72,10 +72,11 @@ namespace DA_6Ducks.Controllers
                             new
                             {
                                 buyerID = temp[0],
-                                productID = temp[1],
-                                quantity = temp[2],
-                                price = temp[3],
-                                name = temp[4],
+                                sellerID = temp[1],
+                                productID = temp[2],
+                                quantity = temp[3],
+                                price = temp[4],
+                                name = temp[5],
                                 imgLink = imgs
                             }
                         )
@@ -93,8 +94,8 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public void AddCartItems(string buyerID, string productID, 
-            string quantity, string price)
+        public void AddCartItems(string buyerID, string sellerID,
+            string productID, string quantity, string price)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -108,7 +109,8 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@userID", Session.sessionID);
+            cmd.Parameters.AddWithValue("@buyerID", Session.sessionTypeID);
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@productID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);
             cmd.Parameters.AddWithValue("@price", price);

@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/cart/cart.css" />
     <link rel="stylesheet" href="/assets/styles/globals.css" />
     <link rel="stylesheet" href="/assets/styles/header-footer.css" />
@@ -16,6 +17,15 @@
 </head>
 
 <body>
+    <div class="delete-side">
+        <div class="delete-popup">
+            <h4>Chắc chắn xóa?</h4>
+            <div class="btn-group">
+                <button id="confirm-delete">Xóa</button>
+                <button id="cancel-delete">Không</button>
+            </div>
+        </div>
+    </div>
     <div class="main-cart">
         <div class="wrapper">
             <h1>Giỏ hàng</h1>
@@ -25,7 +35,7 @@
                 <button type="button" id="mark-all">Chọn tất cả</button>
                 <button type="button" id="make-buy">Mua ngay</button>
             </div>
-            <div class="cart-list">
+            <div class="cart-list waiting-cart-list">
                 <!-- <div class="cart-item">
                     <img src="/assets/images/DieuKyDieuCuaTiemTapHoaNamiya/book-1-1.png" alt="" />
                     <div class="detail">
@@ -73,8 +83,11 @@
                         <span class="quantity">Số lượng: <span>1</span></span>
                         <span class="item-price">Đơn giá: <span>86000</span>đ</span>
                     </div>
-                    <span class="item-total-price">Tổng: <span>86000</span>đ</span>
-                    <input type="checkbox" name="item-choose" />
+                    <span class="item-total-price">
+                        Tổng: <span>86000</span>đ
+                        <input type="checkbox" name="item-choose" />
+                    </span>
+                    <div class="delete-cart-item">Xóa</div>
                 </div> -->
             </div>
         </div>
@@ -82,12 +95,12 @@
             <div class="wrapper">
                 <h1>Mua hàng</h1>
                 <div class="buy">
-                    <div class="cart-list">
-                        <div class="cart-item">
+                    <div class="cart-list buy-cart-list">
+                        <!-- <div class="cart-item">
                             <img src="/assets/images/DieuKyDieuCuaTiemTapHoaNamiya/book-1-1.png" alt="" />
                             <span class="detail">Điều kì diệu ở tiệm tạp hóa Namiya</span>
                             <span class="item-price"><span>86.000</span>đ</span>
-                        </div>
+                        </div> -->
                     </div>
                     <form class="buyer-info" method="post" action="">
                         <h1>Thông tin nhận hàng</h1>
@@ -105,9 +118,9 @@
                         </div>
                         <div>
                             <select name="method" id="method">
-                                <option value="fast">Nhanh</option>
+                                <!-- <option value="fast">Nhanh</option>
                                 <option value="x-fast">Hỏa tốc</option>
-                                <option value="saving">Tiết kiệm</option>
+                                <option value="saving">Tiết kiệm</option> -->
                             </select>
                             <label for="method">Phương thức giao hàng</label>
                         </div>
@@ -119,7 +132,7 @@
                 </div>
                 <div class="total">
                     <label for="total">Tổng thanh toán</label>
-                    <input type="text" readonly />
+                    <input type="number" class="total" readonly />
                 </div>
                 <div class="btn-group">
                     <button type="button" id="cancel">Hủy</button>

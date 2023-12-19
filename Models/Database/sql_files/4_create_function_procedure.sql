@@ -160,7 +160,6 @@ go
 --drop procedure insert_Bill
 create procedure insert_Bill -- get the output of this procedure to insert BillItems
 @buyerID int,
-@sellerID int,
 @totalPrice int,
 @address nvarchar(255),
 @pmethod int,
@@ -170,11 +169,11 @@ create procedure insert_Bill -- get the output of this procedure to insert BillI
 @billID int output
 as
 begin
-	insert into Bills (buyerID,sellerID,totalPrice,[time],[address],pmethodID,smethodID,
+	insert into Bills (buyerID,totalPrice,[address],pmethodID,smethodID,
 	discountVoucher, freeshipVoucher)
 	output inserted.billID
 	values(
-		@buyerID,@sellerID,@totalPrice,getdate(),@address,@pmethod,@smethod,
+		@buyerID,@totalPrice,@address,@pmethod,@smethod,
 		@discountVchID,@freeShipVchID
 	)
 
@@ -184,14 +183,15 @@ end
 go
 --insert BillItems (use BillID ) -- use loop in application
 create procedure insert_BillItems
+@sellerID int,
 @BillID int,
 @ProductID int,
 @quantity int,
 @price int
 as
 begin
-	insert into BillItems (billID,productID,quantity,price) values
-	(@BillID, @ProductID, @quantity,@price)
+	insert into BillItems (sellerID,billID,productID,quantity,price) values
+	(@sellerID,@BillID,@ProductID,@quantity,@price)
 end
 go
 
@@ -331,17 +331,13 @@ end
 go
 --drop procedure insert_cart_item
 create procedure insert_cart_item
-@userID int, 
+@buyerID int,
+@sellerID int,
 @productID int,
 @quantity int,
 @price int
 as
 begin
-	declare @buyerID int
-	select @buyerID = buyerID
-	from Buyers
-	where userID = @userID
-
 	if exists
 	(
 		select * 
@@ -355,7 +351,8 @@ begin
 	end
 	else
 	begin
-		insert into CartItems values (@buyerID, @productID, @quantity, @price)
+		insert into CartItems values 
+		(@buyerID, @sellerID, @productID, @quantity, @price)
 	end
 end
 go
@@ -428,20 +425,13 @@ as
 begin
 	declare @buyerID int,@buyerName nvarchar(255),@senderID int,@receiverID int,@msg  nvarchar(255),@time datetime;
 
-
-
 	declare cur Cursor for 
+	select l1.senderID,l1.receiverID,l1.msg,l1.[time]
 	from LogChat l1
-	select senderID,receiverID,msg,[time]
-	from
-	(
-		select senderID,receiverID,msg,[time],ROW_NUMBER() over (PARTITION BY senderID, receiverID ORDER BY [time] DESC) AS rowNum
-		from LogChat
-		where (senderID=@user_id or receiverID=@user_id)
-	) as latestMsg
-	where rowNum=1;
-
-	
+	where (l1.senderID=@user_id or l1.senderID=@user_id) and l1.[time] >= 
+		(select l2.[time] 
+		from LogChat l2 
+		where (l2.senderID=@user_id or l2.senderID=@user_id))
 
 	open cur
 	fetch next from cur into @senderID,@receiverID,@msg,@time;
@@ -463,5 +453,3 @@ begin
 	return
 end
 go
-
-select * from display_conversation(100000003);
