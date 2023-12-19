@@ -58,7 +58,7 @@ function appendMessage(name, img, side, text, time = null) {
       </div>
     </div>
   `;
-  $(".msger-chat .msg").remove()
+  $(".msger-chat .msg").remove();
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }
