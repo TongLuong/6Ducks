@@ -11,8 +11,9 @@ $(document).ready(function () {
     
     $(".overlay-cart .cash").css("display", "none");
     $(".overlay-cart #confirm-buy").css("display", "none");
-    $(".cash .left form").css("opacity", "0");
-    $(".cash .right form").css("opacity", "0");
+    $(".cash .left #cod-method").attr("checked", true);
+    $(".cash .left form").css("display", "");
+    $(".cash .right form").css("display", "none");
     $("#next").click(function () {
         $(".overlay-cart .buy").css("display", "none");
         $(".overlay-cart .cash").css("display", "");
@@ -23,21 +24,26 @@ $(document).ready(function () {
         let checkboxes = document.querySelectorAll('.overlay-cart input[type="checkbox"]');
         checkboxes.forEach(function (checkbox) {
             checkbox.addEventListener("change", function () {
+                if (!checkbox.checked) {
+                    checkbox.checked = true;
+                    return;
+                }
+
                 checkboxes.forEach(function (c) {
                     if (c !== checkbox) c.checked = false;
                 });
                 if ($(".cash .left").has(this).length) {
                     if (this.checked)
-                        $(".cash .left form").css("opacity", "1");
+                        $(".cash .left form").css("display", "");
                     else
-                        $(".cash .left form").css("opacity", "0");
-                    $(".cash .right form").css("opacity", "0");
+                        $(".cash .left form").css("display", "none");
+                    $(".cash .right form").css("display", "none");
                 } else {
-                    $(".cash .left form").css("opacity", "0");
+                    $(".cash .left form").css("display", "none");
                     if (this.checked)
-                        $(".cash .right form").css("opacity", "1");
+                        $(".cash .right form").css("display", "");
                     else
-                        $(".cash .right form").css("opacity", "0");
+                        $(".cash .right form").css("display", "none");
                 }
             });
         });
