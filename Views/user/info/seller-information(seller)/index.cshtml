@@ -146,46 +146,91 @@
 				</div>
 			</div>
 
-			<div class="layout product">
-				<div class="pagination">
-					<p class="arrow back">&#129120;</p>
-					<p class="active">01</p>
-					<p>02</p>
-					<p>03</p>
-					<p>04</p>
-					<p>05</p>
-					<p>06</p>
-					<p class="arrow forward">&#129122;</p>
-				</div>
-				<div class="product-list page-1 active"></div>
-				<div class="product-list page-2"></div>
-				<div class="product-list page-3"></div>
-				<div class="product-list page-4"></div>
-				<div class="product-list page-5"></div>
-				<div class="product-list page-6"></div>
-			</div>
-		</div>
-	</div>
-	<script type="module" src="/context/seller-info.js"></script>
-	<script type="module" src="/context/seller-main.js"></script>
-	<script>
-		function display_bill(billID, status, time, totalPrice, status_show) {
-			const html =
-				' <div class="row" id="bill">' +
-				' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
-				'<div class="cell" data-title="TRẠNG THÁI">' +
-				'<select class="status">' +
-				'<option value="' + status + '" selected>' + status_show + '</option>' +
-				// 1 status cho option value và 1 status để hiển thị lựa chọn, xem 2 sample ở trên
-				'</select>' +
-				'</div>' +
-				'<div class="cell" data-title="THỜI GIAN">' +
-				time +
-				'</div>' +
-				'<div class="cell" data-title="THANH TOÁN">' + totalPrice + '</div>' +
-				'</div > ';
-			$('.table').append(html);
-		}
+      <div class="layout product">
+        <div class="product-list page-1 active">
+            <div class="product-item" id="">
+                <img src="/assets//images/BoSachKeChuyenCuocDoiCacThienTai/book-1-1.jpg" alt="" class="imgtag" id="imgtag" />
+                <div class="container">
+                    <header class="product-name" id="">
+                        Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
+                    </header>
+                    <div class="price" id="">129.000đ</div>
+                    <div class="rate" id="">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>(1857)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item" id="">
+                <img src="/assets//images/BoSachKeChuyenCuocDoiCacThienTai/book-1-1.jpg" alt="" class="imgtag" id="imgtag" />
+                <div class="container">
+                    <header class="product-name" id="">
+                        Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
+                    </header>
+                    <div class="price" id="">129.000đ</div>
+                    <div class="rate" id="">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>(1857)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item" id="">
+                <img src="/assets//images/BoSachKeChuyenCuocDoiCacThienTai/book-1-1.jpg" alt="" class="imgtag" id="imgtag" />
+                <div class="container">
+                    <header class="product-name" id="">
+                        Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
+                    </header>
+                    <div class="price" id="">129.000đ</div>
+                    <div class="rate" id="">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>(1857)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item" id="">
+                <img src="/assets//images/BoSachKeChuyenCuocDoiCacThienTai/book-1-1.jpg" alt="" class="imgtag" id="imgtag" />
+                <div class="container">
+                    <header class="product-name" id="">
+                        Điều kì diệu của tạp hóa Namiya (Tái bản 2018)
+                    </header>
+                    <div class="price" id="">129.000đ</div>
+                    <div class="rate" id="">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>(1857)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+          <p class="arrow back">&#129120;</p>
+          <p class="arrow forward">&#129122;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<script type="module" src="/context/seller-info.js"></script>
+<script type="module" src="/context/seller-main.js"></script>
+<script>
+  const closeButton = document.getElementById("close");
+  closeButton.addEventListener("click", () => {
+    const tableWrapper = document.getElementById("table_wrapper");
+    tableWrapper.style.display = "none";
 
 		function display_all_bill() {
 			$.ajax({

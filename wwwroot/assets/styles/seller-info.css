@@ -359,21 +359,20 @@ label.star:before {
   row-gap: 20px;
   align-items: center;
   .active {
-    display: flex;
+    display: grid;
   }
 }
 
 .product-list {
-  width: 100%;
+  width: 60%;
   display: none;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .product-item {
-  flex-grow: 1;
-  width: calc(50% - 30px);
+  margin: 0 auto;
+  width: 90%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
