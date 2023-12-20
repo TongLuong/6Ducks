@@ -36,7 +36,7 @@ namespace DA_6Ducks.Controllers
             SqlCommand cmd = new SqlCommand
             (
                 "SELECT avgStar FROM dbo.Products " +
-                "WHERE productID = " + productID, 
+                "WHERE productID = @productID", 
                 conn
             );
 
