@@ -128,8 +128,8 @@ CREATE TABLE Bills (
     billID INTEGER IDENTITY(500000001,1) PRIMARY KEY,
     buyerID INTEGER,
         FOREIGN KEY (buyerID) REFERENCES Buyers (buyerID),
-    --sellerID INTEGER,
-        --FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
+    sellerID INTEGER,
+        FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
     billStatus VARCHAR(15) DEFAULT 'Confirming',
     totalPrice INTEGER,
     [time] DATETIME, 
@@ -155,8 +155,8 @@ GO
 IF OBJECT_ID(N'dbo.BillItems', N'U') IS NULL
 CREATE TABLE BillItems (
     --billitemID INTEGER IDENTITY(600000001,1) PRIMARY KEY,
-	sellerID INTEGER,
-        FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
+	--sellerID INTEGER,
+        --FOREIGN KEY (sellerID) REFERENCES Sellers (sellerID),
     billID INTEGER,
         FOREIGN KEY (billID) REFERENCES Bills (billID),
     productID INTEGER,

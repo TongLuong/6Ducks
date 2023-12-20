@@ -162,6 +162,7 @@ go
 --drop procedure insert_Bill
 create procedure insert_Bill -- get the output of this procedure to insert BillItems
 @buyerID int,
+@sellerID int,
 @totalPrice int,
 @address nvarchar(255),
 @pmethod int,
@@ -171,11 +172,11 @@ create procedure insert_Bill -- get the output of this procedure to insert BillI
 @billID int output
 as
 begin
-	insert into Bills (buyerID,totalPrice,[address],pmethodID,smethodID,
+	insert into Bills (buyerID,sellerID,totalPrice,[address],pmethodID,smethodID,
 	discountVoucher, freeshipVoucher)
 	output inserted.billID
 	values(
-		@buyerID,@totalPrice,@address,@pmethod,@smethod,
+		@buyerID,@sellerID,@totalPrice,@address,@pmethod,@smethod,
 		@discountVchID,@freeShipVchID
 	)
 
@@ -186,15 +187,14 @@ go
 --insert BillItems (use BillID ) -- use loop in application
 --drop procedure insert_BillItems
 create procedure insert_BillItems
-@sellerID int,
 @BillID int,
 @ProductID int,
 @quantity int,
 @price int
 as
 begin
-	insert into BillItems (sellerID,billID,productID,quantity,price) values
-	(@sellerID,@BillID,@ProductID,@quantity,@price)
+	insert into BillItems (billID,productID,quantity,price) values
+	(@BillID,@ProductID,@quantity,@price)
 end
 go
 
