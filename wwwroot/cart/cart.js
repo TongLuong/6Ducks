@@ -139,7 +139,8 @@ $(document).ready(function () {
                     totalPrice += Number(priceText);
                 }
             });
-            $(".total-price span").text(totalPrice);
+            var shipping_price = Number($("#cost").val());
+            $(".total-price span").text(totalPrice + shipping_price);
         });
     });
 
@@ -163,10 +164,12 @@ $(document).ready(function () {
                     totalPrice += Number(priceText);
                 }
             });
-            $(".total-price span").text(totalPrice);
+            var shipping_price = Number($("#cost").val());
+            $(".total-price span").text(totalPrice + shipping_price);
         }
     });
 
+    var shippingPrice = {};
     $.get(
         "Product/LoadShippingMethods",
         {},
@@ -178,9 +181,23 @@ $(document).ready(function () {
                     + temp.name + `</option>`;
 
                 $("#method").append(op);
+                shippingPrice[temp.smethodID] = temp.price;
+
+                if (i == 0) {
+                    $('#method option[value="'
+                        + temp.smethodID + '"]').attr("selected", true);
+                    $("#cost").val(temp.price);
+                }
             }
         }
     );
+
+    $("#method").on('change', function (e) {
+        $("#cost").val(shippingPrice[this.value]);
+
+        $(".total").val(Number($(".total-price span").text()) +
+            Number($("#cost").val()));
+    });
 
     $.get(
         "Product/LoadPaymentMethods",

@@ -49,7 +49,9 @@
 
         var currency = $("#price").text();
         var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-        $(".total-cost").val(Number($(".total-cost").val()) + curr_price);
+        var shipping_price = Number($("#cost").val());
+        $(".total-cost").val(Number($(".total-cost").val())
+            + curr_price + shipping_price);
     });
     $("#reduce").click(function () {
         $("#quantity").val(function () {
@@ -65,7 +67,6 @@
         });
     });
     
-
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
         location.href = "UserInfo/SellerInfo" + "?seller=" + seller_id;
@@ -78,6 +79,7 @@
 
     $(".disabled > .wrapper").hide();
 
+    var shippingPrice = {};
     $.get(
         "Product/LoadShippingMethods",
         {},
@@ -89,9 +91,20 @@
                     + temp.name + `</option>`;
 
                 $("#method").append(op);
+                shippingPrice[temp.smethodID] = temp.price;
+
+                if (i == 0) {
+                    $('#method option[value="'
+                        + temp.smethodID + '"]').attr("selected", true);
+                    $("#cost").val(temp.price);
+                }
             }
         }
     );
+
+    $("#method").on('change', function (e) {
+        $("#cost").val(shippingPrice[this.value]);
+    });
 
     $.get(
         "Product/LoadPaymentMethods",
@@ -306,7 +319,7 @@
         var payment = $('input[name="cod-method"], ' +
             'input[name="banking-method"] input:checked');
 
-        var totalPrice = Number(currency.replace(/[^0-9.-]+/g, ""));
+        //var totalPrice = Number(currency.replace(/[^0-9.-]+/g, ""));
         var address = $("#address").val();
         var pmethodID = payment.prop("id");
         var smethodID = $("#method").val();
@@ -318,7 +331,7 @@
                 "buyerID": "",
                 "sellerID": seller_id,
                 "billStatus": "",
-                "totalPrice": totalPrice,
+                "totalPrice": 0, // ignore
                 "address": address,
                 "pmethodID": pmethodID,
                 "smethodID": smethodID,
