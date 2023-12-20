@@ -181,5 +181,38 @@ BEGIN
 	DEALLOCATE cur7
 END
 
-go
+GO
+-- update total price in Bills after insert into BillItems
+-- DROP TRIGGER update_total_price
+CREATE TRIGGER update_total_price
+ON BillItems
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+	DECLARE @totalCost INTEGER = NULL
+	DECLARE @currBillID INTEGER
+	DECLARE cur8 CURSOR FOR
+	(SELECT billID FROM Bills)
+
+	OPEN cur8
+	FETCH FROM cur8 INTO @currBillID
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		SELECT @totalCost = SUM(price * quantity)
+		FROM BillItems
+		WHERE billID = @currBillID
+
+		IF @totalCost IS NULL
+			SET @totalCost = 0
+
+		UPDATE Bills
+		SET totalPrice = @totalCost
+		WHERE billID = @currBillID
+
+		FETCH FROM cur8 INTO @currBillID
+	END
+
+	CLOSE cur8
+	DEALLOCATE cur8
+END
 --------------------------------
