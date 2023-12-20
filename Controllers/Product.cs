@@ -350,7 +350,7 @@ namespace DA_6Ducks.Controllers
             );
         }
 
-        public JsonResult CreateBill(string buyerID,
+        public JsonResult CreateBill(string buyerID, string sellerID,
             string billStatus, string totalPrice, string address, 
             string pmethodID, string smethodID, string discountVoucher, 
             string freeshipVoucher)
@@ -368,6 +368,7 @@ namespace DA_6Ducks.Controllers
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@buyerID", Session.sessionTypeID);
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@totalPrice", totalPrice);
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@pmethod", pmethodID);
@@ -387,7 +388,7 @@ namespace DA_6Ducks.Controllers
             return new JsonResult(new { billID = bill_id });
         }
 
-        public void AddBillItems(string billID, string sellerID,
+        public void AddBillItems(string billID,
             string productID, string quantity, string price)
         {
             if (conn.State == ConnectionState.Closed)
@@ -401,7 +402,6 @@ namespace DA_6Ducks.Controllers
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@sellerID", sellerID);
             cmd.Parameters.AddWithValue("@BillID", billID);
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);

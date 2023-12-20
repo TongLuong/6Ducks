@@ -316,6 +316,7 @@
             url: "Product/CreateBill",
             data: {
                 "buyerID": "",
+                "sellerID": seller_id,
                 "billStatus": "",
                 "totalPrice": totalPrice,
                 "address": address,
@@ -338,7 +339,6 @@
             url: "Product/AddBillItems",
             data: {
                 "billID": billID,
-                "sellerID": seller_id,
                 "productID": product_id,
                 "quantity": quantity,
                 "price": price

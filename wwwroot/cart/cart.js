@@ -231,38 +231,57 @@ $(document).ready(function () {
             var payment = $('input[name="cod-method"], ' +
                 'input[name="banking-method"] input:checked');
 
-            var totalPrice = $(".total").val();
+            //var totalPrice = $(".total").val();
             var address = $("#address").val();
             var pmethodID = payment.prop("id");
             var smethodID = $("#method").val();
-            var billID;
-            $.ajax({
-                url: "Product/CreateBill",
-                data: {
-                    "buyerID": "",
-                    "billStatus": "",
-                    "totalPrice": totalPrice,
-                    "address": address,
-                    "pmethodID": pmethodID,
-                    "smethodID": smethodID,
-                    "discountVoucher": null,
-                    "freeshipVoucher": null
-                },
-                async: false,
-                success: function (response) {
-                    billID = response.billID;
-                }
-            });
+
+            var sellerBillPair = {}; // sellerID: billID
 
             for (var i = 0; i < itemsChose.length; i++) {
+                if (!(itemsChoseSellerID[i] in sellerBillPair)) {
+                    $.ajax({
+                        url: "Product/CreateBill",
+                        data: {
+                            "buyerID": "", // ignore
+                            "sellerID": itemsChoseSellerID[i],
+                            "billStatus": "", // ignore
+                            "totalPrice": 0, // ignore?
+                            "address": address,
+                            "pmethodID": pmethodID,
+                            "smethodID": smethodID,
+                            "discountVoucher": null,
+                            "freeshipVoucher": null
+                        },
+                        async: false,
+                        success: function (response) {
+                            sellerBillPair[itemsChoseSellerID[i]] =
+                                response.billID;
+                        }
+                    });
+                }
+                
                 $.ajax({
                     url: "Product/AddBillItems",
                     data: {
-                        "billID": billID,
+                        "billID": sellerBillPair[itemsChoseSellerID[i]],
                         "sellerID": itemsChoseSellerID[i],
                         "productID": itemsChoseID[i],
                         "quantity": itemsChoseQuant[i],
                         "price": itemsChoseTotalPrice[i]
+                    },
+                    async: false
+                });
+            }
+
+            for (var i = 0; i < itemsChose.length; i++) {
+                $(".cart-item-" + itemsChose[i]).replaceWith("");
+
+                $.ajax({
+                    url: "Cart/DeleteCartItems",
+                    data: {
+                        "buyerID": "",
+                        "productID": itemsChoseID[i]
                     },
                     async: false
                 });
@@ -287,5 +306,6 @@ $(document).ready(function () {
 
     $("#buy-done").click(function () {
         $(".overlay-cart .success").css("display", "none");
+        location.reload(true);
     });
 });
