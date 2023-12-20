@@ -144,25 +144,25 @@ VALUES
 INSERT INTO Vouchers(timeStart, timeExpired, discountPercent,
 		maxValue, minBill, quantity, voucherType, [description])
 VALUES
-	(GETDATE(), GETDATE() + 5, 0.3, NULL, 50000, 100, NULL,
+	(GETDATE(), GETDATE() + 5, 0.3, 100000, 50000, 100, NULL,
 	N'Voucher dùng cho Sách'),
 	(GETDATE(), GETDATE() + 15, 0.1, 1000000, 50000, 1000, NULL,
 	N'Voucher dùng cho Tài liệu'),
 	(GETDATE(), GETDATE() + 5, 0.15, 2000000, 10000, 2010, NULL,
 	N'Voucher dùng cho Tiểu thuyết'),
-	(GETDATE(), GETDATE() + 25, 0.13, NULL, 50000, 112, NULL,
+	(GETDATE(), GETDATE() + 25, 0.13, 150000, 50000, 112, NULL,
 	N'Voucher dùng cho Truyện dài'),
-	(GETDATE(), GETDATE() + 35, 0.16, NULL, 50000, 500, NULL,
+	(GETDATE(), GETDATE() + 35, 0.16, 70000, 50000, 500, NULL,
 	N'Voucher dùng cho Truyện ngắn'),
-	(GETDATE(), GETDATE() + 10, 0.09, NULL, 1000000, 600, NULL,
+	(GETDATE(), GETDATE() + 10, 0.09, 5000000, 1000000, 600, NULL,
 	N'Voucher dùng cho Truyện tranh'),
-	(GETDATE(), GETDATE() + 1, 0.05, NULL, 500000, 890, NULL,
+	(GETDATE(), GETDATE() + 1, 0.05, 700000, 500000, 890, NULL,
 	N'Voucher dùng cho Truyện ngắn'),
-	(GETDATE(), GETDATE() + 8, 0.02, NULL, 30000, 50, NULL,
+	(GETDATE(), GETDATE() + 8, 0.02, 50000, 30000, 50, NULL,
 	N'Voucher dùng cho Truyện tranh'),
-	(GETDATE(), GETDATE() + 14, 0.5, NULL, 40000, 230, NULL,
+	(GETDATE(), GETDATE() + 14, 0.5, 10000, 40000, 230, NULL,
 	N'Voucher dùng cho Tiểu thuyết'),
-	(GETDATE(), GETDATE() + 56, 0.42, NULL, 50000, 545, NULL,
+	(GETDATE(), GETDATE() + 56, 0.42, 5000, 50000, 545, NULL,
 	N'Voucher dùng cho Sách')
 
 INSERT INTO VoucherUse VALUES
