@@ -88,5 +88,51 @@ namespace DA_6Ducks.Controllers
                     avgRating = starDisplay
                 });
         }
+
+        public JsonResult DisplayBills()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            string userID = Session.sessionID;
+            SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
+            cmdConvert.Parameters.AddWithValue("@userID", userID);
+            string sellerID = cmdConvert.ExecuteScalar().ToString();
+            SqlCommand cmd = new SqlCommand("Select billID,billStatus,time,totalPrice from Bills where sellerID = @sellerID", conn);
+            cmd.Parameters.AddWithValue("@sellerId", sellerID);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<int> billIDs = new List<int>();
+            List<string> statuss = new List<string>();
+            List<string> times = new List<string>();
+            List<int> totalPrices = new List<int>();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    billIDs.Add(dr.GetInt32(0));
+                    statuss.Add(dr.GetString(1));
+                    times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
+                    totalPrices.Add(dr.GetInt32(3));
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult(new
+            {
+                num = billIDs.Count,
+                billID = billIDs,
+                status = statuss,
+                time = times,
+                totalPrice = totalPrices
+            });
+        }
+        [HttpPost]
+        public void UpdateBillStatus(string billID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            string userID = Session.sessionID;
+        }
     }
 }

@@ -108,7 +108,7 @@
                 <div class="cell">THANH TOÁN</div>
                 <div class="cell">HÀNH ĐỘNG</div>
               </div>
-              <div class="row">
+              @*<div class="row">
                 <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
                 <div class="cell" data-title="TRẠNG THÁI" id="cho">
                   Đang chờ
@@ -181,7 +181,7 @@
                 <div class="cell" data-title="HÀNH ĐỘNG">
                   Xác nhận đơn hàng
                 </div>
-              </div>
+              </div>*@
             </div>
           </div>
         </div>
@@ -210,6 +210,40 @@
 <script type="module" src="/context/seller-info.js"></script>
 <script type="module" src="/context/seller-main.js"></script>
 <script>
+    function display_bill(billID,status,time,totalPrice) {
+        const html =
+            ' <div class="row" id="bill">' +
+            ' <div class="cell" data-title="MÃ VẬN ĐƠN" >'+billID+'</div>' +
+            '<div class="cell" data-title="TRẠNG THÁI" id="cho">' +
+            status +
+            '</div>' +
+            '<div class="cell" data-title="THỜI GIAN">' +
+                time +
+            '</div>' +
+            '<div class="cell" data-title="THANH TOÁN">' + totalPrice+'</div>' +
+        //    '<div class="cell" data-title="HÀNH ĐỘNG id="'+billID+'">'+
+        //'Xác nhận đơn hàng' +
+        //    '</div>' +
+            '</div > ';
+        $('.table').append(html);
+    }
+
+    function display_all_bill() {
+        $.ajax({
+            url: "SellerInfoSeller/DisplayBills",
+            success: function (response) {
+                $('.table #bill').remove();
+
+                for (let i = 0; i < response.num; i++) {
+                    display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i]);
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+
   const closeButton = document.getElementById("close");
   closeButton.addEventListener("click", () => {
     const tableWrapper = document.getElementById("table_wrapper");
@@ -224,7 +258,7 @@
   showButton.addEventListener("click", () => {
     const tableWrapper = document.getElementById("table_wrapper");
     tableWrapper.style.display = "flex";
-
+    display_all_bill();
     // Disable scrolling
     document.body.style.overflow = "hidden";
   });

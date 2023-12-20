@@ -129,11 +129,13 @@ function fetchMessages() {
             for (let i = 0; i < response.num; i++) {
                 addMessage(response.id[i], response.name[i], response.msg[i], response.time[i]);
             }
-            display_log_chat(response.id[0]);
-            $.ajax({
-                url: "/Chat/SaveCurrentConversation",
-                data: { "receiverID": response.id[0] }
-            });
+            if (response.num > 0) {
+                display_log_chat(response.id[0]);
+                $.ajax({
+                    url: "/Chat/SaveCurrentConversation",
+                    data: { "receiverID": response.id[0] }
+                });
+            }
         },
         error: function() {
             alert("Cannot display conversation");

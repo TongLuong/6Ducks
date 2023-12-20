@@ -1,4 +1,4 @@
-$(this).ready(function () {
+﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var sellerID = urlParams.get('seller');
 
@@ -74,4 +74,6 @@ $(this).ready(function () {
             $("#rating-avg").text("(" + response.avgRating + "/5)");
         }
     });
+
+    
 });
