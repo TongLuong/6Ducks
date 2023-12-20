@@ -1,287 +1,246 @@
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6Ducks</title>
-  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="/assets/styles/globals.css" />
-  <link rel="stylesheet" href="/assets/styles/seller-info.css" />
-  <link rel="stylesheet" href="/assets/styles/header-footer.css" />
-  <link rel="stylesheet" href="/assets/styles/seller-main.css">
-  <link rel="stylesheet" href="/info/seller-information(seller)/style_table.css" />
-    <link rel="stylesheet" href="/info/seller-information(seller)/styleguide.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>6Ducks</title>
+	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/assets/styles/globals.css" />
+	<link rel="stylesheet" href="/assets/styles/seller-info.css" />
+	<link rel="stylesheet" href="/assets/styles/header-footer.css" />
+	<link rel="stylesheet" href="/assets/styles/seller-main.css">
+	<link rel="stylesheet" href="/info/seller-information(seller)/style_table.css" />
+	<link rel="stylesheet" href="/info/seller-information(seller)/styleguide.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <body>
-  <div class="mainpage">
-    <div class="seller-info">
-      <div class="left_section">
-        <div class="seller_info">
-          <div class="seller_containter">
-            <div class="seller">Người bán</div>
-            <div class="container_seller">
-              <img src="/assets/images/frame-8.png" draggable="false" width="79px" alt="" />
-              <div>
-                <div class="seller_name">Fantasy Chicken</div>
-                <p class="second_info">
-                  Tham gia từ: 1/1/2011 <br />
-                  Số sản phẩm bán ra: 100
-                </p>
-              </div>
-            </div>
-            <button class="button" id="recent_orders">
-              <div class="see">Đơn hàng của bạn</div>
-              <img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
-            </button>
-          </div>
-        </div>
-        <div class="rating_info">
-          <div class="rating_wrapper">
-            <div style="line-height: 34px">Đánh giá người bán</div>
-            <div class="rating" style="margin-top: 6px">
-              <div class="stars">
-                <form action="">
-                  <input class="star star-5" id="star-5" type="radio" name="star" disabled/>
-                  <label class="star star-5" for="star-5"></label>
-                  <input class="star star-4" id="star-4" type="radio" name="star" disabled/>
-                  <label class="star star-4" for="star-4"></label>
-                  <input class="star star-3" id="star-3" type="radio" name="star" disabled/>
-                  <label class="star star-3" for="star-3"></label>
-                  <input class="star star-2" id="star-2" type="radio" name="star" disabled/>
-                  <label class="star star-2" for="star-2"></label>
-                  <input class="star star-1" id="star-1" type="radio" name="star" disabled/>
-                  <label class="star star-1" for="star-1"></label>
-                </form>
-              </div>
-              <div style="margin-top: 6px; margin-left: 3px" id="rating-avg">(4.8/5)</div>
-            </div>
-          </div>
-          <div class="scoreboard">
-            <div class="letter">
-              5 sao <br />
-              4 sao <br />
-              3 sao <br />
-              2 sao <br />
-              1 sao
-            </div>
-            <div class="row_bar">
-              <div class="bar_5">
-                  <span></span>
-              </div>
-              <div class="bar_4">
-                  <span></span>
-              </div>
-              <div class="bar_3">
-                  <span></span>
-              </div>
-              <div class="bar_2"><span></span></div>
-              <div class="bar_1"><span></span></div>
-            </div>
-          </div>
-          <button class="button">
-            <div class="see">XEM TOÀN BỘ ĐÁNH GIÁ</div>
-            <img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
-          </button>
-        </div>
-      </div>
+	<div class="mainpage">
+		<div class="seller-info">
+			<div class="left_section">
+				<div class="seller_info">
+					<div class="seller_containter">
+						<div class="seller">Người bán</div>
+						<div class="container_seller">
+							<img src="/assets/images/frame-8.png" draggable="false" width="79px" alt="" />
+							<div>
+								<div class="seller_name">Fantasy Chicken</div>
+								<p class="second_info">
+									Tham gia từ: 1/1/2011 <br />
+									Số sản phẩm bán ra: 100
+								</p>
+							</div>
+						</div>
+						<button class="button" id="recent_orders">
+							<div class="see">Đơn hàng của bạn</div>
+							<img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
+						</button>
+					</div>
+				</div>
+				<div class="rating_info">
+					<div class="rating_wrapper">
+						<div style="line-height: 34px">Đánh giá người bán</div>
+						<div class="rating" style="margin-top: 6px">
+							<div class="stars">
+								<form action="">
+									<input class="star star-5" id="star-5" type="radio" name="star" disabled />
+									<label class="star star-5" for="star-5"></label>
+									<input class="star star-4" id="star-4" type="radio" name="star" disabled />
+									<label class="star star-4" for="star-4"></label>
+									<input class="star star-3" id="star-3" type="radio" name="star" disabled />
+									<label class="star star-3" for="star-3"></label>
+									<input class="star star-2" id="star-2" type="radio" name="star" disabled />
+									<label class="star star-2" for="star-2"></label>
+									<input class="star star-1" id="star-1" type="radio" name="star" disabled />
+									<label class="star star-1" for="star-1"></label>
+								</form>
+							</div>
+							<div style="margin-top: 6px; margin-left: 3px" id="rating-avg">(4.8/5)</div>
+						</div>
+					</div>
+					<div class="scoreboard">
+						<div class="letter">
+							5 sao <br />
+							4 sao <br />
+							3 sao <br />
+							2 sao <br />
+							1 sao
+						</div>
+						<div class="row_bar">
+							<div class="bar_5">
+								<span></span>
+							</div>
+							<div class="bar_4">
+								<span></span>
+							</div>
+							<div class="bar_3">
+								<span></span>
+							</div>
+							<div class="bar_2"><span></span></div>
+							<div class="bar_1"><span></span></div>
+						</div>
+					</div>
+					<button class="button">
+						<div class="see">XEM TOÀN BỘ ĐÁNH GIÁ</div>
+						<img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
+					</button>
+				</div>
+			</div>
 
-      <div class="table_wrapper" id="table_wrapper">
-        <div class="table_show">
-          <div class="title_wrapper">
-            <div class="title">LỊCH SỬ GIAO DỊCH</div>
-            <button class="close" id="close">ĐÓNG</button>
-          </div>
-          <div class="wrap-table100">
-            <div class="table">
-              <div class="row header">
-                <div class="cell">MÃ VẬN ĐƠN</div>
-                <div class="cell">TRẠNG THÁI</div>
-                <div class="cell">THỜI GIAN</div>
-                <div class="cell">THANH TOÁN</div>
-                <div class="cell">HÀNH ĐỘNG</div>
-              </div>
-              @*<div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="cho">
-                  Đang chờ
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN"></div>
-                <div class="cell" data-title="HÀNH ĐỘNG">
-                  Xác nhận đơn hàng
-                </div>
-              </div>
-              <div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="cho">
-                  Đang chờ
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN">300.000đ</div>
-                <div class="cell" data-title="HÀNH ĐỘNG">
-                  Xác nhận đơn hàng
-                </div>
-              </div>
-              <div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="nhan">
-                  Đã nhận
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN">600.000đ</div>
-                <div class="cell" data-title="HÀNH ĐỘNG">Xem đơn hàng</div>
-              </div>
-              <div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="nhan">
-                  Đã nhận
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN"></div>
-                <div class="cell" data-title="HÀNH ĐỘNG">Xem đơn hàng</div>
-              </div>
-              <div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="cho">
-                  Đang chờ
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN"></div>
-                <div class="cell" data-title="HÀNH ĐỘNG">
-                  Xác nhận đơn hàng
-                </div>
-              </div>
-              <div class="row">
-                <div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
-                <div class="cell" data-title="TRẠNG THÁI" id="cho">
-                  Đang chờ
-                </div>
-                <div class="cell" data-title="THỜI GIAN">
-                  15/10/2023 - 07:52
-                </div>
-                <div class="cell" data-title="THANH TOÁN"></div>
-                <div class="cell" data-title="HÀNH ĐỘNG">
-                  Xác nhận đơn hàng
-                </div>
-              </div>*@
-            </div>
-          </div>
-        </div>
-      </div>
+			<div class="table_wrapper" id="table_wrapper">
+				<div class="table_show">
+					<div class="title_wrapper">
+						<div class="title">LỊCH SỬ GIAO DỊCH</div>
+						<button class="close" id="close">ĐÓNG</button>
+					</div>
+					<div class="wrap-table100">
+						<div class="table">
+							<div class="row header">
+								<div class="cell">MÃ VẬN ĐƠN</div>
+								<div class="cell">TRẠNG THÁI</div>
+								<div class="cell">THỜI GIAN</div>
+								<div class="cell">THANH TOÁN</div>
+							</div>
+							@* <div class="row">
+								<div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+								<div class="cell" data-title="TRẠNG THÁI">
+									<select class="status">
+										<option value="confirming">Confirming</option>
+										<option value="waiting_pickup">Waiting pickup</option>
+										<option value="delivering">Delivering</option>
+										<option value="done">Done</option>
+										<option value="cancelled">Cancelled</option>
+										<option value="refund">Refund</option>
+									</select>
+								</div>
+								<div class="cell" data-title="THỜI GIAN">
+									15/10/2023 - 07:52
+								</div>
+								<div class="cell" data-title="THANH TOÁN"></div>
+							</div>
+							<div class="row">
+								<div class="cell" data-title="MÃ VẬN ĐƠN">#H4K1GH61H</div>
+								<div class="cell" data-title="TRẠNG THÁI">
+									<select class="status">
+										<option value="confirming">Confirming</option>
+										<option value="waiting_pickup">Waiting pickup</option>
+										<option value="delivering">Delivering</option>
+										<option value="done">Done</option>
+										<option value="cancelled">Cancelled</option>
+										<option value="refund">Refund</option>
+									</select>
+								</div>
+								<div class="cell" data-title="THỜI GIAN">
+									15/10/2023 - 07:52
+								</div>
+								<div class="cell" data-title="THANH TOÁN">600.000đ</div>
+							</div> *@
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div class="layout product">
-        <div class="pagination">
-          <p class="arrow back">&#129120;</p>
-          <p class="active">01</p>
-          <p>02</p>
-          <p>03</p>
-          <p>04</p>
-          <p>05</p>
-          <p>06</p>
-          <p class="arrow forward">&#129122;</p>
-        </div>
-        <div class="product-list page-1 active"></div>
-        <div class="product-list page-2"></div>
-        <div class="product-list page-3"></div>
-        <div class="product-list page-4"></div>
-        <div class="product-list page-5"></div>
-        <div class="product-list page-6"></div>
-      </div>
-    </div>
-  </div>
-<script type="module" src="/context/seller-info.js"></script>
-<script type="module" src="/context/seller-main.js"></script>
-<script>
-    function display_bill(billID,status,time,totalPrice) {
-        const html =
-            ' <div class="row" id="bill">' +
-            ' <div class="cell" data-title="MÃ VẬN ĐƠN" >'+billID+'</div>' +
-            '<div class="cell" data-title="TRẠNG THÁI" id="cho">' +
-            status +
-            '</div>' +
-            '<div class="cell" data-title="THỜI GIAN">' +
-                time +
-            '</div>' +
-            '<div class="cell" data-title="THANH TOÁN">' + totalPrice+'</div>' +
-        //    '<div class="cell" data-title="HÀNH ĐỘNG id="'+billID+'">'+
-        //'Xác nhận đơn hàng' +
-        //    '</div>' +
-            '</div > ';
-        $('.table').append(html);
-    }
+			<div class="layout product">
+				<div class="pagination">
+					<p class="arrow back">&#129120;</p>
+					<p class="active">01</p>
+					<p>02</p>
+					<p>03</p>
+					<p>04</p>
+					<p>05</p>
+					<p>06</p>
+					<p class="arrow forward">&#129122;</p>
+				</div>
+				<div class="product-list page-1 active"></div>
+				<div class="product-list page-2"></div>
+				<div class="product-list page-3"></div>
+				<div class="product-list page-4"></div>
+				<div class="product-list page-5"></div>
+				<div class="product-list page-6"></div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/context/seller-info.js"></script>
+	<script type="module" src="/context/seller-main.js"></script>
+	<script>
+		function display_bill(billID, status, time, totalPrice, status_show) {
+			const html =
+				' <div class="row" id="bill">' +
+				' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
+				'<div class="cell" data-title="TRẠNG THÁI">' +
+				'<select class="status">' +
+				'<option value="' + status + '" selected>' + status_show + '</option>' +
+				// 1 status cho option value và 1 status để hiển thị lựa chọn, xem 2 sample ở trên
+				'</select>' +
+				'</div>' +
+				'<div class="cell" data-title="THỜI GIAN">' +
+				time +
+				'</div>' +
+				'<div class="cell" data-title="THANH TOÁN">' + totalPrice + '</div>' +
+				'</div > ';
+			$('.table').append(html);
+		}
 
-    function display_all_bill() {
-        $.ajax({
-            url: "SellerInfoSeller/DisplayBills",
-            success: function (response) {
-                $('.table #bill').remove();
+		function display_all_bill() {
+			$.ajax({
+				url: "SellerInfoSeller/DisplayBills",
+				success: function (response) {
+					$('.table #bill').remove();
 
-                for (let i = 0; i < response.num; i++) {
-                    display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i]);
-                }
-            },
-            error: function () {
-                alert("error");
-            }
-        });
-    }
+					for (let i = 0; i < response.num; i++) {
+						display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i]);
+					}
+				},
+				error: function () {
+					alert("error");
+				}
+			});
+		}
 
-  const closeButton = document.getElementById("close");
-  closeButton.addEventListener("click", () => {
-    const tableWrapper = document.getElementById("table_wrapper");
-    tableWrapper.style.display = "none";
+		const closeButton = document.getElementById("close");
+		closeButton.addEventListener("click", () => {
+			const tableWrapper = document.getElementById("table_wrapper");
+			tableWrapper.style.display = "none";
 
-    // Enable scrolling again
-    document.body.style.overflow = "auto";
-  });
+			// Enable scrolling again
+			document.body.style.overflow = "auto";
+		});
 
-  // Disable scrolling when the table is visible
-  const showButton = document.getElementById("recent_orders");
-  showButton.addEventListener("click", () => {
-    const tableWrapper = document.getElementById("table_wrapper");
-    tableWrapper.style.display = "flex";
-    display_all_bill();
-    // Disable scrolling
-    document.body.style.overflow = "hidden";
-  });
+		// Disable scrolling when the table is visible
+		const showButton = document.getElementById("recent_orders");
+		showButton.addEventListener("click", () => {
+			const tableWrapper = document.getElementById("table_wrapper");
+			tableWrapper.style.display = "flex";
+			display_all_bill();
+			// Disable scrolling
+			document.body.style.overflow = "hidden";
+		});
 
-  const confirmOrderButtons = document.querySelectorAll(
-    '.row .cell[data-title="HÀNH ĐỘNG"]'
-  );
-  for (const button of confirmOrderButtons) {
-    button.addEventListener("click", () => {
-      // Change the status text to "Đã nhận"
-      const statusText = button.parentNode.querySelector(
-        '.cell[data-title="TRẠNG THÁI"]'
-      );
-      const statusText2 = button.parentNode.querySelector(
-        '.cell[data-title="HÀNH ĐỘNG"]'
-      );
-      statusText.textContent = "Đã nhận";
-      statusText2.textContent = "Xem đơn hàng";
+		const confirmOrderButtons = document.querySelectorAll(
+			'.row .cell[data-title="HÀNH ĐỘNG"]'
+		);
+		for (const button of confirmOrderButtons) {
+			button.addEventListener("click", () => {
+				// Change the status text to "Đã nhận"
+				const statusText = button.parentNode.querySelector(
+					'.cell[data-title="TRẠNG THÁI"]'
+				);
+				const statusText2 = button.parentNode.querySelector(
+					'.cell[data-title="HÀNH ĐỘNG"]'
+				);
+				statusText.textContent = "Đã nhận";
+				statusText2.textContent = "Xem đơn hàng";
 
-      // Change the status text color to #2db223
-      statusText.style.color = "#2db223";
-    });
-  }
-</script>    
+				// Change the status text color to #2db223
+				statusText.style.color = "#2db223";
+			});
+		}
+	</script>
 </body>
 </html>
