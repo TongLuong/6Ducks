@@ -136,13 +136,12 @@ namespace DA_6Ducks.Controllers
 
             SqlCommand cmd = new SqlCommand
             (
-                "SELECT p.*, c.name, g.name, pi.imgLink, s.sellerID " +
-                "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g, dbo.Sellers s " +
+                "SELECT p.*, c.name, g.name, pi.imgLink " +
+                "FROM dbo.Products p, dbo.ProductIMGs pi, dbo.Categories c, dbo.Genres g " +
                 "WHERE p.productID = pi.productID " +
                 "AND p.productID = @productID " +
                 "AND p.categoryID = c.categoryID " +
-                "AND p.genreID = g.genreID " +
-                "AND p.sellerID = s.sellerID"
+                "AND p.genreID = g.genreID"
                 , conn
             );
 
@@ -179,6 +178,7 @@ namespace DA_6Ducks.Controllers
                 new
                 {
                     productID = temp[0],
+                    sellerID = temp[1],
                     name = temp[2],
                     author = temp[3],
                     publisher = temp[4],
@@ -192,8 +192,7 @@ namespace DA_6Ducks.Controllers
                     soldNumber = temp[12],
                     catName = temp[13],
                     genreName = temp[14],
-                    imgLink = imgs,
-                    sellerID = temp[16],
+                    imgLink = imgs
                 }
             );
         }
@@ -406,6 +405,81 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@ProductID", productID);
             cmd.Parameters.AddWithValue("@quantity", quantity);
             cmd.Parameters.AddWithValue("@price", price);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        public JsonResult LoadVoucherInfo(string categoryID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            List<JsonResult> result = new List<JsonResult>();
+            SqlCommand cmd = new SqlCommand
+            (
+                "SELECT * FROM dbo.[get_voucher] (@categoryID)"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@categoryID", categoryID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            string[] temp = new string[dr.FieldCount];
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        temp[i] = dr.GetValue(i).ToString() ?? "";
+                    }
+                    result.Add
+                    (
+                        new JsonResult
+                        (
+                            new
+                            {
+                                voucherID = temp[0],
+                                timeStart = temp[1],
+                                timeExpired = temp[2],
+                                discountPercent = temp[3],
+                                maxValue = temp[4],
+                                minBill = temp[5],
+                                quantity = temp[6],
+                                voucherType = temp[7],
+                                description = temp[8]
+                            }
+                        )
+                    );
+                }
+            }
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    data = result
+                }
+            );
+        }
+
+        public void AddVoucherToBill(string billID, string voucherID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "INSERT INTO dbo.[VoucherApply] VALUES " +
+                "(@billID, @voucherID)"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@billID", billID);
+            cmd.Parameters.AddWithValue("@voucherID", voucherID);
 
             cmd.ExecuteNonQuery();
 

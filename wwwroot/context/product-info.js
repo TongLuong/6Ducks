@@ -26,32 +26,16 @@
 
     $("#quantity").val("1");
 
-    //demo image function
-    /*$(".product-image").ready(function () {
-        var n = $(".demo-image .demo").length;
-        for (let i = 1; i <= n; i++) {
-            var url = 'url("/assets/images/book-1-' + i + '.png")';
-            var select = ".demo-image .demo-" + i;
-            $(select).css("background-image", url);
-        }
-        $(".show-image").css(
-            "background-image",
-            $(".demo-image .demo-1").css("background-image")
-        );
-        $(".demo-image .demo").click(function () {
-            $(".show-image").css("background-image", $(this).css("background-image"));
-        });
-    });*/
-
     //quantity increase and reduce function
     $("#increase").click(function () {
         $("#quantity").val(Number($("#quantity").val()) + 1);
 
         var currency = $("#price").text();
         var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+        var quantity = Number($("#quantity").val());
         var shipping_price = Number($("#cost").val());
-        $(".total-cost").val(Number($(".total-cost").val())
-            + curr_price + shipping_price);
+
+        $(".total-cost").val(curr_price * quantity + shipping_price);
     });
     $("#reduce").click(function () {
         $("#quantity").val(function () {
@@ -60,13 +44,25 @@
             else {
                 var currency = $("#price").text();
                 var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-                $(".total-cost").val(Number($(".total-cost").val()) - curr_price);
+                var quantity = Number($("#quantity").val()) - 1;
+                var shipping_price = Number($("#cost").val());
+
+                $(".total-cost").val(curr_price * quantity + shipping_price);
 
                 return Number($("#quantity").val()) - 1;
             }
         });
     });
-    
+
+    $("#quantity").on('change', function () {
+        var currency = $("#price").text();
+        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+        var quantity = Number($("#quantity").val());
+        var shipping_price = Number($("#cost").val());
+
+        $(".total-cost").val(curr_price * quantity + shipping_price);
+    });
+
     $(".view-seller-page").click(function (e) {
         e.preventDefault();
         location.href = "UserInfo/SellerInfo" + "?seller=" + seller_id;
@@ -104,6 +100,13 @@
 
     $("#method").on('change', function (e) {
         $("#cost").val(shippingPrice[this.value]);
+        
+        var currency = $("#price").text();
+        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+        var quantity = Number($("#quantity").val());
+        var shipping_price = Number($("#cost").val());
+
+        $(".total-cost").val(curr_price * quantity + shipping_price);
     });
 
     $.get(
@@ -122,7 +125,9 @@
 
         var currency = $("#price").text();
         var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-        $(".total-cost").val(curr_price);
+        var quantity = Number($("#quantity").val());
+        var shipping_price = Number($("#cost").val());
+        $(".total-cost").val(curr_price * quantity + shipping_price);
     });
     $(".buy-product #buy-cancel").click(function () {
         $(".disabled > .wrapper").hide();
@@ -137,8 +142,10 @@
         $(".disabled > .wrapper").hide();
         $(".disabled").css("display", "none");
         $("body").css("overflow", "scroll");
+
+        $("#quantity").val("1");
     });
-    
+
     $(".success #buy-done").click(function () {
         $(".disabled > .wrapper").hide();
         $(".disabled").css("display", "none");
@@ -166,7 +173,7 @@
             }
         });
     });
-    
+
     function displayStar(productID) {
         const starInputs = document.querySelectorAll('i[name="starprod"]');
         const starInputsFb = document.querySelectorAll('i[name="star-fb-avg"]');
@@ -200,9 +207,10 @@
             }
         )
     }
-    
+
     displayStar(product_id);
-    
+
+    var currCategoryID;
     function displayProdInfo(productID) {
         $.ajax({
             url: "Product/LoadProductInfo",
@@ -210,10 +218,10 @@
             async: false,
             success: function (response) {
                 $(".header-info").attr("id", response.sellerID);
-                
+
                 /*var fs = require('fs');
                 var file = fs.readdirSync(response.imgLink);*/
-                
+
                 $(".show-image").css("background-image", "url(" +
                     response.imgLink[0] + ")");
                 $(".buy-product .left img").attr("src", response.imgLink[0]);
@@ -236,12 +244,14 @@
                     currency: 'vnd',
                 });
                 $("#price").text(formatter.format(response.price));
+
+                currCategoryID = response.categoryID;
             }
         });
     }
 
     displayProdInfo(product_id);
-    
+
     function displaySellerInfo(sellerID) {
         $.ajax({
             url: "Product/LoadSellerInfo",
@@ -314,8 +324,86 @@
         })
     });
 
+    var totalDiscount = 1;
+    var voucherChoseID = [];
+    $.ajax({
+        url: "Product/LoadVoucherInfo",
+        data: {
+            "categoryID": currCategoryID
+        },
+        success: function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                var temp = response.data[i].value;
+
+                var item = `<div class="voucher-item voucher-discount 
+            voucher-item-` + temp.voucherID + `">
+                <div class="voucher-image"></div>
+                <div class="description">
+                    <span class="des">
+                        Voucher dùng cho danh mục Tiểu thuyết<br />
+                        <span class="discount">30%</span>
+                    </span>
+                    <span class="condition text">
+                        Đơn tối thiểu:
+                        <span class="min-bill">10000</span>đ<br />
+                        Giảm tối đa:
+                        <span class="max-discount">100000</span>đ
+                    </span>
+                </div>
+                <button class="voucher-using" type="button">Dùng</button>
+              </div>`;
+
+                $(".buy-product .right .wrapper").append(item);
+
+                $(".buy-product .right .voucher-item-" +
+                    temp.voucherID + " .discount").text(
+                        Number(temp.discountPercent) * 100 + "%");
+                $(".buy-product .right .voucher-item-" +
+                    temp.voucherID + " .des").text(temp.description);
+                $(".buy-product .right .voucher-item-" +
+                    temp.voucherID + " .min-bill").text(temp.minBill);
+
+                var maxValue = temp.maxValue;
+                if (temp.maxValue == "")
+                    maxValue = "∞";
+                $(".buy-product .right .voucher-item-" +
+                    temp.voucherID + " .max-discount").text(maxValue);
+
+                addDiscount(temp.discountPercent, temp.voucherID);
+            }
+        }
+    });
+    
+    function addDiscount(discountPercent, voucherID) {
+        $(".buy-product .right .voucher-item-" + voucherID
+            + " .voucher-using").click(function () {
+                var currency = $(".total-cost").val();
+                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+
+                if ($(this).text() == "Dùng") {
+                    $(this).text("Hủy");
+
+                    $(".total-cost").val(Math.round(Number(curr_price) *
+                        (1 - discountPercent)));
+
+                    totalDiscount *= (1 - discountPercent);
+                    voucherChoseID.push(voucherID);
+                }
+                else if ($(this).text() == "Hủy") {
+                    $(this).text("Dùng");
+
+                    $(".total-cost").val(Math.round(Number(curr_price) /
+                        (1 - discountPercent)));
+
+                    totalDiscount /= (1 - discountPercent);
+                    voucherChoseID.splice(voucherChoseID.indexOf(voucherID),
+                        1);
+                }
+            });
+    };
+
     $(".cash #buy-confirm").click(function () {
-        var currency = $(".total-cost").val();
+        //var currency = $(".total-cost").val();
         var payment = $('input[name="cod-method"], ' +
             'input[name="banking-method"] input:checked');
 
@@ -344,9 +432,21 @@
             }
         });
 
+        for (var i = 0; i < voucherChoseID.length; i++) {
+            $.ajax({
+                url: "Product/AddVoucherToBill",
+                data: {
+                    "billID": billID,
+                    "voucherID": voucherChoseID[i]
+                },
+                async: false
+            });
+        }
+
         var quantity = $("#quantity").val();
         var price = $("#price").text();
-        price = Number(price.replace(/[^0-9.-]+/g, ""));
+        price = Math.round(Number(price.replace(/[^0-9.-]+/g, ""))
+            * totalDiscount);
 
         $.ajax({
             url: "Product/AddBillItems",
@@ -362,4 +462,4 @@
         $(".disabled > .wrapper").hide();
         $(".success").show();
     });
-});
+})
