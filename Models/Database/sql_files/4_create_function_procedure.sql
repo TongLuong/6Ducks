@@ -466,3 +466,21 @@ begin
 	return
 end
 go
+
+go
+create function get_voucher(@categoryID int)
+returns @table table(voucherID int, timeStart datetime, 
+	timeExpired datetime, discountPercent float, maxValue int, 
+	minBill int, quantity int, voucherType int,
+	[description] nvarchar(max))
+as
+begin
+	insert into @table
+	select v.*
+	from Vouchers v, VoucherUse vu
+	where v.voucherID = vu.voucherID 
+	and vu.categoryID = @categoryID
+
+	return
+end
+go
