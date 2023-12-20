@@ -225,3 +225,6 @@ alter table BillItems alter column billID int not null
 alter table BillItems alter column productID int not null
 --alter table BillItems add constraint PK_BillItems primary key (billID,productID)
 --alter table BillItems drop column billItemID
+
+alter table Vouchers 
+add [description] nvarchar(max) default '';
