@@ -101,7 +101,7 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@sellerId", sellerID);
             SqlDataReader dr = cmd.ExecuteReader();
             List<int> billIDs = new List<int>();
-            List<string> statuss = new List<string>();
+            List<int> statuss = new List<int>();
             List<string> times = new List<string>();
             List<int> totalPrices = new List<int>();
 
@@ -110,7 +110,16 @@ namespace DA_6Ducks.Controllers
                 while (dr.Read())
                 {
                     billIDs.Add(dr.GetInt32(0));
-                    statuss.Add(dr.GetString(1));
+                    string stat = dr.GetString(1);
+                    switch (stat)
+                    {
+                        case "Confirming":statuss.Add(0); break;
+						case "Waiting pickup": statuss.Add(1); break;
+						case "Delivering": statuss.Add(2); break;
+						case "Done": statuss.Add(3); break;
+						case "Cancelled": statuss.Add(4); break;
+						case "Refund": statuss.Add(5); break;
+					}
                     times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
                     totalPrices.Add(dr.GetInt32(3));
                 }
@@ -128,11 +137,22 @@ namespace DA_6Ducks.Controllers
             });
         }
         [HttpPost]
-        public void UpdateBillStatus(string billID)
+        public void UpdateBillStatus(string billID,string status)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            string userID = Session.sessionID;
-        }
+
+            SqlCommand cmd = new SqlCommand("update Bills set billStatus=@status where billID=@billID", conn);
+
+            if (status == "Waiting")
+                status = "Waiting pickup";
+
+			cmd.Parameters.AddWithValue("@billID", billID);
+			cmd.Parameters.AddWithValue("@status", status);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+		}
     }
 }

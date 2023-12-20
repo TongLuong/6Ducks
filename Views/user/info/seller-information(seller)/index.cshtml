@@ -227,10 +227,52 @@
 <script type="module" src="/context/seller-info.js"></script>
 <script type="module" src="/context/seller-main.js"></script>
 <script>
-  const closeButton = document.getElementById("close");
-  closeButton.addEventListener("click", () => {
-    const tableWrapper = document.getElementById("table_wrapper");
-    tableWrapper.style.display = "none";
+
+		function display_bill(billID, status, time, totalPrice, status_show) {
+			const selected = ["","","","","",""];
+			selected[status]="selected";
+			const html =
+				' <div class="row" id="bill">' +
+				' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
+				'<div class="cell" data-title="TRẠNG THÁI" id="status">' +
+				'<select class="status" id="'+billID+'">' +
+				'<option value="Confirming" '+ selected[0] +'>Chưa xác nhận</option>' +
+				'<option value="Waiting" '+ selected[1] +'>Chờ lấy hàng</option>' +
+				'<option value="Delivering" '+ selected[2] +'>Đang vận chuyển</option>' +
+				'<option value="Done" '+ selected[3] +'>Đã vận chuyển</option>' +
+				'<option value="Cancelled" '+ selected[4] +'>Huỷ đơn hàng</option>' +
+				'<option value="Refund" '+ selected[5] +'>Hoàn trả hàng</option>' +
+				// 1 status cho option value và 1 status để hiển thị lựa chọn, xem 2 sample ở trên
+				'</select>' +
+				'</div>' +
+				'<div class="cell" data-title="THỜI GIAN">' +
+				time +
+				'</div>' +
+				'<div class="cell" data-title="THANH TOÁN">' + totalPrice + '</div>' +
+				'</div > ';
+			$('.table').append(html);
+
+			$('.table .row:last-child()').find('.status').on('change', function () {
+					var billID = $(this).prop('id');
+					var status = this.value;
+					$.ajax({
+						url: "SellerInfoSeller/UpdateBillStatus",
+						data: {
+							"billID": billID,
+							"status": status
+						},
+						type:"post",
+						success: function () {
+							alert("Update successfully");
+						},
+						error: function () {
+							alert("error");
+						}
+					});
+			});
+		}
+
+		
 
 		function display_all_bill() {
 			$.ajax({
