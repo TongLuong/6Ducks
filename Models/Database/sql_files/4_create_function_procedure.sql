@@ -108,26 +108,22 @@ create function checkBillPrice(
 returns int
 as
 begin
-	declare @productPrice int
-	declare @billTime datetime
-	declare @smethodID int
+	declare @productPrice int = null
+	declare @smethodID int = null
 	declare @discountVoucherID int = null
 	declare @freeshipVoucherID int = null
 
-	declare @smethodPrice int
-	declare @discount int, @discountPercent float, @maxDiscount int
-	declare @freeship int, @freeshipPercent float, @maxFreeship int
+	declare @smethodPrice int = null
+	declare @discount int = null, @discountPercent float, @maxDiscount int
+	declare @freeship int = null, @freeshipPercent float, @maxFreeship int
 	declare @totalBill int
 
-	select @billTime = [time], 
-		@smethodID = smethodID, 
+	SELECT @smethodID = smethodID, 
 		@discountVoucherID = discountVoucher,
 		@freeshipVoucherID = freeshipVoucher
-	from Bills
-	where billID = @billID
+	FROM Bills
+	WHERE billID = @billID
 
-	if @discountVoucherID is null
-		set @discountVoucherID = 0
 	--
 	set @productPrice = (
 		SELECT SUM(price * quantity) FROM BillItems
@@ -138,16 +134,20 @@ begin
 		SELECT MAX(price) FROM ShippingMethods
 		where smethodID = @smethodID
 	)
+	if (@smethodID is null)
+		set @smethodPrice = 0
 	--
 	set @discountPercent = (
 		SELECT MAX(discountPercent) FROM Vouchers
 		where voucherID = @discountVoucherID
 		and minBill <= @productPrice
+		and voucherType = 0
 	)
 	set @maxDiscount = (
 		SELECT MAX(maxValue) FROM Vouchers
 		where voucherID = @discountVoucherID
 		and minBill <= @productPrice
+		and voucherType = 0
 	)
 	set @discount = @discountPercent * @productPrice
 	if (@discount > @maxDiscount)
@@ -160,11 +160,13 @@ begin
 		SELECT MAX(discountPercent) FROM Vouchers
 		where voucherID = @freeshipVoucherID
 		and minBill <= @productPrice
+		and voucherType = 1
 	)
 	set @maxFreeship = (
 		SELECT MAX(maxValue) FROM Vouchers
 		where voucherID = @freeshipVoucherID
 		and minBill <= @productPrice
+		and voucherType = 1
 	)
 	set @freeship = @freeshipPercent * @smethodPrice
 	if (@freeship > @maxFreeship)
@@ -172,6 +174,15 @@ begin
 	if (@freeshipVoucherID is null)
 		set @freeship = 0
 
+	if @productPrice is null
+		set @productPrice = 0
+	if @smethodPrice is null
+		set @smethodPrice = 0
+	if @discount is null
+		set @discount = 0
+	if @freeship is null
+		set @freeship = 0
+	
 	set @totalBill = @productPrice + @smethodPrice - @discount - @freeship
 	return @totalBill
 end
@@ -208,11 +219,16 @@ create procedure insert_BillItems
 @BillID int,
 @ProductID int,
 @quantity int,
-@price int
+@price int,
+@totalPrice int output
 as
 begin
 	insert into BillItems (billID,productID,quantity,price) values
 	(@BillID,@ProductID,@quantity,@price)
+
+	select @totalPrice = totalPrice
+	from Bills
+	where billID = @BillID
 end
 go
 
@@ -486,7 +502,9 @@ end
 go
 
 go
-create function get_voucher(@categoryID int)
+-- drop function get_voucher
+create function get_voucher(@categoryID int, 
+	@sellerID int)
 returns @table table(voucherID int, timeStart datetime, 
 	timeExpired datetime, discountPercent float, maxValue int, 
 	minBill int, quantity int, voucherType int,
@@ -494,10 +512,23 @@ returns @table table(voucherID int, timeStart datetime,
 as
 begin
 	insert into @table
-	select v.*
-	from Vouchers v, VoucherUse vu
-	where v.voucherID = vu.voucherID 
-	and vu.categoryID = @categoryID
+	select distinct v.*
+	from Vouchers v left join VoucherUse vu
+		on v.voucherID = vu.voucherID 
+	where
+	(
+		(
+			vu.categoryID is null
+			or
+			vu.categoryID = @categoryID
+		)
+		and 
+		(
+			vu.sellerID is null
+			or
+			vu.sellerID = @sellerID
+		)
+	)
 
 	return
 end

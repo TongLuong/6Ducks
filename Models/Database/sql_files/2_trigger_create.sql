@@ -159,10 +159,10 @@ GO
 -- check valid before insert applying voucher (we will use function to list appliable vouchers)
 
 -- update quantity of Voucher after inserting Apply
-
-CREATE TRIGGER update_quantity
+-- DROP TRIGGER update_quantity_and_check_condition
+CREATE TRIGGER update_quantity_and_check_condition
 ON VoucherApply
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
 BEGIN
 	DECLARE @vchID INTEGER
@@ -175,10 +175,53 @@ BEGIN
 		UPDATE Vouchers
 		SET quantity = quantity - @num_used
 		WHERE voucherID = @vchID
-		FETCH NEXT FROM cur INTO @vchID, @num_used
+		FETCH NEXT FROM cur7 INTO @vchID, @num_used
 	END
 	CLOSE cur7
 	DEALLOCATE cur7
+
+	--=============check_condition_on_voucher_apply=============
+	DECLARE @billID INTEGER
+	DECLARE @voucherID INTEGER
+	DECLARE @categoryID INTEGER = NULL
+	DECLARE @sellerID INTEGER = NULL
+	DECLARE @totalCost INTEGER = NULL
+	DECLARE cur9 CURSOR LOCAL FOR 
+	(
+		SELECT i.billID, i.voucherID, 
+			vu.categoryID, vu.sellerID
+		FROM inserted i, VoucherUse vu
+		WHERE i.voucherID = vu.voucherID
+	)
+
+	OPEN cur9
+	FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
+		@sellerID
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		IF NOT EXISTS
+		(
+			SELECT *
+			FROM Bills b, BillItems bi, Products p
+			WHERE b.billID = @billID
+				AND bi.billID = b.billID
+				AND p.productID = bi.productID
+				AND ((@categoryID IS NULL) OR (p.categoryID = @categoryID))
+				AND ((@sellerID IS NULL) OR (p.sellerID = @sellerID))
+		)
+		BEGIN
+			ROLLBACK TRANSACTION
+			CLOSE cur9
+			DEALLOCATE cur9
+			RETURN
+		END
+
+		FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
+			@sellerID
+	END
+	CLOSE cur9
+	DEALLOCATE cur9
 END
 
 GO
@@ -212,51 +255,4 @@ BEGIN
 END
 
 GO
--- DROP TRIGGER check_condition_on_voucher_apply
-CREATE TRIGGER check_condition_on_voucher_apply
-ON VoucherApply
-AFTER INSERT, UPDATE
-AS
-BEGIN
-	DECLARE @billID INTEGER
-	DECLARE @voucherID INTEGER
-	DECLARE @categoryID INTEGER = NULL
-	DECLARE @sellerID INTEGER = NULL
-	DECLARE cur9 CURSOR LOCAL FOR 
-	(
-		SELECT i.billID, i.voucherID, 
-			vu.categoryID, vu.sellerID
-		FROM inserted i, VoucherUse vu
-		WHERE i.voucherID = vu.voucherID
-	)
-
-	OPEN cur9
-	FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
-		@sellerID
-
-	WHILE @@FETCH_STATUS = 0
-	BEGIN
-		IF NOT EXISTS
-		(
-			SELECT *
-			FROM Bills b, BillItems bi, Products p
-			WHERE b.billID = @billID
-				AND bi.billID = b.billID
-				AND p.productID = bi.productID
-				AND ((@categoryID IS NULL) OR (p.categoryID = @categoryID))
-				AND ((@sellerID IS NULL) OR (p.sellerID = @sellerID))
-		)
-		BEGIN
-			ROLLBACK TRANSACTION
-			CLOSE cur9
-			DEALLOCATE cur9
-			RETURN
-		END
-		
-		FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
-			@sellerID
-	END
-	CLOSE cur9
-	DEALLOCATE cur9
-END
 --------------------------------

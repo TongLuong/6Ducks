@@ -141,38 +141,35 @@ VALUES
 	(100000001,100000003,N'100000001',GETDATE()),
 	(100000011,100000003,N'100000011',GETDATE())
 
+--DBCC CHECKIDENT ('[Vouchers]', RESEED, 700000000);
 INSERT INTO Vouchers(timeStart, timeExpired, discountPercent,
 		maxValue, minBill, quantity, voucherType, [description])
-VALUES
-	(GETDATE(), GETDATE() + 155, 0.3, 100000, 50000, 100, NULL,
+VALUES -- voucherType: 0: product, 1: shipping
+	(GETDATE(), GETDATE() + 155, 0.3, 100000, 50000, 100, 0,
 	N'Voucher dùng cho Sách'),
-	(GETDATE(), GETDATE() + 205, 0.1, 1000000, 50000, 1000, NULL,
+	(GETDATE(), GETDATE() + 205, 0.1, 1000000, 50000, 1000, 0,
 	N'Voucher dùng cho Tài liệu'),
-	(GETDATE(), GETDATE() + 305, 0.15, 2000000, 10000, 2010, NULL,
+	(GETDATE(), GETDATE() + 305, 0.15, 2000000, 10000, 2010, 0,
 	N'Voucher dùng cho Tiểu thuyết'),
-	(GETDATE(), GETDATE() + 285, 0.13, 150000, 50000, 112, NULL,
+	(GETDATE(), GETDATE() + 285, 0.13, 150000, 50000, 112, 0,
 	N'Voucher dùng cho Truyện dài'),
-	(GETDATE(), GETDATE() + 135, 0.16, 70000, 50000, 500, NULL,
+	(GETDATE(), GETDATE() + 135, 0.16, 70000, 50000, 500, 0,
 	N'Voucher dùng cho Truyện ngắn'),
-	(GETDATE(), GETDATE() + 500, 0.09, 5000000, 1000000, 600, NULL,
+	(GETDATE(), GETDATE() + 500, 0.09, 5000000, 1000000, 600, 0,
 	N'Voucher dùng cho Truyện tranh'),
-	(GETDATE(), GETDATE() + 26, 0.05, 700000, 500000, 890, NULL,
-	N'Voucher dùng cho Truyện ngắn'),
-	(GETDATE(), GETDATE() + 8, 0.02, 50000, 30000, 50, NULL,
-	N'Voucher dùng cho Truyện tranh'),
-	(GETDATE(), GETDATE() + 14, 0.5, 10000, 40000, 230, NULL,
-	N'Voucher dùng cho Tiểu thuyết'),
-	(GETDATE(), GETDATE() + 56, 0.42, 5000, 50000, 545, NULL,
-	N'Voucher dùng cho Sách')
-
+	(GETDATE(), GETDATE() + 26, 0.05, 700000, 500000, 890, 1,
+	N'Voucher vận chuyển'),
+	(GETDATE(), GETDATE() + 8, 0.02, 50000, 30000, 50, 1,
+	N'Voucher vận chuyển'),
+	(GETDATE(), GETDATE() + 14, 0.5, 10000, 40000, 230, 1,
+	N'Voucher vận chuyển'),
+	(GETDATE(), GETDATE() + 56, 0.42, 5000, 50000, 545, 1,
+	N'Voucher vận chuyển')
+	
 INSERT INTO VoucherUse VALUES
-	(700000001, 2001, 210000001),
-	(700000002, 2002, 210000001),
-	(700000003, 2003, 210000002),
-	(700000004, 2004, 210000002),
-	(700000005, 2005, 210000003),
-	(700000006, 2006, 210000003),
-	(700000007, 2005, 210000004),
-	(700000008, 2006, 210000004),
-	(700000009, 2003, 210000002),
-	(700000010, 2001, 210000003)
+	(700000001, 2001, NULL),
+	(700000002, 2002, NULL),
+	(700000003, 2003, NULL),
+	(700000004, 2004, NULL),
+	(700000005, 2005, NULL),
+	(700000006, 2006, NULL)

@@ -387,7 +387,7 @@ namespace DA_6Ducks.Controllers
             return new JsonResult(new { billID = bill_id });
         }
 
-        public void AddBillItems(string billID,
+        public JsonResult AddBillItems(string billID,
             string productID, string quantity, string price)
         {
             if (conn.State == ConnectionState.Closed)
@@ -406,12 +406,25 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@quantity", quantity);
             cmd.Parameters.AddWithValue("@price", price);
 
+            SqlParameter currBillPrice = cmd.Parameters.Add("@totalPrice",
+                SqlDbType.Int);
+            currBillPrice.Direction = ParameterDirection.Output;
+
             cmd.ExecuteNonQuery();
 
             conn.Close();
+
+            return new JsonResult
+            (
+                new 
+                { 
+                    currBillPrice = currBillPrice.Value.ToString() ?? ""
+                }
+            );
         }
 
-        public JsonResult LoadVoucherInfo(string categoryID)
+        public JsonResult LoadVoucherInfo(string categoryID, 
+            string sellerID, int maxLoad)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -419,17 +432,18 @@ namespace DA_6Ducks.Controllers
             List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
             (
-                "SELECT * FROM dbo.[get_voucher] (@categoryID)"
+                "SELECT * FROM dbo.[get_voucher] (@categoryID, @sellerID)"
                 , conn
             );
 
             cmd.Parameters.AddWithValue("@categoryID", categoryID);
+            cmd.Parameters.AddWithValue("@sellerID", sellerID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             string[] temp = new string[dr.FieldCount];
             if (dr.HasRows)
             {
-                while (dr.Read())
+                while (dr.Read() && maxLoad != 0)
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
@@ -453,6 +467,8 @@ namespace DA_6Ducks.Controllers
                             }
                         )
                     );
+
+                    maxLoad--;
                 }
             }
             conn.Close();

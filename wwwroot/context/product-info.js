@@ -25,35 +25,7 @@
     });
 
     $("#quantity").val("1");
-
-    //quantity increase and reduce function
-    $("#increase").click(function () {
-        $("#quantity").val(Number($("#quantity").val()) + 1);
-
-        var currency = $("#price").text();
-        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-        var quantity = Number($("#quantity").val());
-        var shipping_price = Number($("#cost").val());
-
-        $(".total-cost").val(curr_price * quantity + shipping_price);
-    });
-    $("#reduce").click(function () {
-        $("#quantity").val(function () {
-            if (Number($("#quantity").val()) < 2)
-                return 1;
-            else {
-                var currency = $("#price").text();
-                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-                var quantity = Number($("#quantity").val()) - 1;
-                var shipping_price = Number($("#cost").val());
-
-                $(".total-cost").val(curr_price * quantity + shipping_price);
-
-                return Number($("#quantity").val()) - 1;
-            }
-        });
-    });
-
+    
     $("#quantity").on('change', function () {
         var currency = $("#price").text();
         var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
@@ -97,18 +69,7 @@
             }
         }
     );
-
-    $("#method").on('change', function (e) {
-        $("#cost").val(shippingPrice[this.value]);
-        
-        var currency = $("#price").text();
-        var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
-        var quantity = Number($("#quantity").val());
-        var shipping_price = Number($("#cost").val());
-
-        $(".total-cost").val(curr_price * quantity + shipping_price);
-    });
-
+    
     $.get(
         "Product/LoadPaymentMethods",
         {},
@@ -324,12 +285,16 @@
         })
     });
 
-    var totalDiscount = 1;
-    var voucherChoseID = [];
+    var totalDiscount = [1, 1];
+    var voucherChosenID = [null, null];
+    var maxLoadDiscount = 1;
+    var maxLoadShipping = 1;
     $.ajax({
         url: "Product/LoadVoucherInfo",
         data: {
-            "categoryID": currCategoryID
+            "categoryID": currCategoryID,
+            "sellerID": seller_id,
+            "maxLoad": -1 // get all
         },
         success: function (response) {
             for (var i = 0; i < response.data.length; i++) {
@@ -353,23 +318,64 @@
                 <button class="voucher-using" type="button">Dùng</button>
               </div>`;
 
-                $(".buy-product .right .wrapper").append(item);
+                var item2 = `<div class="voucher-item voucher-freeship 
+            voucher-item-` + temp.voucherID + `">
+                <div class="voucher-image"></div>
+                <div class="description">
+                    <span class="des">
+                        Voucher dùng cho danh mục Tiểu thuyết<br />
+                        <span class="discount">30%</span>
+                    </span>
+                    <span class="condition text">
+                        Đơn tối thiểu:
+                        <span class="min-bill">10000</span>đ<br />
+                        Giảm tối đa:
+                        <span class="max-discount">100000</span>đ
+                    </span>
+                </div>
+                <button class="voucher-using" type="button">Dùng</button>
+              </div>`;
 
-                $(".buy-product .right .voucher-item-" +
-                    temp.voucherID + " .discount").text(
-                        Number(temp.discountPercent) * 100 + "%");
-                $(".buy-product .right .voucher-item-" +
-                    temp.voucherID + " .des").text(temp.description);
-                $(".buy-product .right .voucher-item-" +
-                    temp.voucherID + " .min-bill").text(temp.minBill);
+                if (temp.voucherType == 0 && maxLoadDiscount > 0) {
+                    $(".buy-product .right .wrapper").append(item);
 
-                var maxValue = temp.maxValue;
-                if (temp.maxValue == "")
-                    maxValue = "∞";
-                $(".buy-product .right .voucher-item-" +
-                    temp.voucherID + " .max-discount").text(maxValue);
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .discount").text(
+                            Number(temp.discountPercent) * 100 + "%");
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .des").text(temp.description);
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .min-bill").text(temp.minBill);
 
-                addDiscount(temp.discountPercent, temp.voucherID);
+                    var maxValue = temp.maxValue;
+                    if (temp.maxValue == "")
+                        maxValue = "∞";
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .max-discount").text(maxValue);
+
+                    addDiscount(temp.discountPercent, temp.voucherID);
+                    maxLoadDiscount--;
+                }
+                else if (temp.voucherType == 1 && maxLoadShipping > 0) {
+                    $(".buy-product .right .wrapper").append(item2);
+
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .discount").text(
+                            Number(temp.discountPercent) * 100 + "%");
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .des").text(temp.description);
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .min-bill").text(temp.minBill);
+
+                    var maxValue = temp.maxValue;
+                    if (temp.maxValue == "")
+                        maxValue = "∞";
+                    $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .max-discount").text(maxValue);
+
+                    addFreeShip(temp.discountPercent, temp.voucherID);
+                    maxLoadShipping--;
+                }
             }
         }
     });
@@ -378,27 +384,63 @@
         $(".buy-product .right .voucher-item-" + voucherID
             + " .voucher-using").click(function () {
                 var currency = $(".total-cost").val();
-                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""));
+                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""))
+                    - Number($("#cost").val());
 
-                if ($(this).text() == "Dùng") {
+                var quantity = $("#quantity").val();
+                var price = $("#price").text();
+                price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
+                    * quantity;
+
+                if ($(this).text().trim() == "Dùng") {
+                    $(this).text("Hủy");
+                    
+                    totalDiscount[0] *= (1 - discountPercent);
+                    voucherChosenID[0] = voucherID;
+                }
+                else if ($(this).text().trim() == "Hủy") {
+                    $(this).text("Dùng");
+                    
+                    totalDiscount[0] /= (1 - discountPercent);
+                    voucherChosenID[0] = null;
+                }
+
+                $(".total-cost").val(
+                    Math.round(Number(price) * totalDiscount[0])
+                    + Number($("#cost").val()) * totalDiscount[1]
+                );
+            });
+    };
+
+    function addFreeShip(discountPercent, voucherID) {
+        $(".buy-product .right .voucher-item-" + voucherID
+            + " .voucher-using").click(function () {
+                var currency = $(".total-cost").val();
+                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""))
+                    - Number($("#cost").val());
+
+                var quantity = $("#quantity").val();
+                var price = $("#price").text();
+                price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
+                    * quantity;
+
+                if ($(this).text().trim() == "Dùng") {
                     $(this).text("Hủy");
 
-                    $(".total-cost").val(Math.round(Number(curr_price) *
-                        (1 - discountPercent)));
-
-                    totalDiscount *= (1 - discountPercent);
-                    voucherChoseID.push(voucherID);
+                    totalDiscount[1] *= (1 - discountPercent);
+                    voucherChosenID[1] = voucherID;
                 }
-                else if ($(this).text() == "Hủy") {
+                else if ($(this).text().trim() == "Hủy") {
                     $(this).text("Dùng");
 
-                    $(".total-cost").val(Math.round(Number(curr_price) /
-                        (1 - discountPercent)));
-
-                    totalDiscount /= (1 - discountPercent);
-                    voucherChoseID.splice(voucherChoseID.indexOf(voucherID),
-                        1);
+                    totalDiscount[1] /= (1 - discountPercent);
+                    voucherChosenID[1] = null;
                 }
+
+                $(".total-cost").val(
+                    Math.round(Number(price) * totalDiscount[0])
+                    + Number($("#cost").val()) * totalDiscount[1]
+                );
             });
     };
 
@@ -423,31 +465,20 @@
                 "address": address,
                 "pmethodID": pmethodID,
                 "smethodID": smethodID,
-                "discountVoucher": null,
-                "freeshipVoucher": null
+                "discountVoucher": voucherChosenID[0],
+                "freeshipVoucher": voucherChosenID[1]
             },
             async: false,
             success: function (response) {
                 billID = response.billID;
             }
         });
-
-        for (var i = 0; i < voucherChoseID.length; i++) {
-            $.ajax({
-                url: "Product/AddVoucherToBill",
-                data: {
-                    "billID": billID,
-                    "voucherID": voucherChoseID[i]
-                },
-                async: false
-            });
-        }
-
+        
         var quantity = $("#quantity").val();
         var price = $("#price").text();
-        price = Math.round(Number(price.replace(/[^0-9.-]+/g, ""))
-            * totalDiscount);
+        price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")));
 
+        var currBillPrice;
         $.ajax({
             url: "Product/AddBillItems",
             data: {
@@ -456,10 +487,73 @@
                 "quantity": quantity,
                 "price": price
             },
-            async: false
+            async: false,
+            success: function (response) {
+                currBillPrice = response.currBillPrice;
+            }
         });
+        $(".total-cost").val(currBillPrice);
+
+        for (var i = 0; i < voucherChosenID.length; i++) {
+            $.ajax({
+                url: "Product/AddVoucherToBill",
+                data: {
+                    "billID": billID,
+                    "voucherID": voucherChosenID[i]
+                },
+                async: false
+            });
+        }
 
         $(".disabled > .wrapper").hide();
         $(".success").show();
+    });
+
+    //quantity increase and reduce function
+    $("#increase").click(function () {
+        $("#quantity").val(Number($("#quantity").val()) + 1);
+
+        var quantity = $("#quantity").val();
+        var price = $("#price").text();
+        price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
+            * quantity;
+
+        $(".total-cost").val(
+            Math.round(Number(price) * totalDiscount[0])
+            + Number($("#cost").val()) * totalDiscount[1]
+        );
+    });
+    $("#reduce").click(function () {
+        $("#quantity").val(function () {
+            if (Number($("#quantity").val()) < 2)
+                return 1;
+            else {
+                var quantity = $("#quantity").val() - 1;
+                var price = $("#price").text();
+                price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
+                    * quantity;
+
+                $(".total-cost").val(
+                    Math.round(Number(price) * totalDiscount[0])
+                    + Number($("#cost").val()) * totalDiscount[1]
+                );
+
+                return Number($("#quantity").val()) - 1;
+            }
+        });
+    });
+
+    $("#method").on('change', function (e) {
+        $("#cost").val(shippingPrice[this.value]);
+
+        var quantity = $("#quantity").val();
+        var price = $("#price").text();
+        price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
+            * quantity;
+
+        $(".total-cost").val(
+            Math.round(Number(price) * totalDiscount[0])
+            + Number($("#cost").val()) * totalDiscount[1]
+        );
     });
 })
