@@ -12,37 +12,29 @@
     location.href = "/Chat" + "?receiver=" + sellerID;
   });
   //pagination function
-  $(".pagination p:not(.arrow)").click(function () {
-    $(".pagination > .active").toggleClass("active");
-    $(this).toggleClass("active");
-
-    $(".product > .active").toggleClass("active");
-    var x = Number($(this).text()[1]);
-    var y = ".product .page-" + x;
-    $(y).toggleClass("active");
-  });
-  //pagination forward
   $(".pagination p.arrow.forward").click(function () {
-    if ($(".pagination > .active").next()[0] !== $(this)[0]) {
-      var x = $(".pagination > .active");
-      $(".pagination > .active").next().toggleClass("active");
-      x.toggleClass("active");
+    var maxPage = $(".product-list").length;
+    var currPageNo = $(".product-list.active")
+      .prop("class")
+      .split(" ")[1]
+      .split("-")[1];
 
-      var y = $(".product > .active");
-      $(".product > .active").next().toggleClass("active");
-      y.toggleClass("active");
+    if (currPageNo != maxPage) {
+      $(".product-list.active").toggleClass("active");
+      $(".product-list.page-" + ++currPageNo).addClass("active");
     }
   });
   //pagination back
   $(".pagination p.arrow.back").click(function () {
-    if ($(".pagination > .active").prev()[0] !== $(this)[0]) {
-      var x = $(".pagination .active");
-      $(".pagination .active").prev().toggleClass("active");
-      x.toggleClass("active");
+    var maxPage = $(".product-list").length;
+    var currPageNo = $(".product-list.active")
+      .prop("class")
+      .split(" ")[1]
+      .split("-")[1];
 
-      var y = $(".product > .active");
-      $(".product > .active").prev().toggleClass("active");
-      y.toggleClass("active");
+    if (currPageNo != 1) {
+      $(".product-list.active").toggleClass("active");
+      $(".product-list.page-" + --currPageNo).addClass("active");
     }
   });
 
@@ -182,4 +174,36 @@
   }
 
   display_all_product();
+
+  //add delete icon to product item
+  var x = `<span class="delete-icon"><i class="fa fa-minus" aria-hidden="true"></i></span>`;
+  $(".product-item").append(x);
+  $(".product-item").find(".delete-icon").hide();
+  $(".delete-side").hide();
+  //delete click function
+  $("#delete-product").click(function () {
+    $(".product-item").find(".delete-icon").toggle();
+
+    $(".delete-icon").each(function () {
+      $(this).click(function () {
+        $(".delete-side").show();
+
+        var item = $(this).closest(".product-item");
+
+        $(".delete-popup button").click(function (e) {
+          if (e.target === $("#confirm-delete")[0]) {
+              item.replaceWith("");
+              $(".delete-side").hide();
+          } else if (e.target === $("#cancel-delete")[0]) {
+              $(".delete-side").hide();
+          };
+      });
+      });
+    });
+  });
+
+  var noItem = [];
+  $(".product-list").each(function() {
+    noItem.push($(this).find(".product-item").length);
+  });
 });

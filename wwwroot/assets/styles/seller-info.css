@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .seller-info {
@@ -174,10 +174,10 @@ label.star:before {
 }
 
 .row_bar > div > span {
-    position: absolute;
-    right: -25px;
-    top: 5px;
-    font-size: 11px;
+  position: absolute;
+  right: -25px;
+  top: 5px;
+  font-size: 11px;
 }
 
 .button {
@@ -358,16 +358,19 @@ label.star:before {
   flex-direction: column;
   row-gap: 20px;
   align-items: center;
-  .active {
-    display: grid;
-  }
 }
 
 .product-list {
   width: 60%;
   display: none;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  row-gap: 20px;
+  column-gap: 20px;
+  max-height: 850px;
+}
+
+.product-list.active {
+  display: grid;
 }
 
 .product-item {
@@ -376,6 +379,8 @@ label.star:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
+  user-select: none;
+  position: relative;
   & img {
     width: 100%;
     border-radius: 5px 5px 0 0;
@@ -387,12 +392,14 @@ label.star:before {
       font-size: 11px;
       font-weight: 400;
       line-height: 15px;
+      margin-bottom: 10px;
     }
     .price {
       color: var(--secondary-500, #2da5f3);
       font-size: 14px;
       font-weight: 600;
       line-height: 10px;
+      margin-bottom: 10px;
     }
     .rate {
       color: #ebc80c;
@@ -409,4 +416,107 @@ label.star:before {
 
 .product-item:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.delete-section,
+.statistic-section {
+  background-color: var(--gray-00);
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 30px;
+  border-color: var(--gray-100);
+  box-shadow: var(--dropdown-shadow);
+  width: 100%;
+}
+
+.delete-section button,
+.statistic-section button {
+  width: 100%;
+  background-color: #044876;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.168px;
+  line-height: 48px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.delete-icon {
+  position: absolute;
+  cursor: pointer;
+  top: -10px;
+  left: -10px;
+  font-size: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: red;
+  aspect-ratio: 1 / 1;
+  transition: all 1s ease-in-out;
+}
+
+#delete-popup {
+  position: absolute;
+  padding: 20px;
+  z-index: 1;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-side {
+  position: fixed;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.delete-popup {
+  padding: 20px 50px 20px 50px;
+  border: 2px solid black;
+  width: max-content;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-popup .btn-group {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-popup .btn-group button {
+  padding: 5px 10px;
+  transition: all .2s ease-in-out;
+}
+
+button#confirm-delete {
+  border-radius: 2px;
+  border: 2px solid rgba(255, 0, 0, 0.52);
+  background: rgba(255, 0, 0, 0.20);
+}
+
+button#cancel-delete {
+  border-radius: 2px;
+  border: 2px solid var(--Secondary-500, #2DA5F3);
+  background: rgba(20, 136, 219, 0.20);
+}
+
+.delete-popup .btn-group button:hover {
+  transform: scale(1.1);
 }
