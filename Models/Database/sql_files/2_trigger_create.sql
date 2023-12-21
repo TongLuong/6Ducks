@@ -198,12 +198,7 @@ BEGIN
 	FETCH FROM cur8 INTO @currBillID
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		SELECT @totalCost = SUM(price * quantity)
-		FROM BillItems
-		WHERE billID = @currBillID
-
-		IF @totalCost IS NULL
-			SET @totalCost = 0
+		SELECT @totalCost = dbo.[checkBillPrice](@currBillID)
 
 		UPDATE Bills
 		SET totalPrice = @totalCost
@@ -214,5 +209,54 @@ BEGIN
 
 	CLOSE cur8
 	DEALLOCATE cur8
+END
+
+GO
+-- DROP TRIGGER check_condition_on_voucher_apply
+CREATE TRIGGER check_condition_on_voucher_apply
+ON VoucherApply
+AFTER INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @billID INTEGER
+	DECLARE @voucherID INTEGER
+	DECLARE @categoryID INTEGER = NULL
+	DECLARE @sellerID INTEGER = NULL
+	DECLARE cur9 CURSOR LOCAL FOR 
+	(
+		SELECT i.billID, i.voucherID, 
+			vu.categoryID, vu.sellerID
+		FROM inserted i, VoucherUse vu
+		WHERE i.voucherID = vu.voucherID
+	)
+
+	OPEN cur9
+	FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
+		@sellerID
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		IF NOT EXISTS
+		(
+			SELECT *
+			FROM Bills b, BillItems bi, Products p
+			WHERE b.billID = @billID
+				AND bi.billID = b.billID
+				AND p.productID = bi.productID
+				AND ((@categoryID IS NULL) OR (p.categoryID = @categoryID))
+				AND ((@sellerID IS NULL) OR (p.sellerID = @sellerID))
+		)
+		BEGIN
+			ROLLBACK TRANSACTION
+			CLOSE cur9
+			DEALLOCATE cur9
+			RETURN
+		END
+		
+		FETCH FROM cur9 INTO @billID, @voucherID, @categoryID,
+			@sellerID
+	END
+	CLOSE cur9
+	DEALLOCATE cur9
 END
 --------------------------------
