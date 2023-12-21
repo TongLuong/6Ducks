@@ -154,5 +154,66 @@ namespace DA_6Ducks.Controllers
 
             conn.Close();
 		}
+
+        public JsonResult DisplayProduct()
+        {
+			if (conn.State == ConnectionState.Closed)
+				conn.Open();
+			string userID = Session.sessionID;
+
+			SqlCommand cmd = new SqlCommand
+		   (
+			   "SELECT " +
+			   "p.productID, p.name, p.price, p.avgStar, p.numbersLeft, " +
+			   "pi.imgLink " +
+			   "FROM dbo.Products p, dbo.ProductIMGs pi,Sellers s " +
+			   "WHERE p.productID = pi.productID and p.sellerID = s.sellerID and s.userID = @userID"
+			   , conn
+		   );
+
+			cmd.Parameters.AddWithValue("@userID", userID);
+
+			SqlDataReader dr = cmd.ExecuteReader();
+            int num = 0;
+            List<int> pages = new List<int>();
+			List<int> productIDs = new List<int>();
+            List<string> names =    new List<string>();
+            List<int> prices = new List<int>();
+            List<double> rates = new List<double>();
+            List<int> numberLeft = new List<int>();
+            List<string> imgPaths = new List<string>();
+			if (dr.HasRows)
+			{
+				while (dr.Read())
+				{
+                    num++;
+                    pages.Add(num / 4 + 1);
+                    productIDs.Add(dr.GetInt32 (0));
+                    names.Add(dr.GetString (1));
+                    prices.Add(dr.GetInt32 (2));
+                    rates.Add(Math.Floor(dr.GetDouble(3)));
+                    numberLeft.Add(dr.GetInt32 (4));
+                    imgPaths.Add(dr.GetString(5) +"/book-1.png");
+				}
+			}
+
+			
+
+			return new JsonResult
+			(
+				new
+				{
+                    len = num,
+                    page = pages,
+					productID = productIDs,
+					name = names,
+					price = prices,
+					rate= rates,
+					numbersLeft = numberLeft,
+					imgLink = imgPaths
+				}
+			);
+
+		}
     }
 }
