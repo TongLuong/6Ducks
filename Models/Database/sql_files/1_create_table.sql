@@ -219,6 +219,10 @@ GO
 
 alter table Bills add constraint DF_totalPrice  default 0 for totalPrice
 alter table Bills add constraint DF_time default getdate() for [time]
+alter table Bills add constraint FK_discount 
+	foreign key (discountVoucher) references Vouchers(voucherID)
+alter table Bills add constraint FK_freeship 
+	foreign key (freeshipVoucher) references Vouchers(voucherID)
 
 --alter table BillItems drop constraint [PK__BillItem__B61EB4DE7FD3DFE3]
 alter table BillItems alter column billID int not null
