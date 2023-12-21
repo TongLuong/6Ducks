@@ -101,23 +101,36 @@ return
 go
 	
 -- calculate total price of a bill (check ship,voucher...)
+-- drop function checkBillPrice
 create function checkBillPrice(
-@billID int, 
-@smethodID int, 
-@discountVoucher int,
-@freeshipVoucher int 
+@billID int
 )
 returns int
 as
 begin
 	declare @productPrice int
+	declare @billTime datetime
+	declare @smethodID int
+	declare @discountVoucherID int = null
+	declare @freeshipVoucherID int = null
+
 	declare @smethodPrice int
 	declare @discount int, @discountPercent float, @maxDiscount int
 	declare @freeship int, @freeshipPercent float, @maxFreeship int
 	declare @totalBill int
+
+	select @billTime = [time], 
+		@smethodID = smethodID, 
+		@discountVoucherID = discountVoucher,
+		@freeshipVoucherID = freeshipVoucher
+	from Bills
+	where billID = @billID
+
+	if @discountVoucherID is null
+		set @discountVoucherID = 0
 	--
 	set @productPrice = (
-		SELECT SUM(price) FROM BillItems
+		SELECT SUM(price * quantity) FROM BillItems
 		where billID = @billID
 	)
 	--
@@ -128,31 +141,36 @@ begin
 	--
 	set @discountPercent = (
 		SELECT MAX(discountPercent) FROM Vouchers
-		where voucherID = @discountVoucher
+		where voucherID = @discountVoucherID
+		and minBill <= @productPrice
 	)
 	set @maxDiscount = (
 		SELECT MAX(maxValue) FROM Vouchers
-		where voucherID = @discountVoucher
+		where voucherID = @discountVoucherID
+		and minBill <= @productPrice
 	)
 	set @discount = @discountPercent * @productPrice
 	if (@discount > @maxDiscount)
-	BEGIN
 		set @discount = @maxDiscount
-	END
+	if (@discountVoucherID is null)
+		set @discount = 0
+
 	--
 	set @freeshipPercent = (
 		SELECT MAX(discountPercent) FROM Vouchers
-		where voucherID = @freeshipVoucher
+		where voucherID = @freeshipVoucherID
+		and minBill <= @productPrice
 	)
 	set @maxFreeship = (
 		SELECT MAX(maxValue) FROM Vouchers
-		where voucherID = @freeshipVoucher
+		where voucherID = @freeshipVoucherID
+		and minBill <= @productPrice
 	)
-	set @discount = @freeshipPercent * @smethodPrice
-	if (@discount > @maxFreeship)
-	BEGIN
-		set @discount = @maxFreeship
-	END
+	set @freeship = @freeshipPercent * @smethodPrice
+	if (@freeship > @maxFreeship)
+		set @freeship = @maxFreeship
+	if (@freeshipVoucherID is null)
+		set @freeship = 0
 
 	set @totalBill = @productPrice + @smethodPrice - @discount - @freeship
 	return @totalBill
