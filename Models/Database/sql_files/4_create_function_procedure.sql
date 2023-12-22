@@ -535,6 +535,7 @@ end
 go
 
 go
+--drop function total_bill_and_product
 create function total_bill_and_product(@sellerID int,@year int)
 returns @rtnTable table(mm int, bill_quantity int, revenue int, product_sold int) as
 begin
@@ -554,6 +555,9 @@ begin
 		from Bills 
 		where sellerID=@sellerID and YEAR([time]) =@year and MONTH([time])=@mm and billStatus = 'Done';
 
+		if (@revenue is null)
+			set @revenue = 0
+
 		insert into @rtnTable values(@mm, @bill_quantity,@revenue,@product_sold);
 		set @mm = @mm + 1
 	end
@@ -561,3 +565,5 @@ begin
 	return
 end
 go
+
+select * from total_bill_and_product(210000001,2023)
