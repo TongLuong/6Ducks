@@ -139,18 +139,7 @@
                                 <label for="cod-method">Thanh toán khi nhận hàng</label>
                             </div>
                             <form action="" class="cod-form">
-                                <div>
-                                    <input type="text" name="name" id="name" />
-                                    <label for="name">Tên người nhận</label>
-                                </div>
-                                <div>
-                                    <input type="text" name="phone" id="phone" />
-                                    <label for="phone">SĐT liên lạc khi nhận hàng</label>
-                                </div>
-                                <div>
-                                    <input type="text" name="address" id="address" />
-                                    <label for="address">Địa chỉ</label>
-                                </div>
+
                             </form>
                         </div>
                         <div class="right">
@@ -184,20 +173,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="voucher">
+                    <div class="wrapper">
+                        <h1>Voucher giảm giá</h1>
+                        <button type="button" class="choose-voucher">
+                            Chọn voucher
+                        </button>
+                    </div>
+                </div>
                 <div class="total">
                     <label for="total">Tổng thanh toán</label>
                     <input type="number" class="total" readonly />
                 </div>
                 <div class="btn-group">
-                    <button type="button" id="cancel">Hủy</button>
-                    <button type="submit" id="next">Tiếp theo</button>
-                    <button type="submit" id="confirm-buy">Mua ngay</button>
+                    <button type="button" id="cancel-1">Hủy</button>
+                    <button type="button" id="cancel-2">Hủy</button>
+                    <button type="button" id="cancel-3">Hủy</button>
+                    <button type="button" id="next-1">Tiếp theo</button>
+                    <button type="button" id="next-2">Tiếp theo</button>
+                    <button type="button" id="confirm-buy">Hoàn tất</button>
                 </div>
             </div>
             <div class="success wrapper">
                 <h1>Đặt hàng thành công!</h1>
                 <div class="text">
-                    Bạn đã hoàn tất giao dịch đặt hàng! Hãy chờ người bán xác nhận đơn hàng và đóng gói gửi đến cho bạn nhé!
+                    Bạn đã hoàn tất giao dịch đặt hàng! Hãy chờ người bán xác nhận đơn hàng và đóng gói gửi đến cho
+                    bạn
+                    nhé!
                 </div>
                 <button type="button" id="buy-done">Xong</button>
             </div>
