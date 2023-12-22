@@ -286,6 +286,8 @@
     });
 
     var totalDiscount = [1, 1];
+    var maxDiscount = [0, 0];
+    var minBill = [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER];
     var voucherChosenID = [null, null];
     var maxLoadDiscount = 1;
     var maxLoadShipping = 1;
@@ -354,6 +356,10 @@
                         temp.voucherID + " .max-discount").text(maxValue);
 
                     addDiscount(temp.discountPercent, temp.voucherID);
+                    maxDiscount[0] = $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .max-discount").text();
+                    minBill[0] = $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .min-bill").text();
                     maxLoadDiscount--;
                 }
                 else if (temp.voucherType == 1 && maxLoadShipping > 0) {
@@ -374,6 +380,10 @@
                         temp.voucherID + " .max-discount").text(maxValue);
 
                     addFreeShip(temp.discountPercent, temp.voucherID);
+                    maxDiscount[1] = $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .max-discount").text();
+                    minBill[1] = $(".buy-product .right .voucher-item-" +
+                        temp.voucherID + " .min-bill").text();
                     maxLoadShipping--;
                 }
             }
@@ -383,14 +393,15 @@
     function addDiscount(discountPercent, voucherID) {
         $(".buy-product .right .voucher-item-" + voucherID
             + " .voucher-using").click(function () {
-                var currency = $(".total-cost").val();
-                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""))
-                    - Number($("#cost").val());
-
                 var quantity = $("#quantity").val();
                 var price = $("#price").text();
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
+
+                if (Number(price) < minBill[0]) {
+                    alert("Giá trị đơn hàng không thỏa!");
+                    return;
+                }
 
                 if ($(this).text().trim() == "Dùng") {
                     $(this).text("Hủy");
@@ -405,9 +416,13 @@
                     voucherChosenID[0] = null;
                 }
 
+                var temp = Number(price) * totalDiscount[0];
+                if (temp > maxDiscount[0])
+                    temp = maxDiscount[0];
+
                 $(".total-cost").val(
-                    Math.round(Number(price) * totalDiscount[0])
-                    + Number($("#cost").val()) * totalDiscount[1]
+                    Math.round(temp +
+                        Number($("#cost").val()) * totalDiscount[1])
                 );
             });
     };
@@ -415,14 +430,15 @@
     function addFreeShip(discountPercent, voucherID) {
         $(".buy-product .right .voucher-item-" + voucherID
             + " .voucher-using").click(function () {
-                var currency = $(".total-cost").val();
-                var curr_price = Number(currency.replace(/[^0-9.-]+/g, ""))
-                    - Number($("#cost").val());
-
                 var quantity = $("#quantity").val();
                 var price = $("#price").text();
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
+
+                if (Number(price) < minBill[1]) {
+                    alert("Giá trị đơn hàng không thỏa!");
+                    return;
+                }
 
                 if ($(this).text().trim() == "Dùng") {
                     $(this).text("Hủy");
@@ -437,9 +453,12 @@
                     voucherChosenID[1] = null;
                 }
 
+                var temp = Number($("#cost").val()) * totalDiscount[1];
+                if (temp > maxDiscount[1])
+                    temp = maxDiscount[1];
+
                 $(".total-cost").val(
-                    Math.round(Number(price) * totalDiscount[0])
-                    + Number($("#cost").val()) * totalDiscount[1]
+                    Math.round(Number(price) * totalDiscount[0] + temp)
                 );
             });
     };
@@ -511,12 +530,24 @@
 
     //quantity increase and reduce function
     $("#increase").click(function () {
+        var allBtnVoucher = $(".buy-product .right .voucher-using");
+        allBtnVoucher.each(function () {
+            if ($(this).text().trim() == "Hủy")
+                $(this).trigger('click');
+        });
+
         $("#quantity").val(Number($("#quantity").val()) + 1);
 
         var quantity = $("#quantity").val();
         var price = $("#price").text();
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
             * quantity;
+
+        if (Number(price) < minBill[0] ||
+            Number(price) < minBill[1]) {
+            alert("Giá trị đơn hàng không thỏa!");
+            return;
+        }
 
         $(".total-cost").val(
             Math.round(Number(price) * totalDiscount[0])
@@ -528,10 +559,22 @@
             if (Number($("#quantity").val()) < 2)
                 return 1;
             else {
+                var allBtnVoucher = $(".buy-product .right .voucher-using");
+                allBtnVoucher.each(function () {
+                    if ($(this).text().trim() == "Hủy")
+                        $(this).trigger('click');
+                });
+
                 var quantity = $("#quantity").val() - 1;
                 var price = $("#price").text();
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
+
+                if (Number(price) < minBill[0] ||
+                    Number(price) < minBill[1]) {
+                    alert("Giá trị đơn hàng không thỏa!");
+                    return;
+                }
 
                 $(".total-cost").val(
                     Math.round(Number(price) * totalDiscount[0])
@@ -550,6 +593,12 @@
         var price = $("#price").text();
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
             * quantity;
+
+        if (Number(price) < minBill[0] ||
+            Number(price) < minBill[1]) {
+            alert("Giá trị đơn hàng không thỏa!");
+            return;
+        }
 
         $(".total-cost").val(
             Math.round(Number(price) * totalDiscount[0])
