@@ -382,8 +382,13 @@ label.star:before {
   user-select: none;
   position: relative;
   & img {
-    width: 100%;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
     border-radius: 5px 5px 0 0;
+    height: 180px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
   }
   .container {
     padding: 2px 10px;
@@ -393,6 +398,8 @@ label.star:before {
       font-weight: 400;
       line-height: 15px;
       margin-bottom: 10px;
+      text-wrap: nowrap;
+      overflow-x: scroll;
     }
     .price {
       color: var(--secondary-500, #2da5f3);
@@ -405,6 +412,7 @@ label.star:before {
       color: #ebc80c;
       font-size: 12px;
       & span {
+        margin-left: 10px;
         color: var(--gray-500, #77878f);
         font-size: 10px;
         font-weight: 400;

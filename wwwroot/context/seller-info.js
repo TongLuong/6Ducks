@@ -118,21 +118,22 @@
       "</header>" +
       '<div class="price" id="price">' +
       price +
-      "</div>" +
+      "đ</div>" +
       '<div class="rate" id="rate">' +
       '<i class="fa fa-star" aria-hidden="true" name="star"></i>' +
       '<i class="fa fa-star" aria-hidden="true" name="star"></i>' +
       '<i class="fa fa-star" aria-hidden="true" name="star"></i>' +
       '<i class="fa fa-star" aria-hidden="true" name="star"></i>' +
       '<i class="fa fa-star" aria-hidden="true" name="star"></i>' +
-      "<span>" +
+      "<span>(" +
       numberLeft +
-      "</span>" +
+      ")</span>" +
       "</div>" +
       "</div>" +
+      '<span class="delete-icon"><i class="fa fa-minus" aria-hidden="true"></i></span>' +
       "</div>";
-
     $(".product-list.page-" + stt).append(html);
+    $(".product-item").find(".delete-icon").hide();
     var item = $(".product-list .product-item:last-child()");
     const starInputs = item.find('i[name="star"]');
     for (let i = 0; i < starInputs.length; i++) {
@@ -151,6 +152,15 @@
 
         location.href = "/Product" + "?product=" + productID;
       });
+    item.find("header").on('mouseenter', function() {
+        $(this).animate({
+            scrollLeft: $(this).width()
+        }, 1000);
+    }).on('mouseleave', function() {
+        $(this).animate({
+            scrollLeft: -$(this).width()
+        }, 1000);
+    });
   }
 
   function display_all_product() {
@@ -181,28 +191,24 @@
     });
   }
 
-    display_all_product();
+  display_all_product();
 
-    function delete_product(productID) {
-        $.ajax({
-            url: "SellerInfoSeller/DeleteProduct",
-            data: { "productID": productID },
-            async: false,
-            type:'post',
-            success: function () {
-                alert("Delete succesfully");
-                display_all_product();
-            },
-            error: function () {
-                alert("Fail to delete");
-            }
-        });
-    }
+  function delete_product(productID) {
+    $.ajax({
+      url: "SellerInfoSeller/DeleteProduct",
+      data: { productID: productID },
+      async: false,
+      type: "post",
+      success: function () {
+        alert("Delete successfully");
+        display_all_product();
+      },
+      error: function () {
+        alert("Fail to delete");
+      },
+    });
+  }
 
-  //add delete icon to product item
-  var x = `<span class="delete-icon"><i class="fa fa-minus" aria-hidden="true"></i></span>`;
-  $(".product-item").append(x);
-  $(".product-item").find(".delete-icon").hide();
   $(".delete-side").hide();
   //delete click function
   $("#delete-product").click(function () {
@@ -216,12 +222,14 @@
         var item = $(this).closest(".product-item");
 
         $(".delete-popup button").click(function (e) {
-            if (e.target === $("#confirm-delete")[0]) {
-                $('.product-list').replaceWith("");
-                $('.layout.product').prepend('<div class="product-list page-1 active"></div>');
-                $(".delete-side").hide();
-                  ignoreClickProduct = true;
-                  delete_product(item.prop("id"));
+          if (e.target === $("#confirm-delete")[0]) {
+            $(".product-list").replaceWith("");
+            $(".layout.product").prepend(
+              '<div class="product-list page-1 active"></div>'
+            );
+            $(".delete-side").hide();
+            ignoreClickProduct = true;
+            delete_product(item.prop("id"));
           } else if (e.target === $("#cancel-delete")[0]) {
             $(".delete-side").hide();
             ignoreClickProduct = true;
