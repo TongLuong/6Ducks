@@ -45,8 +45,8 @@
   });
 
   $.get({
-    url: "/SellerInfoSeller/DisplayRating",
-    dataType: "json",
+      url: "/SellerInfoSeller/DisplayRating",
+      data: { "seller": sellerID },
     success: function (response) {
       //bar
       $(".bar_1").css(
@@ -93,7 +93,10 @@
       );
 
       $("#rating-avg").text("(" + response.avgRating + "/5)");
-    },
+      },
+      error: function () {
+          alert('error');
+      }
   });
 
   function display_product(
@@ -163,10 +166,11 @@
     });
   }
 
-  function display_all_product() {
+  function display_all_product(sellerID) {
     $.ajax({
-      url: "SellerInfoSeller/DisplayProduct",
-      async: false,
+      url: "/SellerInfoSeller/DisplayProduct",
+      data: { "seller": sellerID },
+      type:'json',
       success: function (response) {
         for (let j = 2; j < response.page[response.len - 1]; j++) {
           $(".layout.product").append(
@@ -187,11 +191,12 @@
       },
       error: function () {
         alert("Fail display");
-      },
+      }
     });
   }
+    
 
-  display_all_product();
+  display_all_product(sellerID);
 
   function delete_product(productID) {
     $.ajax({
@@ -239,8 +244,7 @@
     });
   });
 
-  var noItem = [];
-  $(".product-list").each(function () {
-    noItem.push($(this).find(".product-item").length);
+  $("#statistic-seller").click(function() {
+    location.href = "/Statistic";
   });
 });
