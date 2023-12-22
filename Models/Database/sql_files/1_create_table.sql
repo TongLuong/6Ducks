@@ -82,12 +82,15 @@ CREATE TABLE Products (
 )
 GO
 
+--drop table ProductIMGs
 IF OBJECT_ID(N'dbo.ProductIMGs', N'U') IS NULL
 CREATE TABLE ProductIMGs (
-    productID INTEGER,
+    productID INTEGER ,
         FOREIGN KEY (productID) REFERENCES Products (productID),
     imgLink VARCHAR(255)
 )
+alter table ProductIMGs drop constraint [FK__ProductIM__produ__03F0984C]
+alter table ProductIMGs add constraint FK_ProductIMG_Product FOREIGN KEY (productID) REFERENCES Products (productID) on delete cascade;
 
 --drop table CartItems
 IF OBJECT_ID(N'dbo.CartItems', N'U') IS NULL
@@ -175,6 +178,9 @@ CREATE TABLE Ratings (
     detail NVARCHAR(255),
     ratingStar FLOAT,
 )
+alter table Ratings drop constraint [FK__Ratings__product__07C12930]
+alter table Ratings add constraint FK_Ratings_Product FOREIGN KEY (productID) REFERENCES Products (productID) on delete set null;
+
 
 IF OBJECT_ID(N'dbo.Vouchers', N'U') IS NULL 
 CREATE TABLE Vouchers (

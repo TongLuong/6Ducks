@@ -533,3 +533,31 @@ begin
 	return
 end
 go
+
+go
+create function total_bill_and_product(@sellerID int,@year int)
+returns @rtnTable table(mm int, bill_quantity int, revenue int, product_sold int) as
+begin
+	declare @mm int = 1
+	declare @bill_quantity int;
+	declare @revenue int;
+	declare @product_sold int;
+
+	while @mm <= 12
+	begin
+		select @product_sold = count(*)
+		from Products p, BillItems bi, Bills b
+		where p.productID=bi.productID and b.billID=bi.billID 
+				and YEAR([time]) =@year and MONTH([time])=@mm and b.billStatus = 'Done'
+
+		select @bill_quantity=COUNT(*), @revenue=sum(totalPrice) 
+		from Bills 
+		where sellerID=@sellerID and YEAR([time]) =@year and MONTH([time])=@mm and billStatus = 'Done';
+
+		insert into @rtnTable values(@mm, @bill_quantity,@revenue,@product_sold);
+		set @mm = @mm + 1
+	end
+
+	return
+end
+go

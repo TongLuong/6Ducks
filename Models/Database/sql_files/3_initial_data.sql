@@ -106,14 +106,14 @@ GO
 INSERT INTO ProductIMGs
     (productID, imgLink)
 VALUES
-    (300000001, '/assets/images/book-1-1.png'),
-	(300000002, '/assets/images/book-2.png'),
-	(300000003, '/assets/images/book-3.png'),
-	(300000004, '/assets/images/book-4.png'),
-	(300000005, '/assets/images/book-5.png'),
-	(300000006, '/assets/images/book-6.png'),
-	(300000007, '/assets/images/book-7.png'),
-	(300000008, '/assets/images/book-8.png')
+    (300000001, '/assets/images/DieuKyDieuCuaTiemTapHoaNamiya'),
+	(300000002, '/assets/images/Conan'),
+	(300000003, '/assets/images/ThienSuNhaBen'),
+	(300000004, '/assets/images/ThayDoiCuocSongVoiThanSoHoc'),
+	(300000005, '/assets/images/MuonKiepNhanSinh'),
+	(300000006, '/assets/images/NghiCachLamGiau'),
+	(300000007, '/assets/images/SherlockHolmes'),
+	(300000008, '/assets/images/BoSachKeChuyenCuocDoiCacThienTai')
 GO
 
 INSERT INTO Ratings

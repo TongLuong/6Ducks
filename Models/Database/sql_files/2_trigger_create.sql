@@ -61,11 +61,13 @@ END
 GO
 
 -- Decrease seller's number of selling product when a product is deleted (gonna delete)
+--drop trigger remove_product
 CREATE TRIGGER remove_product
 ON Products
 AFTER DELETE
 AS
 BEGIN
+
     DECLARE @slrID INTEGER
     DECLARE @qtt INTEGER
     DECLARE cur3 CURSOR FOR (SELECT sellerID, COUNT(*) AS quantity FROM deleted GROUP BY sellerID)
