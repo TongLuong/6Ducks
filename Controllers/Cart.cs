@@ -32,7 +32,7 @@ namespace DA_6Ducks.Controllers
             List<JsonResult> result = new List<JsonResult>();
             SqlCommand cmd = new SqlCommand
             (
-                "SELECT c.*, p.name, pi.imgLink " +
+                "SELECT c.*, p.name, p.categoryID, pi.imgLink " +
                 "FROM CartItems c, Buyers b, Products p, ProductIMGs pi " +
                 "WHERE c.buyerID = b.buyerID " +
                 "AND b.userID = @userID " +
@@ -58,11 +58,11 @@ namespace DA_6Ducks.Controllers
                     }
 
                     List<string> imgs = new List<string>();
-                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[6]);
+                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + temp[7]);
                     FileInfo[] files = di.GetFiles();
                     foreach (FileInfo file in files)
                     {
-                        imgs.Add(temp[6] + "/" + file.Name);
+                        imgs.Add(temp[7] + "/" + file.Name);
                     }
 
                     result.Add
@@ -77,6 +77,7 @@ namespace DA_6Ducks.Controllers
                                 quantity = temp[3],
                                 price = temp[4],
                                 name = temp[5],
+                                categoryID = temp[6],
                                 imgLink = imgs
                             }
                         )

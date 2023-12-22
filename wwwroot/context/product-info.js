@@ -112,25 +112,42 @@
         $(".disabled").css("display", "none");
         $("body").css("overflow", "scroll");
     });
-    $(".cash form").css("opacity", "0");
+    //$(".cash form").css("opacity", "0");
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    $(".cash .right form input, " +
+        ".cash .right form select").prop("disabled", true);
+    $(".cash .left form input, " +
+        ".cash .left form select").prop("disabled", true);
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener("change", function () {
             checkboxes.forEach(function (c) {
                 if (c !== checkbox) c.checked = false;
             });
+
+            $(".cash .left input, .cash .right input").val("");
+
             if ($(".cash .left").has(this).length) {
-                if (this.checked)
+                $(".cash .right form input, " +
+                    ".cash .right form select").prop("disabled", true);
+                $(".cash .left form input, " +
+                    ".cash .left form select").prop("disabled", false);
+
+                /*if (this.checked)
                     $(".cash .left form").css("opacity", "1");
                 else
                     $(".cash .left form").css("opacity", "0");
-                $(".cash .right form").css("opacity", "0");
+                $(".cash .right form").css("opacity", "0");*/
             } else {
-                $(".cash .left form").css("opacity", "0");
+                $(".cash .right form input, " +
+                    ".cash .right form select").prop("disabled", false);
+                $(".cash .left form input, " +
+                    ".cash .left form select").prop("disabled", true);
+
+                /*$(".cash .left form").css("opacity", "0");
                 if (this.checked)
                     $(".cash .right form").css("opacity", "1");
                 else
-                    $(".cash .right form").css("opacity", "0");
+                    $(".cash .right form").css("opacity", "0");*/
             }
         });
     });
