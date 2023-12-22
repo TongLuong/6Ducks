@@ -181,7 +181,23 @@
     });
   }
 
-  display_all_product();
+    display_all_product();
+
+    function delete_product(productID) {
+        $.ajax({
+            url: "SellerInfoSeller/DeleteProduct",
+            data: { "productID": productID },
+            async: false,
+            type:'post',
+            success: function () {
+                alert("Delete succesfully");
+                display_all_product();
+            },
+            error: function () {
+                alert("Fail to delete");
+            }
+        });
+    }
 
   //add delete icon to product item
   var x = `<span class="delete-icon"><i class="fa fa-minus" aria-hidden="true"></i></span>`;
@@ -200,10 +216,12 @@
         var item = $(this).closest(".product-item");
 
         $(".delete-popup button").click(function (e) {
-          if (e.target === $("#confirm-delete")[0]) {
-            item.replaceWith("");
-            $(".delete-side").hide();
-            ignoreClickProduct = true;
+            if (e.target === $("#confirm-delete")[0]) {
+                $('.product-list').replaceWith("");
+                $('.layout.product').prepend('<div class="product-list page-1 active"></div>');
+                $(".delete-side").hide();
+                  ignoreClickProduct = true;
+                  delete_product(item.prop("id"));
           } else if (e.target === $("#cancel-delete")[0]) {
             $(".delete-side").hide();
             ignoreClickProduct = true;

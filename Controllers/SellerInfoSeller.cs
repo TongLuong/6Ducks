@@ -215,5 +215,20 @@ namespace DA_6Ducks.Controllers
 			);
 
 		}
+
+        [HttpPost]
+        public void DeleteProduct(int productID)
+        {
+			if (conn.State == ConnectionState.Closed)
+				conn.Open();
+
+			SqlCommand cmd = new SqlCommand("delete from Products where productID=@productID", conn);
+
+			cmd.Parameters.AddWithValue("@productID", productID);
+
+			cmd.ExecuteNonQuery();
+
+			conn.Close();
+		}
     }
 }
