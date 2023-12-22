@@ -244,6 +244,15 @@
     });
   });
 
+  $("#change-btn").click(function() {
+    $(".change-info-side").css("display", "flex")
+  });
+
+  $("#cancel-change").click(function() {
+    $(".change-info-side input").val("");
+    $(".change-info-side").css("display", "none");
+  });
+
   $("#statistic-seller").click(function() {
     location.href = "/Statistic";
   });

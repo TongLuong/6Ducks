@@ -21,6 +21,37 @@
 
 <body>
 	<div class="mainpage">
+		<div class="change-info-side">
+			<div class="change-info-popup">
+				<h4>Thay đổi thông tin</h4>
+				<form action="">
+					<div>
+						<input type="text" name="change-pwd" id="change-pwd">
+						<label for="change-pwd">Mật khẩu</label>
+					</div>
+					<div>
+						<input type="text" name="change-email" id="change-email">
+						<label for="change-email">Email</label>
+					</div>
+					<div>
+						<input type="text" name="change-dob" id="change-dob">
+						<label for="change-dob">Ngày sinh</label>
+					</div>
+					<div>
+						<input type="text" name="change-add" id="change-add">
+						<label for="change-add">Địa chỉ</label>
+					</div>
+					<div>
+						<input type="text" name="change-phone" id="change-phone">
+						<label for="change-phone">Số điện thoại</label>
+					</div>
+				</form>
+				<div class="btn-group">
+					<button type="button" id="confirm-change">Chấp nhận thay đổi</button>
+					<button type="button" id="cancel-change">Hủy</button>
+				</div>
+			</div>
+		</div>
 		<div class="delete-side">
 			<div class="delete-popup">
 				<h4>Chắc chắn xóa?</h4>
@@ -45,10 +76,13 @@
 								</p>
 							</div>
 						</div>
-						<button class="button" id="recent_orders">
-							<div class="see">Đơn hàng của bạn</div>
-							<img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
-						</button>
+						<div class="btn-group">
+							<button class="button" id="recent_orders">
+								<div class="see">Đơn hàng của bạn</div>
+								<img class="regular_arrowright" src="/assets/images/regular-arrowright.svg" />
+							</button>
+							<button type="button" id="change-btn">Đổi thông tin</button>
+						</div>
 					</div>
 				</div>
 				<div class="rating_info">
