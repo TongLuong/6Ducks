@@ -273,6 +273,7 @@ namespace DA_6Ducks.Controllers
 					len = num,
 					month = months,
                     bill = bills,
+                    revenue=revenues,
                     product=products
 				}
 			);
