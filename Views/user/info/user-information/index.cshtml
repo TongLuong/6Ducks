@@ -1,5 +1,5 @@
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
@@ -21,6 +21,37 @@
 
 <body>
   <div class="mainpage_user_info">
+    <div class="change-info-side">
+      <div class="change-info-popup">
+        <h4>Thay đổi thông tin</h4>
+        <form action="">
+          <div>
+            <input type="text" name="change-pwd" id="change-pwd">
+            <label for="change-pwd">Mật khẩu</label>
+          </div>
+          <div>
+            <input type="text" name="change-email" id="change-email">
+            <label for="change-email">Email</label>
+          </div>
+          <div>
+            <input type="text" name="change-dob" id="change-dob">
+            <label for="change-dob">Ngày sinh</label>
+          </div>
+          <div>
+            <input type="text" name="change-add" id="change-add">
+            <label for="change-add">Địa chỉ</label>
+          </div>
+          <div>
+            <input type="text" name="change-phone" id="change-phone">
+            <label for="change-phone">Số điện thoại</label>
+          </div>
+        </form>
+        <div class="btn-group">
+          <button type="button" id="confirm-change">Chấp nhận thay đổi</button>
+          <button type="button" id="cancel-change">Hủy</button>
+        </div>
+      </div>
+    </div>
     <div class="rating_wrapper" id="rating_wrapper"></div>
     <div class="title">Thông tin cá nhân</div>
     <div class="content">
@@ -39,7 +70,7 @@
               Email: bruce@yahoo.com <br />
               SĐT: Bị ẩn
             </div>
-            <button class="button">CHỈNH SỬA THÔNG TIN</button>
+            <button class="button" id="change-btn">CHỈNH SỬA THÔNG TIN</button>
           </div>
         </div>
         <div class="order_wrapper">
@@ -190,4 +221,5 @@
     });
   }
 </script> -->
+
 </html>

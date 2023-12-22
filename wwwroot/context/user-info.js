@@ -43,4 +43,13 @@ $(this).ready(function () {
     $(".user_rating").css("display", "flex");
     $(".rating_wrapper").css("display", "flex");
   });
+
+  $("#change-btn").click(function() {
+    $(".change-info-side").css("display", "flex")
+  });
+
+  $("#cancel-change").click(function() {
+    $(".change-info-side input").val("");
+    $(".change-info-side").css("display", "none");
+  });
 });
