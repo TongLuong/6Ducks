@@ -1,6 +1,7 @@
 ﻿$(this).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var sellerID = urlParams.get("seller");
+  let ignoreClickProduct = false;
 
   $(".product-item").click(function (e) {
     e.preventDefault();
@@ -140,9 +141,16 @@
     for (let i = ratingCount - 1; i >= 0; i--) {
       starInputs[i].className = "fa fa-star";
     }
-    item.click(function () {
-      location.href = "/Product" + "?product=" + productID;
-    });
+    item
+      .find("*")
+      .not(".delete-icon")
+      .click(function () {
+        if (ignoreClickProduct) {
+          return;
+        }
+
+        location.href = "/Product" + "?product=" + productID;
+      });
   }
 
   function display_all_product() {
@@ -183,6 +191,7 @@
   //delete click function
   $("#delete-product").click(function () {
     $(".product-item").find(".delete-icon").toggle();
+    ignoreClickProduct = true;
 
     $(".delete-icon").each(function () {
       $(this).click(function () {
@@ -192,18 +201,20 @@
 
         $(".delete-popup button").click(function (e) {
           if (e.target === $("#confirm-delete")[0]) {
-              item.replaceWith("");
-              $(".delete-side").hide();
+            item.replaceWith("");
+            $(".delete-side").hide();
+            ignoreClickProduct = true;
           } else if (e.target === $("#cancel-delete")[0]) {
-              $(".delete-side").hide();
-          };
-      });
+            $(".delete-side").hide();
+            ignoreClickProduct = true;
+          }
+        });
       });
     });
   });
 
   var noItem = [];
-  $(".product-list").each(function() {
+  $(".product-list").each(function () {
     noItem.push($(this).find(".product-item").length);
   });
 });
