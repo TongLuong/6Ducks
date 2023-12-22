@@ -230,5 +230,52 @@ namespace DA_6Ducks.Controllers
 
 			conn.Close();
 		}
+
+        public JsonResult GetValueForStatistics(int year)
+        {
+			if (conn.State == ConnectionState.Closed)
+				conn.Open();
+
+			string userID = Session.sessionID;
+			SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
+			cmdConvert.Parameters.AddWithValue("@userID", userID);
+			string sellerID = cmdConvert.ExecuteScalar().ToString();
+
+			SqlCommand cmd = new SqlCommand("select * from dbo.total_bill_and_product(@sellerID,@year)", conn);
+
+			cmd.Parameters.AddWithValue("@sellerID", sellerID);
+			cmd.Parameters.AddWithValue("@year", year);
+
+			SqlDataReader dr = cmd.ExecuteReader();
+			int num = 0;
+			List<int> months = new List<int>();
+			List<int> bills = new List<int>();
+			List<int> revenues = new List<int>();
+			List<int> products = new List<int>();
+			if (dr.HasRows)
+			{
+				while (dr.Read())
+				{
+					num++;
+					months.Add(dr.GetInt32(0));
+					bills.Add(dr.GetInt32(1));
+					revenues.Add(dr.GetInt32(2));
+					products.Add(dr.GetInt32(3));
+				}
+			}
+
+
+
+			return new JsonResult
+			(
+				new
+				{
+					len = num,
+					month = months,
+                    bill = bills,
+                    product=products
+				}
+			);
+		}
     }
 }
