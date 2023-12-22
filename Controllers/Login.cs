@@ -149,7 +149,7 @@ namespace DA_6Ducks.Controllers
                 string newUID = cmd.ExecuteScalar().ToString();
                 return newUID;
             }
-            else return null;
+            else return userID;
         }
     }
 }

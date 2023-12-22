@@ -45,20 +45,20 @@ begin
 	select @res;
 end
 go
- load LogChat
+ --load LogChat
 --drop procedure loadLog
-create procedure loadLog
-@userIDView int,
-@objectIDView int
-as
-begin
-	select senderID, receiverID, msg, [time]
-	from LogChat
-	where (senderID = @userIDView and receiverID = @objectIDView) or
-	(senderID = @objectIDView and receiverID = @userIDView)
-	order by [time] asc
-end
-go
+--create procedure loadLog
+--@userIDView int,
+--@objectIDView int
+--as
+--begin
+--	select senderID, receiverID, msg, [time]
+--	from LogChat
+--	where (senderID = @userIDView and receiverID = @objectIDView) or
+--	(senderID = @objectIDView and receiverID = @userIDView)
+--	order by [time] asc
+--end
+--go
 
 -- drop procedure upload
 create procedure upload
@@ -86,8 +86,8 @@ go
 --drop function loadLogChat
 create function loadLogChat
 (
-@userID int,
-@sellerID int
+@sndID int,
+@rcvID int
 )
 returns table
 as 
@@ -95,8 +95,8 @@ return
 (
 	select senderID, msg, [time]
 	from LogChat
-	where (senderID = @userID and receiverID = @sellerID) or
-	(senderID = @sellerID and receiverID = @userID)
+	where (senderID = @sndID and receiverID = @rcvID) or
+	(senderID = @rcvID and receiverID = @sndID)
 );
 go
 	

@@ -71,13 +71,16 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
+            Login login = new Login();
+            string temp = login.ConvertToUserID(receiverID);
+            receiverID = temp;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.loadLogChat(@userID,@sellerID) ORDER BY [time] asc", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.loadLogChat(@sndID,@rcvID) ORDER BY [time] asc", conn);
 
             int senderID = Int32.Parse(Session.sessionID);
 
-            cmd.Parameters.AddWithValue("@userID", senderID);
-            cmd.Parameters.AddWithValue("@sellerID", receiverID);
+            cmd.Parameters.AddWithValue("@sndID", senderID);
+            cmd.Parameters.AddWithValue("@rcvID", receiverID);
 
             SqlDataReader dr = cmd.ExecuteReader();
             List<string> poss = new List<string>();
