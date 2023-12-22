@@ -1,382 +1,401 @@
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .mainpage-uploadcomic {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 0;
 }
 
-    .mainpage-uploadcomic .wrapper {
-        border-radius: 4px;
-        border: 1px solid var(--gray-100, #e4e7e9);
-        background: var(--gray-00, #fff);
-        box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
-        margin: 50px 200px;
-        padding: 30px;
-    }
+.mainpage-uploadcomic .wrapper {
+  border-radius: 4px;
+  border: 1px solid var(--gray-100, #e4e7e9);
+  background: var(--gray-00, #fff);
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
+  margin: 50px 200px;
+  padding: 30px;
+}
 
-        .mainpage-uploadcomic .wrapper > header {
-            font-size: 25px;
-            font-weight: 800;
-            text-align: center;
-            margin: 10px;
-        }
+.mainpage-uploadcomic .wrapper > header {
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+  margin: 10px;
+}
 
-        .mainpage-uploadcomic .wrapper .product-item {
-            margin: 0 auto;
-            width: 95%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            border-radius: 5px;
-            & img
-
-{
+.mainpage-uploadcomic .wrapper .product-item {
+  margin: 0 auto;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  & img {
     margin: 0 auto;
     display: block;
     height: 180px;
     width: 100%;
     object-fit: contain;
     border-radius: 5px 5px 0 0;
-}
+  }
 
-.container {
+  .container {
     padding: 5px 5px;
-    & header
+    & header {
+      color: #191c1f;
+      text-align: justify;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 15px;
+      margin-block: 5px;
+      overflow: hidden;
+    }
 
-{
-    color: #191c1f;
-    text-align: justify;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 15px;
-    margin-block: 5px;
-    overflow: hidden;
-}
+    .price {
+      color: var(--secondary-500, #2da5f3);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 10px;
+      margin-block: 5px;
+    }
 
-.price {
-    color: var(--secondary-500, #2da5f3);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 10px;
-    margin-block: 5px;
-}
-
-.rate {
-    color: #ebc80c;
-    font-size: 12px;
-    & span
-
-{
-    color: var(--gray-500, #77878f);
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 10px;
-}
-
-}
-}
+    .rate {
+      color: #ebc80c;
+      font-size: 12px;
+      & span {
+        color: var(--gray-500, #77878f);
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
+      }
+    }
+  }
 }
 
 .mainpage-uploadcomic .wrapper .product-list {
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 5px 0;
-    max-height: 650px;
-    overflow: scroll;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 5px 0;
+  max-height: 650px;
+  overflow: scroll;
 }
 
 .mainpage-uploadcomic .wrapper .product-item:hover,
 .mainpage-uploadcomic .wrapper .voucher:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 .discount .product-item {
-    position: relative;
+  position: relative;
 }
 
 .product-item .badge {
-    position: absolute;
-    top: 6px;
-    left: -14px;
-    padding: 5px 15px;
-    font-size: 15px;
-    font-weight: 900;
-    border-radius: 5px;
-    background-color: yellow;
-    rotate: -15deg;
+  position: absolute;
+  top: 6px;
+  left: -14px;
+  padding: 5px 15px;
+  font-size: 15px;
+  font-weight: 900;
+  border-radius: 5px;
+  background-color: yellow;
+  rotate: -15deg;
 }
 
 .vouchers img {
-    width: 50px;
-    height: auto;
-    margin-left: 10px;
+  width: 50px;
+  height: auto;
+  margin-left: 10px;
 }
 
 .voucher {
-    margin: 0 auto;
-    width: 95%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
+  margin: 0 auto;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
 .vouchers .header {
-    text-align: left;
-    margin: 0;
-    font-size: 19px;
-    font-weight: 900;
-    margin-top: 10px;
-    margin-left: 10px;
+  text-align: left;
+  margin: 0;
+  font-size: 19px;
+  font-weight: 900;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .mainpage-uploadcomic .vouchers {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .today-voucher,
 .free-ship,
 .combo-voucher {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    overflow: scroll;
-    height: calc(3 * 80px + 4 * 20px + 50px);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  overflow: scroll;
+  height: calc(3 * 80px + 4 * 20px + 50px);
 }
 
 .mainpage-uploadcomic .voucher {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 80px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
+  cursor: pointer;
 }
 
 .voucher .voucher-name {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .voucher .voucher-content {
-    font-size: 13px;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    padding: 10px;
-    row-gap: 5px;
+  font-size: 13px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 10px;
+  row-gap: 5px;
 }
 
-    .voucher .voucher-content span {
-        flex: 50%;
-        display: flex;
-        align-items: center;
-    }
+.voucher .voucher-content span {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+}
 
-    .voucher .voucher-content .voucher-value {
-        color: #2da5f3;
-        font-weight: 500;
-    }
+.voucher .voucher-content .voucher-value {
+  color: #2da5f3;
+  font-weight: 500;
+}
 
 .mainpage-upload-comic-form {
-    position: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .upload {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 700px;
-    background: #fff;
-    border-radius: 5px;
-    padding: 30px;
-    border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 700px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
 }
 
-    .upload header {
-        color: #425664;
-        font-size: 27px;
-        font-weight: 600;
-        text-align: center;
-        width: 100%;
-    }
+.upload header {
+  color: #425664;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
 
-    .upload table {
-        margin: 10px;
-        width: 600px;
-    }
+.upload table {
+  margin: 10px;
+  width: 600px;
+}
 
-    .upload td,
-    th {
-        padding: 5px 5px;
-    }
+.upload td,
+th {
+  padding: 5px 5px;
+}
 
-    .upload input,
-    .upload select {
-        border: 1px solid black;
-        border-radius: 2px;
-        width: 100%;
-        height: 30px;
-    }
+.upload input,
+.upload select {
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+}
 
-        .upload input[type="text" i] {
-            padding: 0;
-            text-indent: 10px;
-        }
+.upload input[type="text" i] {
+  padding: 0;
+  text-indent: 10px;
+}
 
-    .upload tr td div > img:first-child {
-        margin-left: 39px;
-        height: 30px;
-        width: auto;
-        cursor: pointer;
-    }
+.upload tr td div > img:first-child {
+  margin-left: 39px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
 
-    .upload tr td div > img:not(:first-child) {
-        margin-left: 5px;
-        height: 30px;
-        width: auto;
-        cursor: zoom-in;
-    }
+.upload tr td div > img:not(:first-child) {
+  margin-left: 5px;
+  height: 30px;
+  width: auto;
+  cursor: zoom-in;
+}
 
-    .upload tr td div {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
+.upload tr td div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-    .upload .preview-side {
-        position: fixed;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 2;
-    }
+.upload .preview-side {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
 
-        .upload .preview-side i {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #f6f4f2;
-            font-size: 40px;
-            cursor: pointer;
-        }
+.upload .preview-side i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #f6f4f2;
+  font-size: 40px;
+  cursor: pointer;
+}
 
-        .upload .preview-side img {
-            border-radius: 10px;
-            height: 550px;
-            width: auto;
-            cursor: default;
-        }
+.upload .preview-side img {
+  border-radius: 10px;
+  height: 550px;
+  width: auto;
+  cursor: default;
+}
 
-    .upload .button-form-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100%;
-    }
+.upload .button-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
 
-        .upload .button-form-section button {
-            height: 40px;
-            width: 100px;
-            background-color: #425664;
-            color: #fff;
-            font-weight: 900;
-            border: none;
-            border-radius: 5px;
-        }
+.upload .button-form-section button {
+  height: 40px;
+  width: 100px;
+  background-color: #425664;
+  color: #fff;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+}
 
-            .upload .button-form-section button:hover {
-                color: black;
-                border: 2px solid black;
-                background-color: #f6f4f2;
-            }
+.upload .button-form-section button:hover {
+  color: black;
+  border: 2px solid black;
+  background-color: #f6f4f2;
+}
 
 .mainpage-upload_success_notification {
-    position: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .success {
-    display: flex;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 400px;
-    background: #fff;
-    border-radius: 5px;
-    padding: 30px;
-    border: 2px solid black;
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  border: 2px solid black;
 }
 
-    .success header {
-        font-size: 25px;
-        font-weight: 800;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-bottom: 30px;
-        color: #425664;
-    }
+.success header {
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  color: #425664;
+}
 
-    .success .success-msg {
-        max-width: 300px;
-        text-align: justify;
-        margin-bottom: 30px;
-    }
+.success .success-msg {
+  max-width: 300px;
+  text-align: justify;
+  margin-bottom: 30px;
+}
 
-    .success .return-btn {
-        width: 100%;
-        height: 50px;
-        background-color: #425664;
-        border: none;
-        border-radius: 5px;
-    }
+.success .return-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #425664;
+  border: none;
+  border-radius: 5px;
+}
 
-    .success button:hover {
-        border: 2px solid black;
-        background-color: #f6f4f2;
-    }
+.success button:hover {
+  border: 2px solid black;
+  background-color: #f6f4f2;
+}
 
-    .success .return-btn {
-        font-size: 20px;
-        font-weight: 700;
-    }
+.success .return-btn {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.statistic-maincontent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statistic-maincontent .wrapper {
+  width: 90%;
+  border-radius: 4px;
+  border: 1px solid var(--gray-100, #e4e7e9);
+  background: var(--gray-00, #fff);
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
+  margin: 50px 200px;
+  padding: 20px;
+}
+
+.statistic-maincontent h2 {
+  text-align: center;
+}
+
+.statistic-maincontent .statistic-table {
+  width: 100%;
+  height: 450px;
+}
