@@ -244,8 +244,7 @@
     });
   });
 
-  var noItem = [];
-  $(".product-list").each(function () {
-    noItem.push($(this).find(".product-item").length);
+  $("#statistic-seller").click(function() {
+    location.href = "/Statistic";
   });
 });
