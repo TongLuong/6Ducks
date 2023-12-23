@@ -258,6 +258,7 @@ $(document).ready(function () {
         var itemsChosenCatID = [];
         var itemsChosenQuant = [];
         var itemsChosenTotalPrice = [];
+        var sellerTotalPrice = {};
         var allCheckbox = $('.cart-item input[type="checkbox"');
 
         allCheckbox.each(function (i) {
@@ -407,6 +408,20 @@ $(document).ready(function () {
             itemsChosenTotalPrice.push(
                 itemChosen.find(".item-total-price span").text()
             );
+
+            if (!(itemsChosenSellerID[i] in sellerTotalPrice)) {
+                sellerTotalPrice[itemsChosenSellerID[i]] = 0;
+            }
+            sellerTotalPrice[itemsChosenSellerID[i]] += Number(
+                itemsChosenTotalPrice[i]);
+        }
+
+        var totalNoShipping = Number($(".total-price span").text());
+        /*Object.values(sellerTotalPrice).reduce((a, b) => a + b, 0);*/
+        var sellerTotalPriceRatio = {};
+        for (var i = 0; i < itemsChosen.length; i++) {
+            sellerTotalPriceRatio[itemsChosenSellerID[i]] =
+                sellerTotalPrice[itemsChosenSellerID[i]] / totalNoShipping;
         }
 
         //$(".total").val($(".total-price span").text());
@@ -469,6 +484,19 @@ $(document).ready(function () {
                         async: false
                     });
                 }
+            }
+
+            var keysSellerID = Object.keys(sellerTotalPrice);
+            var currTotalPrice = $(".total").val();
+            for (var i = 0; i < keysSellerID.length; i++) {
+                $.ajax({
+                    url: "Product/UpdateTotalPriceOnBill",
+                    data: {
+                        "billID": sellerBillPair[keysSellerID[i]],
+                        "newTotalPrice": Math.round(currTotalPrice *
+                            sellerTotalPriceRatio[keysSellerID[i]])
+                    }
+                });
             }
 
             for (var i = 0; i < itemsChosen.length; i++) {

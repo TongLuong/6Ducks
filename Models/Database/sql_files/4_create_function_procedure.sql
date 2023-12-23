@@ -195,7 +195,7 @@ create procedure insert_Bill -- get the output of this procedure to insert BillI
 @totalPrice int,
 @address nvarchar(255),
 @pmethod int,
-@smethod int,
+@smethod int = null,
 @discountVchID int = null,
 @freeShipVchID int = null,
 @billID int output

@@ -423,6 +423,28 @@ namespace DA_6Ducks.Controllers
             );
         }
 
+        public void UpdateTotalPriceOnBill(string billID, 
+            string newTotalPrice)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand
+            (
+                "UPDATE dbo.[Bills] " +
+                "SET totalPrice = @totalPrice " +
+                "WHERE billID = @billID"
+                , conn
+            );
+
+            cmd.Parameters.AddWithValue("@billID", billID);
+            cmd.Parameters.AddWithValue("@totalPrice", newTotalPrice);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
         public JsonResult LoadVoucherInfo(string categoryID, 
             string sellerID, int maxLoad)
         {
