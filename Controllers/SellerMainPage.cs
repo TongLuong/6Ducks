@@ -32,7 +32,7 @@ namespace DA_6Ducks.Controllers
             SqlCommand cmd = new SqlCommand
             (
                 "SELECT " +
-                "p.productID, p.name, p.price, p.ratingCount, p.numbersLeft, " +
+                "p.productID, p.name, p.price, p.avgStar, p.numbersLeft, " +
                 "pi.imgLink " +
                 "FROM dbo.Products p, dbo.ProductIMGs pi " +
                 "WHERE p.productID = pi.productID"
@@ -70,7 +70,7 @@ namespace DA_6Ducks.Controllers
                                 productID = temp[0],
                                 name = temp[1],
                                 price = temp[2],
-                                ratingCount = temp[3],
+                                avgStar = temp[3],
                                 numbersLeft = temp[4],
                                 imgLink = imgs
                             }
