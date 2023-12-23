@@ -475,14 +475,16 @@ $(document).ready(function () {
                 });
 
                 for (var j = 0; j < voucherChosenID.length; j++) {
-                    $.ajax({
-                        url: "Product/AddVoucherToBill",
-                        data: {
-                            "billID": sellerBillPair[itemsChosenSellerID[i]],
-                            "voucherID": voucherChosenID[j]
-                        },
-                        async: false
-                    });
+                    if (voucherChosenID[i] != null) {
+                        $.ajax({
+                            url: "Product/AddVoucherToBill",
+                            data: {
+                                "billID": sellerBillPair[itemsChosenSellerID[i]],
+                                "voucherID": voucherChosenID[j]
+                            },
+                            async: false
+                        });
+                    }
                 }
             }
 

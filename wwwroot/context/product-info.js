@@ -531,14 +531,16 @@
         $(".total-cost").val(currBillPrice);
 
         for (var i = 0; i < voucherChosenID.length; i++) {
-            $.ajax({
-                url: "Product/AddVoucherToBill",
-                data: {
-                    "billID": billID,
-                    "voucherID": voucherChosenID[i]
-                },
-                async: false
-            });
+            if (voucherChosenID[i] != null) {
+                $.ajax({
+                    url: "Product/AddVoucherToBill",
+                    data: {
+                        "billID": billID,
+                        "voucherID": voucherChosenID[i]
+                    },
+                    async: false
+                });
+            }
         }
 
         $(".disabled > .wrapper").hide();
@@ -611,8 +613,8 @@
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
             * quantity;
 
-        if (Number(price) < minBill[0] ||
-            Number(price) < minBill[1]) {
+        if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+            (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
             alert("Giá trị đơn hàng không thỏa!");
             return;
         }
