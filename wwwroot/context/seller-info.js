@@ -256,4 +256,40 @@
   $("#statistic-seller").click(function() {
     location.href = "/Statistic";
   });
+
+    $('#change-btn').click(function () {
+        $.ajax({
+            url: "/UserInfo/DisplayUserInfo",
+            success: function (response) {
+                $('#change-pwd').val(response.pass);
+                $('#change-email').val(response.email);
+                $('#change-dob').val(response.dob);
+                $('#change-add').val(response.address);
+                $('#change-phone').val(response.phoneNumber);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    });
+
+    $('#confirm-change').click(function () {
+        var pass = $('#change-pwd').val();
+        var email = $('#change-email').val();
+        var dob = $('#change-dob').val();
+        var address = $('#change-add').val();
+        var phoneNumber = $('#change-phone').val();
+
+        $.ajax({
+            url: "/UserInfo/UpdateUserInfo",
+            type: 'post',
+            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber },
+            success: function () {
+                alert("Update successfully");
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    });
 });

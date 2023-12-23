@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using System.Diagnostics;
+using System;
 
 namespace DA_6Ducks.Controllers
 {
@@ -145,6 +147,64 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@buyerID", buyerID);
             cmd.Parameters.AddWithValue("@detail", feedback);
             cmd.Parameters.AddWithValue("@ratingStar", nostar);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        public JsonResult DisplayUserInfo()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+
+            string userID = Session.sessionID;
+            SqlCommand cmd = new SqlCommand("select pass,email,dob,address,phoneNumber from Users where userId = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            string upass="", uemail="", udob = "", uaddress = "", uphoneNumber = "";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    upass=dr.GetString(0);
+                    uemail = dr.GetString(1);
+                    udob = dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+                    uaddress = dr.GetString(3);
+                    uphoneNumber = dr.GetString(4);
+                }
+            }
+
+            return new JsonResult
+            (
+                new
+                {
+                    pass = upass,
+                    email = uemail,
+                    dob = udob,
+                    address = uaddress,
+                    phoneNumber = uphoneNumber
+                }
+            );
+        }
+
+        [HttpPost]
+        public void UpdateUserInfo(string pass, string email, string dob,string address, string phoneNumber)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            string userID = Session.sessionID;
+
+            SqlCommand cmd = new SqlCommand("update Users set pass=@pass,email=@email,dob=@dob,address=@address,phoneNumber=@phoneNumber where userId = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@pass", pass);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@dob", dob);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 
             cmd.ExecuteNonQuery();
 
