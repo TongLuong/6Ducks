@@ -1,9 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace DA_6Ducks.Controllers
 {
     public class UserInfo : Controller
     {
+        private SqlConnection conn;
+        private string wwwPath;
+        private Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment;
+
+        public UserInfo(Microsoft.AspNetCore.Hosting.IWebHostEnvironment _environment)
+        {
+            //conn = new SqlConnection(connectionString);
+            conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["dath_database"].ConnectionString);
+            Environment = _environment;
+            wwwPath = this.Environment.WebRootPath;
+        }
+
         public IActionResult Index()
         {
             if (Session.sessionType == 0)
@@ -25,6 +39,116 @@ namespace DA_6Ducks.Controllers
         public IActionResult IndexPopup()
         {
             return View("/Views/user/info/user-information/popup.cshtml");
+        }
+
+        public JsonResult DisplayBills()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            string userID = Session.sessionID;
+            SqlCommand cmdConvert = new SqlCommand("select buyerID from Buyers where userID=@userID", conn);
+            cmdConvert.Parameters.AddWithValue("@userID", userID);
+            string buyerID = cmdConvert.ExecuteScalar().ToString();
+            SqlCommand cmd = new SqlCommand("Select b.billID,b.billStatus,b.time,b.totalPrice,bi.productID from Bills b join BillItems bi on b.billID=bi.billID where buyerID = @buyerID", conn);
+            cmd.Parameters.AddWithValue("@buyerId", buyerID);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<int> billIDs = new List<int>();
+            List<string> statuss = new List<string>();
+            List<string> times = new List<string>();
+            List<int> totalPrices = new List<int>();
+            List<int> productIDs = new List<int>();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    billIDs.Add(dr.GetInt32(0));
+                    string stat = dr.GetString(1);
+                    switch (stat)
+                    {
+                        case "Confirming": statuss.Add("Chưa xác nhận"); break;
+                        case "Waiting pickup": statuss.Add("Chờ lấy hàng"); break;
+                        case "Delivering": statuss.Add("Đang vận chuyển"); break;
+                        case "Done": statuss.Add("Đã nhận"); break;
+                        case "Cancelled": statuss.Add("Huỷ đơn hàng"); break;
+                        case "Refund": statuss.Add("Hoàn trả hàng"); break;
+                    }
+                    times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
+                    totalPrices.Add(dr.GetInt32(3));
+                    productIDs.Add(dr.GetInt32(4));
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult(new
+            {
+                num = billIDs.Count,
+                billID = billIDs,
+                status = statuss,
+                time = times,
+                totalPrice = totalPrices,
+                productID = productIDs
+            });
+        }
+
+        public JsonResult DisplayProductWhenRating(int productID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            SqlCommand cmd = new SqlCommand("select p.name, p.price,pi.imgLink from Products p, ProductIMGs pi where p.productID = pi.productID and p.productID = @productID", conn);
+
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            int num = 0;
+            List<string> names = new List<string>();
+            List<int> prices = new List<int>();
+            List<string> imgPaths = new List<string>();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    num++;
+                    names.Add(dr.GetString(0));
+                    prices.Add(dr.GetInt32(1));
+                    imgPaths.Add(dr.GetString(2) + "/book-1.png");
+                }
+            }
+
+            return new JsonResult
+            (
+                new
+                {
+                    len = num,
+                    name = names,
+                    price = prices,
+                    imgLink = imgPaths
+                }
+            );
+        }
+
+        [HttpPost]
+        public void Rate(int productID, int nostar, string feedback)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+            string userID = Session.sessionID;
+            SqlCommand cmdConvert = new SqlCommand("select buyerID from Buyers where userID=@userID", conn);
+            cmdConvert.Parameters.AddWithValue("@userID", userID);
+            string buyerID = cmdConvert.ExecuteScalar().ToString();
+
+            SqlCommand cmd = new SqlCommand("insert into Ratings values (@productID,@buyerID,@detail,@ratingStar)", conn);
+            cmd.Parameters.AddWithValue("@productID", productID);
+            cmd.Parameters.AddWithValue("@buyerID", buyerID);
+            cmd.Parameters.AddWithValue("@detail", feedback);
+            cmd.Parameters.AddWithValue("@ratingStar", nostar);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }
