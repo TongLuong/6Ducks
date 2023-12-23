@@ -59,7 +59,7 @@ namespace DA_6Ducks.Controllers
             List<string> times = new List<string>();
             List<int> totalPrices = new List<int>();
             List<int> productIDs = new List<int>();
-
+            int confirmBill = 0, doneBill = 0;
             if (dr.HasRows)
             {
                 while (dr.Read())
@@ -68,10 +68,10 @@ namespace DA_6Ducks.Controllers
                     string stat = dr.GetString(1);
                     switch (stat)
                     {
-                        case "Confirming": statuss.Add("Chưa xác nhận"); break;
+                        case "Confirming": statuss.Add("Chưa xác nhận"); confirmBill++; break;
                         case "Waiting pickup": statuss.Add("Chờ lấy hàng"); break;
                         case "Delivering": statuss.Add("Đang vận chuyển"); break;
-                        case "Done": statuss.Add("Đã nhận"); break;
+                        case "Done": statuss.Add("Đã nhận");doneBill++; break;
                         case "Cancelled": statuss.Add("Huỷ đơn hàng"); break;
                         case "Refund": statuss.Add("Hoàn trả hàng"); break;
                     }
@@ -90,7 +90,9 @@ namespace DA_6Ducks.Controllers
                 status = statuss,
                 time = times,
                 totalPrice = totalPrices,
-                productID = productIDs
+                productID = productIDs,
+                confirm = confirmBill,
+                done = doneBill
             });
         }
 

@@ -79,6 +79,10 @@
                 for (let i = 0; i < response.num; i++) {
                     display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i], response.productID[i]);
                 }
+
+                $('#all-bill .num').text(response.num);
+                $('#confirm-bill .num').text(response.confirm);
+                $('#done-bill .num').text(response.done);
             },
             error: function () {
                 alert("error");
