@@ -420,26 +420,30 @@
                     return;
                 }
 
+                var temp;
                 if ($(this).text().trim() == "Dùng") {
                     $(this).text("Hủy");
                     
                     totalDiscount[0] *= (1 - discountPercent);
                     voucherChosenID[0] = voucherID;
+                    temp = Number(price) * totalDiscount[0];
+                    if (temp > maxDiscount[0])
+                        temp = Number(price) - Number(maxDiscount[0]);
                 }
                 else if ($(this).text().trim() == "Hủy") {
                     $(this).text("Dùng");
                     
                     totalDiscount[0] /= (1 - discountPercent);
                     voucherChosenID[0] = null;
+                    temp = Number(price) * totalDiscount[0];
                 }
 
-                var temp = Number(price) * totalDiscount[0];
-                if (temp > maxDiscount[0])
-                    temp = maxDiscount[0];
+                var temp2 = Number($("#cost").val()) * totalDiscount[1];
+                if (temp2 > maxDiscount[1] && totalDiscount[1] != 1)
+                    temp2 = Number($("#cost").val()) - Number(maxDiscount[1]);
 
                 $(".total-cost").val(
-                    Math.round(temp +
-                        Number($("#cost").val()) * totalDiscount[1])
+                    Math.round(temp + temp2)
                 );
             });
     };
@@ -457,25 +461,30 @@
                     return;
                 }
 
+                var temp;
                 if ($(this).text().trim() == "Dùng") {
                     $(this).text("Hủy");
 
                     totalDiscount[1] *= (1 - discountPercent);
                     voucherChosenID[1] = voucherID;
+                    temp = Number($("#cost").val()) * totalDiscount[1];
+                    if (temp > maxDiscount[1])
+                        temp = Number($("#cost").val()) - Number(maxDiscount[1]);
                 }
                 else if ($(this).text().trim() == "Hủy") {
                     $(this).text("Dùng");
 
                     totalDiscount[1] /= (1 - discountPercent);
                     voucherChosenID[1] = null;
+                    temp = Number($("#cost").val()) * totalDiscount[1];
                 }
 
-                var temp = Number($("#cost").val()) * totalDiscount[1];
-                if (temp > maxDiscount[1])
-                    temp = maxDiscount[1];
+                var temp2 = Number(price) * totalDiscount[0];
+                if (temp2 > maxDiscount[0] && totalDiscount[0] != 1)
+                    temp2 = Number(price) - Number(maxDiscount[0]);
 
                 $(".total-cost").val(
-                    Math.round(Number(price) * totalDiscount[0] + temp)
+                    Math.round(temp2 + temp)
                 );
             });
     };
