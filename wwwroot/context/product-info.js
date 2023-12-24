@@ -324,8 +324,7 @@
                 <div class="voucher-image"></div>
                 <div class="description">
                     <span class="des">
-                        Voucher dùng cho danh mục Tiểu thuyết<br />
-                        <span class="discount">30%</span>
+                        Voucher dùng cho danh mục Tiểu thuyết
                     </span>
                     <span class="condition text">
                         Đơn tối thiểu:
@@ -342,8 +341,8 @@
                 <div class="voucher-image"></div>
                 <div class="description">
                     <span class="des">
-                        Voucher dùng cho danh mục Tiểu thuyết<br />
-                        <span class="discount">30%</span>
+                        Voucher dùng cho danh mục Tiểu thuyết
+                        
                     </span>
                     <span class="condition text">
                         Đơn tối thiểu:
@@ -362,7 +361,7 @@
                         temp.voucherID + " .discount").text(
                             Number(temp.discountPercent) * 100 + "%");
                     $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .des").text(temp.description);
+                        temp.voucherID + " .des").html(temp.description + '<span class="discount">(30%)</span>');
                     $(".buy-product .right .voucher-item-" +
                         temp.voucherID + " .min-bill").text(temp.minBill);
 
@@ -386,7 +385,7 @@
                         temp.voucherID + " .discount").text(
                             Number(temp.discountPercent) * 100 + "%");
                     $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .des").text(temp.description);
+                        temp.voucherID + " .des").html(temp.description + '<span class="discount">(30%)</span>');
                     $(".buy-product .right .voucher-item-" +
                         temp.voucherID + " .min-bill").text(temp.minBill);
 
