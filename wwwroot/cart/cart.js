@@ -296,8 +296,7 @@ $(document).ready(function () {
                             <div class="voucher-image"></div>
                             <div class="description">
                                 <span class="des">
-                                    Voucher dùng cho danh mục Tiểu thuyết<br />
-                                    <span class="discount">30%</span>
+                                    Voucher dùng cho danh mục Tiểu thuyết
                                 </span>
                                 <span class="condition text">
                                     Đơn tối thiểu:
@@ -314,8 +313,7 @@ $(document).ready(function () {
                             <div class="voucher-image"></div>
                             <div class="description">
                                 <span class="des">
-                                    Voucher dùng cho danh mục Tiểu thuyết<br />
-                                    <span class="discount">30%</span>
+                                    Voucher dùng cho danh mục Tiểu thuyết
                                 </span>
                                 <span class="condition text">
                                     Đơn tối thiểu:
@@ -329,12 +327,12 @@ $(document).ready(function () {
 
                         if (temp.voucherType == 0 && maxLoadDiscount > 0) {
                             $(".overlay-cart .voucher .wrapper").append(item);
-
+                            
                             $(".overlay-cart .voucher .wrapper .voucher-item-" +
-                                temp.voucherID + " .discount").text(
-                                    Number(temp.discountPercent) * 100 + "%");
-                            $(".overlay-cart .voucher .wrapper .voucher-item-" +
-                                temp.voucherID + " .des").text(temp.description);
+                                temp.voucherID + " .des").html(temp.description +
+                                    '<span class="discount">(' +
+                                    (Number(temp.discountPercent) * 100) +
+                                    '%)</span>');
                             $(".overlay-cart .voucher .wrapper .voucher-item-" +
                                 temp.voucherID + " .min-bill").text(temp.minBill);
 
@@ -353,12 +351,12 @@ $(document).ready(function () {
                         }
                         else if (temp.voucherType == 1 && maxLoadShipping > 0) {
                             $(".overlay-cart .voucher .wrapper").append(item2);
-
+                            
                             $(".overlay-cart .voucher .wrapper .voucher-item-" +
-                                temp.voucherID + " .discount").text(
-                                    Number(temp.discountPercent) * 100 + "%");
-                            $(".overlay-cart .voucher .wrapper .voucher-item-" +
-                                temp.voucherID + " .des").text(temp.description);
+                                temp.voucherID + " .des").html(temp.description +
+                                    '<span class="discount">(' +
+                                    (Number(temp.discountPercent) * 100) +
+                                    '%)</span>');
                             $(".overlay-cart .voucher .wrapper .voucher-item-" +
                                 temp.voucherID + " .min-bill").text(temp.minBill);
 

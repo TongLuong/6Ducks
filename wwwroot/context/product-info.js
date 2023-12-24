@@ -308,6 +308,7 @@
     var voucherChosenID = [null, null];
     var maxLoadDiscount = 1;
     var maxLoadShipping = 1;
+    var maxLoadMainPage = 3;
     $.ajax({
         url: "Product/LoadVoucherInfo",
         data: {
@@ -342,7 +343,6 @@
                 <div class="description">
                     <span class="des">
                         Voucher dùng cho danh mục Tiểu thuyết
-                        
                     </span>
                     <span class="condition text">
                         Đơn tối thiểu:
@@ -354,14 +354,40 @@
                 <button class="voucher-using" type="button">Dùng</button>
               </div>`;
 
+                if (maxLoadMainPage > 0) {
+                    $(".mainpage-productinfo .voucher .voucher-box").append(
+                        item
+                    );
+
+                    $(".mainpage-productinfo .voucher .voucher-box .voucher-item-" +
+                        temp.voucherID + " .des").html(temp.description +
+                            '<span class="discount">(' +
+                            (Number(temp.discountPercent) * 100) +
+                            '%)</span>');
+                    $(".mainpage-productinfo .voucher .voucher-box .voucher-item-" +
+                        temp.voucherID + " .min-bill").text(temp.minBill);
+
+                    var maxValue = temp.maxValue;
+                    if (temp.maxValue == "")
+                        maxValue = "∞";
+                    $(".mainpage-productinfo .voucher .voucher-box .voucher-item-" +
+                        temp.voucherID + " .max-discount").text(maxValue);
+
+                    $(".mainpage-productinfo .voucher .voucher-box " +
+                        ".voucher-item-" + temp.voucherID +
+                        " .voucher-using").remove();
+
+                    maxLoadMainPage--;
+                }
+
                 if (temp.voucherType == 0 && maxLoadDiscount > 0) {
                     $(".buy-product .right .wrapper").append(item);
-
+                    
                     $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .discount").text(
-                            Number(temp.discountPercent) * 100 + "%");
-                    $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .des").html(temp.description + '<span class="discount">(30%)</span>');
+                        temp.voucherID + " .des").html(temp.description +
+                            '<span class="discount">(' +
+                            (Number(temp.discountPercent) * 100) + 
+                            '%)</span>');
                     $(".buy-product .right .voucher-item-" +
                         temp.voucherID + " .min-bill").text(temp.minBill);
 
@@ -380,12 +406,12 @@
                 }
                 else if (temp.voucherType == 1 && maxLoadShipping > 0) {
                     $(".buy-product .right .wrapper").append(item2);
-
+                    
                     $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .discount").text(
-                            Number(temp.discountPercent) * 100 + "%");
-                    $(".buy-product .right .voucher-item-" +
-                        temp.voucherID + " .des").html(temp.description + '<span class="discount">(30%)</span>');
+                        temp.voucherID + " .des").html(temp.description +
+                            '<span class="discount">(' +
+                            (Number(temp.discountPercent) * 100) +
+                            '%)</span>');
                     $(".buy-product .right .voucher-item-" +
                         temp.voucherID + " .min-bill").text(temp.minBill);
 
