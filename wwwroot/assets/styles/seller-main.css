@@ -305,6 +305,7 @@ th {
   font-weight: 900;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .upload .button-form-section button:hover {

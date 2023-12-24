@@ -29,9 +29,8 @@
 }
 
 .nav .top-nav .top-nav-button a:hover {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   transform: scale(1.15);
-  text-decoration: underline solid 2px #f6f4f2;
 }
 
 .nav .bot-nav {
@@ -77,10 +76,11 @@
   padding-left: 10px;
 }
 
-.nav .bot-nav .search-area img {
+.nav .bot-nav .search-area i {
   position: absolute;
   right: 18px;
-  height: 22px;
+  font-size: 23px;
+  cursor: pointer;
   width: auto;
 }
 
@@ -103,29 +103,18 @@
   font-size: 15px;
 }
 
-
-.nav .bot-nav .user img {
-  aspect-ratio: 1/1;
+.cart i,
+.notification i,
+.user i {
+  font-size: 30px;
+  cursor: pointer;
+  width: auto;
 }
 
-.nav .bot-nav .user img {
-  border-radius: 50%;
-}
-
-.nav .bot-nav .notification span,
-.nav .bot-nav .cart span {
-  position: absolute;
-  display: flex;
-  font-size: 15px;
-  color: red;
-  background-color: #425664;
-  top: 0;
-  right: 0;
-  height: 15px;
-  width: 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
+.cart i:hover,
+.notification i:hover,
+.user i:hover {
+  transform: translateY(-2px);
 }
 
 .nav .toolbar {

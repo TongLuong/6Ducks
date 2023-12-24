@@ -23,50 +23,61 @@
                 <div class="about box">
                     <p>Người bán</p>
                     <div>
-                        <img src="/assets/images/seller_avatar.png" alt="Seller Avatar" />
+                        <img src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Seller Avatar" />
                         <div>
                             <header>Fantasy Chicken</header>
-                            <p>Tham gia từ: 5/7/2021</p>
-                            <p>Số sản phẩm đã bán: 63</p>
+                            <p>Số sản phẩm đã bán: <span></span></p>
                         </div>
                     </div>
                     <button type="button" class="seller-contact">Liên hệ với người bán &#129122;</button>
                 </div>
-                <div class="rating box">
-                    <div style="font-size: 20px">Đánh giá Người bán</div>
-                    <div class="rate">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <span>(4,8/5)</span>
-                    </div>
-                    <div class="rate-box">
-                        <div class="rate-chart-box">
-                            <div class="rate-item">
-                                <span>5 sao</span>
-                                <div class="rate-column _5star"></div>
+                <div class="rating_info box">
+                    <div class="rating_wrapper">
+                        <div style="line-height: 34px">Đánh giá người bán</div>
+                        <div class="rating" style="margin-top: 6px">
+                            <div class="stars">
+                                <form action="">
+                                    <input class="star star-5" id="star-5" type="radio" name="star" disabled />
+                                    <label class="star star-5" for="star-5"></label>
+                                    <input class="star star-4" id="star-4" type="radio" name="star" disabled />
+                                    <label class="star star-4" for="star-4"></label>
+                                    <input class="star star-3" id="star-3" type="radio" name="star" disabled />
+                                    <label class="star star-3" for="star-3"></label>
+                                    <input class="star star-2" id="star-2" type="radio" name="star" disabled />
+                                    <label class="star star-2" for="star-2"></label>
+                                    <input class="star star-1" id="star-1" type="radio" name="star" disabled />
+                                    <label class="star star-1" for="star-1"></label>
+                                </form>
                             </div>
-                            <div class="rate-item">
-                                <span>4 sao</span>
-                                <div class="rate-column _4star"></div>
-                            </div>
-                            <div class="rate-item">
-                                <span>3 sao</span>
-                                <div class="rate-column _3star"></div>
-                            </div>
-                            <div class="rate-item">
-                                <span>2 sao</span>
-                                <div class="rate-column _2star"></div>
-                            </div>
-                            <div class="rate-item">
-                                <span>1 sao</span>
-                                <div class="rate-column _1star"></div>
-                            </div>
+                            <div style="margin-top: 6px; margin-left: 3px" id="rating-avg">(4.8/5)</div>
                         </div>
                     </div>
-                    <button type="button">XEM TOÀN BỘ ĐÁNH GIÁ &#129122;</button>
+                    <div class="scoreboard">
+                        <div class="letter">
+                            5 sao <br />
+                            4 sao <br />
+                            3 sao <br />
+                            2 sao <br />
+                            1 sao
+                        </div>
+                        <div class="row_bar">
+                            <div class="bar_5">
+                                <span></span>
+                            </div>
+                            <div class="bar_4">
+                                <span></span>
+                            </div>
+                            <div class="bar_3">
+                                <span></span>
+                            </div>
+                            <div class="bar_2"><span></span></div>
+                            <div class="bar_1"><span></span></div>
+                        </div>
+                    </div>
+                    <button class="see-all-rating">
+                        Xem toàn bộ đánh giá
+                    </button>
                 </div>
             </div>
             <div class="layout product">

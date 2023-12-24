@@ -8,6 +8,7 @@ select {
   height: max-content;
   background-color: #fff;
   font-family: "Josefin Sans";
+  box-sizing: border-box;
 }
 
 body {

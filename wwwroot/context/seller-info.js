@@ -45,8 +45,8 @@
   });
 
   $.get({
-      url: "/SellerInfoSeller/DisplayRating",
-      data: { "seller": sellerID },
+    url: "/SellerInfoSeller/DisplayRating",
+    data: { seller: sellerID },
     success: function (response) {
       //bar
       $(".bar_1").css(
@@ -93,10 +93,10 @@
       );
 
       $("#rating-avg").text("(" + response.avgRating + "/5)");
-      },
-      error: function () {
-          alert('error');
-      }
+    },
+    error: function () {
+      alert("error");
+    },
   });
 
   function display_product(
@@ -155,22 +155,31 @@
 
         location.href = "/Product" + "?product=" + productID;
       });
-    item.find("header").on('mouseenter', function() {
-        $(this).animate({
-            scrollLeft: $(this).width()
-        }, 1000);
-    }).on('mouseleave', function() {
-        $(this).animate({
-            scrollLeft: -$(this).width()
-        }, 1000);
-    });
+    item
+      .find("header")
+      .on("mouseenter", function () {
+        $(this).animate(
+          {
+            scrollLeft: $(this).width(),
+          },
+          1000
+        );
+      })
+      .on("mouseleave", function () {
+        $(this).animate(
+          {
+            scrollLeft: -$(this).width(),
+          },
+          1000
+        );
+      });
   }
 
   function display_all_product(sellerID) {
     $.ajax({
       url: "/SellerInfoSeller/DisplayProduct",
-      data: { "seller": sellerID },
-      type:'json',
+      data: { seller: sellerID },
+      type: "json",
       success: function (response) {
         for (let j = 2; j < response.page[response.len - 1]; j++) {
           $(".layout.product").append(
@@ -191,10 +200,9 @@
       },
       error: function () {
         alert("Fail display");
-      }
+      },
     });
   }
-    
 
   display_all_product(sellerID);
 
@@ -215,9 +223,12 @@
   }
 
   $(".delete-side").hide();
+  $("#cancel-delete-product").hide();
   //delete click function
   $("#delete-product").click(function () {
-    $(".product-item").find(".delete-icon").toggle();
+    $("html, body").animate({ scrollTop: 0 }, "300");
+    $("#cancel-delete-product").show();
+    $(".product-item").find(".delete-icon").show();
     ignoreClickProduct = true;
 
     $(".delete-icon").each(function () {
@@ -244,52 +255,64 @@
     });
   });
 
-  $("#change-btn").click(function() {
-    $(".change-info-side").css("display", "flex")
+  $("#cancel-delete-product").click(function () {
+    ignoreClickProduct = false;
+    $(".product-item").find(".delete-icon").hide();
+    $("#cancel-delete-product").hide();
   });
 
-  $("#cancel-change").click(function() {
+  $("#change-btn").click(function () {
+    $(".change-info-side").css("display", "flex");
+  });
+
+  $("#cancel-change").click(function () {
     $(".change-info-side input").val("");
     $(".change-info-side").css("display", "none");
   });
 
-  $("#statistic-seller").click(function() {
+  $("#statistic-seller").click(function () {
     location.href = "/Statistic";
   });
 
-    $('#change-btn').click(function () {
-        $.ajax({
-            url: "/UserInfo/DisplayUserInfo",
-            success: function (response) {
-                $('#change-pwd').val(response.pass);
-                $('#change-email').val(response.email);
-                $('#change-dob').val(response.dob);
-                $('#change-add').val(response.address);
-                $('#change-phone').val(response.phoneNumber);
-            },
-            error: function () {
-                alert("error");
-            }
-        });
+  $("#change-btn").click(function () {
+    $.ajax({
+      url: "/UserInfo/DisplayUserInfo",
+      success: function (response) {
+        $("#change-pwd").val(response.pass);
+        $("#change-email").val(response.email);
+        $("#change-dob").val(response.dob);
+        $("#change-add").val(response.address);
+        $("#change-phone").val(response.phoneNumber);
+      },
+      error: function () {
+        alert("error");
+      },
     });
+  });
 
-    $('#confirm-change').click(function () {
-        var pass = $('#change-pwd').val();
-        var email = $('#change-email').val();
-        var dob = $('#change-dob').val();
-        var address = $('#change-add').val();
-        var phoneNumber = $('#change-phone').val();
+  $("#confirm-change").click(function () {
+    var pass = $("#change-pwd").val();
+    var email = $("#change-email").val();
+    var dob = $("#change-dob").val();
+    var address = $("#change-add").val();
+    var phoneNumber = $("#change-phone").val();
 
-        $.ajax({
-            url: "/UserInfo/UpdateUserInfo",
-            type: 'post',
-            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber },
-            success: function () {
-                alert("Update successfully");
-            },
-            error: function () {
-                alert("error");
-            }
-        });
+    $.ajax({
+      url: "/UserInfo/UpdateUserInfo",
+      type: "post",
+      data: {
+        pass: pass,
+        email: email,
+        dob: dob,
+        address: address,
+        phoneNumber: phoneNumber,
+      },
+      success: function () {
+        alert("Update successfully");
+      },
+      error: function () {
+        alert("error");
+      },
     });
+  });
 });

@@ -4,7 +4,8 @@
 
 .seller-info {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
   align-items: flex-start;
   justify-content: center;
   width: 90%;
@@ -25,7 +26,6 @@ a {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  flex: 30%;
 }
 
 .left_section .seller_info {
@@ -34,7 +34,7 @@ a {
   border: 1px solid;
   border-color: var(--gray-100);
   box-shadow: var(--dropdown-shadow);
-  width: 100%;
+  width: 80%;
 }
 .left_section .rating_info {
   display: flex;
@@ -46,7 +46,7 @@ a {
   padding: 30px;
   border-color: var(--gray-100);
   box-shadow: var(--dropdown-shadow);
-  width: 100%;
+  width: 80%;
 }
 .seller_info .seller {
   font-weight: 600;
@@ -187,53 +187,29 @@ label.star:before {
   justify-content: space-between;
 }
 
-#change-btn {
-  flex: 3;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
+.button {
+  display: inline-flex;
+  padding: 0px 24px;
+  width: 100%;
   justify-content: center;
-  background-color: #044876;
-  width: max-content;
-  font-family: var(--heading-07-font-family);
-  font-weight: var(--heading-07-font-weight);
-  color: var(--gray-00);
-  font-size: 13px;
-  letter-spacing: var(--heading-07-letter-spacing);
-  line-height: var(--heading-07-line-height);
-  white-space: nowrap;
-  font-style: var(--heading-07-font-style);
-  text-transform: uppercase;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  background: #1b6392;
+  color: var(--gray-00, #fff);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0.168px;
 }
 
-.button {
-  flex: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #044876;
-}
-.button .see {
-  flex: 3;
-  width: max-content;
-  font-family: var(--heading-07-font-family);
-  font-weight: var(--heading-07-font-weight);
-  color: var(--gray-00);
-  font-size: 13px;
-  letter-spacing: var(--heading-07-letter-spacing);
-  line-height: var(--heading-07-line-height);
-  white-space: nowrap;
-  font-style: var(--heading-07-font-style);
-}
-.button .regular_arrowright {
-  width: 20px;
-  height: 20px;
+.seller_containter .btn-group button {
+  padding: 0;
 }
 
 .table_wrapper {
   position: fixed;
   display: none;
-  align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -335,10 +311,6 @@ label.star:before {
   align-items: flex-start;
 }
 
-.layout {
-  flex: 70%;
-}
-
 .pagination {
   display: inline-block;
   -webkit-user-select: none; /* Safari */
@@ -387,15 +359,35 @@ label.star:before {
   flex-direction: column;
   row-gap: 20px;
   align-items: center;
+  position: relative;
 }
 
 .product-list {
-  width: 60%;
+  width: 70%;
   display: none;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 50% 50%;
   row-gap: 20px;
   column-gap: 20px;
   max-height: 850px;
+}
+
+#cancel-delete-product {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  transition: all .5s ease-in-out;
+}
+
+#cancel-delete-product button {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: 2px solid rgba(255, 0, 0, 0.52);
+  background: rgba(255, 0, 0, 0.20);
+}
+
+#cancel-delete-product:hover {
+  transform: scale(1.05);  
 }
 
 .product-list.active {
@@ -416,8 +408,7 @@ label.star:before {
     margin: 0 auto;
     border-radius: 5px 5px 0 0;
     height: 180px;
-    aspect-ratio: 1/1;
-    object-fit: contain;
+    object-fit: cover;
   }
   .container {
     padding: 2px 10px;
@@ -452,6 +443,7 @@ label.star:before {
 }
 
 .product-item:hover {
+  transform: translateY(-5px);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -463,19 +455,7 @@ label.star:before {
   padding: 30px;
   border-color: var(--gray-100);
   box-shadow: var(--dropdown-shadow);
-  width: 100%;
-}
-
-.delete-section button,
-.statistic-section button {
-  width: 100%;
-  background-color: #044876;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.168px;
-  line-height: 48px;
-  color: white;
-  text-transform: uppercase;
+  width: 80%;
 }
 
 .delete-icon {

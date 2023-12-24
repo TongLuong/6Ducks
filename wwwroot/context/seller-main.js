@@ -77,31 +77,8 @@ $(this).ready(function () {
         });
     }
 
-    $.get("/components/seller/header.html", function (data) {
+    $.get("/components/header.html", function (data) {
         $("body").prepend(data);
-        $(".user").click(function () {
-            location.href = "/UserInfo";
-        });
-        $(".logo").click(function () {
-            location.href = "/MainPage";
-        });
-
-        $.get("/Login/GetSession", function (response) {
-            if (response.type == 0) {
-                $(".toolbar").hide();
-            }
-
-            $(".welcome-user").html(response.name);
-        });
-
-        $(".book-upload").click(function () {
-            $(".mainpage-upload-comic-form").css("display", "flex");
-            $("body, html").css("overflow", "hidden");
-        });
-
-        $(".chat-button").click(function () {
-            location.href = "/Chat/Seller";
-        });
 
         $("#search").keyup(filterItem);
     });
