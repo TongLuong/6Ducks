@@ -74,7 +74,7 @@
         $.ajax({
             url: "UserInfo/DisplayBills",
             success: function (response) {
-                $('.table #bill').remove();
+                //$('.table #bill').remove();
 
                 for (let i = 0; i < response.num; i++) {
                     display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i], response.productID[i]);
