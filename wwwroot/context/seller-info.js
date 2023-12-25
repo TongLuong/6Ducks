@@ -222,8 +222,6 @@
     });
   }
 
-  $(".delete-side").hide();
-  $("#cancel-delete-product").hide();
   //delete click function
   $("#delete-product").click(function () {
     $("html, body").animate({ scrollTop: 0 }, "300");
@@ -233,7 +231,7 @@
 
     $(".delete-icon").each(function () {
       $(this).click(function () {
-        $(".delete-side").show();
+        $(".delete-side").css("display", "flex");
 
         var item = $(this).closest(".product-item");
 

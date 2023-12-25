@@ -657,22 +657,21 @@
   .rate-chart-box {
     display: flex;
     flex-direction: column;
-    row-gap: 3px;
+    row-gap: 5px;
     background: #efeaea;
     padding: 15px;
     width: 60%;
 
     .rate-item {
-      display: flex;
+      display: grid;
       align-items: center;
-      justify-content: flex-start;
+      grid-template-columns: 40px 1fr;
       column-gap: 10px;
 
       & span {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 10%;
         color: var(--gray-500, #77878f);
         font-size: 15px;
         font-weight: 400;
@@ -680,23 +679,23 @@
       }
 
       .rate-column {
-        height: 16px;
+        height: 100%;
         background: #d7cdcd;
 
         &._5star {
-          width: 80%;
+          width: 0%;
         }
         &._4star {
-          width: 75%;
+          width: 0%;
         }
         &._3star {
-          width: 7%;
+          width: 0%;
         }
         &._2star {
-          width: 4%;
+          width: 0%;
         }
         &._1star {
-          width: 2%;
+          width: 0%;
         }
       }
     }

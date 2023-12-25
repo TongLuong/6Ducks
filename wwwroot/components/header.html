@@ -37,6 +37,7 @@
     </div>
   </div>
 </div>
+<div class="scrolltop"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
 
 <script>
   $.get("/Login/GetSession", function (response) {
@@ -67,6 +68,20 @@
 
     $(".chat-button").click(function () {
       location.href = "/Chat/Seller";
+    });
+
+    $(window).scroll(function () {
+      $('.scrolltop').css("display", "flex");
+      if ($(this).scrollTop() > 100) {
+        $('.scrolltop').fadeIn();
+      } else {
+        $('.scrolltop').fadeOut();
+      }
+    });
+  
+    // Scroll to the top when the button is clicked
+    $('.scrolltop').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, '300');
     });
   });
 </script>

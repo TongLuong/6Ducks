@@ -1,3 +1,7 @@
+body {
+  position: relative;
+}
+
 .nav {
   width: 100%;
   background-color: #fff;
@@ -224,4 +228,28 @@
   margin: 0;
   font-weight: 900;
   font-size: 20px;
+}
+
+.scrolltop {
+  position: fixed;
+  bottom: 50px;
+  right: 70px;
+  z-index: 99;
+  height: 50px;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  font-size: 30px;
+  border-radius: 50%;
+  outline: #31304D 2px solid;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease-in-out;
+  background-color: #31304D;
+  color: #B6BBC4;
+}
+
+.scrolltop:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
