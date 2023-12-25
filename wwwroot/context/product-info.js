@@ -308,7 +308,7 @@
     var voucherChosenID = [null, null];
     var maxLoadDiscount = 1;
     var maxLoadShipping = 1;
-    var maxLoadMainPage = 3;
+    var maxLoadMainPageVouchers = 4;
     $.ajax({
         url: "Product/LoadVoucherInfo",
         data: {
@@ -354,7 +354,7 @@
                 <button class="voucher-using" type="button">Dùng</button>
               </div>`;
 
-                if (maxLoadMainPage > 0) {
+                if (maxLoadMainPageVouchers > 0) {
                     $(".mainpage-productinfo .voucher .voucher-box").append(
                         item
                     );
@@ -377,7 +377,7 @@
                         ".voucher-item-" + temp.voucherID +
                         " .voucher-using").remove();
 
-                    maxLoadMainPage--;
+                    maxLoadMainPageVouchers--;
                 }
 
                 if (temp.voucherType == 0 && maxLoadDiscount > 0) {
