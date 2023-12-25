@@ -49,7 +49,7 @@
 
     function display_bill(billID, status, time, totalPrice,productID) {
         const html =
-            ' <div class="row" id="bill">' +
+            ' <div class="row" id="bill' + billID + '">' +
             ' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
             '<div class="cell" data-title="TRẠNG THÁI" id="status">' + status + '</div>' +
             '<div class="cell" data-title="THỜI GIAN">' + time + '</div>' +
@@ -58,8 +58,8 @@
             '</div > ';
         $('.table').append(html);
 
-        var item = $(".table #bill:last-child()");
-
+        var item = $('.table #bill' + billID);
+        //const rating = item.find('.rating');
         item.find('.rating').click(function (e) {
             e.preventDefault();
             $("html, body").css("overflow", "none");
