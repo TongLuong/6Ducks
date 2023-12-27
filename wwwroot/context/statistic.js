@@ -1,61 +1,84 @@
-function createChart(dataLabel, dataValue, chart, label) {
-  var maxWidth = 120 / dataValue.length;
-  var maxValue = Math.max(...dataValue) + 5;
-
-  const data = {
-    type: "bar",
-    data: {
-      labels: dataLabel,
-      datasets: [
-        {
-          label: "bills",
-          data: dataValue[0],
-          borderWidth: 1,
-          barThickness: maxWidth,
-        },
-        {
-          label: "$",
-          data: dataValue[1],
-          borderWidth: 1,
-          barThickness: maxWidth,
-        },
-        {
-          label: "product",
-          data: dataValue[2],
-          borderWidth: 1,
-          barThickness: maxWidth,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          suggestedMax: maxValue,
-          beginAtZero: true,
-        },
-      },
-    },
-  };
-
-  new Chart(document.getElementById(chart), data);
-}
-
-function showStatistic() {
-  $.ajax({
-      url: "/SellerInfoSeller/GetValueForStatistics",
+$(document).ready(function () {
+  function createChart(dataLabel, dataValue, chart, label) {
+    var maxWidth = 360 / dataValue.length;
+    var maxValue = Number(String(Math.max(...dataValue)).charAt(0)) * Math.pow(10, String(Math.max(...dataValue)).length - 1);
+  
+    const data = {
+      type: "bar",
       data: {
-          year: 2023
+        labels: dataLabel,
+        datasets: [
+          {
+            label: label,
+            data: dataValue,
+            borderWidth: 1,
+            barThickness: maxWidth,
+          }
+        ],
       },
-      datatype: "json",
-      success: function (response) {
-        createChart(
-          response.month,
-          [response.bill, response.revenue, response.product],
-          "statistic-element",
-          "count"
-        );
-      }
-  });
-}
+      options: {
+        scales: {
+          y: {
+            suggestedMax: maxValue,
+            beginAtZero: true,
+            ticks: {
+              stepSize: Math.ceil(maxValue * 0.1)
+            }
+          },
+        },
+      },
+    };
+  
+    new Chart(document.getElementById(chart), data);
+  }
+  
+  function showStatistic() {
+    $.ajax({
+        url: "/SellerInfoSeller/GetValueForStatistics",
+        data: {
+            year: 2023
+        },
+        datatype: "json",
+        success: function (response) {
+          createChart(
+            response.month,
+            response.bill,
+            "statistic-element-1",
+            "bills"
+          );
+          createChart(
+            response.month,
+            response.revenue,
+            "statistic-element-2",
+            "$"
+          );
+          createChart(
+            response.month,
+            response.product,
+            "statistic-element-3",
+            "products"
+          );
+        }
+    });
+  }
+  
+  showStatistic();
 
-showStatistic();
+  $("canvas").hide();
+  $("#statistic-element-1").show();
+
+  $("#show-bill-statistic").click(function() {
+    $("canvas").hide();
+    $("#statistic-element-1").show();
+  });
+
+  $("#show-revenue-statistic").click(function() {
+    $("canvas").hide();
+    $("#statistic-element-2").show();
+  });
+
+  $("#show-product-statistic").click(function() {
+    $("canvas").hide();
+    $("#statistic-element-3").show();
+  });
+});

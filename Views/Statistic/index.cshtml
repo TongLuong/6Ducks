@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="/assets/styles/globals.css" />
   <link rel="stylesheet" href="/assets/styles/header-footer.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/assets/styles/seller-main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -22,7 +22,14 @@
     <div class="wrapper">
       <h2>Thống kê trong năm</h2>
       <div class="statistic-table">
-        <canvas id="statistic-element"></canvas>
+        <canvas id="statistic-element-1"></canvas>
+        <canvas id="statistic-element-2"></canvas>
+        <canvas id="statistic-element-3"></canvas>
+      </div>
+      <div class="btn-group">
+        <button type="button" id="show-bill-statistic">Bill</button>
+        <button type="button" id="show-revenue-statistic">Revenue</button>
+        <button type="button" id="show-product-statistic">Product</button>
       </div>
     </div>
   </div>

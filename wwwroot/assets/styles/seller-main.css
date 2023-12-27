@@ -400,3 +400,27 @@ th {
   width: 100%;
   height: 450px;
 }
+
+.statistic-maincontent .statistic-table canvas {
+  display: none;
+}
+
+.statistic-maincontent .statistic-table canvas.active {
+  display: block;
+}
+
+.statistic-maincontent .btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.statistic-maincontent .btn-group button {
+  padding: 10px 20px;
+  border-color: #86B6F6;
+}
+
+.statistic-maincontent .btn-group button:hover {
+  background-color: #B4D4FF;
+}

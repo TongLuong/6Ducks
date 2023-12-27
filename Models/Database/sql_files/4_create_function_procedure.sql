@@ -548,12 +548,12 @@ begin
 	begin
 		select @product_sold = count(*)
 		from Products p, BillItems bi, Bills b
-		where p.productID=bi.productID and b.billID=bi.billID 
+		where p.productID=bi.productID and b.billID=bi.billID and b.sellerID=@sellerID
 				and YEAR([time]) =@year and MONTH([time])=@mm and b.billStatus = 'Done'
 
-		select @bill_quantity=COUNT(*), @revenue=sum(totalPrice) 
-		from Bills 
-		where sellerID=@sellerID and YEAR([time]) =@year and MONTH([time])=@mm and billStatus = 'Done';
+		select @bill_quantity=sum(quantity), @revenue=sum(totalPrice) 
+		from Bills b, BillItems bi
+		where b.billID=bi.billID and b.sellerID=@sellerID and YEAR([time]) =@year and MONTH([time])=@mm and b.billStatus = 'Done';
 
 		if (@revenue is null)
 			set @revenue = 0
