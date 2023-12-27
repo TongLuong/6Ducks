@@ -312,5 +312,23 @@
         alert("error");
       },
     });
+
+      display_profile();
   });
+
+    function display_profile() {
+        $.ajax({
+            url: "SellerInfoSeller/ProfileInfo",
+            success: function (response) {
+                $('.seller_name').text(response.name);
+                $('span.join-time span').text(response.time);
+                $('span.product-number span').text(response.product);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+
+    display_profile();
 });

@@ -160,5 +160,24 @@
                 alert("error");
             }
         });
+
+        display_profile();
     });
+
+    function display_profile() {
+        $.ajax({
+            url: "UserInfo/ProfileInfo",
+            success: function (response) {
+                $('.profile_info .name').text(response.name);
+                $('.profile_info .address').text(response.address);
+                $('.contact .email').text(response.email);
+                $('.contact .phone').text(response.phoneNumber);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+
+    display_profile();
 });

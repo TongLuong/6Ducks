@@ -273,5 +273,38 @@ namespace DA_6Ducks.Controllers
 				}
 			);
 		}
+
+        public JsonResult ProfileInfo()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+
+            string userID = Session.sessionID;
+            SqlCommand cmd = new SqlCommand("select displayName,startingTime,productSale from Users u join Sellers s on u.userID = s.userID and u.userId = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            string uname = "", utime = "", uproduct = "";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    uname = dr.GetString(0);
+                    utime = dr.GetDateTime(1).ToString("yyyy'-'MM'-'dd");
+                    uproduct = dr.GetInt32(2).ToString();
+                }
+            }
+
+            return new JsonResult
+            (
+                new
+                {
+                    name = uname,
+                    time = utime,
+                    product = uproduct
+                }
+            );
+        }
     }
 }

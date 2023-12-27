@@ -212,5 +212,40 @@ namespace DA_6Ducks.Controllers
 
             conn.Close();
         }
+
+        public JsonResult ProfileInfo()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+
+
+            string userID = Session.sessionID;
+            SqlCommand cmd = new SqlCommand("select displayName,address,email,phoneNumber from Users where userId = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            string uname="", uaddr="", uemail="",uphone="";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    uname = dr.GetString(0);
+                    uaddr = dr.GetString(1);
+                    uemail = dr.GetString(2);
+                    uphone = dr.GetString(3);
+                }
+            }
+
+            return new JsonResult
+            (
+                new
+                {
+                    name = uname,
+                    email = uemail,
+                    address = uaddr,
+                    phoneNumber = uphone
+                }
+            );
+        }
     }
 }
