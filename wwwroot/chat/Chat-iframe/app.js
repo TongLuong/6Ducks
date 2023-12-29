@@ -11,35 +11,6 @@ var BOT_NAME = "Fantasy Chicken";
 var PERSON_NAME = "Đậu Đức Quân";
 
 
-//msgerForm.addEventListener("submit", (event) => {
-//    event.preventDefault();
-
-//    const msgText = msgerInput.value;
-//    if (!msgText) return;
-
-//    var urlParams = new URLSearchParams(window.location.search);
-//    var senderID = urlParams.get("user");
-//    var receiverID = urlParams.get("receiver");
-
-
-//    $.ajax({
-//        url: "Chat/SaveLogChat",
-//        type: "post",
-//        data: {
-//            "senderID": senderID,
-//            "receiverID": receiverID,
-//            "msg":msgText
-//        }
-//    });
-
-//    alert(msgText);
-
-//    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-//    msgerInput.value = "";
-
-//    botResponse();
-//});
-
 function appendMessage(name, img, side, text, time = null) {
     // Nếu không có thời gian được truyền vào, sử dụng thời gian hiện tại
     if (!time) {
@@ -99,7 +70,6 @@ function displayLogChat(receiverID) {
         },
         type: "json",
         success: function (response) {
-            //alert("Start display");
             BOT_NAME = response.sellerName;
             PERSON_NAME = response.userName;
             for (let i = 0; i < response.number; i++) {
@@ -110,9 +80,7 @@ function displayLogChat(receiverID) {
                 if (side == "right") { sender_name = PERSON_NAME; }
                 if (side == "left") { sender_name = BOT_NAME; }
                 appendMessage(sender_name, PERSON_IMG, side, msg, time);
-                //alert(msg);
             }
-            //alert("Display done");
         }
     });
 }

@@ -242,13 +242,7 @@
 						"billID": billID,
 						"status": status
 					},
-					type: "post",
-					success: function () {
-						alert("Update successfully");
-					},
-					error: function () {
-						alert("error");
-					}
+					type: "post"
 				});
 			});
 		}
@@ -264,9 +258,6 @@
 					for (let i = 0; i < response.num; i++) {
 						display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i]);
 					}
-				},
-				error: function () {
-					alert("error");
 				}
 			});
 		}

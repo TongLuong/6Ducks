@@ -110,9 +110,6 @@ function display_log_chat(buyerID) {
                 if (side == "left") { sender_name = BOT_NAME; }
                 appendMessage(sender_name, PERSON_IMG, side, msg, time);
             }
-        },
-        error: function() {
-            alert("Log chat error");
         }
     });
 }
@@ -136,9 +133,6 @@ function fetchMessages() {
                     data: { "receiverID": response.id[0] }
                 });
             }
-        },
-        error: function() {
-            alert("Cannot display conversation");
         }
     });
 }
@@ -190,9 +184,6 @@ $(document).ready(function () {
                 $("#" + response.buyerID + " .msgs-date").text(response.timeSave);
                 botResponse();
 
-            },
-            error: function () {
-                alert("error");
             }
         });
     }

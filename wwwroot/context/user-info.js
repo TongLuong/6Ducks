@@ -83,9 +83,6 @@
                 $('#all-bill .num').text(response.num);
                 $('#confirm-bill .num').text(response.confirm);
                 $('#done-bill .num').text(response.done);
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
@@ -114,16 +111,9 @@
                         success: function () {
                             var item = $('#bill' + billID + ' .rating');
                             item.text('');
-                            alert("Feedback successfully");
-                        },
-                        error: function () {
-                            alert("error");
                         }
                     });
                 });
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
@@ -137,9 +127,6 @@
                 $('#change-dob').val(response.dob);
                 $('#change-add').val(response.address);
                 $('#change-phone').val(response.phoneNumber);
-            },
-            error: function () {
-                alert("error");
             }
         });
     });
@@ -154,13 +141,7 @@
         $.ajax({
             url: "UserInfo/UpdateUserInfo",
             type: 'post',
-            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber },
-            success: function () {
-                alert("Update successfully");
-            },
-            error: function () {
-                alert("error");
-            }
+            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber }
         });
 
         display_profile();
@@ -174,9 +155,6 @@
                 $('.profile_info .address').text(response.address);
                 $('.contact .email').text(response.email);
                 $('.contact .phone').text(response.phoneNumber);
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
