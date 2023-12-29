@@ -503,8 +503,8 @@ go
 
 go
 -- drop function get_voucher
-create function get_voucher(@categoryID int, 
-	@sellerID int)
+create function get_voucher(@categoryID int = null, 
+	@sellerID int = null)
 returns @table table(voucherID int, timeStart datetime, 
 	timeExpired datetime, discountPercent float, maxValue int, 
 	minBill int, quantity int, voucherType int,
@@ -520,11 +520,15 @@ begin
 		(
 			vu.categoryID is null
 			or
+			@categoryID is null
+			or
 			vu.categoryID = @categoryID
 		)
 		and 
 		(
 			vu.sellerID is null
+			or
+			@sellerID is null
 			or
 			vu.sellerID = @sellerID
 		)
