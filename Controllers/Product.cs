@@ -458,8 +458,10 @@ namespace DA_6Ducks.Controllers
                 , conn
             );
 
-            cmd.Parameters.AddWithValue("@categoryID", categoryID);
-            cmd.Parameters.AddWithValue("@sellerID", sellerID);
+            cmd.Parameters.AddWithValue("@categoryID", categoryID
+                ?? Convert.DBNull);
+            cmd.Parameters.AddWithValue("@sellerID", sellerID
+                ?? Convert.DBNull);
 
             SqlDataReader dr = cmd.ExecuteReader();
             string[] temp = new string[dr.FieldCount];

@@ -233,4 +233,82 @@ $(this).ready(function () {
         });
     }
     showProducts(8);
+
+    var maxLoadDiscount = 3;
+    var maxLoadShipping = 3;
+    $.ajax({
+        url: "Product/LoadVoucherInfo",
+        data: {
+            "categoryID": "", // get all
+            "sellerID": "", // get all
+            "maxLoad": -1 // get all
+        },
+        success: function (response) {
+            for (var i = 0; i < response.data.length; i++) {
+                var temp = response.data[i].value;
+
+                var item = `<div class="voucher voucher-discount 
+            voucher-item-` + temp.voucherID + `">
+                <img src="/assets/images/voucher.png" alt="" />
+                <div class="voucher-content">
+                    <span class="voucher-name">
+                        Voucher dùng cho danh mục Tiểu thuyết
+                    </span>
+                    <span class="voucher-value">-30% tối đa 20k</span>
+                </div>
+              </div>`;
+
+                var item2 = `<div class="voucher voucher-freeship 
+            voucher-item-` + temp.voucherID + `">
+                <img src="/assets/images/freeship.png" alt="" />
+                <div class="voucher-content">
+                    <span class="voucher-name">
+                        Voucher dùng cho danh mục Tiểu thuyết
+                    </span>
+                    <span class="voucher-value">-30% tối đa 20k</span>
+                </div>
+              </div>`;
+
+                if (temp.voucherType == 0 && maxLoadDiscount > 0) {
+                    $(".vouchers .today-voucher").append(item);
+
+                    var dis = "-" + Number(temp.discountPercent) * 100
+                        + "% ";
+
+
+                    const formatter = new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'vnd',
+                    });
+                    var maxValue = "tối đa " + formatter.format(
+                        temp.maxValue);
+                        
+                    $(".vouchers .voucher-item-" +
+                        temp.voucherID + " .voucher-value").text(
+                            dis + maxValue);
+
+                    maxLoadDiscount--;
+                }
+                else if (temp.voucherType == 1 && maxLoadShipping > 0) {
+                    $(".vouchers .free-ship").append(item2);
+
+                    var dis = "-" + Number(temp.discountPercent) * 100
+                        + "% ";
+                    
+                    const formatter = new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'vnd',
+                    });
+                    var maxValue = "tối đa " + formatter.format(
+                        temp.maxValue);
+
+                    $(".vouchers .voucher-item-" +
+                        temp.voucherID + " .voucher-value").text(
+                            dis + maxValue);
+
+                    maxLoadShipping--;
+                }
+            }
+        }
+    });
 });

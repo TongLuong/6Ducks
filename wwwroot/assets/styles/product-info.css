@@ -372,6 +372,7 @@
 }
 
 .buy-product .price-box,
+.buy-product .warning,
 .cash .price-box {
   display: block;
   width: max-content;
@@ -400,6 +401,12 @@
     font-weight: 600;
     line-height: 20px;
   }
+}
+
+.buy-product .warning {
+    color: red;
+    font-weight: bold;
+    display: flex;
 }
 
 .buy-product > .button-box,

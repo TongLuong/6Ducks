@@ -102,17 +102,17 @@
                 $('.user_rating .img').text(response.price[0] + 'đ');
 
                 $('#submit').click(function () {
-                    alert('get fb');
+                    //alert('get fb');
                     var nostar = $('.user_rating .stars input:checked').prop('id').split('-')[1];
                     var fb = $('#comment').val();
-                    alert('get done');
+                    //alert('get done');
 
                     $.ajax({
                         url: "UserInfo/Rate",
                         type: 'post',
                         data: { 'productID': productID, 'nostar': nostar, 'feedback': fb },
                         success: function () {
-                            alert("Feedback successfully");
+                            //alert("Feedback successfully");
                         },
                         error: function () {
                             alert("error");

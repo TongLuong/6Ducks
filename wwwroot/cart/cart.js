@@ -15,11 +15,25 @@ $(document).ready(function () {
     $(".overlay-cart #next-2").css("display", "none");
     $(".overlay-cart #cancel-2").css("display", "none");
     $(".overlay-cart #cancel-3").css("display", "none");
-    $(".cash .left #cod-method").attr("checked", true);
-    $(".cash .left form").css("display", "");
     $(".cash .voucher form").css("display", "none");
+    $(".overlay-cart .warning").css("display", "none");
 
     $("#next-1").click(function () {
+        var formEle = $(".overlay-cart .buy .buyer-info input");
+        var checkResult = true;
+        formEle.each(function () {
+            if ($(this).val() == "" || $(this).val() == null) {
+                $(".overlay-cart .warning").css("display", "");
+                checkResult = false;
+                return false;
+            }
+        });
+
+        if (!checkResult)
+            return;
+
+        $(".overlay-cart .warning").css("display", "none");
+
         $(".overlay-cart .buy").css("display", "none");
         $(".overlay-cart .voucher").css("display", "block");
         $(".overlay-cart #next-1").css("display", "none");
@@ -37,32 +51,16 @@ $(document).ready(function () {
         $(".overlay-cart #cancel-2").css("display", "none");
         $(".overlay-cart #cancel-3").css("display", "");
 
-        let checkboxes = document.querySelectorAll(
-            '.overlay-cart input[type="checkbox"]'
-        );
-        checkboxes.forEach(function (checkbox) {
-            checkbox.addEventListener("change", function () {
-                if (!checkbox.checked) {
-                    checkbox.checked = true;
-                    return;
-                }
+        $(".cash .right form input, " +
+            ".cash .right form select").prop("disabled", true);
+        $(".cash .left form input, " +
+            ".cash .left form select").prop("disabled", true);
+        $('.cash .left input[name="cod-method"]').prop("checked", true);
+        $(".cash .left form").css("display", "");
 
-                checkboxes.forEach(function (c) {
-                    if (c !== checkbox) c.checked = false;
-                });
-                if ($(".cash .left").has(this).length) {
-                    if (this.checked) $(".cash .left form").css("display", "");
-                    else $(".cash .left form").css("display", "none");
-                    $(".cash .voucher form").css("display", "none");
-                } else {
-                    $(".cash .left form").css("display", "none");
-                    if (this.checked) $(".cash .voucher form").css("display", "");
-                    else $(".cash .voucher form").css("display", "none");
-                }
-            });
-        });
+        $(".overlay-cart .warning").css("display", "none");
     });
-
+    
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
@@ -146,12 +144,24 @@ $(document).ready(function () {
         });
     }
 
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    $(".cash .right form input, " +
-        ".cash .right form select").prop("disabled", true);
-    $(".cash .left form input, " +
-        ".cash .left form select").prop("disabled", true);
-    checkboxes.forEach(function (checkbox) {
+    let checkboxes_cart = document.querySelectorAll('.cart-list input[type="checkbox"]');
+    let checkboxes_cash = document.querySelectorAll('.cash input[type="checkbox"]');
+    checkboxes_cart.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+            var totalPrice = 0;
+            var itemList = $(".cart-item");
+            itemList.each(function () {
+                if ($(this).find('input[type="checkbox"]').prop("checked")) {
+                    var priceText = $(this).find(".item-total-price span").text();
+                    totalPrice += Number(priceText);
+                }
+            });
+            //var shipping_price = Number($("#cost").val());
+            $(".total-price span").text(totalPrice);
+        });
+    });
+
+    checkboxes_cash.forEach(function (checkbox) {
         checkbox.addEventListener("change", function () {
             checkboxes.forEach(function (c) {
                 if (c !== checkbox) c.checked = false;
@@ -171,17 +181,6 @@ $(document).ready(function () {
                 $(".cash .left form input, " +
                     ".cash .left form select").prop("disabled", true);
             }
-
-            var totalPrice = 0;
-            var itemList = $(".cart-item");
-            itemList.each(function () {
-                if ($(this).find('input[type="checkbox"]').prop("checked")) {
-                    var priceText = $(this).find(".item-total-price span").text();
-                    totalPrice += Number(priceText);
-                }
-            });
-            var shipping_price = Number($("#cost").val());
-            $(".total-price span").text(totalPrice + shipping_price);
         });
     });
 
@@ -247,6 +246,8 @@ $(document).ready(function () {
     var maxLoadDiscount = 1;
     var maxLoadShipping = 1;
     $("#make-buy").click(function () {
+        $(".overlay-cart .warning").css("display", "none");
+
         var shipping_price = Number($("#cost").val());
         var totalPrice = $(".total-price span").text();
         totalPrice = Math.round(Number(totalPrice.replace(/[^0-9.-]+/g, "")));
@@ -260,6 +261,11 @@ $(document).ready(function () {
         var itemsChosenTotalPrice = [];
         var sellerTotalPrice = {};
         var allCheckbox = $('.cart-item input[type="checkbox"');
+
+        if (allCheckbox.length <= 0) {
+            alert("Vui lòng chọn sản phẩm cần mua!");
+            return;
+        }
 
         allCheckbox.each(function (i) {
             if (this.checked) {
@@ -524,6 +530,8 @@ $(document).ready(function () {
             $(".overlay-cart input").not("#cost").val("");
 
             $(".overlay-cart .buy").css("display", "");
+
+            $(".overlay-cart .warning").css("display", "none");
         });
 
         $("#cancel-2").click(function () {
@@ -537,6 +545,8 @@ $(document).ready(function () {
 
             $(".overlay-cart #next-1").css("display", "");
             $(".overlay-cart #next-2").css("display", "none");
+
+            $(".overlay-cart .warning").css("display", "none");
         });
 
         $("#cancel-3").click(function () {
@@ -551,6 +561,8 @@ $(document).ready(function () {
 
             $(".overlay-cart #next-2").css("display", "");
             $(".overlay-cart #confirm-buy").css("display", "none");
+
+            $(".overlay-cart .warning").css("display", "none");
         });
     });
 
@@ -638,11 +650,11 @@ $(document).ready(function () {
         var price = $(".total-price span").text();
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")));
 
-        /*if (Number(price) < minBill[0] ||
-            Number(price) < minBill[1]) {
+        if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+            (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
             alert("Giá trị đơn hàng không thỏa!");
             return;
-        }*/
+        }
 
         $(".total").val(
             Math.round(Number(price) * totalDiscount[0])

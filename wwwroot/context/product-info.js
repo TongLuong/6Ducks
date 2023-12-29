@@ -17,6 +17,15 @@
 
     $(".list-image").css("height", $(".preview-image").height());
 
+    $(".total-cost").text("0");
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'vnd',
+    });
+    $(".total-cost").on('change', function () {
+        $(".total-cost").text(formatter.format($(".total-cost").text()));
+    });
+
     $(".demo").click(function () {
         $(".preview-image").css(
             "background-image",
@@ -80,6 +89,7 @@
     );
 
     $("button.buy_product-button").click(function () {
+        $(".buy-product .warning").css("display", "none");
         $(".disabled").css("display", "flex");
         $(".buy-product").show();
         $("body").css("overflow", "hidden");
@@ -96,8 +106,26 @@
         $("body").css("overflow", "scroll");
     });
     $(".buy-product #buy-next").click(function () {
+        var formEle = $(".buy-product .left .buyer-info input");
+        var checkResult = true;
+        formEle.each(function () {
+            if ($(this).val() == "" || $(this).val() == null) {
+                $(".buy-product .warning").css("display", "");
+                checkResult = false;
+                return false;
+            }
+        });
+
+        if (!checkResult)
+            return;
+
+        $(".buy-product .warning").css("display", "none");
+
         $(".buy-product").hide();
         $(".cash").show();
+
+        $('.cash .left input[name="cod-method"]').prop("checked", true);
+        $(".cash .left form").css("display", "");
     });
     $(".cash #buy-cancel").click(function () {
         $(".disabled > .wrapper").hide();
@@ -131,23 +159,11 @@
                     ".cash .right form select").prop("disabled", true);
                 $(".cash .left form input, " +
                     ".cash .left form select").prop("disabled", false);
-
-                /*if (this.checked)
-                    $(".cash .left form").css("opacity", "1");
-                else
-                    $(".cash .left form").css("opacity", "0");
-                $(".cash .right form").css("opacity", "0");*/
             } else {
                 $(".cash .right form input, " +
                     ".cash .right form select").prop("disabled", false);
                 $(".cash .left form input, " +
                     ".cash .left form select").prop("disabled", true);
-
-                /*$(".cash .left form").css("opacity", "0");
-                if (this.checked)
-                    $(".cash .right form").css("opacity", "1");
-                else
-                    $(".cash .right form").css("opacity", "0");*/
             }
         });
     });
@@ -596,8 +612,8 @@
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
             * quantity;
 
-        if (Number(price) < minBill[0] ||
-            Number(price) < minBill[1]) {
+        if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+            (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
             alert("Giá trị đơn hàng không thỏa!");
             return;
         }
@@ -623,8 +639,8 @@
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
 
-                if (Number(price) < minBill[0] ||
-                    Number(price) < minBill[1]) {
+                if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+                    (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
                     alert("Giá trị đơn hàng không thỏa!");
                     return;
                 }
