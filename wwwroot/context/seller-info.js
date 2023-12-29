@@ -93,10 +93,7 @@
       );
 
       $("#rating-avg").text("(" + response.avgRating + "/5)");
-    },
-    error: function () {
-      alert("error");
-    },
+    }
   });
 
   function display_product(
@@ -197,10 +194,7 @@
             response.imgLink[i]
           );
         }
-      },
-      error: function () {
-        alert("Fail display");
-      },
+      }
     });
   }
 
@@ -213,12 +207,8 @@
       async: false,
       type: "post",
       success: function () {
-        alert("Delete successfully");
         display_all_product();
-      },
-      error: function () {
-        alert("Fail to delete");
-      },
+      }
     });
   }
 
@@ -281,10 +271,7 @@
         $("#change-dob").val(response.dob);
         $("#change-add").val(response.address);
         $("#change-phone").val(response.phoneNumber);
-      },
-      error: function () {
-        alert("error");
-      },
+      }
     });
   });
 
@@ -304,13 +291,7 @@
         dob: dob,
         address: address,
         phoneNumber: phoneNumber,
-      },
-      success: function () {
-        alert("Update successfully");
-      },
-      error: function () {
-        alert("error");
-      },
+      }
     });
 
       display_profile();
@@ -323,9 +304,6 @@
                 $('.seller_name').text(response.name);
                 $('span.join-time span').text(response.time);
                 $('span.product-number span').text(response.product);
-            },
-            error: function () {
-                alert("error");
             }
         });
     }

@@ -66,7 +66,7 @@
             $(".user_rating").css("display", "flex");
             $(".rating_wrapper").css("display", "flex");
 
-            display_user_rating(productID);
+            display_user_rating(productID,billID);
         });
     }
 
@@ -83,16 +83,13 @@
                 $('#all-bill .num').text(response.num);
                 $('#confirm-bill .num').text(response.confirm);
                 $('#done-bill .num').text(response.done);
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
 
     display_all_bill();
 
-    function display_user_rating(productID) {
+    function display_user_rating(productID,billID) {
         $.ajax({
             url: "UserInfo/DisplayProductWhenRating",
             data: { "productID": productID },
@@ -102,26 +99,21 @@
                 $('.user_rating .img').text(response.price[0] + 'đ');
 
                 $('#submit').click(function () {
-                    //alert('get fb');
+                    
                     var nostar = $('.user_rating .stars input:checked').prop('id').split('-')[1];
                     var fb = $('#comment').val();
-                    //alert('get done');
+                    
 
                     $.ajax({
                         url: "UserInfo/Rate",
                         type: 'post',
                         data: { 'productID': productID, 'nostar': nostar, 'feedback': fb },
                         success: function () {
-                            //alert("Feedback successfully");
-                        },
-                        error: function () {
-                            alert("error");
+                            var item = $('#bill' + billID + ' .rating');
+                            item.text('');
                         }
                     });
                 });
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
@@ -135,9 +127,6 @@
                 $('#change-dob').val(response.dob);
                 $('#change-add').val(response.address);
                 $('#change-phone').val(response.phoneNumber);
-            },
-            error: function () {
-                alert("error");
             }
         });
     });
@@ -152,13 +141,7 @@
         $.ajax({
             url: "UserInfo/UpdateUserInfo",
             type: 'post',
-            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber },
-            success: function () {
-                alert("Update successfully");
-            },
-            error: function () {
-                alert("error");
-            }
+            data: { 'pass': pass, 'email': email, 'dob': dob, 'address': address, 'phoneNumber': phoneNumber }
         });
 
         display_profile();
@@ -172,9 +155,6 @@
                 $('.profile_info .address').text(response.address);
                 $('.contact .email').text(response.email);
                 $('.contact .phone').text(response.phoneNumber);
-            },
-            error: function () {
-                alert("error");
             }
         });
     }
