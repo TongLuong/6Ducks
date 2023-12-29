@@ -66,7 +66,7 @@
             $(".user_rating").css("display", "flex");
             $(".rating_wrapper").css("display", "flex");
 
-            display_user_rating(productID);
+            display_user_rating(productID,billID);
         });
     }
 
@@ -92,7 +92,7 @@
 
     display_all_bill();
 
-    function display_user_rating(productID) {
+    function display_user_rating(productID,billID) {
         $.ajax({
             url: "UserInfo/DisplayProductWhenRating",
             data: { "productID": productID },
@@ -102,16 +102,18 @@
                 $('.user_rating .img').text(response.price[0] + 'đ');
 
                 $('#submit').click(function () {
-                    alert('get fb');
+                    
                     var nostar = $('.user_rating .stars input:checked').prop('id').split('-')[1];
                     var fb = $('#comment').val();
-                    alert('get done');
+                    
 
                     $.ajax({
                         url: "UserInfo/Rate",
                         type: 'post',
                         data: { 'productID': productID, 'nostar': nostar, 'feedback': fb },
                         success: function () {
+                            var item = $('#bill' + billID + ' .rating');
+                            item.text('');
                             alert("Feedback successfully");
                         },
                         error: function () {
