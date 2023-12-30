@@ -634,3 +634,58 @@ button#cancel-delete {
 .change-info-side .btn-group button:hover {
   transform: scale(1.1);
 }
+
+.change-info-side .success {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+}
+
+.change-info-side .success h1 {
+  margin: 0;
+  padding: 16px 0px;
+  text-align: center;
+  color: var(--gray-900, #191c1f);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  background: var(--gray-00, #fff);
+  box-shadow: 0px -3px 0px 0px #fa8232 inset, 0px 1px 0px 0px #e4e7e9 inset,
+    1px 0px 0px 0px #e4e7e9 inset;
+}
+
+.change-info-side .success .text {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  color: var(--gray-900, #191c1f);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-block: 10px;
+}
+
+.change-info-side .success button {
+  border-radius: 2px;
+  background: #1b6392;
+  width: 90%;
+  margin: 0 auto 30px auto;
+  color: var(--gray-00, #fff);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0.168px;
+  text-transform: uppercase;
+}
+
+.change-info-side .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-100, #e4e7e9);
+  background: var(--gray-00, #fff);
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.12);
+}

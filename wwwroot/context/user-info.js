@@ -1,53 +1,58 @@
 ﻿$(this).ready(function () {
-  $.get("/components/header.html", function (data) {
-    $("body").prepend(data);
-    $(".book-upload").css("display", "none");
-    $(".logo").click(function() {
-        location.href = 'MainPage'
-  });
-  });
+    $(".change-info-side .success").css("display", "none");
 
-  $.get("/components/footer.html", function (data) {
-    $("body").append(data);
-  });
+    $.get("/components/header.html", function (data) {
+        $("body").prepend(data);
+        $(".book-upload").css("display", "none");
+        $(".logo").click(function () {
+            location.href = 'MainPage'
+        });
+    });
+
+    $.get("/components/footer.html", function (data) {
+        $("body").append(data);
+    });
 
     $.get("UserInfo/IndexPopup", function (data) {
-    $(".rating_wrapper").prepend(data);
-    $(".user_rating").css("display", "none");
-    $(".success_popup").css("display", "none");
+        $(".rating_wrapper").prepend(data);
+        $(".user_rating").css("display", "none");
+        $(".success_popup").css("display", "none");
 
-    $(".submit").click(function (e) {
-      e.preventDefault();
-      $(".user_rating").css("display", "none");
-      $(".success_popup").css("display", "flex");
+        $(".submit").click(function (e) {
+            e.preventDefault();
+            $(".user_rating").css("display", "none");
+            $(".success_popup").css("display", "flex");
+        });
+
+        $(".cancel").click(function (e) {
+            e.preventDefault();
+            $(".rating_wrapper").css("display", "none");
+            $(".user_rating").css("display", "none");
+            $("html, body").css("overflow", "scroll");
+        });
+
+        $(".done").click(function (e) {
+            e.preventDefault();
+            $(".rating_wrapper").css("display", "none");
+            $(".success_popup").css("display", "none");
+            $("html, body").css("overflow", "scroll");
+        });
+    });
+    // Rating popup
+
+    $("#change-btn").click(function () {
+        $(".change-info-side").css("display", "flex")
     });
 
-    $(".cancel").click(function (e) {
-      e.preventDefault();
-      $(".rating_wrapper").css("display", "none");
-      $(".user_rating").css("display", "none");
-      $("html, body").css("overflow", "scroll");
+    $("#cancel-change").click(function () {
+        $(".change-info-side .success").css("display", "none");
+        $(".change-info-side .change-info-popup").css("display", "");
+
+        $(".change-info-side input").val("");
+        $(".change-info-side").css("display", "none");
     });
 
-    $(".done").click(function (e) {
-      e.preventDefault();
-      $(".rating_wrapper").css("display", "none");
-      $(".success_popup").css("display", "none");
-      $("html, body").css("overflow", "scroll");
-    });
-  });
-  // Rating popup
-
-  $("#change-btn").click(function() {
-    $(".change-info-side").css("display", "flex")
-  });
-
-  $("#cancel-change").click(function() {
-    $(".change-info-side input").val("");
-    $(".change-info-side").css("display", "none");
-  });
-
-    function display_bill(billID, status, time, totalPrice,productID) {
+    function display_bill(billID, status, time, totalPrice, productID) {
         const html =
             ' <div class="row" id="bill' + billID + '">' +
             ' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
@@ -66,7 +71,7 @@
             $(".user_rating").css("display", "flex");
             $(".rating_wrapper").css("display", "flex");
 
-            display_user_rating(productID,billID);
+            display_user_rating(productID, billID);
         });
     }
 
@@ -89,20 +94,20 @@
 
     display_all_bill();
 
-    function display_user_rating(productID,billID) {
+    function display_user_rating(productID, billID) {
         $.ajax({
             url: "UserInfo/DisplayProductWhenRating",
             data: { "productID": productID },
             success: function (response) {
                 $('.user_rating .name').text(response.name[0]);
-                $('.user_rating .img').attr('src',response.imgLink[0]);
+                $('.user_rating .img').attr('src', response.imgLink[0]);
                 $('.user_rating .img').text(response.price[0] + 'đ');
 
                 $('#submit').click(function () {
-                    
+
                     var nostar = $('.user_rating .stars input:checked').prop('id').split('-')[1];
                     var fb = $('#comment').val();
-                    
+
 
                     $.ajax({
                         url: "UserInfo/Rate",
@@ -131,6 +136,10 @@
         });
     });
 
+    $(".change-info-side .success #change-info-done").click(function () {
+        $("#cancel-change").click();
+    });
+
     $('#confirm-change').click(function () {
         var pass = $('#change-pwd').val();
         var email = $('#change-email').val();
@@ -145,6 +154,9 @@
         });
 
         display_profile();
+
+        $(".change-info-side .success").css("display", "");
+        $(".change-info-side .change-info-popup").css("display", "none");
     });
 
     function display_profile() {
