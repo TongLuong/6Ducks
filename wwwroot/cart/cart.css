@@ -241,7 +241,7 @@
 }
 
 .overlay-cart .warning {
-    width: 200px;
+    width: fit-content;
     color: red;
     font-weight: bold;
     display: flex;
@@ -596,4 +596,10 @@ button#cancel-delete {
   border-radius: 3px;
   border: 2px solid #144e74;
   background: #429bd6;
+}
+
+.overlay-cart .voucher .wrapper > h1 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
 }
