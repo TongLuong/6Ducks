@@ -23,7 +23,8 @@ $(document).ready(function () {
         var checkResult = true;
         formEle.each(function () {
             if ($(this).val() == "" || $(this).val() == null) {
-                $(".overlay-cart .warning").css("display", "");
+                $(".overlay-cart .warning").not(".voucher-warning").css(
+                    "display", "");
                 checkResult = false;
                 return false;
             }
@@ -144,8 +145,8 @@ $(document).ready(function () {
         });
     }
 
-    let checkboxes_cart = document.querySelectorAll('.cart-list input[type="checkbox"]');
-    let checkboxes_cash = document.querySelectorAll('.cash input[type="checkbox"]');
+    let checkboxes_cart = document.querySelectorAll(
+        '.cart-list input[type="checkbox"]');
     checkboxes_cart.forEach(function (checkbox) {
         checkbox.addEventListener("change", function () {
             var totalPrice = 0;
@@ -161,9 +162,11 @@ $(document).ready(function () {
         });
     });
 
+    let checkboxes_cash = document.querySelectorAll(
+        '.cash input[type="checkbox"]');
     checkboxes_cash.forEach(function (checkbox) {
         checkbox.addEventListener("change", function () {
-            checkboxes.forEach(function (c) {
+            checkboxes_cash.forEach(function (c) {
                 if (c !== checkbox) c.checked = false;
             });
 
@@ -573,9 +576,12 @@ $(document).ready(function () {
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")));
 
                 if (Number(price) < minBill[0]) {
-                    alert("Giá trị đơn hàng không thỏa!");
+                    //alert("Giá trị đơn hàng không thỏa!");
+                    $(".overlay-cart .voucher-warning").css("display", "");
                     return;
                 }
+
+                $(".overlay-cart .voucher-warning").css("display", "none");
 
                 var temp;
                 if ($(this).text().trim() == "Dùng") {
@@ -612,9 +618,12 @@ $(document).ready(function () {
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")));
 
                 if (Number(price) < minBill[1]) {
-                    alert("Giá trị đơn hàng không thỏa!");
+                    //alert("Giá trị đơn hàng không thỏa!");
+                    $(".overlay-cart .voucher-warning").css("display", "");
                     return;
                 }
+                
+                $(".overlay-cart .voucher-warning").css("display", "none");
 
                 var temp;
                 if ($(this).text().trim() == "Dùng") {
@@ -652,9 +661,12 @@ $(document).ready(function () {
 
         if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
             (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
-            alert("Giá trị đơn hàng không thỏa!");
+            //alert("Giá trị đơn hàng không thỏa!");
+            $(".overlay-cart .voucher-warning").css("display", "");
             return;
         }
+        
+        $(".overlay-cart .voucher-warning").css("display", "none");
 
         $(".total").val(
             Math.round(Number(price) * totalDiscount[0])

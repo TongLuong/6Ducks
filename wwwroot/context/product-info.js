@@ -110,7 +110,8 @@
         var checkResult = true;
         formEle.each(function () {
             if ($(this).val() == "" || $(this).val() == null) {
-                $(".buy-product .warning").css("display", "");
+                $(".buy-product .warning").not(".warning-voucher").css(
+                    "display", "");
                 checkResult = false;
                 return false;
             }
@@ -119,7 +120,7 @@
         if (!checkResult)
             return;
 
-        $(".buy-product .warning").css("display", "none");
+        $(".buy-product .warning").not(".warning-voucher").css("display", "none");
 
         $(".buy-product").hide();
         $(".cash").show();
@@ -456,13 +457,18 @@
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
 
-                if (Number(price) < minBill[0]) {
-                    alert("Giá trị đơn hàng không thỏa!");
-                    return;
-                }
-
                 var temp;
                 if ($(this).text().trim() == "Dùng") {
+                    if (Number(price) < minBill[0]) {
+                        //alert("Giá trị đơn hàng không thỏa!");
+                        $(".buy-product .content .right .warning").css(
+                            "display", "");
+                        return;
+                    }
+
+                    $(".buy-product .content .right .warning").css(
+                        "display", "none");
+
                     $(this).text("Hủy");
                     
                     totalDiscount[0] *= (1 - discountPercent);
@@ -497,13 +503,18 @@
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
 
-                if (Number(price) < minBill[1]) {
-                    alert("Giá trị đơn hàng không thỏa!");
-                    return;
-                }
-
                 var temp;
                 if ($(this).text().trim() == "Dùng") {
+                    if (Number(price) < minBill[1]) {
+                        //alert("Giá trị đơn hàng không thỏa!");
+                        $(".buy-product .content .right .warning").css(
+                            "display", "");
+                        return;
+                    }
+
+                    $(".buy-product .content .right .warning").css(
+                        "display", "none");
+
                     $(this).text("Hủy");
 
                     totalDiscount[1] *= (1 - discountPercent);
@@ -612,11 +623,16 @@
         price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
             * quantity;
 
-        if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+        /*if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
             (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
-            alert("Giá trị đơn hàng không thỏa!");
+            //alert("Giá trị đơn hàng không thỏa!");
+            $(".buy-product .content .right .warning").css(
+                "display", "");
             return;
-        }
+        }*/
+
+        $(".buy-product .content .right .warning").css(
+            "display", "none");
 
         $(".total-cost").val(
             Math.round(Number(price) * totalDiscount[0])
@@ -639,11 +655,16 @@
                 price = Math.round(Number(price.replace(/[^0-9.-]+/g, "")))
                     * quantity;
 
-                if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
+                /*if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
                     (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
-                    alert("Giá trị đơn hàng không thỏa!");
+                    //alert("Giá trị đơn hàng không thỏa!");
+                    $(".buy-product .content .right .warning").css(
+                        "display", "");
                     return;
-                }
+                }*/
+
+                $(".buy-product .content .right .warning").css(
+                    "display", "none");
 
                 $(".total-cost").val(
                     Math.round(Number(price) * totalDiscount[0])
@@ -665,9 +686,12 @@
 
         if ((Number(price) < minBill[0] && voucherChosenID[0] != null) ||
             (Number(price) < minBill[1] && voucherChosenID[1] != null)) {
-            alert("Giá trị đơn hàng không thỏa!");
+            //alert("Giá trị đơn hàng không thỏa!");
+            $(".buy-product .content .right .warning").css("display", "");
             return;
         }
+
+        $(".buy-product .content .right .warning").css("display", "none");
 
         $(".total-cost").val(
             Math.round(Number(price) * totalDiscount[0])

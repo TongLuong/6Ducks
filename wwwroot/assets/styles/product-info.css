@@ -409,6 +409,10 @@
     display: flex;
 }
 
+.buy-product .content .right .warning {
+    margin: auto;
+}
+
 .buy-product > .button-box,
 .cash > .button-box {
   width: max-content;
