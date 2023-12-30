@@ -482,7 +482,7 @@ $(document).ready(function () {
                 });
 
                 for (var j = 0; j < voucherChosenID.length; j++) {
-                    if (voucherChosenID[i] != null) {
+                    if (voucherChosenID[j] != null) {
                         $.ajax({
                             url: "Product/AddVoucherToBill",
                             data: {
