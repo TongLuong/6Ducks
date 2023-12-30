@@ -29,16 +29,12 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
+
 			string sellerID;
-			    if (seller != null)
-				sellerID = seller;
-			else
-			{
-				string userID = Session.sessionID;
-				SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
-				cmdConvert.Parameters.AddWithValue("@userID", userID);
-				sellerID = cmdConvert.ExecuteScalar().ToString();
-			}
+            if (seller != null)
+                sellerID = seller;
+            else
+                sellerID = Session.sessionTypeID;
 
 			SqlCommand cmd = new SqlCommand("select * from dbo.numberOfSellerRatings(@sellerID)", conn);
             cmd.Parameters.AddWithValue("@sellerID", sellerID);
@@ -83,10 +79,9 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            string userID = Session.sessionID;
-            SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
-            cmdConvert.Parameters.AddWithValue("@userID", userID);
-            string sellerID = cmdConvert.ExecuteScalar().ToString();
+
+            string sellerID = Session.sessionTypeID;
+
             SqlCommand cmd = new SqlCommand("Select billID,billStatus,time,totalPrice from Bills where sellerID = @sellerID", conn);
             cmd.Parameters.AddWithValue("@sellerId", sellerID);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -149,16 +144,12 @@ namespace DA_6Ducks.Controllers
         {
 			if (conn.State == ConnectionState.Closed)
 				conn.Open();
+
 			string sellerID;
-			if (seller != null)
-				sellerID = seller;
-			else
-			{
-				string userID = Session.sessionID;
-				SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
-				cmdConvert.Parameters.AddWithValue("@userID", userID);
-				sellerID = cmdConvert.ExecuteScalar().ToString();
-			}
+            if (seller != null)
+                sellerID = seller;
+            else
+                sellerID = Session.sessionTypeID;
 
 			SqlCommand cmd = new SqlCommand
 		   (
@@ -174,7 +165,7 @@ namespace DA_6Ducks.Controllers
             int num = 0;
             List<int> pages = new List<int>();
 			List<int> productIDs = new List<int>();
-            List<string> names =    new List<string>();
+            List<string> names = new List<string>();
             List<int> prices = new List<int>();
             List<double> rates = new List<double>();
             List<int> numberLeft = new List<int>();
@@ -194,8 +185,6 @@ namespace DA_6Ducks.Controllers
 				}
 			}
 
-			
-
 			return new JsonResult
 			(
 				new
@@ -210,7 +199,6 @@ namespace DA_6Ducks.Controllers
 					imgLink = imgPaths
 				}
 			);
-
 		}
 
         [HttpPost]
@@ -232,10 +220,8 @@ namespace DA_6Ducks.Controllers
         {
 			if (conn.State == ConnectionState.Closed)
 				conn.Open();
-			string userID = Session.sessionID;
-			SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
-			cmdConvert.Parameters.AddWithValue("@userID", userID);
-			string sellerID = cmdConvert.ExecuteScalar().ToString();
+
+            string sellerID = Session.sessionTypeID;
 			SqlCommand cmd = new SqlCommand("select * from dbo.total_bill_and_product(@sellerID,@year)", conn);
 
 			cmd.Parameters.AddWithValue("@sellerID", sellerID);
@@ -278,7 +264,6 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-
 
             string userID = Session.sessionID;
             SqlCommand cmd = new SqlCommand("select displayName,startingTime,productSale from Users u join Sellers s on u.userID = s.userID and u.userId = @userID", conn);

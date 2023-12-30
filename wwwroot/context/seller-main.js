@@ -96,9 +96,33 @@ $(this).ready(function () {
             $("body, html").css("overflow", "scroll");
         });
         $(".submit-upload").click(function () {
-            
+            var formData = new FormData();
+            var allFiles = document.getElementById(
+                "file").files.length;
+            for (var i = 0; i < allFiles; i++) {
+                var file = document.getElementById(
+                    "file").files[i];
+                formData.append("file", file);
+            }
 
-            var img_path = $("#file").val();
+            // upload images first
+            var img_path;
+            $.ajax({
+                type: 'POST',
+                url: "SellerMainPage/UploadImgs",
+                data: formData,
+                contentType: false,
+                processData: false,
+                async: false,
+                success: function (response) {
+                    img_path = response.imgPath;
+                },
+                error: function () {
+                    alert('fail');
+                }
+            });
+
+            //var img_path = $("#file").val();
             var book_name = $("#name").val();
             var quantity = $("#quantity").val();
             var genre = $("#category option:selected").text();
@@ -121,7 +145,7 @@ $(this).ready(function () {
                 },
                 type: "post",
                 success: function () {
-                    alert('upload');
+                    //alert('upload');
                     $(".mainpage-upload-comic-form").css("display", "none");
                     $(".mainpage-upload_success_notification").css("display", "flex");
                     $(".img-view").remove();

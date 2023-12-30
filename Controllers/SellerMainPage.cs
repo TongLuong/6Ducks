@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Http;
 
 namespace DA_6Ducks.Controllers
 {
@@ -89,15 +91,44 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
+        public JsonResult UploadImgs()
+        {
+            string folder = "";
+            if (Request.Form.Files.Count != 0)
+            {
+                for (int i = 0; i < Request.Form.Files.Count; i++)
+                {
+                    IFormFile file = Request.Form.Files[i];
+
+                    string fileName = Path.GetFileName(file.FileName);
+
+                    if (i == 0)
+                        folder = "/assets/images/" +
+                            Path.GetFileNameWithoutExtension(file.FileName);
+
+                    string path = wwwPath + folder + "/" + fileName;
+                    
+                    // save file to server root
+                    Directory.CreateDirectory(wwwPath + folder);
+                    using (FileStream stream = new FileStream(path, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                }
+            }
+            return new JsonResult
+            (
+                new { imgPath = folder }
+            );
+        }
+
+        [HttpPost]
         public void Upload(string imgPath, string bookName, int quantity, string genre, int price, string category, string author, string publisher)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-
-            string userID = Session.sessionID;
-            SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
-            cmdConvert.Parameters.AddWithValue("@userID", userID);
-            string sellerID = cmdConvert.ExecuteScalar().ToString();
+            
+            string sellerID = Session.sessionTypeID;
 
             SqlCommand cmd = new SqlCommand("select genreID from Genres where name = @genre", conn);
             cmd.Parameters.AddWithValue("@genre", genre);
