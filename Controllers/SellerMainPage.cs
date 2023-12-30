@@ -89,13 +89,18 @@ namespace DA_6Ducks.Controllers
         }
 
         [HttpPost]
-        public void Upload(int sellerID, string imgPath, string bookName, int quantity, string genre, int price, string category, string author, string publisher)
+        public void Upload(string imgPath, string bookName, int quantity, string genre, int price, string category, string author, string publisher)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
+            string userID = Session.sessionID;
+            SqlCommand cmdConvert = new SqlCommand("select sellerID from Sellers where userID=@userID", conn);
+            cmdConvert.Parameters.AddWithValue("@userID", userID);
+            string sellerID = cmdConvert.ExecuteScalar().ToString();
+
             SqlCommand cmd = new SqlCommand("select genreID from Genres where name = @genre", conn);
-            cmd.Parameters.AddWithValue("@seller_id", sellerID);
+            cmd.Parameters.AddWithValue("@genre", genre);
 
             SqlDataReader dr = cmd.ExecuteReader();
             int genreID = -1;
@@ -106,6 +111,9 @@ namespace DA_6Ducks.Controllers
                     genreID = dr.GetInt32(0);
                 }
             }
+
+            conn.Close();
+            conn.Open();
 
             cmd = new SqlCommand("select categoryID from Categories where name = @category", conn);
             cmd.Parameters.AddWithValue("@category", category);
@@ -119,6 +127,9 @@ namespace DA_6Ducks.Controllers
                     categoryID = dr.GetInt32(0);
                 }
             }
+
+            conn.Close();
+            conn.Open();
 
             cmd = new SqlCommand("dbo.upload", conn);
 

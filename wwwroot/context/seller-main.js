@@ -96,26 +96,20 @@ $(this).ready(function () {
             $("body, html").css("overflow", "scroll");
         });
         $(".submit-upload").click(function () {
-            $(".mainpage-upload-comic-form").css("display", "none");
-            $(".mainpage-upload_success_notification").css("display", "flex");
-            $(".img-view").remove();
-            $("#file, #name, #quantity, #price").val("");
+            
 
-            var urlParams = new URLSearchParams(window.location.search);
-            var seller_id = urlParams.get("seller");
-            var img_path = $("#upload-icon").attr("src");
+            var img_path = $("#file").val();
             var book_name = $("#name").val();
             var quantity = $("#quantity").val();
-            var genre = $("#category").text;
-            var price = $("#quantity").val();
-            var category = $("#type").text;
-            var author = $("#quantity").val();
-            var publisher = $("#quantity").val();
+            var genre = $("#category option:selected").text();
+            var price = $("#price").val();
+            var category = $("#type option:selected").text();
+            var author = $("#author").val();
+            var publisher = $("#publisher").val();
 
             $.ajax({
-                url: "/SellerMainPage/Upload",
+                url: "SellerMainPage/Upload",
                 data: {
-                    sellerID: seller_id,
                     imgPath: img_path,
                     bookName: book_name,
                     quantity: quantity,
@@ -123,13 +117,20 @@ $(this).ready(function () {
                     price: price,
                     category: category,
                     author: author,
-                    publisher: publisher,
+                    publisher: publisher
                 },
                 type: "post",
-                success: function (response) {
-                    //display product again
+                success: function () {
+                    alert('upload');
+                    $(".mainpage-upload-comic-form").css("display", "none");
+                    $(".mainpage-upload_success_notification").css("display", "flex");
+                    $(".img-view").remove();
+                    $("#file, #name, #quantity, #price").val("");
                     showProducts(8);
                 },
+                error: function () {
+                    alert('error');
+                }
             });
         });
         $(".upload-icon").click(function () {

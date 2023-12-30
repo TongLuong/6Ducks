@@ -173,7 +173,7 @@ namespace DA_6Ducks.Controllers
                 {
                     upass=dr.GetString(0);
                     uemail = dr.GetString(1);
-                    udob = dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+                    udob = dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd");
                     uaddress = dr.GetString(3);
                     uphoneNumber = dr.GetString(4);
                 }
