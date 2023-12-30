@@ -98,15 +98,15 @@ namespace DA_6Ducks.Controllers
             {
                 for (int i = 0; i < Request.Form.Files.Count; i++)
                 {
+                    string sellerID = Session.sessionTypeID;
+
                     IFormFile file = Request.Form.Files[i];
 
-                    string fileName = Path.GetFileName(file.FileName);
-
                     if (i == 0)
-                        folder = "/assets/images/" +
+                        folder = "/assets/images/" + sellerID + "-" +
                             Path.GetFileNameWithoutExtension(file.FileName);
 
-                    string path = wwwPath + folder + "/" + fileName;
+                    string path = wwwPath + folder + "/book-" + (i + 1).ToString() + ".png";
                     
                     // save file to server root
                     Directory.CreateDirectory(wwwPath + folder);
