@@ -561,6 +561,11 @@ begin
 
 		if (@revenue is null)
 			set @revenue = 0
+		if (@bill_quantity is null)
+			set @bill_quantity = 0
+		if (@product_sold is null)
+			set @product_sold = 0
+
 
 		insert into @rtnTable values(@mm, @bill_quantity,@revenue,@product_sold);
 		set @mm = @mm + 1
