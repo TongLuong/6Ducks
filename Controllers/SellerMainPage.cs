@@ -24,7 +24,7 @@ namespace DA_6Ducks.Controllers
         {
             return View("/Views/user/seller-mainpage/index.cshtml");
         }
-
+        [HttpGet]
         public JsonResult DisplayProducts(int n)
         {
             if (conn.State == ConnectionState.Closed)

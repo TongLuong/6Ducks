@@ -136,7 +136,7 @@
             "</div>";
         $(".product-list.page-" + stt).append(html);
         $(".product-item").find(".delete-icon").hide();
-        var item = $(".product-list .product-item:last-child()");
+        var item = $(".product-list.page-" + stt + " .product-item:last-child()");
         const starInputs = item.find('i[name="star"]');
         for (let i = 0; i < starInputs.length; i++) {
             starInputs[i].className = "fa fa-star-o";
@@ -180,9 +180,9 @@
             data: { seller: sellerID },
             type: "json",
             success: function (response) {
-                for (let j = 2; j < response.page[response.len - 1]; j++) {
-                    $(".layout.product").append(
-                        '<div class="product-list.page-' + +'"></div>'
+                for (let j = 2; j <= response.page[response.len - 1]; j++) {
+                    $(".layout.product").prepend(
+                        '<div class="product-list page-' + j +'"></div>'
                     );
                 }
                 for (let i = 0; i < response.len; i++) {

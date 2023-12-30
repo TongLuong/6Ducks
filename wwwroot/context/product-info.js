@@ -3,18 +3,6 @@
     var product_id = urlParams.get('product');
     var seller_id;
 
-    $.get("/components/header.html", function (data) {
-        $("body").prepend(data);
-        $(".book-upload").css("display", "none");
-        $(".logo").click(function () {
-            location.href = "MainPage";
-        });
-    });
-
-    $.get("/components/footer.html", function (data) {
-        $("body").append(data);
-    });
-
     $(".list-image").css("height", $(".preview-image").height());
 
     $(".total-cost").text("0");

@@ -52,7 +52,7 @@
         $(".change-info-side").css("display", "none");
     });
 
-    function display_bill(billID, status, time, totalPrice, productID) {
+    function display_bill(billID, status, time, totalPrice, productID /*, rateCheck*/) {
         const html =
             ' <div class="row" id="bill' + billID + '">' +
             ' <div class="cell" data-title="MÃ VẬN ĐƠN" >' + billID + '</div>' +
@@ -65,6 +65,9 @@
 
         var item = $('.table #bill' + billID);
         //const rating = item.find('.rating');
+        if (rateCheck) {
+            item.find('.rating').hide();
+        }
         item.find('.rating').click(function (e) {
             e.preventDefault();
             $("html, body").css("overflow", "none");

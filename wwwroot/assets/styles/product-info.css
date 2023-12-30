@@ -36,15 +36,16 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  min-width: 75%;
+  gap: 30px;
 
   .text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 20px;
-    margin-top: 5px;
     gap: 20px;
-    height: min-content;
+    height: 100%;
+    width: 100%;
 
     & .rating {
       margin-bottom: 10px;

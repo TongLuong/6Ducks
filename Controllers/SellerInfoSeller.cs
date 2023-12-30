@@ -174,14 +174,14 @@ namespace DA_6Ducks.Controllers
 			{
 				while (dr.Read())
 				{
-                    num++;
-                    pages.Add(num / 4 + 1);
+                    pages.Add((int)(Math.Floor((double)num / 4) + 1));
                     productIDs.Add(dr.GetInt32 (0));
                     names.Add(dr.GetString (1));
                     prices.Add(dr.GetInt32 (2));
                     rates.Add(Math.Floor(dr.GetDouble(3)));
                     numberLeft.Add(dr.GetInt32 (4));
                     imgPaths.Add(dr.GetString(5) +"/book-1.png");
+                    num++;
 				}
 			}
 

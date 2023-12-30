@@ -16,6 +16,8 @@ function discountPrice() {
   $(".price span:first-child").css("text-decoration", "line-through");
 }
 
+var urlParams = new URLSearchParams(window.location.search);
+var sellerID = urlParams.get("seller");
 const imgCount = 0;
 
 $(this).ready(function () {
@@ -126,7 +128,7 @@ $(this).ready(function () {
             var book_name = $("#name").val();
             var quantity = $("#quantity").val();
             var genre = $("#category option:selected").text();
-            var price = $("#price").val();
+            var price = $("input#price").val();
             var category = $("#type option:selected").text();
             var author = $("#author").val();
             var publisher = $("#publisher").val();
@@ -138,7 +140,7 @@ $(this).ready(function () {
                     bookName: book_name,
                     quantity: quantity,
                     genre: genre,
-                    price: price,
+                    price: Number(price),
                     category: category,
                     author: author,
                     publisher: publisher
@@ -151,6 +153,7 @@ $(this).ready(function () {
                     $(".img-view").remove();
                     $("#file, #name, #quantity, #price").val("");
                     showProducts(8);
+                    display_all_product(sellerID);
                 },
                 error: function () {
                     alert('error');
@@ -240,7 +243,7 @@ $(this).ready(function () {
             url: "/SellerMainPage/DisplayProducts",
             dataType: "json",
             data: { n: numDisplays },
-            type: "POST",
+            type: "get",
             success: function (response) {
                 var temp = response.data;
                 for (var i = 0; i < temp.length; i++) {
