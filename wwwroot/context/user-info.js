@@ -1,6 +1,7 @@
 ﻿$(this).ready(function () {
+    
     $(".change-info-side .success").css("display", "none");
-
+    
     $.get("/components/header.html", function (data) {
         $("body").prepend(data);
         $(".book-upload").css("display", "none");
@@ -51,7 +52,7 @@
         $(".change-info-side input").val("");
         $(".change-info-side").css("display", "none");
     });
-
+    
     function display_bill(billID, status, time, totalPrice, productID /*, rateCheck*/) {
         const html =
             ' <div class="row" id="bill' + billID + '">' +
@@ -62,7 +63,7 @@
             '<div class="cell' + ((status == "Đã nhận") ? ' rating' : '') + '" data-title="ĐÁNH GIÁ">' + ((status == "Đã nhận") ? 'Đánh giá' : '') + '</div>' +
             '</div > ';
         $('.table').append(html);
-
+        
         var item = $('.table #bill' + billID);
         //const rating = item.find('.rating');
         if (rateCheck) {
@@ -83,7 +84,7 @@
             url: "UserInfo/DisplayBills",
             success: function (response) {
                 //$('.table #bill').remove();
-
+                
                 for (let i = 0; i < response.num; i++) {
                     display_bill(response.billID[i], response.status[i], response.time[i], response.totalPrice[i], response.productID[i]);
                 }

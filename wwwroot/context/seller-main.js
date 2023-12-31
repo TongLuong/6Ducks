@@ -1,33 +1,26 @@
 function discountPrice() {
-  $(".discount .price").each(function () {
-    var price = parseFloat($(this).text().replace(/[.]/g, ""));
-    var badge =
-      parseFloat(
-        $(".discount .product-item").has($(this)).find(".badge").text()
-      ) / 100;
-    var discount = ((1 + badge) * price).toLocaleString() + "đ";
-    $(this).html($("<span>").text($(this).text()));
-    $(this).append($("<span>").text(discount));
-  });
-  $(".price span:nth-child(2)").css({
-    "text-decoration": "none",
-    "margin-left": "10px",
-  });
-  $(".price span:first-child").css("text-decoration", "line-through");
+    $(".discount .price").each(function () {
+        var price = parseFloat($(this).text().replace(/[.]/g, ""));
+        var badge =
+            parseFloat(
+                $(".discount .product-item").has($(this)).find(".badge").text()
+            ) / 100;
+        var discount = ((1 + badge) * price).toLocaleString() + "đ";
+        $(this).html($("<span>").text($(this).text()));
+        $(this).append($("<span>").text(discount));
+    });
+    $(".price span:nth-child(2)").css({
+        "text-decoration": "none",
+        "margin-left": "10px",
+    });
+    $(".price span:first-child").css("text-decoration", "line-through");
 }
 
-var urlParams = new URLSearchParams(window.location.search);
-var sellerID = urlParams.get("seller");
-const imgCount = 0;
-
 $(this).ready(function () {
-    /*var urlParams = new URLSearchParams(window.location.search);
-      var userID = urlParams.get('user');
-      var type = 0; // 0: buyer, 1: seller, (2: admin)
-      if (userID == null) {
-          userID = urlParams.get('seller'); // ideal condition
-          type = 1;
-      }*/
+    var urlParams = new URLSearchParams(window.location.search);
+    var sellerID = urlParams.get("seller");
+    var search = urlParams.get("search");
+    const imgCount = 0;
 
     function removeVietnameseTones(str) {
         str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -61,8 +54,8 @@ $(this).ready(function () {
         return str;
     }
 
-    function filterItem() {
-        var searchInput = removeVietnameseTones($("#search").val().toUpperCase());
+    function filterItem(searchStr) {
+        var searchInput = removeVietnameseTones(searchStr.toUpperCase());
 
         var records = $(".best-seller .product-list .product-item");
         records.each(function () {
@@ -78,11 +71,13 @@ $(this).ready(function () {
             }
         });
     }
-
-    $.get("/components/header.html", function (data) {
-        $("body").prepend(data);
-
-        $("#search").keyup(filterItem);
+    
+    $.ajax({
+        url: "/components/header.html",
+        async: false,
+        success: function(data) {
+            $("body").prepend(data);
+        }
     });
 
     $.get("/components/footer.html", function (data) {
@@ -152,8 +147,9 @@ $(this).ready(function () {
                     $(".mainpage-upload_success_notification").css("display", "flex");
                     $(".img-view").remove();
                     $("#file, #name, #quantity, #price").val("");
-                    showProducts(8);
-                    display_all_product(sellerID);
+
+                    /*showProducts(8);
+                    display_all_product(sellerID);*/
                 },
                 error: function () {
                     alert('error');
@@ -199,45 +195,47 @@ $(this).ready(function () {
         });
     });
 
-    //discountPrice();
-
     function showItems(num, srcImg, title, price, rate, amount, productID) {
-        $.get("/components/productItem.html", function (data) {
-            var appendData = $("<div>" + data + "</div>")
-                .find(".product-item")
-                .attr("id", "product-item-" + num);
+        $.ajax({
+            url: "/components/productItem.html",
+            async: false,
+            success: function(data) {
+                var appendData = $("<div>" + data + "</div>")
+                    .find(".product-item")
+                    .attr("id", "product-item-" + num);
 
-            $(".best-seller .product-list").append(appendData);
+                $(".best-seller .product-list").append(appendData);
 
-            var item = $(".best-seller .product-list .product-item:last-child()");
+                var item = $(".best-seller .product-list .product-item:last-child()");
 
-            item.find(".imgtag").attr("id", "imgtag-" + num);
-            item.find(".product-name").attr("id", "product-name-" + num);
-            item.find(".price").attr("id", "price-" + num);
-            item.find("span").attr("id", "span-" + num);
+                item.find(".imgtag").attr("id", "imgtag-" + num);
+                item.find(".product-name").attr("id", "product-name-" + num);
+                item.find(".price").attr("id", "price-" + num);
+                item.find("span").attr("id", "span-" + num);
 
-            // set value from db
-            item.find("#imgtag-" + num).attr("src", srcImg);
-            item.find("#product-name-" + num).text(title);
+                // set value from db
+                item.find("#imgtag-" + num).attr("src", srcImg);
+                item.find("#product-name-" + num).text(title);
 
-            const formatter = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "vnd",
-            });
-            item.find("#price-" + num).text(formatter.format(price));
+                const formatter = new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "vnd",
+                });
+                item.find("#price-" + num).text(formatter.format(price));
 
-            var iStar = document.querySelectorAll(".best-seller .product-list " +
-                "#product-item-" + num + ' .rate i[name="star"]');
-            var starDisplay = Math.floor(Number(rate));
-            for (var i = starDisplay; i < iStar.length; i++) {
-                iStar[i].className = "fa fa-star-o";
+                var iStar = document.querySelectorAll(".best-seller .product-list " +
+                    "#product-item-" + num + ' .rate i[name="star"]');
+                var starDisplay = Math.floor(Number(rate));
+                for (var i = starDisplay; i < iStar.length; i++) {
+                    iStar[i].className = "fa fa-star-o";
+                }
+
+                item.find("#span-" + num).text(amount);
+
+                item.click(function () {
+                    location.href = "Product" + "?product=" + productID;
+                });
             }
-
-            item.find("#span-" + num).text(amount);
-
-            item.click(function () {
-                location.href = "Product" + "?product=" + productID;
-            });
         });
     }
 
@@ -247,6 +245,7 @@ $(this).ready(function () {
             dataType: "json",
             data: { n: numDisplays },
             type: "get",
+            async: false,
             success: function (response) {
                 var temp = response.data;
                 for (var i = 0; i < temp.length; i++) {
@@ -260,7 +259,7 @@ $(this).ready(function () {
                         temp[i].value.productID
                     );
                 }
-            },
+            }
         });
     }
     showProducts(-1);
@@ -313,7 +312,7 @@ $(this).ready(function () {
                     });
                     var maxValue = "tối đa " + formatter.format(
                         temp.maxValue);
-                        
+
                     $(".vouchers .voucher-item-" +
                         temp.voucherID + " .voucher-value").text(
                             dis + maxValue);
@@ -325,7 +324,7 @@ $(this).ready(function () {
 
                     var dis = "-" + Number(temp.discountPercent) * 100
                         + "% ";
-                    
+
                     const formatter = new Intl.NumberFormat('en-US', {
                         style: 'currency',
                         currency: 'vnd',
@@ -341,5 +340,13 @@ $(this).ready(function () {
                 }
             }
         }
+    });
+
+    if (search != null) {
+        $("#search").val(search);
+        filterItem(search);
+    }
+    $("#search").keyup(function () {
+        filterItem($("#search").val());
     });
 });

@@ -2,7 +2,7 @@
     var urlParams = new URLSearchParams(window.location.search);
     var sellerID = urlParams.get("seller");
     let ignoreClickProduct = false;
-
+    
     $(".change-info-side .success").css("display", "none");
 
     $(".product-item").click(function (e) {
