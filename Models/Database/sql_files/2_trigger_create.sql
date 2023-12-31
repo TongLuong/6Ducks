@@ -95,7 +95,7 @@ BEGIN
     DECLARE @prdID INTEGER
     DECLARE @avg_star FLOAT
 	DECLARE @num_rate FLOAT
-    DECLARE cur4 CURSOR FOR (SELECT productID, AVG(ratingStar), COUNT(*) FROM inserted GROUP BY productID)
+    DECLARE cur4 CURSOR FOR (SELECT productID, AVG(ratingStar), COUNT(*) FROM Ratings GROUP BY productID)
     OPEN cur4
     FETCH FROM cur4 INTO @prdID, @avg_star, @num_rate
     WHILE @@FETCH_STATUS = 0
