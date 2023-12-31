@@ -170,10 +170,10 @@ $(this).ready(function () {
                 var img = document.createElement("img");
 
                 var reader = new FileReader();
-                reader.onloadend = function () {
-                    img.src = reader.result;
-                    img.classList.add("img-view");
-                    img.alt = "";
+                reader.onloadend = function (imgEle, event) {
+                    imgEle.src = event.target.result;
+                    imgEle.classList.add("img-view");
+                    imgEle.alt = "";
                     $(".img-view").click(function () {
                         $(".preview-img").attr("src", this.src);
                         $(".preview-side").css("display", "flex");
@@ -181,7 +181,8 @@ $(this).ready(function () {
                     $(".preview-side>i").click(function () {
                         $(".preview-side").css("display", "none");
                     });
-                };
+                }.bind(reader, img);
+
                 reader.readAsDataURL(file);
                 $(".file-input").after(img);
             }
@@ -193,6 +194,8 @@ $(this).ready(function () {
         $(".return-btn").click(function () {
             $(".mainpage-upload_success_notification").css("display", "none");
             $("body, html").css("overflow", "scroll");
+
+            location.reload(true);
         });
     });
 
@@ -260,7 +263,7 @@ $(this).ready(function () {
             },
         });
     }
-    showProducts(8);
+    showProducts(-1);
 
     var maxLoadDiscount = 3;
     var maxLoadShipping = 3;

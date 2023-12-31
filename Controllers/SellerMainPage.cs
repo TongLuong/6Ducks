@@ -45,7 +45,7 @@ namespace DA_6Ducks.Controllers
             string[] temp = new string[dr.FieldCount];
             if (dr.HasRows)
             {
-                while (dr.Read() && n > 0)
+                while (dr.Read() && n != 0)
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
                     {
