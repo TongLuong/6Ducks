@@ -66,9 +66,9 @@
         
         var item = $('.table #bill' + billID);
         //const rating = item.find('.rating');
-        if (rateCheck) {
+        /*if (rateCheck) {
             item.find('.rating').hide();
-        }
+        }*/
         item.find('.rating').click(function (e) {
             e.preventDefault();
             $("html, body").css("overflow", "none");
@@ -105,22 +105,23 @@
             success: function (response) {
                 $('.user_rating .name').text(response.name[0]);
                 $('.user_rating .img').attr('src', response.imgLink[0]);
-                $('.user_rating .img').text(response.price[0] + 'đ');
+
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'vnd',
+                });
+                $('.user_rating .price').text(formatter.format(
+                    response.price[0]).replace(/₫/g, "") + "đ");
 
                 $('#submit').click(function () {
 
                     var nostar = $('.user_rating .stars input:checked').prop('id').split('-')[1];
                     var fb = $('#comment').val();
-
-
+                    
                     $.ajax({
                         url: "UserInfo/Rate",
                         type: 'post',
-                        data: { 'productID': productID, 'nostar': nostar, 'feedback': fb },
-                        success: function () {
-                            var item = $('#bill' + billID + ' .rating');
-                            item.text('');
-                        }
+                        data: { 'productID': productID, 'nostar': nostar, 'feedback': fb }
                     });
                 });
             }
