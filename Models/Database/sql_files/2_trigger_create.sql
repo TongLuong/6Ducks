@@ -86,24 +86,26 @@ END
 GO
 
 -- Recalculate the average star of a product whenever it has a new feedback
+--DROP TRIGGER avg_star_product
 CREATE TRIGGER avg_star_product
 ON Ratings
-AFTER INSERT 
+AFTER INSERT, UPDATE
 AS
-BEGIN   
+BEGIN
     DECLARE @prdID INTEGER
-    DECLARE @star FLOAT
-    DECLARE cur4 CURSOR FOR (SELECT productID, ratingStar FROM inserted)
+    DECLARE @avg_star FLOAT
+	DECLARE @num_rate FLOAT
+    DECLARE cur4 CURSOR FOR (SELECT productID, AVG(ratingStar), COUNT(*) FROM inserted GROUP BY productID)
     OPEN cur4
-    FETCH FROM cur4 INTO @prdID, @star
+    FETCH FROM cur4 INTO @prdID, @avg_star, @num_rate
     WHILE @@FETCH_STATUS = 0
     BEGIN
         UPDATE Products
         SET
-            avgStar = (avgStar * ratingCount + @star) / (ratingCount + 1),
-            ratingCount = ratingCount + 1
+            avgStar = @avg_star,
+            ratingCount = @num_rate
         WHERE productID = @prdID
-        FETCH NEXT FROM cur4 INTO @prdID, @star
+        FETCH NEXT FROM cur4 INTO @prdID, @avg_star, @num_rate
     END
     CLOSE cur4
     DEALLOCATE cur4  

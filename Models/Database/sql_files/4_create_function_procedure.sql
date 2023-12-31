@@ -576,3 +576,29 @@ end
 go
 
 select * from total_bill_and_product(210000001,2023)
+
+go
+--drop procedure insert_or_update_feedbacks
+create procedure insert_or_update_feedbacks
+@productID int,
+@buyerID int,
+@detail nvarchar(255),
+@ratingStar float
+as
+begin
+	if exists
+	(
+		select *
+		from Ratings
+		where productID = @productID
+			and buyerID = @buyerID
+	)
+		update Ratings
+		set detail = @detail, ratingStar = @ratingStar
+		where productID = @productID
+			and buyerID = @buyerID
+	else
+		insert into Ratings values
+		(@productID, @buyerID, @detail, @ratingStar)
+end
+go
