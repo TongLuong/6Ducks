@@ -139,12 +139,16 @@ namespace DA_6Ducks.Controllers
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            string userID = Session.sessionID;
-            SqlCommand cmdConvert = new SqlCommand("select buyerID from Buyers where userID=@userID", conn);
-            cmdConvert.Parameters.AddWithValue("@userID", userID);
-            string buyerID = cmdConvert.ExecuteScalar().ToString();
+            string buyerID = Session.sessionTypeID;
 
-            SqlCommand cmd = new SqlCommand("insert into Ratings values (@productID,@buyerID,@detail,@ratingStar)", conn);
+            SqlCommand cmd = new SqlCommand
+            (
+                "dbo.[insert_or_update_feedbacks]"
+                , conn
+            );
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.Parameters.AddWithValue("@productID", productID);
             cmd.Parameters.AddWithValue("@buyerID", buyerID);
             cmd.Parameters.AddWithValue("@detail", feedback);
