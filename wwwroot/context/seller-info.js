@@ -207,10 +207,7 @@
             url: "SellerInfoSeller/DeleteProduct",
             data: { productID: productID },
             async: false,
-            type: "post",
-            success: function () {
-                display_all_product();
-            }
+            type: "post"
         });
     }
 
@@ -229,13 +226,16 @@
 
                 $(".delete-popup button").click(function (e) {
                     if (e.target === $("#confirm-delete")[0]) {
-                        $(".product-list").replaceWith("");
+                        /*$(".product-list").replaceWith("");
                         $(".layout.product").prepend(
                             '<div class="product-list page-1 active"></div>'
-                        );
+                        );*/
+                        item.replaceWith("");
                         $(".delete-side").hide();
                         ignoreClickProduct = true;
                         delete_product(item.prop("id"));
+
+                        //location.reload(true);
                     } else if (e.target === $("#cancel-delete")[0]) {
                         $(".delete-side").hide();
                         ignoreClickProduct = true;
@@ -308,14 +308,17 @@
         $(".change-info-side .success").css("display", "");
         $(".change-info-side .change-info-popup").css("display", "none");
     });
-
+    
     function display_profile() {
         $.ajax({
-            url: "SellerInfoSeller/ProfileInfo",
+            url: "/SellerInfoSeller/ProfileInfo",
             success: function (response) {
                 $('.seller_name').text(response.name);
                 $('span.join-time span').text(response.time);
                 $('span.product-number span').text(response.product);
+            },
+            error: function (e) {
+                alert("error" + e);
             }
         });
     }
