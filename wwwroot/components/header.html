@@ -40,48 +40,68 @@
 <div class="scrolltop"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
 
 <script>
-  $.get("/Login/GetSession", function (response) {
-    if (response.type == 0) {
-      $(".toolbar").hide();
-    } else if (response.type == 1) {
-      $(".bot-nav .cart").hide();
-    };
+    function makeSearch(searchStr) {
+        if (searchStr != null && searchStr != '') {
+            location.href = "/MainPage" + "?search=" + searchStr;
+        }
+        else {
+            location.href = "/MainPage";
+        }
+    }
 
-    $(".bot-nav .logo").click(function () {
-      location.href = "/MainPage";
-    });
+    $.get("/Login/GetSession", function (response) {
+        $(".fa-search").click(function () {
+            makeSearch($("#search").val());
+        });
 
-    $(".bot-nav .cart").click(function () {
-      //alert(response.id);
-      location.href = "/Cart";
-    });
+        $("#search").keypress(function (event) {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                makeSearch($("#search").val());
+            }
+        });
 
-    $(".bot-nav .user").click(function () {
-      //alert(response.id);
-      location.href = "/UserInfo";
-    });
+        if (response.type == 0) {
+            $(".toolbar").hide();
+        } else if (response.type == 1) {
+            $(".bot-nav .cart").hide();
+        };
 
-    $(".book-upload").click(function () {
-      $(".mainpage-upload-comic-form").css("display", "flex");
-      $("body, html").css("overflow", "hidden");
-    });
+        $(".bot-nav .logo").click(function () {
+            location.href = "/MainPage";
+        });
 
-    $(".chat-button").click(function () {
-      location.href = "/Chat/Seller";
-    });
+        $(".bot-nav .cart").click(function () {
+            //alert(response.id);
+            location.href = "/Cart";
+        });
 
-    $(window).scroll(function () {
-      $('.scrolltop').css("display", "flex");
-      if ($(this).scrollTop() > 100) {
-        $('.scrolltop').fadeIn();
-      } else {
-        $('.scrolltop').fadeOut();
-      }
+        $(".bot-nav .user").click(function () {
+            //alert(response.id);
+            location.href = "/UserInfo";
+        });
+
+        $(".book-upload").click(function () {
+            $(".mainpage-upload-comic-form").css("display", "flex");
+            $("body, html").css("overflow", "hidden");
+        });
+
+        $(".chat-button").click(function () {
+            location.href = "/Chat/Seller";
+        });
+
+        $(window).scroll(function () {
+            $('.scrolltop').css("display", "flex");
+            if ($(this).scrollTop() > 100) {
+                $('.scrolltop').fadeIn();
+            } else {
+                $('.scrolltop').fadeOut();
+            }
+        });
+
+        // Scroll to the top when the button is clicked
+        $('.scrolltop').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
     });
-  
-    // Scroll to the top when the button is clicked
-    $('.scrolltop').click(function () {
-      $('html, body').animate({ scrollTop: 0 }, '300');
-    });
-  });
 </script>
