@@ -146,7 +146,7 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@rcvID", receiverID);
             cmd.Parameters.AddWithValue("@msg", msg);
 
-            cmd.ExecuteScalar();
+            cmd.ExecuteNonQuery();
 
             conn.Close();
         }

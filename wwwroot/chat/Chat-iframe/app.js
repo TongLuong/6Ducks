@@ -62,54 +62,59 @@ function random(min, max) {
 }
 
 
-function displayLogChat(receiverID) {
-    $.ajax({
-        url: "DisplayLogChat",
-        data: {
-            "receiverID": receiverID
-        },
-        type: "json",
-        success: function (response) {
-            BOT_NAME = response.sellerName;
-            PERSON_NAME = response.userName;
-            for (let i = 0; i < response.number; i++) {
-                let side = response.pos[i];
-                let msg = response.msg[i];
-                let time = response.time[i];
-                var sender_name;
-                if (side == "right") { sender_name = PERSON_NAME; }
-                if (side == "left") { sender_name = BOT_NAME; }
-                appendMessage(sender_name, PERSON_IMG, side, msg, time);
-            }
-        }
-    });
-}
 
-function saveChat() {
-    var msgText = $(".msger-input").val();
-    if (!msgText) return;
 
-    $.ajax({
-        url: "SaveLogChat",
-        type: "post",
-        data: {
-            "receiverID": receiverID,
-            "msg": msgText
-        },
-        success: function () {
-            appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
-            msgerInput.value = "";
 
-            botResponse();
-        }
-    });
-}
 
 //Gọi hàm displayLogChat khi trang web tải xong
 $(document).ready(function () {
     var urlParams = new URLSearchParams(window.top.location.search);
     var receiverID = urlParams.get('receiver');
+
+    function displayLogChat() {
+        $.ajax({
+            url: "DisplayLogChat",
+            data: {
+                "receiverID": receiverID
+            },
+            type: "json",
+            success: function (response) {
+                BOT_NAME = response.sellerName;
+                PERSON_NAME = response.userName;
+                for (let i = 0; i < response.number; i++) {
+                    let side = response.pos[i];
+                    let msg = response.msg[i];
+                    let time = response.time[i];
+                    var sender_name;
+                    if (side == "right") { sender_name = PERSON_NAME; }
+                    if (side == "left") { sender_name = BOT_NAME; }
+                    appendMessage(sender_name, PERSON_IMG, side, msg, time);
+                }
+            }
+        });
+    }
     displayLogChat(receiverID);
+
+
+    function saveChat() {
+        var msgText = $(".msger-input").val();
+        if (!msgText) return;
+
+        $.ajax({
+            url: "SaveLogChat",
+            type: "post",
+            data: {
+                "receiverID": receiverID,
+                "msg": msgText
+            },
+            success: function () {
+                appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+                msgerInput.value = "";
+
+                botResponse();
+            }
+        });
+    }
 
     $(".msger-input").keydown(function (event) {
         if (event.keyCode === 13) { // Enter key

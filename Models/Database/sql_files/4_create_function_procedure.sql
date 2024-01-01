@@ -30,11 +30,11 @@ go
 create procedure saveLog
 @sndID int,
 @rcvID int,
-@msg nvarchar(255),
-@time datetime out
+@msg nvarchar(255)
 as
 begin
 	declare @res nvarchar(100) = N'Success';
+	declare @time datetime;
 	set @time = getdate();
 	insert into LogChat values(
 		@sndID,
