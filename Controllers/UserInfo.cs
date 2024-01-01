@@ -76,7 +76,7 @@ namespace DA_6Ducks.Controllers
                     totalPrices.Add(dr.GetInt32(4));
                     productIDs.Add(dr.GetInt32(5));
                     count++;
-                    pageNum.Add((int)(Math.Floor((double)count / 13) + 1));
+                    pageNum.Add((int)(Math.Floor((double)count / 9) + 1));
                 }
             }
 
