@@ -214,6 +214,8 @@ namespace DA_6Ducks.Controllers
                 }
             }
 
+            conn.Close();
+
             return new JsonResult
             (
                 new

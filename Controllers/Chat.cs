@@ -228,6 +228,41 @@ namespace DA_6Ducks.Controllers
             });
         }
 
+        //only for user chat 
+        public JsonResult ProfileInfo(string sellerID)
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
 
+            Login login = new Login();
+
+            string userID = login.ConvertToUserID(sellerID);
+            SqlCommand cmd = new SqlCommand("select displayName,startingTime,productSale from Users u join Sellers s on u.userID = s.userID and u.userId = @userID", conn);
+            cmd.Parameters.AddWithValue("@userID", userID);
+
+            string uname = "", utime = "", uproduct = "";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    uname = dr.GetString(0);
+                    utime = dr.GetDateTime(1).ToString("yyyy'-'MM'-'dd");
+                    uproduct = dr.GetInt32(2).ToString();
+                }
+            }
+
+            conn.Close();
+
+            return new JsonResult
+            (
+                new
+                {
+                    name = uname,
+                    time = utime,
+                    product = uproduct
+                }
+            );
+        }
     }
 }

@@ -1,4 +1,4 @@
-$(this).ready(function () {
+﻿$(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     /*var userID = urlParams.get('user');
     var type = 0; // 0: buyer, 1: seller, (2: admin)
@@ -26,23 +26,70 @@ $(this).ready(function () {
         location.href = "UserInfo/SellerInfo";
     });
 
-    function showStar(seller_id) {
-        // Get the input elements
-        const starInputs = document.querySelectorAll('input[name="star"]');
+    $.get({
+        url: "/SellerInfoSeller/DisplayRating",
+        data: { seller: seller_id },
+        success: function (response) {
+            //bar
+            $(".bar_1").css(
+                "width",
+                (response.sum ? (response.star[0] / response.sum) * 100 : 0) + "%"
+            );
+            $(".bar_2").css(
+                "width",
+                (response.sum ? (response.star[1] / response.sum) * 100 : 0) + "%"
+            );
+            $(".bar_3").css(
+                "width",
+                (response.sum ? (response.star[2] / response.sum) * 100 : 0) + "%"
+            );
+            $(".bar_4").css(
+                "width",
+                (response.sum ? (response.star[3] / response.sum) * 100 : 0) + "%"
+            );
+            $(".bar_5").css(
+                "width",
+                (response.sum ? (response.star[4] / response.sum) * 100 : 0) + "%"
+            );
 
-        $.get
-            (
-                "Chat/GetRate", { "sellerID": seller_id },
-                function (response) {
-                    starInputs[5 - response.numberOfStars].checked = true;
-                }
-            )
+            $(".bar_1 span").text(
+                (response.sum ? (response.star[0] / response.sum).toPrecision(4) * 100 : 0) + "%"
+            );
+            $(".bar_2 span").text(
+                (response.sum ? (response.star[1] / response.sum).toPrecision(4) * 100 : 0) + "%"
+            );
+            $(".bar_3 span").text(
+                (response.sum ? (response.star[2] / response.sum).toPrecision(4) * 100 : 0) + "%"
+            );
+            $(".bar_4 span").text(
+                (response.sum ? (response.star[3] / response.sum).toPrecision(4) * 100 : 0) + "%"
+            );
+            $(".bar_5 span").text(
+                (response.sum ? (response.star[4] / response.sum).toPrecision(4) * 100 : 0) + "%"
+            );
+            //star
 
-        // Disable the remaining star inputs
-        for (let i = 0; i < starInputs.length; i++) {
-            starInputs[i].disabled = true;
+            $("input#star-" + Math.round(Number(response.avgRating))).prop(
+                "checked",
+                true
+            );
+
+            $("#rating-avg").text("(" + response.avgRating + "/5) | " +
+                response.sum + " đánh giá");
         }
-    }
+    });
 
-    showStar(seller_id);
+    $.ajax({
+        url: "/Chat/ProfileInfo",
+        data: { sellerID: seller_id },
+        success: function (response) {
+
+            $('.seller_name').text(response.name);
+            $('span.join-time span').text(response.time);
+            $('span.product-number span').text(response.product);
+        },
+        error: function (e) {
+            alert("error" + e);
+        }
+    });
 });
