@@ -73,19 +73,19 @@
             );
 
             $(".bar_1 span").text(
-                (response.sum ? (response.star[0] / response.sum) * 100 : 0) + "%"
+                (response.sum ? (response.star[0] / response.sum).toPrecision(4) * 100 : 0) + "%"
             );
             $(".bar_2 span").text(
-                (response.sum ? (response.star[1] / response.sum) * 100 : 0) + "%"
+                (response.sum ? (response.star[1] / response.sum).toPrecision(4) * 100 : 0) + "%"
             );
             $(".bar_3 span").text(
-                (response.sum ? (response.star[2] / response.sum) * 100 : 0) + "%"
+                (response.sum ? (response.star[2] / response.sum).toPrecision(4) * 100 : 0) + "%"
             );
             $(".bar_4 span").text(
-                (response.sum ? (response.star[3] / response.sum) * 100 : 0) + "%"
+                (response.sum ? (response.star[3] / response.sum).toPrecision(4) * 100 : 0) + "%"
             );
             $(".bar_5 span").text(
-                (response.sum ? (response.star[4] / response.sum) * 100 : 0) + "%"
+                (response.sum ? (response.star[4] / response.sum).toPrecision(4) * 100 : 0) + "%"
             );
             //star
 
