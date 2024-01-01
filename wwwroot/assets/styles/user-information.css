@@ -33,11 +33,6 @@
   gap: 20px;
 }
 .content .right_section {
-  display: grid;
-  align-items: center;
-  justify-content: space-between;
-  grid-template-rows: max-content 1fr max-content;
-  gap: 10px;
   border-radius: 5px;
   background-color: var(--gray-00);
   border: 1px solid;
@@ -208,6 +203,7 @@
 
 .pagination {
   display: block;
+  width: max-content;
   margin: 0 auto;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */

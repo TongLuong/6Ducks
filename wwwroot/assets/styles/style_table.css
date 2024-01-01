@@ -84,14 +84,12 @@ iframe {
   justify-content: center;
   flex-wrap: wrap;
 }
-.wrap-table100 {
-  width: 100%;
-  height: 100%;
-}
 .table {
-  width: 100%;
+  width: max-content;
+  margin: 0 auto;
   display: none;
-  margin: 0;
+  border-collapse: collapse;
+  height: calc(100% - 80px);
 }
 
 .table.active {
@@ -114,28 +112,13 @@ tr td {
   font-family: "Josefin Sans";
   font-size: 15px;
   color: #666666;
-  line-height: 1.2;
 }
 
-.cell[data-title="MÃ VẬN ĐƠN"],
-.cell[data-title="TRẠNG THÁI"] {
-  font-family: "Josefin San";
-  font-size: 15px;
-  color: #666666;
-  font-weight: 600;
-  line-height: 1.2;
-  border-bottom: 1px solid #f2f2f2;
-}
-
-td.rating {
-  display: block;
-  margin: 0;
-  transform: none;
+td.rating-trigger {
   font-weight: 600;
   color: #2ca4f3;
   font-size: 14px;
   letter-spacing: 0;
-  line-height: 40px;
   white-space: nowrap;
 }
 
@@ -155,59 +138,16 @@ td.rating {
   font-weight: unset !important;
 }
 tr td:nth-child(n) {
-  width: 200px;
   text-align: center;
   padding: 7px 10px;
-}
-
-tr td:nth-child(1) {
-  width: 100px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(2) {
-  width: 120px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(3) {
-  width: 120px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(4) {
-  width: 160px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(5) {
-  width: 140px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(6) {
-  width: 120px;
-  text-align: center;
-  padding: 7px 10px;
-}
-
-tr td:nth-child(7) {
-  width: max-content;
+  height: max-content;
+  line-height: 40px;
 }
 
 thead tr td:nth-child(n) {
   padding: 5px;
 }
 
-.table,
-.row {
-  width: 100% !important;
-}
 .row:hover {
   background-color: #ececff;
   cursor: pointer;
