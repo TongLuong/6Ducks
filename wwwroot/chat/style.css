@@ -53,9 +53,8 @@
 }
 .container_seller {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 11px;
+  gap: 20px;
 }
 .seller_name {
   font-size: 26px;
@@ -65,9 +64,14 @@
   color: #044876;
 }
 .second_info {
+  display: flex;
+  flex-direction: column;
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
+}
+p {
+    margin: 0px;
 }
 .rating_info .rating_wrapper {
   margin: 32px 32px 0 32px;
