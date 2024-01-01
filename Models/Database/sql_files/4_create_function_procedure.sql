@@ -583,7 +583,8 @@ create procedure insert_or_update_feedbacks
 @productID int,
 @buyerID int,
 @detail nvarchar(255),
-@ratingStar float
+@ratingStar float,
+@billID int
 as
 begin
 	if exists
@@ -592,13 +593,15 @@ begin
 		from Ratings
 		where productID = @productID
 			and buyerID = @buyerID
+			and billID = @billID
 	)
 		update Ratings
 		set detail = @detail, ratingStar = @ratingStar
 		where productID = @productID
 			and buyerID = @buyerID
+			and billID = @billID
 	else
 		insert into Ratings values
-		(@productID, @buyerID, @detail, @ratingStar)
+		(@productID, @buyerID, @detail, @ratingStar,@billID)
 end
 go

@@ -137,18 +137,22 @@
 
   function display_user_rating(productID, billID) {
     $.ajax({
-      url: "UserInfo/DisplayProductWhenRating",
-      data: { productID: productID },
+        url: "UserInfo/DisplayProductWhenRating",
+        data: { productID: productID, billID: billID },
       success: function (response) {
-        $(".user_rating .name").text(response.name[0]);
-        $(".user_rating .img").attr("src", response.imgLink[0]);
+        $(".user_rating .name").text(response.name);
+          $(".user_rating .img").attr("src", response.imgLink[0]);
+          $('.user_rating #comment').val(response.detail);
+          $(".user_rating .stars input:checked").attr('checked', false);
+          if (response.ratingStar > 0)
+              $('.user_rating .stars #star-' + response.ratingStar).attr('checked', true);
 
         const formatter = new Intl.NumberFormat("en-US", {
           style: "currency",
           currency: "vnd",
         });
         $(".user_rating .price").text(
-          formatter.format(response.price[0]).replace(/₫/g, "") + "đ"
+          formatter.format(response.price).replace(/₫/g, "") + "đ"
         );
 
         $("#submit").click(function () {
@@ -159,8 +163,8 @@
 
           $.ajax({
             url: "UserInfo/Rate",
-            type: "post",
-            data: { productID: productID, nostar: nostar, feedback: fb },
+              type: "post",
+              data: { productID: productID, nostar: nostar, feedback: fb, billID: billID },
           });
         });
       },
