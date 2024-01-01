@@ -62,36 +62,18 @@
     page
   ) {
     const html =
-      ' <div class="row" id="bill' +
-      billID +
-      '">' +
-      ' <div class="cell" data-title="MÃ VẬN ĐƠN" >' +
-      billID +
-      "</div>" +
-      ' <div class="cell" data-title="MÃ SẢN PHẨM" >' +
-      productID +
-      "</div>" +
-      '<div class="cell" data-title="TRẠNG THÁI" id="status">' +
-      status +
-      "</div>" +
-      '<div class="cell" data-title="THỜI GIAN">' +
-      time +
-      "</div>" +
-      '<div class="cell" data-title="GIÁ SẢN PHẨM">' +
-      price +
-      "</div>" +
-      '<div class="cell" data-title="THANH TOÁN">' +
-      totalPrice +
-      "</div>" +
-      '<div class="cell' +
-      (status == "Đã nhận" ? " rating" : "") +
-      '" data-title="ĐÁNH GIÁ">' +
-      (status == "Đã nhận" ? "Đánh giá" : "") +
-      "</div>" +
-      "</div > ";
-    $(".table" + page).append(html);
+      '<tr class="row" id="bill' + billID + '">'
+        + '<td>' + billID + '</td>' 
+        + '<td>' + productID + '</td>'
+        + '<td id="status">' + status + '</td>'
+        + '<td>' + time + '</td>'
+        + '<td>' + price + '</td>'
+        + '<td>' + totalPrice + '</td>'
+        + '<td class=' + (status == "Đã nhận" ? '"rating"' : '""') + '>' + (status == "Đã nhận" ? 'Đánh giá' : '') + '</td>' +
+      '</tr >';
+    $(".table-" + page + " tbody").append(html);
 
-    var item = $(".table" + page + " #bill" + billID);
+    var item = $(".table-" + page + " #bill" + billID);
 
     item.find(".rating").click(function (e) {
       e.preventDefault();
@@ -107,21 +89,29 @@
     $.ajax({
       url: "UserInfo/DisplayBills",
       success: function (response) {
-          for (let j = 1; j <= response.page[response.num - 1]; j++) {
-            alert(j);
+        for (let j = 1; j <= response.page[response.num - 1]; j++) {
           var x =
-            `<div class="table` + j + `">
-                <div class="row header">
-                    <div class="cell">MÃ VẬN ĐƠN</div>
-                    <div class="cell">MÃ SẢN PHẨM</div>
-                    <div class="cell">TRẠNG THÁI</div>
-                    <div class="cell">THỜI GIAN</div>
-                    <div class="cell">GIÁ SẢN PHẨM</div>
-                    <div class="cell">THANH TOÁN</div>
-                    <div class="cell"></div>
-                </div>
-            </div>`;
+            `<table class="table table-` +
+            j +
+            `">
+              <thead>
+                <tr class="row header">
+                    <td class="cell">Mã vận đơn</td>
+                    <td class="cell">Mã sản phẩm</td>
+                    <td class="cell">Trạng thái</td>
+                    <td class="cell">Thời gian</td>
+                    <td class="cell">Giá sản phẩm</td>
+                    <td class="cell">Thanh toán</td>
+                    <td class="cell"></td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>`;
           $(".wrap-table100").append(x);
+
+          if (j == 1) {
+            $(".wrap-table100 .table:last-child()").addClass("active");
+          }
         }
 
         for (let i = 0; i < response.num; i++) {
@@ -232,4 +222,30 @@
   }
 
   display_profile();
+
+  $(".pagination p.arrow.forward").click(function () {
+    var maxPage = $(".table").length;
+    var currPageNo = $(".table.active")
+      .prop("class")
+      .split(" ")[1]
+      .split("-")[1];
+
+    if (currPageNo != maxPage) {
+      $(".table.active").toggleClass("active");
+      $(".table.table-" + ++currPageNo).addClass("active");
+    }
+  });
+  //pagination back
+  $(".pagination p.arrow.back").click(function () {
+    var maxPage = $(".table").length;
+    var currPageNo = $(".table.active")
+      .prop("class")
+      .split(" ")[1]
+      .split("-")[1];
+
+    if (currPageNo != 1) {
+      $(".table.active").toggleClass("active");
+      $(".table.table-" + --currPageNo).addClass("active");
+    }
+  });
 });
