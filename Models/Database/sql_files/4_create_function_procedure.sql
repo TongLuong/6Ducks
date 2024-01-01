@@ -592,13 +592,11 @@ begin
 		select *
 		from Ratings
 		where productID = @productID
-			and buyerID = @buyerID
 			and billID = @billID
 	)
 		update Ratings
 		set detail = @detail, ratingStar = @ratingStar
 		where productID = @productID
-			and buyerID = @buyerID
 			and billID = @billID
 	else
 		insert into Ratings values
