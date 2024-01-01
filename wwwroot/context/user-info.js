@@ -107,7 +107,7 @@
               </thead>
               <tbody></tbody>
             </table>`;
-          $(".right_section .title_right").after(x);
+          $(".table-right").append(x);
 
           if (j == 1) {
             $(".right_section").find(".table").addClass("active");

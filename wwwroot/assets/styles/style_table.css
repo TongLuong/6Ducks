@@ -73,12 +73,15 @@ iframe {
   margin: 0 auto;
 }
 
+.table-right {
+  height: calc(100% - 80px);
+}
+
 .table {
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   display: none;
   border-collapse: collapse;
-  height: calc(100% - 80px);
 }
 
 .table.active {
