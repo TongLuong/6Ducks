@@ -22,6 +22,36 @@ $(this).ready(function () {
     var search = urlParams.get("keyword");
     const imgCount = 0;
 
+    $.ajax({
+        url: "/SellerMainPage/DisplayCatAndGen",
+        type: "get",
+        async: false,
+        success: function (response) {
+            //$(".best-seller .filter .left .cat-filter").remove();
+            //$(".best-seller .filter .left .genre-filter").remove();
+
+            //$('.best-seller .filter .left .cat-filter').attr("size", 5);
+            for (var i = 0; i < response.dataCat.length; i++) {
+                var tempCat = response.dataCat[i].value;
+                var itemCat = `<option value="` + tempCat.categoryID + `">`
+                    + tempCat.name + `</option>`;
+                $(".best-seller .filter .left .cat-filter").append(itemCat);
+            }
+            $('.best-seller .filter .left .cat-filter option[value="'
+                + 'default"]').attr("selected", true);
+
+            //$('.best-seller .filter .left .genre-filter').attr("size", 5);
+            for (var i = 0; i < response.dataGen.length; i++) {
+                var tempGen = response.dataGen[i].value;
+                var itemGen = `<option value="` + tempGen.genreID + `">`
+                    + tempGen.name + `</option>`;
+                $(".best-seller .filter .left .genre-filter").append(itemGen);
+            }
+            $('.best-seller .filter .left .genre-filter option[value="'
+                + 'default"]').attr("selected", true);
+        }
+    });
+
     function removeVietnameseTones(str) {
         str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
         str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -71,6 +101,81 @@ $(this).ready(function () {
             }
         });
     }
+
+    $(".best-seller .filter .left .price-filter").change(function () {
+        if (this.value != "default") {
+            if (this.value == "ascPrice") {
+                $(".best-seller .product-list .product-item").not(
+                    'div[style*="display: none"]').sort(function (a, b) {
+                        return $(a).data("price") - $(b).data("price");
+                    }).appendTo(".best-seller .product-list");
+            }
+            else if (this.value == "descPrice") {
+                $(".best-seller .product-list .product-item").not(
+                    'div[style*="display: none"]').sort(function (a, b) {
+                        return $(b).data("price") - $(a).data("price");
+                    }).appendTo(".best-seller .product-list");
+            }
+        }
+    });
+
+    function genreFiltering(filterVisItem) {
+        if ($(".best-seller .filter .left .genre-filter").val() != "default") {
+            var selectedValue = $(
+                '.best-seller .filter .left .genre-filter option:selected').val();
+            var items;
+            if (filterVisItem)
+                items = $(".best-seller .product-list .product-item").not(
+                    'div[style*="display: none"]');
+            else
+                items = $(".best-seller .product-list .product-item");
+
+            items.each(function () {
+                if ($(this).data("genre") == selectedValue)
+                    $(this).css("display", "");
+                else
+                    $(this).css("display", "none");
+            });
+        }
+    }
+    $(".best-seller .filter .left .genre-filter").change(function () {
+        filterItem($("#search").val());
+
+        genreFiltering(false);
+
+        categoryFiltering(true);
+
+        $(".best-seller .filter .left .price-filter").change();
+    });
+
+    function categoryFiltering(filterVisItem) {
+        if ($(".best-seller .filter .left .cat-filter").val() != "default") {
+            var selectedValue = $(
+                '.best-seller .filter .left .cat-filter option:selected').val();
+            var items;
+            if (filterVisItem)
+                items = $(".best-seller .product-list .product-item").not(
+                    'div[style*="display: none"]');
+            else
+                items = $(".best-seller .product-list .product-item");
+
+            items.each(function () {
+                if ($(this).data("category") == selectedValue)
+                    $(this).css("display", "");
+                else
+                    $(this).css("display", "none");
+            });
+        }
+    }
+    $(".best-seller .filter .left .cat-filter").change(function () {
+        filterItem($("#search").val());
+
+        categoryFiltering(false);
+        
+        genreFiltering(true);
+
+        $(".best-seller .filter .left .price-filter").change();
+    });
     
     $.ajax({
         url: "/components/header.html",
@@ -227,7 +332,8 @@ $(this).ready(function () {
         });
     });
 
-    function showItems(num, srcImg, title, price, rate, amount, productID) {
+    function showItems(num, srcImg, title, price, rate, amount, productID,
+    genreID, categoryID) {
         $.ajax({
             url: "/components/productItem.html",
             async: false,
@@ -255,6 +361,17 @@ $(this).ready(function () {
                 });
                 item.find("#price-" + num).text(formatter.format(price));
 
+                // add data attribute for filtering
+                $("#product-item-" + num).data("price", price);
+                $("#product-item-" + num).attr("data-price", price);
+
+                $("#product-item-" + num).data("genre", genreID);
+                $("#product-item-" + num).attr("data-genre", genreID);
+
+                $("#product-item-" + num).data("category", categoryID);
+                $("#product-item-" + num).attr("data-category", categoryID);
+
+                //=================================================
                 var iStar = document.querySelectorAll(".best-seller .product-list " +
                     "#product-item-" + num + ' .rate i[name="star"]');
                 var starDisplay = Math.floor(Number(rate));
@@ -288,7 +405,9 @@ $(this).ready(function () {
                         temp[i].value.price,
                         temp[i].value.avgStar,
                         temp[i].value.numbersLeft,
-                        temp[i].value.productID
+                        temp[i].value.productID,
+                        temp[i].value.genreID,
+                        temp[i].value.categoryID
                     );
                 }
             }
