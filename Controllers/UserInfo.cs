@@ -97,7 +97,7 @@ namespace DA_6Ducks.Controllers
             });
         }
 
-        public JsonResult DisplayProductWhenRating(int productID)
+        public JsonResult DisplayProductWhenRating(int productID, int billID)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -108,34 +108,63 @@ namespace DA_6Ducks.Controllers
 
             SqlDataReader dr = cmd.ExecuteReader();
             int num = 0;
-            List<string> names = new List<string>();
-            List<int> prices = new List<int>();
+            string names = "";
+            int prices = 0;
             List<string> imgPaths = new List<string>();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
                     num++;
-                    names.Add(dr.GetString(0));
-                    prices.Add(dr.GetInt32(1));
-                    imgPaths.Add(dr.GetString(2) + "/book-1.png");
+                    names = dr.GetString(0);
+                    prices = dr.GetInt32(1);
+                    string path = dr.GetString(2);
+                    DirectoryInfo di = new DirectoryInfo(wwwPath + "\\" + path);
+                    FileInfo[] files = di.GetFiles();
+                    foreach (FileInfo file in files)
+                    {
+                        imgPaths.Add(path + "/" + file.Name);
+                    }
                 }
             }
+
+            conn.Close();
+            conn.Open();
+
+            SqlCommand cmd2 = new SqlCommand("select detail,ratingStar from Ratings where productID = @productID and billID = @billID",conn);
+            cmd2.Parameters.AddWithValue("@productID", productID);
+            cmd2.Parameters.AddWithValue("@billID", billID);
+            string details = "";
+            double ratingStars = 0;
+            SqlDataReader dr2 = cmd2.ExecuteReader();
+            if (dr2.HasRows)
+            {
+                while (dr2.Read())
+                {
+                    details=dr2.GetString(0);
+                    ratingStars = dr2.GetDouble(1);
+                }
+            }
+
+            conn.Close();
 
             return new JsonResult
             (
                 new
                 {
-                    len = num,
                     name = names,
                     price = prices,
-                    imgLink = imgPaths
+                    imgLink = imgPaths,
+                    detail=details,
+                    ratingStar = ratingStars
                 }
             );
         }
 
+
+
         [HttpPost]
-        public void Rate(int productID, int nostar, string feedback)
+        public void Rate(int productID, int nostar, string feedback,int billID)
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -154,6 +183,7 @@ namespace DA_6Ducks.Controllers
             cmd.Parameters.AddWithValue("@buyerID", buyerID);
             cmd.Parameters.AddWithValue("@detail", feedback);
             cmd.Parameters.AddWithValue("@ratingStar", nostar);
+            cmd.Parameters.AddWithValue("@billID", billID);
 
             cmd.ExecuteNonQuery();
 
@@ -240,6 +270,8 @@ namespace DA_6Ducks.Controllers
                     uphone = dr.GetString(3);
                 }
             }
+
+            conn.Close();
 
             return new JsonResult
             (

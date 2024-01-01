@@ -180,6 +180,8 @@ CREATE TABLE Ratings (
 )
 alter table Ratings drop constraint [FK__Ratings__product__07C12930]
 alter table Ratings add constraint FK_Ratings_Product FOREIGN KEY (productID) REFERENCES Products (productID) on delete set null;
+alter table Ratings add billID int
+alter table Ratings add constraint FK_Bill FOREIGN KEY (billID) REFERENCES Bills (billID) on delete set null;
 
 
 IF OBJECT_ID(N'dbo.Vouchers', N'U') IS NULL 

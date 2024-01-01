@@ -139,7 +139,7 @@ label.star:before {
   display: flex;
   font-weight: 400;
   color: #76868e;
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: 0;
   line-height: 20px;
   white-space: nowrap;
@@ -322,6 +322,9 @@ label.star:before {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
 
   & p {
     color: black;
@@ -336,27 +339,31 @@ label.star:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gray-100, #e4e7e9);
-    background: var(--gray-00, #fff);
-  }
-
-  & p.active {
-    color: #ffffff;
-    background: var(--primary-500, #fa8232);
+    border: 1px solid #3081D0;
+    background: #fff;
   }
 
   & p.arrow {
-    color: #fa8232;
-    border: 1.5px solid var(--primary-500, #fa8232);
+    color: #3081D0;
+    border: 1.5px solid #3081D0;
+  }
+
+  & p.current-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 10%;
+    text-align: center;
+    aspect-ratio: 2 / 1;
   }
 
   .arrow:hover {
     color: #ffffff;
-    background: var(--primary-500, #fa8232);
+    background: #3081D0;
   }
 
-  & p:hover:not(.active, .arrow) {
-    background-color: #ddd;
+  & p:not(.active, .arrow) {
+    user-select: none;
+    cursor: auto;
   }
 }
 
@@ -366,6 +373,7 @@ label.star:before {
   row-gap: 20px;
   align-items: center;
   position: relative;
+  height: 100%;
 }
 
 .product-list {
