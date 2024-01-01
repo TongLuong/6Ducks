@@ -141,7 +141,10 @@ $(this).ready(function () {
     $(".best-seller .filter .left .genre-filter").change(function () {
         filterItem($("#search").val());
 
-        genreFiltering(false);
+        if ($("#search").val() == '')
+            genreFiltering(false);
+        else
+            genreFiltering(true);
 
         categoryFiltering(true);
 
@@ -170,7 +173,10 @@ $(this).ready(function () {
     $(".best-seller .filter .left .cat-filter").change(function () {
         filterItem($("#search").val());
 
-        categoryFiltering(false);
+        if ($("#search").val() == '')
+            categoryFiltering(false);
+        else
+            categoryFiltering(true);
         
         genreFiltering(true);
 
