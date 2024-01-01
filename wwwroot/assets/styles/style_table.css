@@ -159,6 +159,43 @@ tr td:nth-child(n) {
   text-align: center;
   padding: 7px 10px;
 }
+
+tr td:nth-child(1) {
+  width: 100px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+tr td:nth-child(2) {
+  width: 120px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+tr td:nth-child(3) {
+  width: 120px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+tr td:nth-child(4) {
+  width: 160px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+tr td:nth-child(5) {
+  width: 140px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
+tr td:nth-child(6) {
+  width: 120px;
+  text-align: center;
+  padding: 7px 10px;
+}
+
 tr td:nth-child(7) {
   width: max-content;
 }
