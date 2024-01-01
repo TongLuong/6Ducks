@@ -1,5 +1,5 @@
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,79 +11,80 @@
   <title>6Ducks</title>
   <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="/chat/globals.css" />
-  <link rel="stylesheet" href="/chat/style.css" />
+  <link rel="stylesheet" href="/info/seller-information(buyer)/seller-info.css" />
   <link rel="stylesheet" href="/assets/styles/header-footer.css" />
-  <link rel="stylesheet" href="/chat/styleguide.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <body>
-  <div class="mainpage-chat">
-    <div class="left_section">
-      <div class="seller_info">
-        <div class="seller_containter">
-          <div class="seller">Người bán</div>
-          <div class="container_seller">
-            <img src="/assets/images/frame-8.png" draggable="false" width="79px" alt="" />
+  <div class="mainpage">
+    <div class="wrapper seller-information">
+      <div class="layout seller-1">
+        <div class="about box">
+          <p>Người bán</p>
+          <div>
+            <img src="/assets/images/frame-8.png" draggable="false" alt="Seller Avatar" />
             <div>
-              <div class="seller_name">Fantasy Chicken</div>
-              <p class="second_info">
-                <span class="join-time">Tham gia từ: <span>1/1/2011</span></span>
-                <span class="product-number">Số sản phẩm bán ra: <span>100</span></span>
-              </p>
+              <header class="seller-name">Fantasy Chicken</header>
+              <p class="product_number">Số sản phẩm đã bán: <span>0</span></p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="rating_info">
-        <div class="rating_wrapper">
-          <div style="line-height: 34px">Đánh giá người bán</div>
-          <div class="rating" style="margin-top: 6px">
-            <div class="stars">
+        <div class="rating_info box">
+          <div class="rating_wrapper">
+            <div style="line-height: 34px">Đánh giá người bán</div>
+            <div class="rating" style="margin-top: 6px">
+              <div class="stars">
                 <form action="">
-                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                    <label class="star star-5" for="star-5"></label>
-                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                    <label class="star star-4" for="star-4"></label>
-                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                    <label class="star star-3" for="star-3"></label>
-                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                    <label class="star star-2" for="star-2"></label>
-                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                    <label class="star star-1" for="star-1"></label>
+                  <input class="star star-5" id="star-5" type="radio" name="star" disabled />
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="star" disabled />
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star" disabled />
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star" disabled />
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star" disabled />
+                  <label class="star star-1" for="star-1"></label>
                 </form>
+              </div>
+              <div style="margin-top: 6px; margin-left: 3px" id="rating-avg">(4.8/5)</div>
             </div>
-            <div style="margin-top: 6px; margin-left: 3px" id="rating-avg">(4.8/5)</div>
           </div>
-        </div>
-        <div class="scoreboard">
-          <div class="letter">
-            5 sao <br />
-            4 sao <br />
-            3 sao <br />
-            2 sao <br />
-            1 sao
-          </div>
-          <div class="row_bar">
-            <div class="bar_5"></div>
-            <div class="bar_4"></div>
-            <div class="bar_3"></div>
-            <div class="bar_2"></div>
-            <div class="bar_1"></div>
+          <div class="scoreboard">
+            <div class="letter">
+              5 sao <br />
+              4 sao <br />
+              3 sao <br />
+              2 sao <br />
+              1 sao
+            </div>
+            <div class="row_bar">
+              <div class="bar_5">
+                <span></span>
+              </div>
+              <div class="bar_4">
+                <span></span>
+              </div>
+              <div class="bar_3">
+                <span></span>
+              </div>
+              <div class="bar_2"><span></span></div>
+              <div class="bar_1"><span></span></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="right_section">
-            <iframe src="@Url.Action("IndexIframe", "Chat")" 
-            title="Chat"></iframe>
+      <div class="right_section">
+        <iframe src="@Url.Action("IndexIframe", "Chat")" title="Chat"></iframe>
+      </div>
     </div>
   </div>
 </body>
 <script type="module" src="/chat/script.js"></script>
 <!-- <script>
-    
+
 </script> -->
 
 </html>

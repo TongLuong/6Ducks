@@ -5,7 +5,7 @@
     $("body").prepend(data);
     $(".book-upload").css("display", "none");
     $(".logo").click(function () {
-      location.href = "MainPage";
+      location.href = "/MainPage";
     });
   });
 
@@ -89,6 +89,7 @@
     $.ajax({
       url: "UserInfo/DisplayBills",
       success: function (response) {
+        $(".pagination .current-page span:nth-child(2)").text(response.page[response.num - 1]);
         for (let j = 1; j <= response.page[response.num - 1]; j++) {
           var x =
             `<table class="table table-` +
@@ -235,6 +236,7 @@
       .split("-")[1];
 
     if (currPageNo != maxPage) {
+      $(".pagination .current-page span:first-child()").text(Number($(".pagination .current-page span:first-child()").text()) + 1);
       $(".table.active").toggleClass("active");
       $(".table.table-" + ++currPageNo).addClass("active");
     }
@@ -248,6 +250,7 @@
       .split("-")[1];
 
     if (currPageNo != 1) {
+      $(".pagination .current-page span:first-child()").text(Number($(".pagination .current-page span:first-child()").text()) - 1);
       $(".table.active").toggleClass("active");
       $(".table.table-" + --currPageNo).addClass("active");
     }

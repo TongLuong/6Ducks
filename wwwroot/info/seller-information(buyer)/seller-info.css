@@ -328,3 +328,15 @@ label.star:before {
   gap: 10px;
   justify-content: space-between;
 }
+
+.mainpage .right_section {
+  height: 100%;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#rating-avg {
+  font-size: 15px;
+}
