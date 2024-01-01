@@ -84,9 +84,9 @@
         data: { sellerID: seller_id },
         success: function (response) {
 
-            $('.seller_name').text(response.name);
-            $('span.join-time span').text(response.time);
-            $('span.product-number span').text(response.product);
+            $('.seller-name').text(response.name);
+            //$('span.join-time span').text(response.time);
+            $('.product_number span').text(response.product);
         },
         error: function (e) {
             alert("error" + e);

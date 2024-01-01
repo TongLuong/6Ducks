@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var sellerID = urlParams.get("seller");
-
+    
     $.get("/components/header.html", function (data) {
         $(".book-upload").css("display", "none");
         $(".logo").click(function () {
