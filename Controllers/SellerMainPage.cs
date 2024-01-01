@@ -36,7 +36,7 @@ namespace DA_6Ducks.Controllers
             (
                 "SELECT " +
                 "p.productID, p.name, p.price, p.avgStar, p.numbersLeft, " +
-                "pi.imgLink " +
+                "pi.imgLink, p.genreID, p.categoryID " +
                 "FROM dbo.Products p, dbo.ProductIMGs pi " +
                 "WHERE p.productID = pi.productID"
                 , conn
@@ -75,7 +75,9 @@ namespace DA_6Ducks.Controllers
                                 price = temp[2],
                                 avgStar = temp[3],
                                 numbersLeft = temp[4],
-                                imgLink = imgs
+                                imgLink = imgs,
+                                genreID = temp[6],
+                                categoryID = temp[7]
                             }
                         )
                     );

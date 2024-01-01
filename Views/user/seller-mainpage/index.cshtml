@@ -24,14 +24,17 @@
         <div class="left">
             <label>Sắp xếp theo</label>
             <select class="list price-filter" name="actived">
+                <option value="default">Giá</option>
                 <option value="ascPrice">Giá: Thấp đến Cao</option>
                 <option value="descPrice">Giá: Cao đến Thấp</option>
             </select>
-            <select class="list cat-filter" name="unactived">
-                <option value="book">Sách</option>
+            <select class="list cat-filter" name="actived">
+                <option value="default">Tất cả danh mục</option>
+                <!-- <option value="2001">Sách</option> -->
             </select>
-            <select class="list genre-filter" name="unactived">
-                <option value="scienceFiction">Khoa học viễn tưởng</option>
+            <select class="list genre-filter" name="actived">
+                <option value="default">Tất cả thể loại</option>
+                <!-- <option value="1007">Khoa học viễn tưởng</option> -->
             </select>
         </div>
         <div class="right">
