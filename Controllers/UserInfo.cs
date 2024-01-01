@@ -43,19 +43,19 @@ namespace DA_6Ducks.Controllers
         {
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            string userID = Session.sessionID;
-            SqlCommand cmdConvert = new SqlCommand("select buyerID from Buyers where userID=@userID", conn);
-            cmdConvert.Parameters.AddWithValue("@userID", userID);
-            string buyerID = cmdConvert.ExecuteScalar().ToString();
-            SqlCommand cmd = new SqlCommand("Select b.billID,b.billStatus,b.time,b.totalPrice,bi.productID from Bills b join BillItems bi on b.billID=bi.billID where buyerID = @buyerID", conn);
+            string buyerID = Session.sessionTypeID;
+            SqlCommand cmd = new SqlCommand("Select b.billID,b.billStatus,b.time,bi.price,b.totalPrice,bi.productID from Bills b join BillItems bi on b.billID=bi.billID where buyerID = @buyerID", conn);
             cmd.Parameters.AddWithValue("@buyerId", buyerID);
             SqlDataReader dr = cmd.ExecuteReader();
             List<int> billIDs = new List<int>();
             List<string> statuss = new List<string>();
             List<string> times = new List<string>();
+            List<int> prices = new List<int>();
             List<int> totalPrices = new List<int>();
             List<int> productIDs = new List<int>();
             int confirmBill = 0, doneBill = 0;
+            List<int> pageNum = new List<int>();
+            int count = 0;
             if (dr.HasRows)
             {
                 while (dr.Read())
@@ -72,8 +72,11 @@ namespace DA_6Ducks.Controllers
                         case "Refund": statuss.Add("Hoàn trả hàng"); break;
                     }
                     times.Add(dr.GetDateTime(2).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss"));
-                    totalPrices.Add(dr.GetInt32(3));
-                    productIDs.Add(dr.GetInt32(4));
+                    prices.Add(dr.GetInt32(3));
+                    totalPrices.Add(dr.GetInt32(4));
+                    productIDs.Add(dr.GetInt32(5));
+                    count++;
+                    pageNum.Add((int)(Math.Floor((double)count / 13) + 1));
                 }
             }
 
@@ -81,14 +84,16 @@ namespace DA_6Ducks.Controllers
 
             return new JsonResult(new
             {
-                num = billIDs.Count,
+                num = count,
                 billID = billIDs,
                 status = statuss,
                 time = times,
+                price = prices,
                 totalPrice = totalPrices,
                 productID = productIDs,
                 confirm = confirmBill,
-                done = doneBill
+                done = doneBill,
+                page = pageNum
             });
         }
 
