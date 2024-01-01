@@ -61,8 +61,8 @@
     productID,
     page
   ) {
-    const html =
-      '<tr class="row" id="bill' + billID + '">'
+      const html =
+          '<tr class="row" id="bill' + billID + productID + '">'
         + '<td>' + billID + '</td>' 
         + '<td>' + productID + '</td>'
         + '<td id="status">' + status + '</td>'
@@ -73,7 +73,7 @@
       '</tr >';
     $(".table-" + page + " tbody").append(html);
 
-    var item = $(".table-" + page + " #bill" + billID);
+      var item = $(".table-" + page + " #bill" + billID + productID);
 
     item.find(".rating-trigger").click(function (e) {
       e.preventDefault();
