@@ -206,20 +206,17 @@ namespace DA_6Ducks.Controllers
             );
 
             string senderID = Session.sessionID;
-            SqlParameter time = cmd.Parameters.Add("@time", SqlDbType.DateTime);
-            time.Direction = ParameterDirection.Output;
-
-            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@sndID", senderID);
             cmd.Parameters.AddWithValue("@rcvID", currentConversation);
             cmd.Parameters.AddWithValue("@msg", msg);
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
 
             conn.Close();
 
-            string timeVal = ((DateTime)time.Value).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+            string timeVal = DateTime.Now.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
 
             return new JsonResult(new
             {
