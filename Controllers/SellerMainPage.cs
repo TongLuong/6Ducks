@@ -24,6 +24,7 @@ namespace DA_6Ducks.Controllers
         {
             return View("/Views/user/seller-mainpage/index.cshtml");
         }
+
         [HttpGet]
         public JsonResult DisplayProducts(int n)
         {
@@ -89,6 +90,102 @@ namespace DA_6Ducks.Controllers
                 new { data = result }
             );
         }
+
+		[HttpGet]
+		public JsonResult DisplayCatAndGen()
+        {
+			if (conn.State == ConnectionState.Closed)
+				conn.Open();
+
+			List<JsonResult> result1 = new List<JsonResult>();
+			SqlCommand cmd1 = new SqlCommand
+			(
+				"SELECT * " +
+				"FROM dbo.[Categories]"
+				, conn
+			);
+
+			SqlDataReader dr1 = cmd1.ExecuteReader();
+			string[] temp1 = new string[dr1.FieldCount];
+			if (dr1.HasRows)
+			{
+				while (dr1.Read())
+				{
+					for (int i = 0; i < dr1.FieldCount; i++)
+					{
+						if (!dr1.IsDBNull(i))
+							temp1[i] = dr1.GetValue(i).ToString() ?? "";
+						else
+							temp1[i] = "";
+					}
+
+					result1.Add
+					(
+						new JsonResult
+						(
+							new
+							{
+								categoryID = temp1[0],
+								name = temp1[1]
+							}
+						)
+					);
+				}
+			}
+
+			conn.Close();
+
+			//===============================================
+			if (conn.State == ConnectionState.Closed)
+				conn.Open();
+
+			List<JsonResult> result2 = new List<JsonResult>();
+			SqlCommand cmd2 = new SqlCommand
+			(
+				"SELECT * " +
+				"FROM dbo.[Genres]"
+				, conn
+			);
+
+			SqlDataReader dr2 = cmd2.ExecuteReader();
+			string[] temp2 = new string[dr2.FieldCount];
+			if (dr2.HasRows)
+			{
+				while (dr2.Read())
+				{
+					for (int i = 0; i < dr2.FieldCount; i++)
+					{
+						if (!dr2.IsDBNull(i))
+							temp2[i] = dr2.GetValue(i).ToString() ?? "";
+						else
+							temp2[i] = "";
+					}
+
+					result2.Add
+					(
+						new JsonResult
+						(
+							new
+							{
+								genreID = temp2[0],
+								name = temp2[1]
+							}
+						)
+					);
+				}
+			}
+
+			conn.Close();
+
+			return new JsonResult
+			(
+				new 
+                { 
+                    dataCat = result1,
+                    dataGen = result2
+                }
+			);
+		}
 
         [HttpPost]
         public JsonResult UploadImgs()

@@ -80,8 +80,40 @@ $(this).ready(function () {
         }
     });
 
-    $.get("/components/footer.html", function (data) {
-        $("body").append(data);
+    $.ajax({
+        url: "/components/footer.html",
+        async: false,
+        success: function(data) {
+            $("body").append(data);
+        }
+    });
+
+    var numDisplayCatFooter = 6;
+    var numDisplayGenFooter = 6;
+    $.ajax({
+        url: "/SellerMainPage/DisplayCatAndGen",
+        type: "get",
+        async: false,
+        success: function (response) {
+            $(".footer .category ul li").remove();
+            $(".footer .type ul li").remove();
+
+            for (var i = 0; i < response.dataCat.length
+                && numDisplayCatFooter > 0; i++, numDisplayCatFooter--) {
+                var tempCat = response.dataCat[i].value;
+                var itemCat = `<li id="` + tempCat.categoryID + `">`
+                    + tempCat.name + `</li>`;
+                $(".footer .category ul").append(itemCat);
+            }
+
+            for (var i = 0; i < response.dataGen.length
+                && numDisplayGenFooter > 0; i++, numDisplayGenFooter--) {
+                var tempGen = response.dataGen[i].value;
+                var itemGen = `<li id="` + tempGen.genreID + `">`
+                    + tempGen.name + `</li>`;
+                $(".footer .type ul").append(itemGen);
+            }
+        }
     });
 
     $.get("/components/uploadPopUp.html", function (data) {

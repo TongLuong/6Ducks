@@ -151,7 +151,7 @@
 }
 
 .box {
-  width: 70%;
+  width: 80%;
   border-radius: 4px;
   border: 1px solid var(--gray-100, #e4e7e9);
   background: var(--gray-00, #fff);
@@ -231,7 +231,7 @@
 }
 
 div.stars {
-  width: max-content;
+  width: auto;
   display: inline-block;
 }
 
@@ -317,9 +317,8 @@ label.star:before {
 }
 
 .row_bar > div > span {
-  position: absolute;
-  right: -25px;
-  top: 5px;
+  position: relative;
+  left: 50%;
   font-size: 11px;
 }
 

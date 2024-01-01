@@ -40,12 +40,7 @@
             $(".product-list.page-" + --currPageNo).addClass("active");
         }
     });
-
-    $(".about img").click(function (e) {
-        e.preventDefault();
-        location.href = "/SellerInfoBuyer";
-    });
-
+    
     $.get({
         url: "/SellerInfoSeller/DisplayRating",
         data: { seller: sellerID },
@@ -94,7 +89,8 @@
                 true
             );
 
-            $("#rating-avg").text("(" + response.avgRating + "/5)");
+            $("#rating-avg").text("(" + response.avgRating + "/5) | " + 
+                response.sum + " đánh giá");
         }
     });
 
@@ -262,7 +258,7 @@
         $(".change-info-side input").val("");
         $(".change-info-side").css("display", "none");
     });
-
+    
     $("#statistic-seller").click(function () {
         location.href = "/Statistic";
     });
@@ -313,6 +309,7 @@
         $.ajax({
             url: "/SellerInfoSeller/ProfileInfo",
             success: function (response) {
+                
                 $('.seller_name').text(response.name);
                 $('span.join-time span').text(response.time);
                 $('span.product-number span').text(response.product);

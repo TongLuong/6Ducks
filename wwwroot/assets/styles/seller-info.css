@@ -62,9 +62,14 @@ a {
   padding: 30px;
 }
 .container_seller {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    & img {
+        height: 79px;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+    }
 }
 .seller_name {
   font-size: 26px;
@@ -90,7 +95,7 @@ a {
 }
 
 div.stars {
-  width: 160px;
+  width: auto;
   display: inline-block;
 }
 
@@ -176,9 +181,8 @@ label.star:before {
 }
 
 .row_bar > div > span {
-  position: absolute;
-  right: -25px;
-  top: 5px;
+  position: relative;
+  left: 50%;
   font-size: 11px;
 }
 
