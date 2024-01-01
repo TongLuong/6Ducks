@@ -23,6 +23,7 @@
             .split("-")[1];
 
         if (currPageNo != maxPage) {
+            $(".pagination .current-page span:first-child()").text(Number($(".pagination .current-page span:first-child()").text()) + 1);
             $(".product-list.active").toggleClass("active");
             $(".product-list.page-" + ++currPageNo).addClass("active");
         }
@@ -36,6 +37,7 @@
             .split("-")[1];
 
         if (currPageNo != 1) {
+            $(".pagination .current-page span:first-child()").text(Number($(".pagination .current-page span:first-child()").text()) - 1);
             $(".product-list.active").toggleClass("active");
             $(".product-list.page-" + --currPageNo).addClass("active");
         }
@@ -176,6 +178,7 @@
             data: { seller: sellerID },
             type: "json",
             success: function (response) {
+                $(".pagination .current-page span:nth-child(2)").text(response.page[response.len - 1]);
                 for (let j = 2; j <= response.page[response.len - 1]; j++) {
                     $(".layout.product").prepend(
                         '<div class="product-list page-' + j +'"></div>'
