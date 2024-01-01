@@ -19,7 +19,27 @@
 <body>
     <div class="mainpage-uploadcomic">
         <div class="wrapper best-seller">
-            <header>Bán chạy nhất</header>
+            <header>Gợi ý hôm nay</header>
+            <div class="filter">
+                <div class="left">
+                    <label>Sắp xếp theo</label>
+                    <select class="list price-filter" name="actived">
+                        <option value="ascPrice">Giá: Thấp đến Cao</option>
+                        <option value="descPrice">Giá: Cao đến Thấp</option>
+                    </select>
+                    <select class="list cat-filter" name="actived">
+                        <option value="book">Sách</option>
+                    </select>
+                    <select class="list genre-filter" name="actived">
+                        <option value="scienceFiction">Khoa học viễn tưởng</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <label class="num-prod-filter">
+                        Có <span class="num-prod">10</span> sản phẩm
+                    </label>
+                </div>
+            </div>
             <div class="product-list"></div>
         </div>
         <div class="wrapper vouchers">

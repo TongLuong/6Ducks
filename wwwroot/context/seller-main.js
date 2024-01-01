@@ -19,7 +19,7 @@ function discountPrice() {
 $(this).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     var sellerID = urlParams.get("seller");
-    var search = urlParams.get("search");
+    var search = urlParams.get("keyword");
     const imgCount = 0;
 
     function removeVietnameseTones(str) {
