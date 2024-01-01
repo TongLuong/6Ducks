@@ -72,18 +72,7 @@ iframe {
   width: 100%;
   margin: 0 auto;
 }
-.container-table100 {
-  width: 100%;
-  background: #c4d3f6;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+
 .table {
   width: max-content;
   margin: 0 auto;
@@ -93,7 +82,7 @@ iframe {
 }
 
 .table.active {
-  display: block;
+  display: table;
 }
 .row {
   background: #fff;

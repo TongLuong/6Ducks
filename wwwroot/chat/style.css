@@ -78,11 +78,6 @@
   line-height: 28px;
 }
 
-div.stars {
-  width: 160px;
-  display: inline-block;
-}
-
 input.star {
   display: none;
 }
@@ -121,12 +116,14 @@ label.star:before {
 }
 .rating {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-weight: 400;
   color: #76868e;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 20px;
-  white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .scoreboard {
@@ -225,4 +222,8 @@ label.star:before {
 iframe {
   width: 100%;
   height: 100%;
+}
+
+#rating-avg {
+  font-size: 15px;
 }
