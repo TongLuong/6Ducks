@@ -89,7 +89,8 @@
                 true
             );
 
-            $("#rating-avg").text("(" + response.avgRating + "/5)");
+            $("#rating-avg").text("(" + response.avgRating + "/5) | " + 
+                response.sum + " đánh giá");
         }
     });
 

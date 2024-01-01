@@ -95,7 +95,7 @@ a {
 }
 
 div.stars {
-  width: 160px;
+  width: auto;
   display: inline-block;
 }
 
@@ -181,9 +181,8 @@ label.star:before {
 }
 
 .row_bar > div > span {
-  position: absolute;
-  right: -25px;
-  top: 5px;
+  position: relative;
+  left: 50%;
   font-size: 11px;
 }
 
