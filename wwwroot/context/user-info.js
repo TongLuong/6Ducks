@@ -69,13 +69,13 @@
         + '<td>' + time + '</td>'
         + '<td>' + price + '</td>'
         + '<td>' + totalPrice + '</td>'
-        + '<td class=' + (status == "Đã nhận" ? '"rating"' : '""') + '>' + (status == "Đã nhận" ? 'Đánh giá' : '') + '</td>' +
+        + '<td class=' + (status == "Đã nhận" ? '"rating-trigger"' : '""') + '>' + (status == "Đã nhận" ? 'Đánh giá' : '') + '</td>' +
       '</tr >';
     $(".table-" + page + " tbody").append(html);
 
     var item = $(".table-" + page + " #bill" + billID);
 
-    item.find(".rating").click(function (e) {
+    item.find(".rating-trigger").click(function (e) {
       e.preventDefault();
       $("html, body").css("overflow", "none");
       $(".user_rating").css("display", "flex");
@@ -107,10 +107,10 @@
               </thead>
               <tbody></tbody>
             </table>`;
-          $(".wrap-table100").append(x);
+          $(".table-right").append(x);
 
           if (j == 1) {
-            $(".wrap-table100 .table:last-child()").addClass("active");
+            $(".right_section").find(".table").addClass("active");
           }
         }
 

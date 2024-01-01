@@ -53,9 +53,8 @@
 }
 .container_seller {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 11px;
+  gap: 20px;
 }
 .seller_name {
   font-size: 26px;
@@ -65,9 +64,14 @@
   color: #044876;
 }
 .second_info {
+  display: flex;
+  flex-direction: column;
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
+}
+p {
+    margin: 0px;
 }
 .rating_info .rating_wrapper {
   margin: 32px 32px 0 32px;
@@ -76,11 +80,6 @@
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28px;
-}
-
-div.stars {
-  width: 160px;
-  display: inline-block;
 }
 
 input.star {
@@ -121,12 +120,14 @@ label.star:before {
 }
 .rating {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-weight: 400;
   color: #76868e;
   font-size: 26px;
   letter-spacing: 0;
   line-height: 20px;
-  white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .scoreboard {
@@ -225,4 +226,8 @@ label.star:before {
 iframe {
   width: 100%;
   height: 100%;
+}
+
+#rating-avg {
+  font-size: 15px;
 }
