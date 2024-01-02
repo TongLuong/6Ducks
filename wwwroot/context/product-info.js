@@ -303,7 +303,10 @@
                 "quantity": 1,
                 "price": price
             },
-            async: false
+            async: false,
+            success: function () {
+                alert("ĐÃ THÊM VÀO GIỎ HÀNG");
+            }
         })
     });
 
