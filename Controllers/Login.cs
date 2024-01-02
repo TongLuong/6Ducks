@@ -128,28 +128,34 @@ namespace DA_6Ducks.Controllers
         }
 
         public string ConvertToUserID(string userID)
-        {
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
+        {         
             string userType = userID.Substring(0, 2);
 
             if (userType == "21")
             {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
                 SqlCommand cmd = new SqlCommand("select userID from Sellers where sellerID=@userID", conn);
                 cmd.Parameters.AddWithValue("@userID", userID);
 
                 string newUID = cmd.ExecuteScalar().ToString();
+                conn.Close();
                 return newUID;
             }
             else if (userType == "22")
             {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
                 SqlCommand cmd = new SqlCommand("select userID from Buyers where buyerID=@userID", conn);
                 cmd.Parameters.AddWithValue("@userID", userID);
 
                 string newUID = cmd.ExecuteScalar().ToString();
+                conn.Close();
                 return newUID;
             }
             else return userID;
+
+            
         }
     }
 }
